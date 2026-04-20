@@ -1,0 +1,47 @@
+import Link from "next/link";
+import { CoflowMark } from "./coflow-mark";
+import { SITE } from "@/lib/site";
+
+const NAV_ITEMS = [
+  { href: "/features/content-calendar", label: "Features" },
+  { href: "/for/social-media-managers", label: "Who it's for" },
+  { href: "/vs/planable", label: "Compare" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" },
+];
+
+export function Nav() {
+  return (
+    <header className="border-b border-[var(--app-border)] bg-white/80 backdrop-blur sticky top-0 z-40">
+      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
+        <Link href="/" aria-label="Coflow home" className="no-underline">
+          <CoflowMark className="text-[22px]" />
+        </Link>
+
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-6">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a
+            href={`${SITE.appUrl}/login`}
+            className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition hidden sm:inline"
+          >
+            Sign in
+          </a>
+          <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-10 text-sm">
+            Start free
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}

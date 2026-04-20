@@ -1,0 +1,122 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Nav } from "@/components/nav";
+import { Footer } from "@/components/footer";
+import { CtaSection } from "@/components/cta-section";
+import {
+  JsonLd,
+  buildMetadata,
+  breadcrumbsJsonLd,
+} from "@/lib/seo";
+import { PERSONAS, FEATURES, SITE } from "@/lib/site";
+import { PERSONA_CONTENT } from "@/lib/content";
+
+type Params = { slug: string };
+
+export function generateStaticParams(): Params[] {
+  return PERSONAS.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const data = PERSONA_CONTENT[slug];
+  if (!data) return {};
+  return buildMetadata({
+    title: data.title,
+    description: data.description,
+    path: `/for/${slug}`,
+  });
+}
+
+export default async function PersonaPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const persona = PERSONAS.find((p) => p.slug === slug);
+  const data = PERSONA_CONTENT[slug];
+  if (!persona || !data) notFound();
+
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbsJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Who it's for", path: `/for/${slug}` },
+          { name: persona.name, path: `/for/${slug}` },
+        ])}
+      />
+
+      <Nav />
+
+      <section className="mx-auto max-w-3xl px-6 pt-20 pb-10 text-center">
+        <p className="font-mono-label">— For {persona.name.toLowerCase()} —</p>
+        <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
+          {data.h1}
+        </h1>
+        <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
+          {data.description}
+        </p>
+        <div className="mt-8 flex justify-center gap-3 flex-wrap">
+          <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-12 text-sm">
+            Start free
+          </a>
+          <Link href="/pricing" className="btn-ghost min-h-12 text-sm">
+            See pricing
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 py-14 grid gap-10 md:grid-cols-2">
+        <div>
+          <p className="font-mono-label">— Before Coflow —</p>
+          <h2 className="mt-4 text-2xl font-semibold text-[var(--app-ink)]">
+            What this feels like today.
+          </h2>
+          <ul className="mt-5 space-y-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">
+            {data.pains.map((p) => (
+              <li key={p} className="flex gap-2">
+                <span aria-hidden className="text-[var(--app-danger)] font-semibold">✗</span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="font-mono-label">— With Coflow —</p>
+          <h2 className="mt-4 text-2xl font-semibold text-[var(--app-ink)]">
+            What changes on day one.
+          </h2>
+          <ul className="mt-5 space-y-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">
+            {data.wins.map((w) => (
+              <li key={w} className="flex gap-2">
+                <span aria-hidden className="text-[var(--app-success)] font-semibold">✓</span>
+                <span>{w}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-14">
+        <p className="font-mono-label text-center">— Inside Coflow —</p>
+        <h2 className="mt-4 text-center font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+          Everything you need in one workspace.
+        </h2>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((f) => (
+            <Link
+              key={f.slug}
+              href={`/features/${f.slug}`}
+              className="card p-5 hover:shadow-[var(--app-shadow)] transition"
+            >
+              <p className="font-mono-label">Feature</p>
+              <p className="mt-1 text-base font-semibold text-[var(--app-ink)]">{f.name}</p>
+              <p className="mt-1 text-sm text-[var(--app-muted)]">{f.short}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <CtaSection title={data.ctaTitle} />
+      <Footer />
+    </>
+  );
+}

@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   Coflow — Marketing site
+   Matches the app's Fieldnotes palette: paper, ink, ochre.
+   Editorial, warm-neutral. Caveat for decorative display.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Surfaces */
+  --app-bg:            #FAF8F2;
+  --app-bg-warm:       #F3F0E7;
+  --app-ink:           #2B2A27;
+  --app-ink-soft:      #4A4944;
+  --app-muted:         #7A7870;
+  --app-muted-soft:    #A8A69C;
+  --app-border:        #E8E4D8;
+  --app-border-2:      #DED9C9;
+
+  /* Accents */
+  --app-accent:        #E8B84A;
+  --app-accent-light:  #F7E9B8;
+  --app-sage:          #B8C5A8;
+  --app-blush:         #E8C9BC;
+
+  /* Semantic */
+  --app-success:       #5E7248;
+  --app-success-bg:    #E8EDE0;
+  --app-danger:        #B85A5A;
+
+  /* Radii + shadow */
+  --app-radius:        14px;
+  --app-radius-lg:     20px;
+  --app-shadow-sm:     0 1px 2px rgba(43, 42, 39, 0.05);
+  --app-shadow:        0 2px 14px rgba(43, 42, 39, 0.06);
+  --app-shadow-lg:     0 20px 48px rgba(43, 42, 39, 0.10);
+}
+
+@theme inline {
+  --color-background: var(--app-bg);
+  --color-foreground: var(--app-ink);
+  --color-ink: var(--app-ink);
+  --color-ink-soft: var(--app-ink-soft);
+  --color-muted: var(--app-muted);
+  --color-paper: var(--app-bg);
+  --color-parchment: var(--app-bg-warm);
+  --color-border: var(--app-border);
+  --color-border-strong: var(--app-border-2);
+  --color-accent: var(--app-accent);
+  --color-accent-light: var(--app-accent-light);
+  --color-sage: var(--app-sage);
+  --color-blush: var(--app-blush);
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-caveat);
+  --font-mono:    var(--font-mono);
+}
+
+html, body {
+  background: var(--app-bg);
+  color: var(--app-ink);
+}
+
+body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display + utility type */
+.font-display {
+  font-family: var(--font-caveat), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+
+/* Wordmark — identical to the app */
+.coflow-mark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--app-ink);
+}
+.coflow-mark > .co {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.coflow-mark > .flow {
+  font-family: var(--font-caveat-brush), var(--font-caveat), ui-serif, Georgia, serif;
+  font-weight: 400;
+  color: var(--app-ink-soft);
+  position: relative;
+  padding-bottom: 0.08em;
+  font-size: 1.15em;
+  line-height: 1;
+}
+.coflow-mark > .flow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--app-accent);
+  border-radius: 1px;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-sm font-medium transition;
+  background: var(--app-ink);
+  color: var(--app-bg);
+  border: 1px solid var(--app-ink);
+}
+.btn-primary:hover { opacity: 0.92; }
+
+.btn-ghost {
+  @apply inline-flex min-h-11 items-center justify-center rounded-xl border px-5 text-sm font-medium transition;
+  background: #fff;
+  border-color: var(--app-border-2);
+  color: var(--app-ink);
+}
+.btn-ghost:hover { background: var(--app-bg-warm); }
+
+.btn-accent {
+  @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-sm font-medium transition;
+  background: var(--app-accent);
+  color: var(--app-ink);
+  border: 1px solid #E2AE3E;
+}
+.btn-accent:hover { opacity: 0.94; }
+
+/* Pill — for category / eyebrow tags */
+.pill {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium;
+  background: var(--app-accent-light);
+  color: var(--app-ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Link */
+.link {
+  font-weight: 500;
+  color: var(--app-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--app-accent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+.link:hover { text-decoration-thickness: 2px; }
+
+/* Cards */
+.card {
+  @apply rounded-2xl border bg-white;
+  border-color: var(--app-border);
+}
+
+/* Sections */
+.section-rule {
+  border-top: 1px solid var(--app-border);
+}
+
+/* Comparison table */
+.compare-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.compare-table th,
+.compare-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--app-border);
+  vertical-align: top;
+}
+.compare-table tr:last-child th,
+.compare-table tr:last-child td {
+  border-bottom: 0;
+}
+.compare-table thead th {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+  background: var(--app-bg-warm);
+  font-weight: 600;
+}
+.compare-table td.yes { color: var(--app-success); font-weight: 600; }
+.compare-table td.no  { color: var(--app-muted); }
+
+/* Prose tweaks for marketing body copy */
+.prose-fieldnotes p { color: var(--app-ink-soft); line-height: 1.65; }
+.prose-fieldnotes h2 { color: var(--app-ink); }
+.prose-fieldnotes h3 { color: var(--app-ink); }
+
+/* Reduced-motion safety */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
