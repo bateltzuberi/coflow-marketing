@@ -8,7 +8,7 @@ import {
   buildMetadata,
   breadcrumbsJsonLd,
 } from "@/lib/seo";
-import { FEATURES, SITE } from "@/lib/site";
+import { FEATURES, INVITE } from "@/lib/site";
 import { FEATURE_CONTENT } from "@/lib/content";
 
 type Params = { slug: string };
@@ -48,18 +48,19 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
       <Nav />
 
       <article className="prose-fieldnotes">
-        <section className="mx-auto max-w-3xl px-6 pt-20 pb-10 text-center">
-          <p className="font-mono-label">— Feature · {feature.name} —</p>
-          <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
+        <section className="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center">
+          <span className="pill">{INVITE.status}</span>
+          <p className="font-mono-label mt-4">— Feature · {feature.name} —</p>
+          <h1 className="font-display mt-4 text-5xl sm:text-6xl text-[var(--app-ink)]">
             {feature.h1}
           </h1>
           <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
             {content.description}
           </p>
           <div className="mt-8 flex justify-center gap-3 flex-wrap">
-            <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-12 text-sm">
-              Try it free
-            </a>
+            <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
+              Request early access
+            </Link>
             <Link href="/pricing" className="btn-ghost min-h-12 text-sm">
               See pricing
             </Link>

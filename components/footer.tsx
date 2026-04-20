@@ -11,6 +11,9 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-sm text-[var(--app-muted)] leading-relaxed">
             {SITE.description}
           </p>
+          <Link href="/#waitlist" className="btn-primary min-h-10 text-sm mt-5">
+            Request early access
+          </Link>
         </div>
 
         <FooterCol title="Features" links={FEATURES.map((f) => ({
@@ -37,13 +40,13 @@ export function Footer() {
       </div>
       <div className="border-t border-[var(--app-border)]">
         <div className="mx-auto max-w-6xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--app-muted)]">
-          <p>© {new Date().getFullYear()} Coflow. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Coflow. Invite-only · coflow.social</p>
           <div className="flex items-center gap-4">
+            <Link href="/#waitlist" className="hover:text-[var(--app-ink)] transition">
+              Join waitlist
+            </Link>
             <a href={`${SITE.appUrl}/login`} className="hover:text-[var(--app-ink)] transition">
-              Sign in
-            </a>
-            <a href={`${SITE.appUrl}/signup`} className="hover:text-[var(--app-ink)] transition">
-              Start free
+              Existing member?
             </a>
           </div>
         </div>

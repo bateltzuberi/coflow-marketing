@@ -8,7 +8,7 @@ import {
   breadcrumbsJsonLd,
   faqJsonLd,
 } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { INVITE } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Content calendar for social media agencies",
@@ -47,8 +47,8 @@ export default function ContentCalendarPage() {
       <Nav />
 
       <article className="prose-fieldnotes">
-        <section className="mx-auto max-w-3xl px-6 pt-20 pb-10 text-center">
-          <p className="font-mono-label">— Feature —</p>
+        <section className="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center">
+          <span className="pill">{INVITE.status}</span>
           <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
             A content calendar built for <span className="text-[var(--app-ink-soft)]">social media agencies.</span>
           </h1>
@@ -58,9 +58,9 @@ export default function ContentCalendarPage() {
             screenshots. No chat threads.
           </p>
           <div className="mt-8 flex justify-center gap-3 flex-wrap">
-            <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-12 text-sm">
-              Try it free
-            </a>
+            <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
+              Request early access
+            </Link>
             <Link href="/vs/later" className="btn-ghost min-h-12 text-sm">
               Compare to Later
             </Link>

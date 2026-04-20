@@ -9,7 +9,7 @@ import {
   breadcrumbsJsonLd,
   faqJsonLd,
 } from "@/lib/seo";
-import { REPLACES, SITE } from "@/lib/site";
+import { REPLACES, INVITE } from "@/lib/site";
 import { COMPETITOR_CONTENT } from "@/lib/content";
 
 type Params = { slug: string };
@@ -62,18 +62,19 @@ export default async function VsPage({ params }: { params: Promise<Params> }) {
 
       <Nav />
 
-      <section className="mx-auto max-w-4xl px-6 pt-20 pb-10 text-center">
-        <p className="font-mono-label">— Coflow vs {data.name} —</p>
-        <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
+      <section className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
+        <span className="pill">{INVITE.status}</span>
+        <p className="font-mono-label mt-4">— Coflow vs {data.name} —</p>
+        <h1 className="font-display mt-4 text-5xl sm:text-6xl text-[var(--app-ink)]">
           The {data.name} alternative <span className="text-[var(--app-ink-soft)]">built for social media agencies.</span>
         </h1>
         <p className="mt-6 mx-auto max-w-2xl text-base text-[var(--app-muted)] leading-relaxed">
           {data.gap}
         </p>
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
-          <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-12 text-sm">
-            Try Coflow free
-          </a>
+          <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
+            Request early access
+          </Link>
           <Link href="/pricing" className="btn-ghost min-h-12 text-sm">
             See pricing
           </Link>

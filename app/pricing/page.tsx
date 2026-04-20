@@ -1,20 +1,25 @@
+import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { CtaSection } from "@/components/cta-section";
 import { JsonLd, buildMetadata, faqJsonLd, breadcrumbsJsonLd } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { INVITE } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Pricing — simple plans for social media agencies",
+  title: "Pricing — what you get when your invite opens",
   description:
-    "Coflow is free for your first brand. Honest pricing as your social media agency grows — no per-seat gouging, no surprise invoices.",
+    "Coflow is currently invite-only. Here's the pricing you'll see the day you're in — free for your first brand, honest per-brand pricing as your social media agency grows.",
   path: "/pricing",
 });
 
 const PRICING_FAQS = [
   {
+    q: "If Coflow is invite-only, why is there pricing?",
+    a: "So you know what you're signing up for. Once your invite opens, you choose your plan. We never bait-and-switch pricing after you're inside.",
+  },
+  {
     q: "Is Coflow really free?",
-    a: "Yes. One brand, one agency owner, forever. You only pay when you add more brands or invite social managers.",
+    a: "Yes. One brand, one agency owner, forever. You only pay when you add more brands or invite more social managers.",
   },
   {
     q: "Do client reviewers count as seats?",
@@ -44,8 +49,6 @@ const PLANS = [
       "Tasks + light CRM",
       "Community support",
     ],
-    cta: "Start free",
-    href: `${SITE.appUrl}/signup`,
     highlight: false,
   },
   {
@@ -61,8 +64,6 @@ const PLANS = [
       "Per-brand analytics",
       "Priority support",
     ],
-    cta: "Start free → upgrade when you grow",
-    href: `${SITE.appUrl}/signup`,
     highlight: true,
   },
   {
@@ -77,8 +78,6 @@ const PLANS = [
       "Dedicated onboarding",
       "SLA support",
     ],
-    cta: "Talk to us",
-    href: `${SITE.appUrl}/signup`,
     highlight: false,
   },
 ];
@@ -96,15 +95,20 @@ export default function PricingPage() {
 
       <Nav />
 
-      <section className="mx-auto max-w-4xl px-6 pt-20 pb-10 text-center">
-        <p className="font-mono-label">— Pricing —</p>
+      <section className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
+        <span className="pill">{INVITE.status}</span>
         <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
-          Free for one. <span className="text-[var(--app-ink-soft)]">Honest when you grow.</span>
+          What it costs <span className="text-[var(--app-ink-soft)]">the day your invite opens.</span>
         </h1>
         <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
           One brand is free forever. Pay per brand as your agency grows — not per seat,
           not per client, and never in surprise overage bills.
         </p>
+        <div className="mt-6">
+          <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
+            Get on the waitlist
+          </Link>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-8">
@@ -131,12 +135,12 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={plan.href}
+              <Link
+                href="/#waitlist"
                 className={`mt-7 ${plan.highlight ? "btn-accent" : "btn-primary"} min-h-11 text-sm`}
               >
-                {plan.cta}
-              </a>
+                Request invite for this plan
+              </Link>
             </article>
           ))}
         </div>
@@ -163,8 +167,9 @@ export default function PricingPage() {
       </section>
 
       <CtaSection
-        title="Ready to retire a few tools?"
-        subtitle="Start free with one brand. Upgrade the day it stops being enough — not before."
+        title="Ready to jump in the line?"
+        subtitle="Get on the waitlist. Tell us what you run today — we'll prioritise your invite for the right cohort."
+        source="pricing"
       />
       <Footer />
     </>

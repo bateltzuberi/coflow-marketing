@@ -1,12 +1,22 @@
 export const SITE = {
   name: "Coflow",
-  tagline: "The all-in-one workspace for social media agencies",
+  tagline: "Invite-only workspace for social media agencies",
   url: "https://coflow.social",
   appUrl: "https://app.coflow.social",
   description:
-    "Coflow is the all-in-one social media agency software. Plan content, get client approvals, manage tasks, and run your agency CRM — all in one workspace. Replaces Planable, Asana, Later, and Pipedrive.",
+    "Coflow is the invite-only workspace for social media agencies — content calendar, client approvals, agency CRM, and tasks in one place. Replaces Planable, Asana, Later, and Pipedrive. Join the waitlist.",
   ogImage: "/og/default.png",
   twitter: "@coflow",
+} as const;
+
+// Positioning + scarcity copy used across the site. Updating this in one
+// place is enough — every page that shows waitlist scarcity reads from here.
+export const INVITE = {
+  status: "Invite-only · Early access",
+  waitlistCopy: "Currently invite-only. We open a new cohort each week.",
+  scarcityLine: "Join the waitlist · limited invites each week",
+  ctaPrimary: "Request early access",
+  ctaSecondary: "Join the waitlist",
 } as const;
 
 // The tools we explicitly replace — used across the site for SEO comparisons.

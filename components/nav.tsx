@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
-import { SITE } from "@/lib/site";
 
 const NAV_ITEMS = [
   { href: "/features/content-calendar", label: "Features" },
@@ -31,15 +30,12 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={`${SITE.appUrl}/login`}
-            className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition hidden sm:inline"
-          >
-            Sign in
-          </a>
-          <a href={`${SITE.appUrl}/signup`} className="btn-primary min-h-10 text-sm">
-            Start free
-          </a>
+          <span className="hidden sm:inline pill" aria-label="Product status">
+            Invite-only
+          </span>
+          <Link href="/#waitlist" className="btn-primary min-h-10 text-sm">
+            Join waitlist
+          </Link>
         </div>
       </div>
     </header>
