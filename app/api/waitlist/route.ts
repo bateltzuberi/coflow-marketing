@@ -10,6 +10,9 @@ type Body = {
   email?: string;
   role?: string;
   source?: string;
+  // Honeypot — humans never see/fill this. Bots fill every field they find.
+  // If it's set, we return 200 silently without writing.
+  company?: string;
 };
 
 export async function POST(request: Request) {
@@ -18,6 +21,11 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Honeypot fired → drop on the floor, return 200 so the bot thinks it worked.
+  if (body.company && body.company.trim() !== "") {
+    return NextResponse.json({ ok: true });
   }
 
   const email = (body.email ?? "").trim().toLowerCase();

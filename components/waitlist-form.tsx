@@ -22,6 +22,11 @@ export function WaitlistForm({
 }) {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState<Role | "">("");
+  // Honeypot — must stay empty. Hidden from real users via inline styles
+  // (visibility, position, tab-index) so screen readers + sighted users
+  // never interact. Bots that auto-fill every field will trip it and the
+  // server will silently drop their submissions.
+  const [company, setCompany] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -34,7 +39,7 @@ export function WaitlistForm({
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, role: role || undefined, source }),
+        body: JSON.stringify({ email, role: role || undefined, source, company }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data?.error ?? "Could not save your spot.");
@@ -70,6 +75,32 @@ export function WaitlistForm({
       onSubmit={onSubmit}
       className={`mx-auto w-full ${compact ? "max-w-md" : "max-w-xl"} flex flex-col gap-3`}
     >
+      {/* Honeypot — invisible to humans, irresistible to bots. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+          opacity: 0,
+        }}
+      >
+        <label htmlFor={`wl-company-${source ?? "x"}`}>
+          Company (leave empty)
+        </label>
+        <input
+          id={`wl-company-${source ?? "x"}`}
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+      </div>
+
       <div className="flex flex-col sm:flex-row gap-2">
         <label className="sr-only" htmlFor={`wl-email-${source ?? "x"}`}>
           Work email

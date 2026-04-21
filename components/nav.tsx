@@ -33,7 +33,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <a
             href={`${SITE.appUrl}/login`}
-            className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition hidden sm:inline"
+            className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition"
           >
             Sign in
           </a>

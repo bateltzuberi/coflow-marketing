@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#2B2A27"/>
+  <text x="32" y="40" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-weight="900" font-size="28"
+        fill="#FAF8F2"
+        letter-spacing="-1.2">cf</text>
+  <rect x="14" y="48" width="36" height="3" rx="1.5" fill="#E8B84A"/>
+</svg>
