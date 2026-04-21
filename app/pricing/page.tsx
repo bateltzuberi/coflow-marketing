@@ -5,11 +5,17 @@ import { CtaSection } from "@/components/cta-section";
 import { JsonLd, buildMetadata, faqJsonLd, breadcrumbsJsonLd } from "@/lib/seo";
 import { INVITE } from "@/lib/site";
 
+// Hidden while the product is invite-only. The route still exists so the
+// page can be reactivated later by removing the redirect in next.config.ts
+// — but until then, we noindex it as a belt-and-suspenders so anyone who
+// reaches it before the redirect kicks in (preview deploys etc.) doesn't
+// pollute search results.
 export const metadata = buildMetadata({
   title: "Pricing — what you get when your invite opens",
   description:
     "Coflow is currently invite-only. Here's the pricing you'll see the day you're in — free for your first brand, honest per-brand pricing as your social media agency grows.",
   path: "/pricing",
+  noindex: true,
 });
 
 const PRICING_FAQS = [

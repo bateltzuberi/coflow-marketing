@@ -22,7 +22,7 @@ export default function NotFound() {
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
           <Link href="/" className="btn-primary min-h-11 text-sm">Back home</Link>
           <Link href="/#waitlist" className="btn-ghost min-h-11 text-sm">Join waitlist</Link>
-          <Link href="/pricing" className="btn-ghost min-h-11 text-sm">Pricing</Link>
+          <Link href="/vs/planable" className="btn-ghost min-h-11 text-sm">vs Planable</Link>
         </div>
       </section>
       <Footer />

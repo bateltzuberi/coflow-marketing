@@ -61,9 +61,6 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
             <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
               Request early access
             </Link>
-            <Link href="/pricing" className="btn-ghost min-h-12 text-sm">
-              See pricing
-            </Link>
           </div>
         </section>
 

@@ -33,7 +33,7 @@ export function Footer() {
               href: `/for/${p.slug}`,
               label: p.name,
             })),
-            { href: "/pricing", label: "Pricing" },
+            // Pricing is hidden while we're invite-only.
             { href: "/blog", label: "Blog" },
           ]}
         />

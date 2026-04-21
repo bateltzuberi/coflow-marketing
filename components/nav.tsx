@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { href: "/features/content-calendar", label: "Features" },
   { href: "/for/social-media-managers", label: "Who it's for" },
   { href: "/vs/planable", label: "Compare" },
-  { href: "/pricing", label: "Pricing" },
+  // Pricing is hidden while we're invite-only.
   { href: "/blog", label: "Blog" },
 ];
 

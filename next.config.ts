@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/home", destination: "/", permanent: true },
       { source: "/index", destination: "/", permanent: true },
+
+      // Pricing is hidden while the product is invite-only — the page file
+      // is intentionally left in /app/pricing so we can flip this back later
+      // by removing this redirect (no rewrite, no recovery work). Marked
+      // non-permanent so search engines don't bake it in.
+      { source: "/pricing", destination: "/", permanent: false },
     ];
   },
   async headers() {
