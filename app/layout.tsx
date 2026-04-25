@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Caveat, Caveat_Brush, JetBrains_Mono } from "next/font/google";
+import { Inter, Caveat_Brush, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
 import { JsonLd, organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -8,12 +8,6 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 const caveatBrush = Caveat_Brush({
@@ -60,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${caveat.variable} ${caveatBrush.variable} ${mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${caveatBrush.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />

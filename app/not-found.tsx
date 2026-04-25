@@ -13,10 +13,10 @@ export default function NotFound() {
       <Nav />
       <section className="mx-auto max-w-2xl px-6 py-28 text-center">
         <p className="font-mono-label">— 404 —</p>
-        <h1 className="font-display mt-6 text-5xl text-[var(--app-ink)]">
+        <h1 className="font-display mt-6 text-5xl text-foreground">
           We couldn't find that page.
         </h1>
-        <p className="mt-4 text-base text-[var(--app-muted)]">
+        <p className="mt-4 text-base text-muted-foreground">
           It may have moved, or never existed. Try the homepage or one of these.
         </p>
         <div className="mt-8 flex justify-center gap-3 flex-wrap">

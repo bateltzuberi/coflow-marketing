@@ -103,10 +103,10 @@ export default function PricingPage() {
 
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
         <span className="pill">{INVITE.status}</span>
-        <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
-          What it costs <span className="text-[var(--app-ink-soft)]">the day your invite opens.</span>
+        <h1 className="font-display mt-6 text-5xl sm:text-6xl text-foreground">
+          What it costs <span className="text-foreground-soft">the day your invite opens.</span>
         </h1>
-        <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
+        <p className="mt-6 mx-auto max-w-xl text-base text-muted-foreground leading-relaxed">
           One brand is free forever. Pay per brand as your agency grows — not per seat,
           not per client, and never in surprise overage bills.
         </p>
@@ -122,21 +122,21 @@ export default function PricingPage() {
           {PLANS.map((plan) => (
             <article
               key={plan.name}
-              className={`card p-7 flex flex-col ${plan.highlight ? "ring-2 ring-[var(--app-accent)]" : ""}`}
+              className={`card p-7 flex flex-col ${plan.highlight ? "ring-2 ring-primary" : ""}`}
             >
               {plan.highlight && (
                 <span className="pill self-start mb-4">Most teams</span>
               )}
-              <h2 className="text-xl font-semibold text-[var(--app-ink)]">{plan.name}</h2>
-              <p className="mt-1 text-sm text-[var(--app-muted)]">{plan.tagline}</p>
+              <h2 className="text-xl font-semibold text-foreground">{plan.name}</h2>
+              <p className="mt-1 text-sm text-muted-foreground">{plan.tagline}</p>
               <div className="mt-6 flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-[var(--app-ink)]">{plan.price}</span>
-                <span className="text-sm text-[var(--app-muted)]">{plan.period}</span>
+                <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                <span className="text-sm text-muted-foreground">{plan.period}</span>
               </div>
-              <ul className="mt-6 space-y-2 text-sm text-[var(--app-ink-soft)]">
+              <ul className="mt-6 space-y-2 text-sm text-foreground-soft">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2">
-                    <span aria-hidden className="text-[var(--app-success)] font-semibold">✓</span>
+                    <span aria-hidden className="text-success font-semibold">✓</span>
                     <span>{f}</span>
                   </li>
                 ))}
@@ -155,18 +155,18 @@ export default function PricingPage() {
       <section className="mx-auto max-w-3xl px-6 py-16">
         <div className="text-center mb-8">
           <p className="font-mono-label">— Pricing FAQ —</p>
-          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-foreground">
             What you'll probably ask.
           </h2>
         </div>
         <div className="space-y-4">
           {PRICING_FAQS.map((f) => (
             <details key={f.q} className="card p-5 group">
-              <summary className="cursor-pointer font-semibold text-[var(--app-ink)] list-none flex justify-between items-center gap-4">
+              <summary className="cursor-pointer font-semibold text-foreground list-none flex justify-between items-center gap-4">
                 <span>{f.q}</span>
-                <span className="text-[var(--app-muted)] transition group-open:rotate-45 text-xl leading-none">+</span>
+                <span className="text-muted-foreground transition group-open:rotate-45 text-xl leading-none">+</span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground-soft leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>

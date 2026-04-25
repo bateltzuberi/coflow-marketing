@@ -49,10 +49,10 @@ export default function ContentCalendarPage() {
       <article className="prose-fieldnotes">
         <section className="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center">
           <span className="pill">{INVITE.status}</span>
-          <h1 className="font-display mt-6 text-5xl sm:text-6xl text-[var(--app-ink)]">
-            A content calendar built for <span className="text-[var(--app-ink-soft)]">social media agencies.</span>
+          <h1 className="font-display mt-6 text-5xl sm:text-6xl text-foreground">
+            A content calendar built for <span className="text-foreground-soft">social media agencies.</span>
           </h1>
-          <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-6 mx-auto max-w-xl text-base text-muted-foreground leading-relaxed">
             One calm calendar per brand. Every post carries its status — draft, internal
             review, client review, approved, scheduled, published. Drag to reschedule. No
             screenshots. No chat threads.
@@ -87,17 +87,17 @@ export default function ContentCalendarPage() {
         </section>
 
         <section className="mx-auto max-w-3xl px-6 py-14">
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground">
             Why agencies switch to Coflow's calendar.
           </h2>
-          <p className="mt-4 text-base text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
             Tools like Later and Planoly were built for single creators posting for themselves.
             Tools like Planable were built for one specific job — approval — and leave your
             team bouncing back to Asana for everything else. Coflow was built for the social
             media agency: the calendar, the review flow, and the agency-side work it triggers
             all live together.
           </p>
-          <ul className="mt-6 space-y-3 text-sm text-[var(--app-ink-soft)]">
+          <ul className="mt-6 space-y-3 text-sm text-foreground-soft">
             <li>→ One workspace per agency; one calendar per brand.</li>
             <li>→ Clients never see drafts, pricing, or other brands.</li>
             <li>→ Every approved post can auto-spawn the tasks that follow it.</li>
@@ -106,15 +106,15 @@ export default function ContentCalendarPage() {
         </section>
 
         <section className="mx-auto max-w-3xl px-6 py-14">
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">FAQ.</h2>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground">FAQ.</h2>
           <div className="mt-6 space-y-4">
             {FAQS.map((f) => (
               <details key={f.q} className="card p-5 group">
-                <summary className="cursor-pointer font-semibold text-[var(--app-ink)] list-none flex justify-between items-center gap-4">
+                <summary className="cursor-pointer font-semibold text-foreground list-none flex justify-between items-center gap-4">
                   <span>{f.q}</span>
-                  <span className="text-[var(--app-muted)] transition group-open:rotate-45 text-xl leading-none">+</span>
+                  <span className="text-muted-foreground transition group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
-                <p className="mt-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">{f.a}</p>
+                <p className="mt-3 text-sm text-foreground-soft leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>
@@ -133,8 +133,8 @@ export default function ContentCalendarPage() {
 function Block({ title, body }: { title: string; body: string }) {
   return (
     <div>
-      <h3 className="text-xl font-semibold text-[var(--app-ink)]">{title}</h3>
-      <p className="mt-3 text-base text-[var(--app-muted)] leading-relaxed">{body}</p>
+      <h3 className="text-xl font-semibold text-foreground">{title}</h3>
+      <p className="mt-3 text-base text-muted-foreground leading-relaxed">{body}</p>
     </div>
   );
 }

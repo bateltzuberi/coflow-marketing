@@ -14,11 +14,11 @@ export default function GlobalError({
       <body className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p className="font-mono-label">— Something broke —</p>
         <h1 className="font-display mt-6 text-4xl">We hit a snag.</h1>
-        <p className="mt-4 text-base text-[var(--app-muted)]">
+        <p className="mt-4 text-base text-muted-foreground">
           Try again, or head back home.
         </p>
         {error?.digest && (
-          <p className="mt-2 text-xs text-[var(--app-muted)]">ref: {error.digest}</p>
+          <p className="mt-2 text-xs text-muted-foreground">ref: {error.digest}</p>
         )}
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
           <button onClick={() => reset()} className="btn-primary min-h-11 text-sm">

@@ -51,10 +51,10 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
         <section className="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center">
           <span className="pill">{INVITE.status}</span>
           <p className="font-mono-label mt-4">— Feature · {feature.name} —</p>
-          <h1 className="font-display mt-4 text-5xl sm:text-6xl text-[var(--app-ink)]">
+          <h1 className="font-display mt-4 text-5xl sm:text-6xl text-foreground">
             {feature.h1}
           </h1>
-          <p className="mt-6 mx-auto max-w-xl text-base text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-6 mx-auto max-w-xl text-base text-muted-foreground leading-relaxed">
             {content.description}
           </p>
           <div className="mt-8 flex justify-center gap-3 flex-wrap">
@@ -67,23 +67,23 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
         <section className="mx-auto max-w-4xl px-6 py-14 grid gap-10 md:grid-cols-2">
           {content.blocks.map((b) => (
             <div key={b.title}>
-              <h2 className="text-xl font-semibold text-[var(--app-ink)]">{b.title}</h2>
-              <p className="mt-3 text-base text-[var(--app-muted)] leading-relaxed">{b.body}</p>
+              <h2 className="text-xl font-semibold text-foreground">{b.title}</h2>
+              <p className="mt-3 text-base text-muted-foreground leading-relaxed">{b.body}</p>
             </div>
           ))}
         </section>
 
         <section className="mx-auto max-w-3xl px-6 py-14">
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground">
             Why agencies pick this over standalone tools.
           </h2>
-          <p className="mt-4 text-base text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
             {content.context}
           </p>
         </section>
 
         <section className="mx-auto max-w-3xl px-6 pb-14">
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground">
             Related features.
           </h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -91,11 +91,11 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
               <Link
                 key={f.slug}
                 href={`/features/${f.slug}`}
-                className="card p-5 hover:shadow-[var(--app-shadow)] transition"
+                className="card p-5 hover:shadow-shadow-sm transition"
               >
                 <p className="font-mono-label">Feature</p>
-                <p className="mt-1 text-base font-semibold text-[var(--app-ink)]">{f.name}</p>
-                <p className="mt-1 text-sm text-[var(--app-muted)]">{f.short}</p>
+                <p className="mt-1 text-base font-semibold text-foreground">{f.name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{f.short}</p>
               </Link>
             ))}
           </div>

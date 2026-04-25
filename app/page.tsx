@@ -50,10 +50,10 @@ export default function Home() {
       {/* ── HERO ──────────────────────────────────────────── */}
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-8 text-center">
         <span className="pill">{INVITE.status}</span>
-        <h1 className="font-display mt-6 text-5xl sm:text-7xl text-[var(--app-ink)]">
-          The workspace social media agencies have been <span className="text-[var(--app-ink-soft)]">waiting for.</span>
+        <h1 className="font-display mt-6 text-5xl sm:text-7xl text-foreground">
+          The workspace social media agencies have been <span className="text-foreground-soft">waiting for.</span>
         </h1>
-        <p className="mt-8 mx-auto max-w-2xl text-base sm:text-lg text-[var(--app-muted)] leading-relaxed">
+        <p className="mt-8 mx-auto max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
           Content planning, client approvals, agency CRM, and tasks — one calm workspace for
           the whole agency. Currently invite-only while we roll out to our first cohort.
         </p>
@@ -62,7 +62,7 @@ export default function Home() {
           <WaitlistForm source="home-hero" />
         </div>
 
-        <p className="mt-6 text-xs text-[var(--app-muted)]">
+        <p className="mt-6 text-xs text-muted-foreground">
           {INVITE.scarcityLine} · replaces Planable, Asana, Later, Pipedrive
         </p>
       </section>
@@ -71,10 +71,10 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="text-center mb-10">
           <p className="font-mono-label">— Replaces —</p>
-          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-foreground">
             One workspace. Five tools retired.
           </h2>
-          <p className="mt-3 text-sm text-[var(--app-muted)]">
+          <p className="mt-3 text-sm text-muted-foreground">
             Most agencies on the waitlist are moving off three to five of these.
           </p>
         </div>
@@ -83,13 +83,13 @@ export default function Home() {
             <Link
               key={r.slug}
               href={`/vs/${r.slug}`}
-              className="card p-5 hover:shadow-[var(--app-shadow)] transition group"
+              className="card p-5 hover:shadow-shadow-sm transition group"
             >
               <p className="font-mono-label">{r.category}</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--app-ink)]">
+              <p className="mt-2 text-lg font-semibold text-foreground">
                 Coflow vs {r.name}
               </p>
-              <p className="mt-1 text-sm text-[var(--app-muted)]">
+              <p className="mt-1 text-sm text-muted-foreground">
                 Why agencies switch →
               </p>
             </Link>
@@ -101,7 +101,7 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-16 space-y-16">
         <div className="text-center">
           <p className="font-mono-label">— Inside the workspace —</p>
-          <h2 className="font-display mt-4 text-4xl sm:text-5xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-4 text-4xl sm:text-5xl text-foreground">
             Every part of running a social media agency.
           </h2>
         </div>
@@ -122,7 +122,7 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="text-center mb-10">
           <p className="font-mono-label">— Who it's for —</p>
-          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-foreground">
             Made for the way social teams actually work.
           </h2>
         </div>
@@ -148,10 +148,10 @@ export default function Home() {
       {/* ── MID-PAGE WAITLIST ─────────────────────────────── */}
       <section className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="font-mono-label">— Get in —</p>
-        <h2 className="font-display mt-4 text-4xl sm:text-5xl text-[var(--app-ink)]">
+        <h2 className="font-display mt-4 text-4xl sm:text-5xl text-foreground">
           Invites open each week. Be in the next batch.
         </h2>
-        <p className="mt-6 mx-auto max-w-md text-sm text-[var(--app-muted)] leading-relaxed">
+        <p className="mt-6 mx-auto max-w-md text-sm text-muted-foreground leading-relaxed">
           Tell us what you're running today and we'll prioritise your invite for the right
           cohort.
         </p>
@@ -164,33 +164,33 @@ export default function Home() {
       <section className="mx-auto max-w-3xl px-6 py-16">
         <div className="text-center mb-10">
           <p className="font-mono-label">— FAQ —</p>
-          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-4 text-3xl sm:text-4xl text-foreground">
             Common questions.
           </h2>
         </div>
         <div className="space-y-4">
           {HOME_FAQS.map((f) => (
             <details key={f.q} className="card p-5 group">
-              <summary className="cursor-pointer font-semibold text-[var(--app-ink)] list-none flex justify-between items-center gap-4">
+              <summary className="cursor-pointer font-semibold text-foreground list-none flex justify-between items-center gap-4">
                 <span>{f.q}</span>
-                <span className="text-[var(--app-muted)] transition group-open:rotate-45 text-xl leading-none">
+                <span className="text-muted-foreground transition group-open:rotate-45 text-xl leading-none">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground-soft leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>
       </section>
 
       {/* Final CTA (shared component) */}
-      <section className="border-y border-[var(--app-border)] bg-[var(--app-bg-warm)]">
+      <section className="border-y border-border bg-surface-hover">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
           <p className="font-mono-label">— Last nudge —</p>
-          <h2 className="font-display mt-5 text-4xl sm:text-5xl text-[var(--app-ink)]">
+          <h2 className="font-display mt-5 text-4xl sm:text-5xl text-foreground">
             One tool. One calm workspace. Zero tabs to juggle.
           </h2>
-          <p className="mt-6 mx-auto max-w-lg text-sm text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-6 mx-auto max-w-lg text-sm text-muted-foreground leading-relaxed">
             If that sounds like what your agency needs, get on the list before the next
             cohort fills.
           </p>
@@ -226,8 +226,8 @@ function FeatureRow({
         <p className="font-mono-label">§ {num}</p>
       </div>
       <div>
-        <h3 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">{title}</h3>
-        <p className="mt-4 text-base text-[var(--app-muted)] leading-relaxed max-w-xl">
+        <h3 className="font-display text-3xl sm:text-4xl text-foreground">{title}</h3>
+        <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-xl">
           {body}
         </p>
         <Link href={href} className="link mt-4 inline-block text-sm">
@@ -250,11 +250,11 @@ function PersonaCard({
   return (
     <Link
       href={href}
-      className="card p-6 hover:shadow-[var(--app-shadow)] transition block"
+      className="card p-6 hover:shadow-shadow-sm transition block"
     >
       <p className="font-mono-label">Persona</p>
-      <p className="mt-2 text-lg font-semibold text-[var(--app-ink)]">{title}</p>
-      <p className="mt-2 text-sm text-[var(--app-muted)] leading-relaxed">{body}</p>
+      <p className="mt-2 text-lg font-semibold text-foreground">{title}</p>
+      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{body}</p>
     </Link>
   );
 }

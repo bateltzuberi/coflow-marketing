@@ -2,62 +2,83 @@
 
 /* ═══════════════════════════════════════════════════════════
    Coflow — Marketing site
-   Matches the app's Fieldnotes palette: paper, ink, ochre.
-   Editorial, warm-neutral. Caveat for decorative display.
+   Matches the app's bordeaux design system. Editorial restraint,
+   semibold sans-serif chrome. Caveat-Brush stays only for the
+   "flow" wordmark underline (brand identity).
    ═══════════════════════════════════════════════════════════ */
 
 :root {
   /* Surfaces */
-  --app-bg:            #FAF8F2;
-  --app-bg-warm:       #F3F0E7;
-  --app-ink:           #2B2A27;
-  --app-ink-soft:      #4A4944;
-  --app-muted:         #7A7870;
-  --app-muted-soft:    #A8A69C;
-  --app-border:        #E8E4D8;
-  --app-border-2:      #DED9C9;
+  --color-canvas:               #FAFAFA;
+  --color-surface:              #FFFFFF;
+  --color-surface-hover:        #F4F4F5;
+  --color-surface-subtle:       #FAFAFA;
+  --color-foreground:           #09090B;
+  --color-foreground-soft:      #3F3F46;
+  --color-muted-foreground:     #71717A;
+  --color-border:               #E4E4E7;
+  --color-border-strong:        #D4D4D8;
 
-  /* Accents */
-  --app-accent:        #E8B84A;
-  --app-accent-light:  #F7E9B8;
-  --app-sage:          #B8C5A8;
-  --app-blush:         #E8C9BC;
+  /* Bordeaux primary */
+  --color-primary:              #7A1F2B;
+  --color-primary-hover:        #651624;
+  --color-primary-active:       #52121D;
+  --color-primary-foreground:   #FFFFFF;
+  --color-primary-muted:        #FBF2F3;
+  --color-primary-muted-fg:     #651624;
 
   /* Semantic */
-  --app-success:       #5E7248;
-  --app-success-bg:    #E8EDE0;
-  --app-danger:        #B85A5A;
+  --color-success:              #16A34A;
+  --color-success-muted:        #F0FDF4;
+  --color-success-muted-fg:     #166534;
+  --color-warning:              #D97706;
+  --color-warning-muted:        #FFFBEB;
+  --color-warning-muted-fg:     #92400E;
+  --color-danger:               #DC2626;
+  --color-danger-muted:         #FEF2F2;
+  --color-danger-muted-fg:      #991B1B;
 
   /* Radii + shadow */
-  --app-radius:        14px;
-  --app-radius-lg:     20px;
-  --app-shadow-sm:     0 1px 2px rgba(43, 42, 39, 0.05);
-  --app-shadow:        0 2px 14px rgba(43, 42, 39, 0.06);
-  --app-shadow-lg:     0 20px 48px rgba(43, 42, 39, 0.10);
+  --radius-sm:                  6px;
+  --radius:                     8px;
+  --radius-lg:                  12px;
+  --shadow-xs:                  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm:                  0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md:                  0 4px 8px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg:                  0 12px 24px -4px rgb(0 0 0 / 0.10), 0 4px 8px -4px rgb(0 0 0 / 0.04);
 }
 
 @theme inline {
-  --color-background: var(--app-bg);
-  --color-foreground: var(--app-ink);
-  --color-ink: var(--app-ink);
-  --color-ink-soft: var(--app-ink-soft);
-  --color-muted: var(--app-muted);
-  --color-paper: var(--app-bg);
-  --color-parchment: var(--app-bg-warm);
-  --color-border: var(--app-border);
-  --color-border-strong: var(--app-border-2);
-  --color-accent: var(--app-accent);
-  --color-accent-light: var(--app-accent-light);
-  --color-sage: var(--app-sage);
-  --color-blush: var(--app-blush);
+  --color-background:           var(--color-canvas);
+  --color-foreground:           var(--color-foreground);
+  --color-canvas:               var(--color-canvas);
+  --color-surface:              var(--color-surface);
+  --color-surface-hover:        var(--color-surface-hover);
+  --color-foreground-soft:      var(--color-foreground-soft);
+  --color-muted-foreground:     var(--color-muted-foreground);
+  --color-border:               var(--color-border);
+  --color-border-strong:        var(--color-border-strong);
+  --color-primary:              var(--color-primary);
+  --color-primary-hover:        var(--color-primary-hover);
+  --color-primary-foreground:   var(--color-primary-foreground);
+  --color-primary-muted:        var(--color-primary-muted);
+  --color-primary-muted-fg:     var(--color-primary-muted-fg);
+  --color-success:              var(--color-success);
+  --color-success-muted:        var(--color-success-muted);
+  --color-success-muted-fg:     var(--color-success-muted-fg);
+  --color-warning:              var(--color-warning);
+  --color-warning-muted:        var(--color-warning-muted);
+  --color-warning-muted-fg:     var(--color-warning-muted-fg);
+  --color-danger:               var(--color-danger);
+  --color-danger-muted:         var(--color-danger-muted);
+  --color-danger-muted-fg:      var(--color-danger-muted-fg);
   --font-sans:    var(--font-inter);
-  --font-display: var(--font-caveat);
   --font-mono:    var(--font-mono);
 }
 
 html, body {
-  background: var(--app-bg);
-  color: var(--app-ink);
+  background: var(--color-canvas);
+  color: var(--color-foreground);
 }
 
 body {
@@ -67,13 +88,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Display + utility type */
+/* Editorial display — semibold sans-serif, tight tracking */
 .font-display {
-  font-family: var(--font-caveat), ui-serif, Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 .font-mono-label {
@@ -81,7 +101,7 @@ body {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--app-muted);
+  color: var(--color-muted-foreground);
 }
 
 /* Wordmark — identical to the app */
@@ -91,7 +111,7 @@ body {
   gap: 0.32em;
   line-height: 0.9;
   letter-spacing: -0.02em;
-  color: var(--app-ink);
+  color: var(--color-foreground);
 }
 .coflow-mark > .co {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -100,9 +120,9 @@ body {
   letter-spacing: -0.02em;
 }
 .coflow-mark > .flow {
-  font-family: var(--font-caveat-brush), var(--font-caveat), ui-serif, Georgia, serif;
+  font-family: var(--font-caveat-brush), ui-serif, Georgia, serif;
   font-weight: 400;
-  color: var(--app-ink-soft);
+  color: var(--color-foreground-soft);
   position: relative;
   padding-bottom: 0.08em;
   font-size: 1.15em;
@@ -115,40 +135,32 @@ body {
   right: 0;
   bottom: 0;
   height: 2px;
-  background: var(--app-accent);
+  background: var(--color-primary);
   border-radius: 1px;
 }
 
-/* Buttons */
+/* Buttons — bordeaux primary */
 .btn-primary {
-  @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-sm font-medium transition;
-  background: var(--app-ink);
-  color: var(--app-bg);
-  border: 1px solid var(--app-ink);
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg px-5 text-sm font-medium transition-colors;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 1px solid var(--color-primary);
 }
-.btn-primary:hover { opacity: 0.92; }
+.btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
 
 .btn-ghost {
-  @apply inline-flex min-h-11 items-center justify-center rounded-xl border px-5 text-sm font-medium transition;
-  background: #fff;
-  border-color: var(--app-border-2);
-  color: var(--app-ink);
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg border px-5 text-sm font-medium transition-colors;
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-foreground);
 }
-.btn-ghost:hover { background: var(--app-bg-warm); }
-
-.btn-accent {
-  @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-sm font-medium transition;
-  background: var(--app-accent);
-  color: var(--app-ink);
-  border: 1px solid #E2AE3E;
-}
-.btn-accent:hover { opacity: 0.94; }
+.btn-ghost:hover { background: var(--color-surface-hover); }
 
 /* Pill — for category / eyebrow tags */
 .pill {
   @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium;
-  background: var(--app-accent-light);
-  color: var(--app-ink);
+  background: var(--color-primary-muted);
+  color: var(--color-primary-muted-fg);
   font-family: var(--font-mono), ui-monospace, monospace;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -157,9 +169,9 @@ body {
 /* Link */
 .link {
   font-weight: 500;
-  color: var(--app-ink);
+  color: var(--color-foreground);
   text-decoration: underline;
-  text-decoration-color: var(--app-accent);
+  text-decoration-color: var(--color-primary);
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
 }
@@ -167,13 +179,13 @@ body {
 
 /* Cards */
 .card {
-  @apply rounded-2xl border bg-white;
-  border-color: var(--app-border);
+  @apply rounded-xl border bg-surface;
+  border-color: var(--color-border);
 }
 
 /* Sections */
 .section-rule {
-  border-top: 1px solid var(--app-border);
+  border-top: 1px solid var(--color-border);
 }
 
 /* Comparison table */
@@ -181,9 +193,9 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
-  background: #fff;
-  border: 1px solid var(--app-border);
-  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
   overflow: hidden;
 }
 .compare-table th,
@@ -191,7 +203,7 @@ body {
   padding: 14px 16px;
   text-align: left;
   font-size: 14px;
-  border-bottom: 1px solid var(--app-border);
+  border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
 .compare-table tr:last-child th,
@@ -203,17 +215,17 @@ body {
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--app-muted);
-  background: var(--app-bg-warm);
+  color: var(--color-muted-foreground);
+  background: var(--color-surface-hover);
   font-weight: 600;
 }
-.compare-table td.yes { color: var(--app-success); font-weight: 600; }
-.compare-table td.no  { color: var(--app-muted); }
+.compare-table td.yes { color: var(--color-success); font-weight: 600; }
+.compare-table td.no  { color: var(--color-muted-foreground); }
 
 /* Prose tweaks for marketing body copy */
-.prose-fieldnotes p { color: var(--app-ink-soft); line-height: 1.65; }
-.prose-fieldnotes h2 { color: var(--app-ink); }
-.prose-fieldnotes h3 { color: var(--app-ink); }
+.prose-fieldnotes p { color: var(--color-foreground-soft); line-height: 1.65; }
+.prose-fieldnotes h2 { color: var(--color-foreground); font-weight: 600; letter-spacing: -0.02em; }
+.prose-fieldnotes h3 { color: var(--color-foreground); font-weight: 600; letter-spacing: -0.015em; }
 
 /* Reduced-motion safety */
 @media (prefers-reduced-motion: reduce) {
