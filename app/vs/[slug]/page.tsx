@@ -65,10 +65,10 @@ export default async function VsPage({ params }: { params: Promise<Params> }) {
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
         <span className="pill">{INVITE.status}</span>
         <p className="font-mono-label mt-4">— Coflow vs {data.name} —</p>
-        <h1 className="font-display mt-4 text-5xl sm:text-6xl text-[var(--app-ink)]">
-          The {data.name} alternative <span className="text-[var(--app-ink-soft)]">built for social media agencies.</span>
+        <h1 className="font-display mt-4 text-5xl sm:text-6xl text-foreground">
+          The {data.name} alternative <span className="text-foreground-soft">built for social media agencies.</span>
         </h1>
-        <p className="mt-6 mx-auto max-w-2xl text-base text-[var(--app-muted)] leading-relaxed">
+        <p className="mt-6 mx-auto max-w-2xl text-base text-muted-foreground leading-relaxed">
           {data.gap}
         </p>
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
@@ -97,36 +97,36 @@ export default async function VsPage({ params }: { params: Promise<Params> }) {
             ))}
           </tbody>
         </table>
-        <p className="mt-3 text-xs text-[var(--app-muted)]">
+        <p className="mt-3 text-xs text-muted-foreground">
           Based on publicly documented {data.name} features as of 2026-04. Coflow's product docs
           are the source of truth for Coflow capabilities.
         </p>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-14 prose-fieldnotes">
-        <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+        <h2 className="font-display text-3xl sm:text-4xl text-foreground">
           When {data.name} is the right tool.
         </h2>
-        <p className="mt-4 text-base text-[var(--app-muted)] leading-relaxed">{data.strength}</p>
+        <p className="mt-4 text-base text-muted-foreground leading-relaxed">{data.strength}</p>
 
-        <h2 className="mt-12 font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+        <h2 className="mt-12 font-display text-3xl sm:text-4xl text-foreground">
           When Coflow becomes the better fit.
         </h2>
-        <p className="mt-4 text-base text-[var(--app-muted)] leading-relaxed">{data.gap}</p>
+        <p className="mt-4 text-base text-muted-foreground leading-relaxed">{data.gap}</p>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-14">
-        <h2 className="font-display text-3xl sm:text-4xl text-[var(--app-ink)]">
+        <h2 className="font-display text-3xl sm:text-4xl text-foreground">
           {data.name} vs Coflow — FAQ.
         </h2>
         <div className="mt-6 space-y-4">
           {faqs.map((f) => (
             <details key={f.q} className="card p-5 group">
-              <summary className="cursor-pointer font-semibold text-[var(--app-ink)] list-none flex justify-between items-center gap-4">
+              <summary className="cursor-pointer font-semibold text-foreground list-none flex justify-between items-center gap-4">
                 <span>{f.q}</span>
-                <span className="text-[var(--app-muted)] transition group-open:rotate-45 text-xl leading-none">+</span>
+                <span className="text-muted-foreground transition group-open:rotate-45 text-xl leading-none">+</span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--app-ink-soft)] leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground-soft leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>
@@ -139,10 +139,10 @@ export default async function VsPage({ params }: { params: Promise<Params> }) {
             <Link
               key={r.slug}
               href={`/vs/${r.slug}`}
-              className="card p-4 hover:shadow-[var(--app-shadow)] transition"
+              className="card p-4 hover:shadow-shadow-sm transition"
             >
               <p className="font-mono-label">{r.category}</p>
-              <p className="mt-1 text-base font-semibold text-[var(--app-ink)]">
+              <p className="mt-1 text-base font-semibold text-foreground">
                 Coflow vs {r.name}
               </p>
             </Link>

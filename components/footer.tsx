@@ -4,11 +4,11 @@ import { SITE, FEATURES, REPLACES, PERSONAS } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-[var(--app-border)] bg-[var(--app-bg-warm)]">
+    <footer className="mt-24 border-t border-border bg-surface-hover">
       <div className="mx-auto max-w-6xl px-6 py-16 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <CoflowMark className="text-[24px]" />
-          <p className="mt-4 max-w-sm text-sm text-[var(--app-muted)] leading-relaxed">
+          <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
             {SITE.description}
           </p>
           <Link href="/#waitlist" className="btn-primary min-h-10 text-sm mt-5">
@@ -38,14 +38,14 @@ export function Footer() {
           ]}
         />
       </div>
-      <div className="border-t border-[var(--app-border)]">
-        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--app-muted)]">
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Coflow. Invite-only · coflow.social</p>
           <div className="flex items-center gap-4">
-            <Link href="/#waitlist" className="hover:text-[var(--app-ink)] transition">
+            <Link href="/#waitlist" className="hover:text-foreground transition">
               Join waitlist
             </Link>
-            <a href={`${SITE.appUrl}/login`} className="hover:text-[var(--app-ink)] transition">
+            <a href={`${SITE.appUrl}/login`} className="hover:text-foreground transition">
               Existing member?
             </a>
           </div>
@@ -70,7 +70,7 @@ function FooterCol({
           <li key={l.href}>
             <Link
               href={l.href}
-              className="text-sm text-[var(--app-ink-soft)] hover:text-[var(--app-ink)] transition"
+              className="text-sm text-foreground-soft hover:text-foreground transition"
             >
               {l.label}
             </Link>

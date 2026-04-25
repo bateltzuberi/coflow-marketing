@@ -17,14 +17,14 @@ export function CtaSection({
   return (
     <section
       id={id}
-      className="border-y border-[var(--app-border)] bg-[var(--app-bg-warm)]"
+      className="border-y border-border bg-surface-hover"
     >
       <div className="mx-auto max-w-3xl px-6 py-20 text-center">
         <p className="font-mono-label">{eyebrow}</p>
-        <h2 className="font-display mt-5 text-4xl sm:text-5xl text-[var(--app-ink)]">
+        <h2 className="font-display mt-5 text-4xl sm:text-5xl text-foreground">
           {title}
         </h2>
-        <p className="mt-6 mx-auto max-w-lg text-sm text-[var(--app-muted)] leading-relaxed">
+        <p className="mt-6 mx-auto max-w-lg text-sm text-muted-foreground leading-relaxed">
           {subtitle}
         </p>
         <div className="mt-8">

@@ -55,7 +55,7 @@ export function WaitlistForm({
       <div
         role="status"
         aria-live="polite"
-        className="mx-auto max-w-md rounded-2xl border p-5 bg-[var(--app-success-bg,#E8EDE0)] text-[var(--app-success,#5E7248)]"
+        className="mx-auto max-w-md rounded-xl border border-success/20 p-5 bg-success-muted text-success-muted-fg"
       >
         <p className="font-mono-label" style={{ color: "inherit" }}>
           — You're on the list —
@@ -115,14 +115,14 @@ export function WaitlistForm({
           placeholder={placeholder}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 min-h-12 rounded-xl border bg-white px-4 text-sm outline-none transition placeholder:text-[var(--app-muted-soft)]"
-          style={{ borderColor: "var(--app-border-2)", color: "var(--app-ink)" }}
+          className="flex-1 min-h-12 rounded-xl border bg-white px-4 text-sm outline-none transition placeholder:text-muted-foreground"
+          style={{ borderColor: "var(--color-border-strong)", color: "var(--color-foreground)" }}
           onFocus={(e) => {
-            e.currentTarget.style.borderColor = "var(--app-ink)";
+            e.currentTarget.style.borderColor = "var(--color-foreground)";
             e.currentTarget.style.boxShadow = "0 0 0 3px rgba(232, 184, 74, 0.18)";
           }}
           onBlur={(e) => {
-            e.currentTarget.style.borderColor = "var(--app-border-2)";
+            e.currentTarget.style.borderColor = "var(--color-border-strong)";
             e.currentTarget.style.boxShadow = "none";
           }}
         />
@@ -148,9 +148,9 @@ export function WaitlistForm({
                 aria-pressed={active}
                 className="rounded-full px-3 py-1.5 text-xs font-medium transition border"
                 style={{
-                  borderColor: active ? "var(--app-ink)" : "var(--app-border-2)",
-                  background: active ? "var(--app-ink)" : "#fff",
-                  color: active ? "var(--app-bg)" : "var(--app-ink-soft)",
+                  borderColor: active ? "var(--color-foreground)" : "var(--color-border-strong)",
+                  background: active ? "var(--color-foreground)" : "#fff",
+                  color: active ? "var(--color-canvas)" : "var(--color-foreground-soft)",
                 }}
               >
                 {ROLE_LABELS[r]}
@@ -161,12 +161,12 @@ export function WaitlistForm({
       )}
 
       {error && (
-        <p role="alert" className="text-sm text-center" style={{ color: "var(--app-danger)" }}>
+        <p role="alert" className="text-sm text-center text-danger">
           {error}
         </p>
       )}
 
-      <p className="text-center text-[11px] text-[var(--app-muted)]">
+      <p className="text-center text-[11px] text-muted-foreground">
         No spam. No card. We email only when your invite opens.
       </p>
     </form>

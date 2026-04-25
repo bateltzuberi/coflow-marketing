@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 
 export function Nav() {
   return (
-    <header className="border-b border-[var(--app-border)] bg-white/80 backdrop-blur sticky top-0 z-40">
+    <header className="border-b border-border bg-white/80 backdrop-blur sticky top-0 z-40">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <Link href="/" aria-label="Coflow home" className="no-underline">
           <CoflowMark className="text-[22px]" />
@@ -23,7 +23,7 @@ export function Nav() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
             >
               {item.label}
             </Link>
@@ -33,7 +33,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <a
             href={`${SITE.appUrl}/login`}
-            className="text-sm font-medium text-[var(--app-muted)] hover:text-[var(--app-ink)] transition"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
           >
             Sign in
           </a>
