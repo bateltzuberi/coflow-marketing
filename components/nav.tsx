@@ -12,10 +12,10 @@ const NAV_ITEMS = [
 
 export function Nav() {
   return (
-    <header className="border-b border-border bg-white/80 backdrop-blur sticky top-0 z-40">
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
-        <Link href="/" aria-label="Coflow home" className="no-underline">
-          <CoflowMark className="text-[22px]" />
+    <header className="sticky top-0 z-40 border-b border-border bg-canvas/85 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 md:h-16 md:px-6">
+        <Link href="/" aria-label="Coflow home" className="no-underline shrink-0">
+          <CoflowMark className="text-[20px] md:text-[22px]" />
         </Link>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-6">
@@ -23,24 +23,24 @@ export function Nav() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-4">
           <a
             href={`${SITE.appUrl}/login`}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Sign in
           </a>
-          <span className="hidden md:inline pill" aria-label="Product status">
-            Invite-only
-          </span>
-          <Link href="/#waitlist" className="btn-primary min-h-10 text-sm">
+          <Link
+            href="/#waitlist"
+            className="btn-primary min-h-9 px-3.5 text-sm md:min-h-10 md:px-5"
+          >
             Join waitlist
           </Link>
         </div>
