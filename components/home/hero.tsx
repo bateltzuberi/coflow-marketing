@@ -1,11 +1,12 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionary";
+import { TheInfiniteGrid } from "@/components/ui/the-infinite-grid";
 
 export function Hero({ t }: { t: Dictionary["hero"] }) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="hero-grid-bg" aria-hidden="true" />
-      <div className="container-page pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-20">
+    <section className="relative overflow-hidden isolate">
+      <TheInfiniteGrid />
+      <div className="relative container-page pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-20">
         <p className="font-mono-label text-center" lang="en">{t.eyebrow}</p>
 
         <h1 className="font-display mt-6 text-center mx-auto max-w-[1100px] text-[44px] sm:text-[64px] md:text-[80px] lg:text-[92px]">
