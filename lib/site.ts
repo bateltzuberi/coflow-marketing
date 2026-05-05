@@ -1,10 +1,13 @@
 export const SITE = {
   name: "Coflow",
-  tagline: "Invite-only workspace for social media agencies",
+  tagline: "Your whole personal brand in one place",
   url: "https://coflow.social",
+  // Single app login URL (legacy): redirects to studio or agency app post-auth.
   appUrl: "https://app.coflow.social",
+  studioAppUrl: "https://studio.coflow.social",
+  agencyAppUrl: "https://agency.coflow.social",
   description:
-    "Coflow is the invite-only workspace for social media agencies — content calendar, client approvals, agency CRM, and tasks in one place. Replaces Planable, Asana, Later, and Pipedrive. Join the waitlist.",
+    "Coflow is one workspace for personal brands and the agencies that run them. Studio for solo creators — podcast, newsletter, social, analytics. Agencies on top — client management, approvals, CRM, team.",
   ogImage: "/og/default.png",
   twitter: "@coflow",
 } as const;
