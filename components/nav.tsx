@@ -1,47 +1,50 @@
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
+import { getLocale } from "@/lib/locale";
+import { getDict } from "@/lib/dictionary";
 import { SITE } from "@/lib/site";
 
-const NAV_ITEMS = [
-  { href: "/features/content-calendar", label: "Features" },
-  { href: "/for/social-media-managers", label: "Who it's for" },
-  { href: "/vs/planable", label: "Compare" },
-  // Pricing is hidden while we're invite-only.
-  { href: "/blog", label: "Blog" },
-];
+export async function Nav() {
+  const locale = await getLocale();
+  const t = getDict(locale).nav;
 
-export function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-canvas/85 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 md:h-16 md:px-6">
-        <Link href="/" aria-label="Coflow home" className="no-underline shrink-0">
-          <CoflowMark className="text-[20px] md:text-[22px]" />
-        </Link>
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur supports-[backdrop-filter]:bg-paper/65">
+      <div className="container-page flex h-16 md:h-[72px] items-center justify-between gap-4">
+        <div className="flex items-center gap-8">
+          <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
+            <CoflowMark size={30} />
+          </Link>
 
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-6">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-7">
+            <Link href="/#surfaces" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
+              {t.features}
             </Link>
-          ))}
-        </nav>
+            <Link href="/#pricing" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
+              {t.pricing}
+            </Link>
+            <Link href="/blog" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
+              {t.blog}
+            </Link>
+          </nav>
+        </div>
 
         <div className="flex items-center gap-2 md:gap-4">
+          <Link
+            href="/agencies"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-lavender-deep hover:text-lavender-ink transition-colors px-3 py-2"
+          >
+            <span className="dot dot-lavender" aria-hidden="true" />
+            {t.forAgencies}
+          </Link>
           <a
             href={`${SITE.appUrl}/login`}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="hidden lg:inline-flex text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"
           >
-            Sign in
+            {t.signIn}
           </a>
-          <Link
-            href="/#waitlist"
-            className="btn-primary min-h-9 px-3.5 text-sm md:min-h-10 md:px-5"
-          >
-            Join waitlist
+          <Link href="/#waitlist" className="btn btn-lime btn-sm">
+            {t.cta}
           </Link>
         </div>
       </div>

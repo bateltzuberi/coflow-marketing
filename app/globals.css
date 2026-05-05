@@ -1,58 +1,115 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════
-   Coflow — Marketing site
-   Matches the app's bordeaux design system. Editorial restraint,
-   semibold sans-serif chrome. Caveat-Brush stays only for the
-   "flow" wordmark underline (brand identity).
+   coflow.social — Marketing site
+   Two-product super-brand. Lavender (agencies) + lime (studio),
+   joined by the "bridge" gradient. Light only. Heebo+Geist+Mono.
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Surfaces */
-  --color-canvas:               #FAFAFA;
-  --color-surface:              #FFFFFF;
-  --color-surface-hover:        #F4F4F5;
-  --color-surface-subtle:       #FAFAFA;
-  --color-foreground:           #09090B;
-  --color-foreground-soft:      #3F3F46;
-  --color-muted-foreground:     #71717A;
-  --color-border:               #E4E4E7;
-  --color-border-strong:        #D4D4D8;
+  /* ── Surfaces / ink ──────────────────────────────────── */
+  --color-paper:                #fafaf7;
+  --color-surface:              #ffffff;
+  --color-surface-2:            #f5f4ef;
+  --color-line:                 #ececea;
+  --color-line-strong:          #d8d8d4;
+  --color-ink-900:              #1a1a1c;
+  --color-ink-700:              #4a4a52;
+  --color-ink-500:              #8a8a94;
+  --color-ink-300:              #c7c7cc;
 
-  /* Bordeaux primary */
-  --color-primary:              #7A1F2B;
-  --color-primary-hover:        #651624;
-  --color-primary-active:       #52121D;
-  --color-primary-foreground:   #FFFFFF;
-  --color-primary-muted:        #FBF2F3;
-  --color-primary-muted-fg:     #651624;
+  /* ── Lavender · agencies ─────────────────────────────── */
+  --color-lavender:             #ccb8f5;
+  --color-lavender-deep:        #8b6fd9;
+  --color-lavender-tint:        #f7f3ff;
+  --color-lavender-soft:        #ede4ff;
+  --color-lavender-ink:         #4a2f8a;
 
-  /* Semantic */
-  --color-success:              #16A34A;
-  --color-success-muted:        #F0FDF4;
+  /* ── Lime · studio ───────────────────────────────────── */
+  --color-lime:                 #ddf3a0;
+  --color-lime-deep:            #9bc94a;
+  --color-lime-tint:            #f8fce6;
+  --color-lime-soft:            #effbc7;
+  --color-lime-ink:             #4d6611;
+
+  /* ── Bridge gradient (the brand DNA) ─────────────────── */
+  --gradient-bridge:            linear-gradient(135deg, #ccb8f5 0%, #ddf3a0 100%);
+  --gradient-bridge-soft:       linear-gradient(135deg, #f7f3ff 0%, #f8fce6 100%);
+  --gradient-bridge-deep:       linear-gradient(135deg, #8b6fd9 0%, #9bc94a 100%);
+
+  /* ── Radii ───────────────────────────────────────────── */
+  --radius-chip:                10px;
+  --radius-button:              14px;
+  --radius-card:                20px;
+  --radius-card-lg:             24px;
+  --radius-large:               32px;
+  --radius-xl:                  40px;
+
+  /* ── Shadow ──────────────────────────────────────────── */
+  --shadow-sm:                  0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:                  0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg:                  0 24px 48px rgba(0, 0, 0, 0.08);
+  --shadow-soft:                0 1px 3px rgba(0, 0, 0, 0.03), 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+
+  /* ── Legacy aliases (for /vs, /features, /for, /blog
+        until they get a proper refresh in a follow-up PR) ── */
+  --color-canvas:               var(--color-paper);
+  --color-surface-hover:        var(--color-surface-2);
+  --color-surface-subtle:       var(--color-paper);
+  --color-foreground:           var(--color-ink-900);
+  --color-foreground-soft:      var(--color-ink-700);
+  --color-muted-foreground:     var(--color-ink-500);
+  --color-border:               var(--color-line);
+  --color-border-strong:        var(--color-line-strong);
+  --color-primary:              var(--color-ink-900);
+  --color-primary-hover:        #2a2a2e;
+  --color-primary-active:       #000000;
+  --color-primary-foreground:   #ffffff;
+  --color-primary-muted:        var(--color-lavender-tint);
+  --color-primary-muted-fg:     var(--color-lavender-ink);
+  --color-success:              #16a34a;
+  --color-success-muted:        #f0fdf4;
   --color-success-muted-fg:     #166534;
-  --color-warning:              #D97706;
-  --color-warning-muted:        #FFFBEB;
-  --color-warning-muted-fg:     #92400E;
-  --color-danger:               #DC2626;
-  --color-danger-muted:         #FEF2F2;
-  --color-danger-muted-fg:      #991B1B;
-
-  /* Radii + shadow */
+  --color-warning:              #d97706;
+  --color-warning-muted:        #fffbeb;
+  --color-warning-muted-fg:     #92400e;
+  --color-danger:               #dc2626;
+  --color-danger-muted:         #fef2f2;
+  --color-danger-muted-fg:      #991b1b;
   --radius-sm:                  6px;
   --radius:                     8px;
   --radius-lg:                  12px;
   --shadow-xs:                  0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-sm:                  0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-  --shadow-md:                  0 4px 8px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-  --shadow-lg:                  0 12px 24px -4px rgb(0 0 0 / 0.10), 0 4px 8px -4px rgb(0 0 0 / 0.04);
 }
 
 @theme inline {
-  --color-background:           var(--color-canvas);
-  --color-foreground:           var(--color-foreground);
-  --color-canvas:               var(--color-canvas);
+  --color-background:           var(--color-paper);
+  --color-foreground:           var(--color-ink-900);
+
+  --color-paper:                var(--color-paper);
   --color-surface:              var(--color-surface);
+  --color-surface-2:            var(--color-surface-2);
+  --color-line:                 var(--color-line);
+  --color-line-strong:          var(--color-line-strong);
+  --color-ink-900:              var(--color-ink-900);
+  --color-ink-700:              var(--color-ink-700);
+  --color-ink-500:              var(--color-ink-500);
+  --color-ink-300:              var(--color-ink-300);
+
+  --color-lavender:             var(--color-lavender);
+  --color-lavender-deep:        var(--color-lavender-deep);
+  --color-lavender-tint:        var(--color-lavender-tint);
+  --color-lavender-soft:        var(--color-lavender-soft);
+  --color-lavender-ink:         var(--color-lavender-ink);
+
+  --color-lime:                 var(--color-lime);
+  --color-lime-deep:            var(--color-lime-deep);
+  --color-lime-tint:            var(--color-lime-tint);
+  --color-lime-soft:            var(--color-lime-soft);
+  --color-lime-ink:             var(--color-lime-ink);
+
+  /* Legacy bridge */
+  --color-canvas:               var(--color-canvas);
   --color-surface-hover:        var(--color-surface-hover);
   --color-foreground-soft:      var(--color-foreground-soft);
   --color-muted-foreground:     var(--color-muted-foreground);
@@ -72,162 +129,307 @@
   --color-danger:               var(--color-danger);
   --color-danger-muted:         var(--color-danger-muted);
   --color-danger-muted-fg:      var(--color-danger-muted-fg);
-  --font-sans:    var(--font-inter);
-  --font-mono:    var(--font-mono);
+
+  --font-sans:    var(--font-geist), var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+  --font-heebo:   var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+  --font-geist:   var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
+/* ── Base ───────────────────────────────────────────────── */
 html, body {
-  background: var(--color-canvas);
-  color: var(--color-foreground);
+  background: var(--color-paper);
+  color: var(--color-ink-900);
 }
-
+html[lang="he"] body, html[dir="rtl"] body {
+  font-family: var(--font-heebo), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+html[lang="en"] body, html:not([dir="rtl"]) body {
+  font-family: var(--font-geist), var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+}
 body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Editorial display — semibold sans-serif, tight tracking */
+/* English text inside an RTL document keeps Geist; Hebrew inside
+   an LTR document keeps Heebo. Numbers always use Geist tabular. */
+[lang="en"] { font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif; }
+[lang="he"] { font-family: var(--font-heebo), ui-sans-serif, system-ui, sans-serif; }
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* ── Display type ───────────────────────────────────────── */
 .font-display {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.font-display-h2 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .font-mono-label {
-  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-muted-foreground);
+  font-weight: 500;
+  color: var(--color-ink-500);
+}
+@media (min-width: 768px) {
+  .font-mono-label { font-size: 12px; }
 }
 
-/* Wordmark — identical to the app */
+/* ── Wordmark (gradient bridge) ─────────────────────────── */
 .coflow-mark {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.32em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   line-height: 0.9;
-  letter-spacing: -0.02em;
-  color: var(--color-foreground);
+  background: var(--gradient-bridge-deep);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
-.coflow-mark > .co {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-}
-.coflow-mark > .flow {
-  font-family: var(--font-caveat-brush), ui-serif, Georgia, serif;
-  font-weight: 400;
-  color: var(--color-foreground-soft);
-  position: relative;
-  padding-bottom: 0.08em;
-  font-size: 1.15em;
-  line-height: 1;
-}
-.coflow-mark > .flow::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--color-primary);
-  border-radius: 1px;
+/* Solid variant for places that don't tolerate transparent fills (e.g. dark
+   footer) — falls back to a clean white wordmark with a gradient under-mark. */
+.coflow-mark.coflow-mark--solid {
+  -webkit-text-fill-color: currentColor;
+  color: currentColor;
+  background: none;
 }
 
-/* Buttons — bordeaux primary */
-.btn-primary {
-  @apply inline-flex min-h-11 items-center justify-center rounded-lg px-5 text-sm font-medium transition-colors;
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
-  border: 1px solid var(--color-primary);
+/* ── Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 14px 26px;
+  border-radius: var(--radius-button);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+  cursor: pointer;
 }
-.btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-ink {
+  background: var(--color-ink-900);
+  color: #fff;
+  border-color: var(--color-ink-900);
+}
+.btn-ink:hover { background: #2a2a2e; border-color: #2a2a2e; }
+
+.btn-lime {
+  background: var(--color-lime);
+  color: var(--color-lime-ink);
+  border-color: var(--color-lime);
+}
+.btn-lime:hover { background: #d2eb88; border-color: #d2eb88; }
+
+.btn-lavender {
+  background: var(--color-lavender);
+  color: var(--color-lavender-ink);
+  border-color: var(--color-lavender);
+}
+.btn-lavender:hover { background: #bca8e8; border-color: #bca8e8; }
 
 .btn-ghost {
-  @apply inline-flex min-h-11 items-center justify-center rounded-lg border px-5 text-sm font-medium transition-colors;
   background: var(--color-surface);
-  border-color: var(--color-border);
-  color: var(--color-foreground);
+  color: var(--color-ink-900);
+  border-color: var(--color-line-strong);
 }
-.btn-ghost:hover { background: var(--color-surface-hover); }
+.btn-ghost:hover { background: var(--color-surface-2); }
 
-/* Pill — for category / eyebrow tags */
-.pill {
-  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium;
-  background: var(--color-primary-muted);
-  color: var(--color-primary-muted-fg);
+/* Compact button (used inside nav). */
+.btn-sm { min-height: 38px; padding: 9px 16px; font-size: 14px; border-radius: 12px; }
+
+/* Legacy alias used by /vs, /features, /for, /blog. Default = neutral ink.
+   Kept as a standalone rule (not @apply) for Tailwind v4 reliability. */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 14px 26px;
+  border-radius: var(--radius-button);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  border: 1px solid var(--color-ink-900);
+  background: var(--color-ink-900);
+  color: #fff;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #2a2a2e; border-color: #2a2a2e; transform: translateY(-1px); }
+
+/* ── Chips / pills ──────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-chip);
   font-family: var(--font-mono), ui-monospace, monospace;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  font-weight: 500;
+}
+.chip-lime     { background: var(--color-lime-tint);     color: var(--color-lime-ink); }
+.chip-lavender { background: var(--color-lavender-tint); color: var(--color-lavender-ink); }
+.chip-ink      { background: var(--color-surface-2);     color: var(--color-ink-700); }
+
+.dot {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 999px;
+  vertical-align: middle;
+}
+.dot-lime     { background: var(--color-lime-deep); }
+.dot-lavender { background: var(--color-lavender-deep); }
+
+/* Legacy alias (existing pages use .pill) — same body as .chip-lavender. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-chip);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--color-lavender-tint);
+  color: var(--color-lavender-ink);
 }
 
-/* Link */
+/* ── Surfaces ───────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+.card-lg  { border-radius: var(--radius-card-lg); }
+.card-xl  { border-radius: var(--radius-large); }
+
+.lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
+.lift-on-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Bridge backgrounds ─────────────────────────────────── */
+.bg-bridge      { background: var(--gradient-bridge); }
+.bg-bridge-soft { background: var(--gradient-bridge-soft); }
+
+/* The "infinite-grid" hero backdrop. Pure CSS, server-renderable.
+   Two soft radial blobs (lavender + lime) sit over a fine grid. */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 720px at 0% 0%, rgba(204, 184, 245, 0.35), transparent 60%),
+    radial-gradient(circle 720px at 100% 100%, rgba(221, 243, 160, 0.45), transparent 60%),
+    linear-gradient(to right, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
+    var(--color-paper);
+  background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px, auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+/* ── Section helpers ────────────────────────────────────── */
+.container-page {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (min-width: 768px)  { .container-page { padding-inline: 32px; } }
+
+.section { padding-block: 64px; }
+@media (min-width: 768px)  { .section { padding-block: 96px; } }
+@media (min-width: 1024px) { .section { padding-block: 120px; } }
+@media (min-width: 1280px) { .section { padding-block: 144px; } }
+
+/* Bridge text (inline gradient on a span). */
+.text-bridge {
+  background: var(--gradient-bridge-deep);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* fallback for browsers without background-clip */
+}
+@supports not (background-clip: text) {
+  .text-bridge { color: var(--color-lavender-deep); }
+}
+
+/* ── Link ───────────────────────────────────────────────── */
 .link {
   font-weight: 500;
-  color: var(--color-foreground);
+  color: var(--color-ink-900);
   text-decoration: underline;
-  text-decoration-color: var(--color-primary);
-  text-underline-offset: 3px;
+  text-decoration-color: var(--color-lavender-deep);
+  text-underline-offset: 4px;
   text-decoration-thickness: 1.5px;
+  transition: text-decoration-thickness 160ms ease;
 }
-.link:hover { text-decoration-thickness: 2px; }
+.link:hover { text-decoration-thickness: 2.5px; }
 
-/* Cards */
-.card {
-  @apply rounded-xl border bg-surface;
-  border-color: var(--color-border);
-}
-
-/* Sections */
-.section-rule {
-  border-top: 1px solid var(--color-border);
-}
-
-/* Comparison table */
+/* ── Compare table (legacy /vs pages) ───────────────────── */
 .compare-table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
   overflow: hidden;
 }
-.compare-table th,
-.compare-table td {
+.compare-table th, .compare-table td {
   padding: 14px 16px;
-  text-align: left;
+  text-align: start;
   font-size: 14px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-line);
   vertical-align: top;
 }
-.compare-table tr:last-child th,
-.compare-table tr:last-child td {
-  border-bottom: 0;
-}
+.compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: 0; }
 .compare-table thead th {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 11px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-muted-foreground);
-  background: var(--color-surface-hover);
+  color: var(--color-ink-500);
+  background: var(--color-surface-2);
   font-weight: 600;
 }
 .compare-table td.yes { color: var(--color-success); font-weight: 600; }
-.compare-table td.no  { color: var(--color-muted-foreground); }
+.compare-table td.no  { color: var(--color-ink-500); }
 
-/* Prose tweaks for marketing body copy */
-.prose-fieldnotes p { color: var(--color-foreground-soft); line-height: 1.65; }
-.prose-fieldnotes h2 { color: var(--color-foreground); font-weight: 600; letter-spacing: -0.02em; }
-.prose-fieldnotes h3 { color: var(--color-foreground); font-weight: 600; letter-spacing: -0.015em; }
+/* ── Prose tweaks (legacy) ──────────────────────────────── */
+.prose-fieldnotes p { color: var(--color-ink-700); line-height: 1.65; }
+.prose-fieldnotes h2 { color: var(--color-ink-900); font-weight: 700; letter-spacing: -0.025em; }
+.prose-fieldnotes h3 { color: var(--color-ink-900); font-weight: 700; letter-spacing: -0.02em; }
 
-/* Reduced-motion safety */
+/* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
