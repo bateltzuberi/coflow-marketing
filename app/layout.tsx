@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Caveat_Brush, JetBrains_Mono } from "next/font/google";
+import { Heebo, Geist, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
 import { JsonLd, organizationJsonLd } from "@/lib/seo";
+import { getLocale, dirFor } from "@/lib/locale";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const heebo = Heebo({
+  variable: "--font-heebo",
+  subsets: ["hebrew", "latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
-const caveatBrush = Caveat_Brush({
-  variable: "--font-caveat-brush",
+
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
+
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -31,16 +34,6 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   applicationName: SITE.name,
-  keywords: [
-    "social media agency software",
-    "social media management for agencies",
-    "tools for social media managers",
-    "content calendar for agencies",
-    "client approval software",
-    "social media agency CRM",
-    "Planable alternative",
-    "Asana alternative for social media",
-  ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
   publisher: SITE.name,
@@ -48,13 +41,15 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
   return (
     <html
-      lang="en"
-      className={`${inter.variable} ${caveatBrush.variable} ${mono.variable} h-full antialiased`}
+      lang={locale}
+      dir={dirFor(locale)}
+      className={`${heebo.variable} ${geist.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />

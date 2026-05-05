@@ -1,53 +1,45 @@
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
-import { SITE, FEATURES, REPLACES, PERSONAS } from "@/lib/site";
+import { LocaleSwitcher } from "./locale-switcher";
+import { getLocale } from "@/lib/locale";
+import { getDict } from "@/lib/dictionary";
 
-export function Footer() {
+export async function Footer() {
+  const locale = await getLocale();
+  const t = getDict(locale).footer;
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="mt-24 border-t border-border bg-surface-hover">
-      <div className="mx-auto max-w-6xl px-6 py-16 grid gap-10 md:grid-cols-5">
-        <div className="md:col-span-2">
-          <CoflowMark className="text-[24px]" />
-          <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
-            {SITE.description}
+    <footer className="mt-24 bg-ink-900 text-white">
+      <div className="container-page py-20 md:py-24">
+        {/* Big master mark only — wordmark removed per brand direction */}
+        <div className="flex flex-col items-center text-center">
+          <div className="hidden md:block">
+            <CoflowMark size={140} showWordmark={false} />
+          </div>
+          <div className="md:hidden">
+            <CoflowMark size={96} showWordmark={false} />
+          </div>
+          <p className="mt-8 text-base text-white/60 max-w-md">
+            {t.tagline}
           </p>
-          <Link href="/#waitlist" className="btn-primary min-h-10 text-sm mt-5">
-            Request early access
-          </Link>
         </div>
 
-        <FooterCol title="Features" links={FEATURES.map((f) => ({
-          href: `/features/${f.slug}`,
-          label: f.name,
-        }))} />
-
-        <FooterCol title="Compare" links={REPLACES.map((r) => ({
-          href: `/vs/${r.slug}`,
-          label: `vs ${r.name}`,
-        }))} />
-
-        <FooterCol
-          title="Who it's for"
-          links={[
-            ...PERSONAS.map((p) => ({
-              href: `/for/${p.slug}`,
-              label: p.name,
-            })),
-            // Pricing is hidden while we're invite-only.
-            { href: "/blog", label: "Blog" },
-          ]}
-        />
+        {/* 4 columns */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+          <FooterCol title={t.cols.studio} dot="lime" links={t.studioLinks} />
+          <FooterCol title={t.cols.agencies} dot="lavender" links={t.agenciesLinks} />
+          <FooterCol title={t.cols.company} links={t.companyLinks} />
+          <FooterCol title={t.cols.legal} links={t.legalLinks} />
+        </div>
       </div>
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Coflow. Invite-only · coflow.social</p>
-          <div className="flex items-center gap-4">
-            <Link href="/#waitlist" className="hover:text-foreground transition">
-              Join waitlist
-            </Link>
-            <a href={`${SITE.appUrl}/login`} className="hover:text-foreground transition">
-              Existing member?
-            </a>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="container-page py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-white/55">
+          <p className="tabular-nums">{t.copy.replace("{year}", String(year))}</p>
+          <div className="flex items-center gap-5">
+            <LocaleSwitcher locale={locale} />
           </div>
         </div>
       </div>
@@ -57,20 +49,25 @@ export function Footer() {
 
 function FooterCol({
   title,
+  dot,
   links,
 }: {
   title: string;
-  links: { href: string; label: string }[];
+  dot?: "lime" | "lavender";
+  links: readonly { href: string; label: string }[];
 }) {
   return (
     <div>
-      <p className="font-mono-label mb-3">{title}</p>
-      <ul className="space-y-2">
+      <p className="font-mono-label !text-white/55 mb-4 inline-flex items-center gap-2">
+        {dot && <span className={`dot dot-${dot}`} aria-hidden="true" />}
+        {title}
+      </p>
+      <ul className="space-y-2.5">
         {links.map((l) => (
-          <li key={l.href}>
+          <li key={l.label}>
             <Link
               href={l.href}
-              className="text-sm text-foreground-soft hover:text-foreground transition"
+              className="text-sm text-white/75 hover:text-white transition"
             >
               {l.label}
             </Link>
