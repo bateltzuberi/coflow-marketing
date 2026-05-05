@@ -3,19 +3,19 @@ import { useId } from "react";
 type Tone = "bridge" | "white" | "ink" | "lime" | "lavender";
 
 /**
- * The brand mark — the CF monogram from the master logo files. By
- * default the mark is filled with the bridge gradient (lavender → lime),
- * which is the brand's core asset. Pair with `showWordmark` to render
- * the full lockup [mark] coflow.
+ * The brand mark — the CF monogram from the master logo files. The
+ * mark alone is the approved logo; the "coflow" wordmark beside it is
+ * NOT part of the official brand assets and must be opted into
+ * explicitly via `showWordmark`.
  */
 export function CoflowMark({
   className = "",
   size = 28,
-  showWordmark = true,
+  showWordmark = false,
   tone = "bridge",
 }: {
   className?: string;
-  /** Mark height in px. The wordmark scales relative to this. */
+  /** Mark height in px. The wordmark (when shown) scales relative to this. */
   size?: number;
   showWordmark?: boolean;
   tone?: Tone;

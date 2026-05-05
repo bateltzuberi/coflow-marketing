@@ -41,6 +41,7 @@ export function StudioSurfaces({ t }: { t: Dictionary["surfaces"] }) {
           {t.items.map((item, i) => (
             <SurfaceCard
               key={item.title}
+              tone={SURFACE_TONES[i % SURFACE_TONES.length]}
               tag={item.tag}
               title={item.title}
               body={item.body}
@@ -53,24 +54,41 @@ export function StudioSurfaces({ t }: { t: Dictionary["surfaces"] }) {
   );
 }
 
+type SurfaceTone = "lime" | "lavender" | "bridge";
+
+// Alternating tones so both brand colors (and the bridge gradient that
+// joins them) appear in this section — not just lime.
+const SURFACE_TONES: SurfaceTone[] = ["lime", "lavender", "bridge", "lime"];
+
 function SurfaceCard({
+  tone,
   tag,
   title,
   body,
   icon,
 }: {
+  tone: SurfaceTone;
   tag: string;
   title: string;
   body: string;
   icon: React.ReactNode;
 }) {
+  const iconBox =
+    tone === "lime"
+      ? "bg-lime-tint text-lime-ink"
+      : tone === "lavender"
+        ? "bg-lavender-tint text-lavender-ink"
+        : "bg-bridge text-ink-900";
+  const chip =
+    tone === "lavender" ? "chip chip-lavender" : "chip chip-lime";
+
   return (
     <article className="card p-7 md:p-8 lift-on-hover">
       <div className="flex items-start justify-between gap-4">
-        <div className="w-12 h-12 rounded-[12px] flex items-center justify-center bg-lime-tint text-lime-ink shrink-0">
+        <div className={`w-12 h-12 rounded-[12px] flex items-center justify-center shrink-0 ${iconBox}`}>
           <span className="w-6 h-6 block">{icon}</span>
         </div>
-        <span className="chip chip-lime" lang="en">{tag}</span>
+        <span className={chip} lang="en">{tag}</span>
       </div>
       <h3 className="mt-6 text-[20px] font-bold tracking-tight text-ink-900">{title}</h3>
       <p className="mt-2 text-[14px] text-ink-700 leading-[1.65]">{body}</p>

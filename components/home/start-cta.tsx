@@ -9,7 +9,7 @@ export function StartCta({ locale }: { locale: Locale }) {
   return (
     <section id="waitlist" className="section">
       <div className="container-page">
-        <div className="card-xl bg-surface-2 border border-line rounded-[32px] p-10 md:p-16 max-w-3xl mx-auto text-center">
+        <div className="card-xl bg-bridge-soft border border-line rounded-[32px] p-10 md:p-16 max-w-3xl mx-auto text-center">
           <h2 className="font-display-h2 text-[28px] md:text-[40px]">
             {nav.cta}
           </h2>
