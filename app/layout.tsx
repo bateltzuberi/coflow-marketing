@@ -38,7 +38,8 @@ export const metadata: Metadata = {
   creator: SITE.name,
   publisher: SITE.name,
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.ico" },
+  // No explicit `icons` — Next.js auto-generates the favicon link tag
+  // from `app/icon.svg` (file-based icon convention).
 };
 
 export default async function RootLayout({
