@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/studio`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${base}/agencies`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     // /pricing is hidden while the product is invite-only.
   ];
