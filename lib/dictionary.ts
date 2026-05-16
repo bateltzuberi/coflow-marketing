@@ -27,12 +27,12 @@ export const DICT = {
       eyebrow: "COFLOW STUDIO",
       titleA: "בדקי איך המותג שלך",
       titleB: "נראה מבחוץ —",
-      titleC: "תוך דקות.",
+      titleC: "תוך 2 דקות.",
       subtitle:
-        "מדביקות לינקים, המערכת קוראת את הנוכחות הדיגיטלית שלך, ומחזירה תמונה ראשונה תוך דקות. משם — אנחנו מחדדות איתך את המסרים, את הפוזיציוני, ואת ההזדמנות שעוד לא לקחת על עצמך. בקצב שלך, בסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
+        "מדביקות לינקים, המערכת סורקת את הנוכחות הדיגיטלית שלך ומחזירה ניתוח אסטרטגי תוך 2 דקות. משם — חידוד המסרים, הפוזיציוני וההזדמנות שעוד לא לקחת על עצמך — זו העבודה האמיתית, ואותה אנחנו עושות איתך בקצב שלך, בסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
       cta: "להתחיל את הניתוח",
       ctaSecondary: "מה יש בסטודיו?",
-      caption: "התהליך חינמי. בלי כרטיס. תמונה ראשונה תוך דקות — וממשיכים מכאן.",
+      caption: "הניתוח חינמי. 2 דקות לתמונה. בלי כרטיס.",
       visualLabel: "studio",
       visualCaption: "תכנון פרק 14 · גרסה 2",
       visualMetric: "12 / 7",
@@ -62,7 +62,7 @@ export const DICT = {
         },
       ],
       cta: "להתחיל את הניתוח",
-      caption: "התהליך חינמי. החלק הראשון מהיר — חידוד המסרים ממשיך בקצב שלך.",
+      caption: "הניתוח חינמי ולוקח 2 דקות. חידוד המסרים — בקצב שלך.",
     },
 
     surfaces: {
@@ -300,12 +300,12 @@ export const DICT = {
       eyebrow: "COFLOW STUDIO",
       titleA: "See how your brand",
       titleB: "looks from the outside —",
-      titleC: "in minutes.",
+      titleC: "in 2 minutes.",
       subtitle:
-        "Paste your links and we read your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a first read in minutes. From there, we sharpen your messages, your positioning, and the edge you're not yet owning — at your pace, inside the Studio that runs every channel from one place.",
+        "Paste your links and we scan your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a strategic analysis in 2 minutes. From there, sharpening your messages, your positioning, and the edge you're not yet owning is the real work — and we do that together, at your pace, inside the Studio that runs every channel from one place.",
       cta: "Run my analysis",
       ctaSecondary: "See what's in the Studio",
-      caption: "Free. No card. First read in minutes — sharpening continues at your pace.",
+      caption: "Free. 2 minutes for the analysis. No card.",
       visualLabel: "studio",
       visualCaption: "Episode 14 · v2",
       visualMetric: "12 / 7",
@@ -335,7 +335,7 @@ export const DICT = {
         },
       ],
       cta: "Run my analysis",
-      caption: "Free. The first read is fast — sharpening continues at your pace.",
+      caption: "Free. The analysis takes 2 minutes. Sharpening continues at your pace.",
     },
 
     surfaces: {

@@ -78,7 +78,7 @@ export default async function OpengraphImage() {
               flexWrap: "wrap",
             }}
           >
-            See how your brand looks from the outside.
+            See how your brand looks from the outside — in 2 minutes.
           </div>
           <div style={{ fontSize: 28, color: MUTED, lineHeight: 1.4, display: "flex" }}>
             Brand analysis · Podcast · Newsletter · Social · Unified analytics

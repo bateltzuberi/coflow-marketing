@@ -7,7 +7,7 @@ import { SITE, POSITIONING } from "@/lib/site";
 export function CtaSection({
   eyebrow = `— ${POSITIONING.status} —`,
   title = "Run your brand analysis. Free.",
-  subtitle = "Paste your links and get a first read in minutes. From there we sharpen the messaging together — inside Studio: podcast, newsletter, social, all in one place.",
+  subtitle = "Paste your links and get a strategic analysis in 2 minutes. From there we sharpen the messaging together — inside Studio: podcast, newsletter, social, all in one place.",
   ctaLabel = POSITIONING.ctaPrimary,
   id = "wizard-cta",
 }: {

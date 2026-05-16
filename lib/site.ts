@@ -9,7 +9,7 @@ export const SITE = {
   // Wizard entry — the marketing CTA across the site points here.
   wizardUrl: "https://studio.coflow.social/start",
   description:
-    "Coflow reads your existing presence — site, podcast, socials — and hands back a first read of your brand in minutes. From there, we sharpen your messaging together at your pace, inside the Studio that runs podcast, newsletter, social and analytics from one place.",
+    "Coflow scans your existing presence — site, podcast, socials — and hands back a strategic brand analysis in 2 minutes. From there, sharpening your messaging is the work we do together at your pace, inside the Studio that runs podcast, newsletter, social and analytics from one place.",
   ogImage: "/og/default.png",
   twitter: "@coflow",
 } as const;
@@ -29,7 +29,7 @@ export const FEATURES = [
     slug: "brand-analysis",
     name: "Brand analysis",
     h1: "See how your brand looks from the outside",
-    short: "Paste your links. The system reads your presence and hands back a first read in minutes — then we sharpen the messaging together.",
+    short: "Paste your links. The system scans your presence and hands back a strategic analysis in 2 minutes — then we sharpen the messaging together.",
   },
   {
     slug: "content-calendar",
