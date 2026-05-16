@@ -14,7 +14,7 @@ import { getDict } from "@/lib/dictionary";
 export const metadata = buildMetadata({
   title: "Coflow — see how your brand looks from the outside",
   description:
-    "Paste your links and we read your brand from the outside — a strategic analysis in ~7 minutes. Then step into Coflow Studio: podcast, newsletter, social and analytics in one place. Free for your first brand, forever.",
+    "Paste your links and we read your brand from the outside — a first read in minutes, then we sharpen your messaging together at your pace. Inside Coflow Studio: podcast, newsletter, social and analytics in one place. Free for your first brand, forever.",
   path: "/",
 });
 

@@ -27,12 +27,12 @@ export const DICT = {
       eyebrow: "COFLOW STUDIO",
       titleA: "בדקי איך המותג שלך",
       titleB: "נראה מבחוץ —",
-      titleC: "בשבע דקות.",
+      titleC: "תוך דקות.",
       subtitle:
-        "מדביקות לינקים, המערכת קוראת את הנוכחות הדיגיטלית שלך, ומחזירה ניתוח אסטרטגי של המותג — מה ייחודי בך, מה ההזדמנות שאף אחד לא מדבר עליה, ואיפה את עוד לא לוקחת אחריות. אחרי הניתוח, את נכנסת לסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
+        "מדביקות לינקים, המערכת קוראת את הנוכחות הדיגיטלית שלך, ומחזירה תמונה ראשונה תוך דקות. משם — אנחנו מחדדות איתך את המסרים, את הפוזיציוני, ואת ההזדמנות שעוד לא לקחת על עצמך. בקצב שלך, בסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
       cta: "להתחיל את הניתוח",
       ctaSecondary: "מה יש בסטודיו?",
-      caption: "התהליך חינמי. בלי כרטיס. כ-7 דקות.",
+      caption: "התהליך חינמי. בלי כרטיס. תמונה ראשונה תוך דקות — וממשיכים מכאן.",
       visualLabel: "studio",
       visualCaption: "תכנון פרק 14 · גרסה 2",
       visualMetric: "12 / 7",
@@ -62,7 +62,7 @@ export const DICT = {
         },
       ],
       cta: "להתחיל את הניתוח",
-      caption: "התהליך חינמי. כ-7 דקות.",
+      caption: "התהליך חינמי. החלק הראשון מהיר — חידוד המסרים ממשיך בקצב שלך.",
     },
 
     surfaces: {
@@ -121,7 +121,7 @@ export const DICT = {
         },
         {
           quote:
-            "הניתוח אמר לי משפט אחד שתפסתי את עצמי מצטטת אותו לעצמי שבועות. זה היה שווה את 7 הדקות.",
+            "הניתוח אמר לי משפט אחד שתפסתי את עצמי מצטטת אותו לעצמי שבועות. ידעתי שאני בידיים נכונות.",
           name: "נטע בן־דוד",
           role: "יוצרת תוכן · Indie Studio",
           product: "studio" as const,
@@ -300,12 +300,12 @@ export const DICT = {
       eyebrow: "COFLOW STUDIO",
       titleA: "See how your brand",
       titleB: "looks from the outside —",
-      titleC: "in seven minutes.",
+      titleC: "in minutes.",
       subtitle:
-        "Paste your links and we read your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a strategic analysis: what makes you unique, where the opportunity nobody talks about is, and where you're not yet owning your edge. Then you step into the Studio that runs every channel from one place.",
+        "Paste your links and we read your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a first read in minutes. From there, we sharpen your messages, your positioning, and the edge you're not yet owning — at your pace, inside the Studio that runs every channel from one place.",
       cta: "Run my analysis",
       ctaSecondary: "See what's in the Studio",
-      caption: "Free. No card. About 7 minutes.",
+      caption: "Free. No card. First read in minutes — sharpening continues at your pace.",
       visualLabel: "studio",
       visualCaption: "Episode 14 · v2",
       visualMetric: "12 / 7",
@@ -335,7 +335,7 @@ export const DICT = {
         },
       ],
       cta: "Run my analysis",
-      caption: "Free. About 7 minutes.",
+      caption: "Free. The first read is fast — sharpening continues at your pace.",
     },
 
     surfaces: {
@@ -393,7 +393,7 @@ export const DICT = {
         },
         {
           quote:
-            "The analysis gave me one sentence I caught myself quoting for weeks. Worth the 7 minutes on its own.",
+            "The analysis gave me one sentence I caught myself quoting for weeks. I knew I was in the right place.",
           name: "Neta Ben-David",
           role: "Creator · Indie Studio",
           product: "studio" as const,
