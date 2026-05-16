@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { WaitlistForm } from "@/components/waitlist-form";
+import { SITE } from "@/lib/site";
 
 type ProductCtaCopy = {
   eyebrow: string;
@@ -11,11 +11,13 @@ type ProductCtaCopy = {
 
 export function ProductCta({
   tone,
-  source,
+  source: _source,
   secondaryHref,
   t,
 }: {
   tone: "studio" | "agencies";
+  /** Retained for compatibility — was used by the legacy waitlist form,
+   *  which has been replaced by a direct wizard CTA. */
   source: string;
   secondaryHref: string;
   t: ProductCtaCopy;
@@ -46,11 +48,13 @@ export function ProductCta({
             {t.body}
           </p>
 
-          <div className="mt-8 mx-auto max-w-md">
-            <WaitlistForm source={source} />
-          </div>
-
-          <div className="mt-6">
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <a
+              href={SITE.wizardUrl}
+              className={isAgencies ? "btn btn-lavender" : "btn btn-lime"}
+            >
+              {t.ctaPrimary} →
+            </a>
             <Link href={secondaryHref} className={`text-[14px] font-semibold transition-colors ${ctaSecondaryClass}`}>
               {t.ctaSecondary} →
             </Link>

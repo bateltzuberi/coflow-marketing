@@ -1,92 +1,57 @@
 import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { CtaSection } from "@/components/cta-section";
 import { JsonLd, buildMetadata, faqJsonLd, breadcrumbsJsonLd } from "@/lib/seo";
-import { INVITE } from "@/lib/site";
+import { POSITIONING, SITE } from "@/lib/site";
 
-// Hidden while the product is invite-only. The route still exists so the
-// page can be reactivated later by removing the redirect in next.config.ts
-// — but until then, we noindex it as a belt-and-suspenders so anyone who
-// reaches it before the redirect kicks in (preview deploys etc.) doesn't
-// pollute search results.
+// Public pricing. One real tier today (Studio · free for one brand).
+// The agency tier returns when that product ships; until then we keep
+// the page honest — one plan, one price, no surprises.
 export const metadata = buildMetadata({
-  title: "Pricing — what you get when your invite opens",
+  title: "Pricing — free forever for your first brand",
   description:
-    "Coflow is currently invite-only. Here's the pricing you'll see the day you're in — free for your first brand, honest per-brand pricing as your social media agency grows.",
+    "Coflow Studio is free, forever, for one brand. Brand analysis, podcast, newsletter, social and unified analytics — included.",
   path: "/pricing",
-  noindex: true,
 });
 
 const PRICING_FAQS = [
   {
-    q: "If Coflow is invite-only, why is there pricing?",
-    a: "So you know what you're signing up for. Once your invite opens, you choose your plan. We never bait-and-switch pricing after you're inside.",
-  },
-  {
     q: "Is Coflow really free?",
-    a: "Yes. One brand, one agency owner, forever. You only pay when you add more brands or invite more social managers.",
+    a: "Yes. One brand, every channel, free forever. No card, no expiry — you only pay if you want to add more brands or invite teammates.",
   },
   {
-    q: "Do client reviewers count as seats?",
-    a: "No. Client reviewers are always free — on every plan, including the free one. Invite as many clients per brand as you need.",
+    q: "What's included in the free plan?",
+    a: "Everything most personal brands need: the brand analysis wizard, podcast hosting, newsletter, social calendar, unified analytics, media library and integrations.",
+  },
+  {
+    q: "Will pricing change later?",
+    a: "We may add paid tiers for multi-brand setups and an agency workspace, but the personal-brand plan stays free, forever. We never bait-and-switch.",
   },
   {
     q: "Can I cancel any time?",
-    a: "Yes. Cancel in one click from your workspace settings. No phone calls, no retention traps.",
+    a: "Of course. Free plan, no card on file — there's nothing to cancel. If you later upgrade and want to stop, it's one click from your workspace settings.",
   },
   {
-    q: "Do you offer a discount for agencies with many brands?",
-    a: "Yes. Reach out from your workspace once you're above 10 brands and we'll sort you out with an agency plan.",
+    q: "When does the agency tier ship?",
+    a: "Later. We're focused on shipping the personal-brand product first; the agency tier is in the pipeline but not on the public site yet.",
   },
 ];
 
-const PLANS = [
-  {
-    name: "Solo",
-    price: "$0",
-    period: "forever",
-    tagline: "For freelance social media managers starting out.",
-    features: [
-      "1 brand workspace",
-      "1 agency owner seat",
-      "Unlimited client reviewers",
-      "Content calendar + approvals",
-      "Tasks + light CRM",
-      "Community support",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Agency",
-    price: "Fair",
-    period: "per brand / month",
-    tagline: "For growing social media agencies with multiple brands.",
-    features: [
-      "Unlimited brands (pay per brand)",
-      "Invite social managers, assign brands",
-      "Private agency tasks + strategy docs",
-      "Full CRM + deals pipeline",
-      "Per-brand analytics",
-      "Priority support",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Scale",
-    price: "Custom",
-    period: "for 10+ brands",
-    tagline: "For established agencies replacing five tools at once.",
-    features: [
-      "Volume pricing on brands",
-      "SSO + audit logs",
-      "Migration help from Planable / Asana / Later",
-      "Dedicated onboarding",
-      "SLA support",
-    ],
-    highlight: false,
-  },
-];
+const PLAN = {
+  name: "Studio",
+  price: "$0",
+  period: "forever",
+  tagline: "Everything you need to run your personal brand from one place.",
+  features: [
+    "Brand analysis wizard",
+    "Podcast hosting + planning",
+    "Newsletter (write, schedule, send)",
+    "Social calendar across channels",
+    "Unified analytics",
+    "Media library",
+    "Integrations (YouTube, Meta, TikTok, Google)",
+  ],
+} as const;
 
 export default function PricingPage() {
   return (
@@ -102,61 +67,48 @@ export default function PricingPage() {
       <Nav />
 
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
-        <span className="pill">{INVITE.status}</span>
+        <span className="pill">{POSITIONING.status}</span>
         <h1 className="font-display mt-6 text-5xl sm:text-6xl text-foreground">
-          What it costs <span className="text-foreground-soft">the day your invite opens.</span>
+          One plan. <span className="text-foreground-soft">Free, forever.</span>
         </h1>
         <p className="mt-6 mx-auto max-w-xl text-base text-muted-foreground leading-relaxed">
-          One brand is free forever. Pay per brand as your agency grows — not per seat,
-          not per client, and never in surprise overage bills.
+          One brand, every channel — free, forever, no card. The agency tier
+          is on its way; until then, this is what you pay.
         </p>
         <div className="mt-6">
-          <Link href="/#waitlist" className="btn-primary min-h-12 text-sm">
-            Get on the waitlist
-          </Link>
+          <a href={SITE.wizardUrl} className="btn-primary min-h-12 text-sm">
+            Run my analysis
+          </a>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-8">
-        <div className="grid gap-5 md:grid-cols-3">
-          {PLANS.map((plan) => (
-            <article
-              key={plan.name}
-              className={`card p-7 flex flex-col ${plan.highlight ? "ring-2 ring-primary" : ""}`}
-            >
-              {plan.highlight && (
-                <span className="pill self-start mb-4">Most teams</span>
-              )}
-              <h2 className="text-xl font-semibold text-foreground">{plan.name}</h2>
-              <p className="mt-1 text-sm text-muted-foreground">{plan.tagline}</p>
-              <div className="mt-6 flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                <span className="text-sm text-muted-foreground">{plan.period}</span>
-              </div>
-              <ul className="mt-6 space-y-2 text-sm text-foreground-soft">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex gap-2">
-                    <span aria-hidden className="text-success font-semibold">✓</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/#waitlist"
-                className={`mt-7 ${plan.highlight ? "btn-accent" : "btn-primary"} min-h-11 text-sm`}
-              >
-                Request invite for this plan
-              </Link>
-            </article>
-          ))}
-        </div>
+      <section className="mx-auto max-w-md px-6 pb-12">
+        <article className="card p-8 flex flex-col ring-2 ring-primary">
+          <span className="pill self-start mb-4">{PLAN.name}</span>
+          <p className="mt-1 text-sm text-muted-foreground">{PLAN.tagline}</p>
+          <div className="mt-6 flex items-baseline gap-2">
+            <span className="text-5xl font-bold text-foreground">{PLAN.price}</span>
+            <span className="text-sm text-muted-foreground">{PLAN.period}</span>
+          </div>
+          <ul className="mt-7 space-y-2 text-sm text-foreground-soft">
+            {PLAN.features.map((f) => (
+              <li key={f} className="flex gap-2">
+                <span aria-hidden className="text-success font-semibold">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.wizardUrl} className="mt-8 btn-accent min-h-11 text-sm text-center">
+            Run my analysis →
+          </a>
+        </article>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
         <div className="text-center mb-8">
           <p className="font-mono-label">— Pricing FAQ —</p>
           <h2 className="font-display mt-4 text-3xl sm:text-4xl text-foreground">
-            What you'll probably ask.
+            What you&apos;ll probably ask.
           </h2>
         </div>
         <div className="space-y-4">
@@ -170,13 +122,17 @@ export default function PricingPage() {
             </details>
           ))}
         </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            Still have questions?{" "}
+            <Link href="/contact" className="link">
+              Talk to us →
+            </Link>
+          </p>
+        </div>
       </section>
 
-      <CtaSection
-        title="Ready to jump in the line?"
-        subtitle="Get on the waitlist. Tell us what you run today — we'll prioritise your invite for the right cohort."
-        source="pricing"
-      />
       <Footer />
     </>
   );

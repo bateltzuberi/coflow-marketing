@@ -25,10 +25,10 @@ export async function Footer() {
           </p>
         </div>
 
-        {/* 4 columns */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+        {/* 3 columns — agencies column will return when the agency tier
+            ships. Until then, Studio carries the product surfaces. */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-10">
           <FooterCol title={t.cols.studio} dot="lime" links={t.studioLinks} />
-          <FooterCol title={t.cols.agencies} dot="lavender" links={t.agenciesLinks} />
           <FooterCol title={t.cols.company} links={t.companyLinks} />
           <FooterCol title={t.cols.legal} links={t.legalLinks} />
         </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionary";
 import { TheInfiniteGrid } from "@/components/ui/the-infinite-grid";
+import { SITE } from "@/lib/site";
 
 export function Hero({ t }: { t: Dictionary["hero"] }) {
   return (
@@ -20,11 +21,11 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#waitlist" className="btn btn-lime w-full sm:w-auto">
+          <a href={SITE.wizardUrl} className="btn btn-lime w-full sm:w-auto">
             {t.cta} →
-          </Link>
+          </a>
           <Link
-            href="/#for-agencies"
+            href="/#surfaces"
             className="text-[14px] font-semibold text-lavender-deep hover:text-lavender-ink transition-colors inline-flex items-center gap-1.5"
           >
             <span className="dot dot-lavender" aria-hidden="true" />

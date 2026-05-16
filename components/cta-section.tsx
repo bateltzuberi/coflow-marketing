@@ -1,16 +1,20 @@
-import { WaitlistForm } from "./waitlist-form";
-import { INVITE } from "@/lib/site";
+import { SITE, POSITIONING } from "@/lib/site";
 
+/**
+ * Generic closing CTA used by features / blog / sub-pages. Points to the
+ * wizard so every page in the funnel ends on the same call-to-action.
+ */
 export function CtaSection({
-  eyebrow = `— ${INVITE.status} —`,
-  title = "Invite-only while we roll out to the first cohort.",
-  subtitle = INVITE.waitlistCopy,
-  source = "cta-section",
-  id = "waitlist",
+  eyebrow = `— ${POSITIONING.status} —`,
+  title = "Run your brand analysis. Free.",
+  subtitle = "Paste your links and get a strategic read in ~7 minutes. Then step into Studio: podcast, newsletter, social — all in one place.",
+  ctaLabel = POSITIONING.ctaPrimary,
+  id = "wizard-cta",
 }: {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
+  ctaLabel?: string;
   source?: string;
   id?: string;
 }) {
@@ -28,7 +32,9 @@ export function CtaSection({
           {subtitle}
         </p>
         <div className="mt-8">
-          <WaitlistForm source={source} />
+          <a href={SITE.wizardUrl} className="btn-accent min-h-12 text-sm">
+            {ctaLabel} →
+          </a>
         </div>
       </div>
     </section>

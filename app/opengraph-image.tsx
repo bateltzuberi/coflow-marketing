@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/site";
 
 export const runtime = "edge";
-export const alt = "Coflow — invite-only workspace for social media agencies";
+export const alt = "Coflow — see how your brand looks from the outside";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -61,7 +61,7 @@ export default async function OpengraphImage() {
               borderRadius: "999px",
             }}
           >
-            Invite-only · Early access
+            Free · One brand
           </div>
         </div>
 
@@ -78,14 +78,14 @@ export default async function OpengraphImage() {
               flexWrap: "wrap",
             }}
           >
-            The all-in-one workspace social media agencies have been waiting for.
+            See how your brand looks from the outside — in seven minutes.
           </div>
           <div style={{ fontSize: 28, color: MUTED, lineHeight: 1.4, display: "flex" }}>
-            Content calendar · Client approvals · Agency CRM · Tasks
+            Brand analysis · Podcast · Newsletter · Social · Unified analytics
           </div>
         </div>
 
-        {/* Bottom: replaces strip */}
+        {/* Bottom: strip */}
         <div
           style={{
             display: "flex",
@@ -96,7 +96,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ fontSize: 22, color: MUTED, display: "flex" }}>
-            Replaces Planable, Asana, Later, Pipedrive
+            Free for your first brand, forever
           </div>
           <div style={{ fontSize: 22, color: INK, fontWeight: 600, display: "flex" }}>
             {SITE.url.replace("https://", "")}
