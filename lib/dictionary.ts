@@ -5,48 +5,76 @@ import type { Locale } from "./locale";
  * is written in Hebrew first, then translated). Keep the structure
  * mirror-symmetric across languages or `t()` calls will break.
  *
- * Positioning: Studio-led. The home page sells coflow studio — "your
- * whole personal brand in one place". Agencies is surfaced as (a) a
- * nav link, (b) a mid-page band, (c) a paid tier in Pricing, and (d) a
- * footer column. Lime is the dominant accent; lavender only appears on
- * agency-tagged surfaces.
+ * Positioning: wizard-led. The home page sells the brand-analysis
+ * wizard ("see how your brand looks from the outside") as the funnel
+ * entry, then explains what Studio actually does once the user is in.
+ *
+ * Agency surfaces are intentionally not exposed — agency tier ships
+ * later. Lime is the dominant accent; lavender is reserved for the
+ * wizard CTA blocks.
  */
 export const DICT = {
   he: {
     nav: {
-      features: "תכונות",
+      wizard: "ניתוח המותג",
+      features: "מה בסטודיו",
       pricing: "מחירים",
-      blog: "בלוג",
-      forAgencies: "לסוכנויות",
       signIn: "התחברות",
-      cta: "התחילי בחינם",
+      cta: "ראי את הניתוח שלך",
     },
 
     hero: {
       eyebrow: "COFLOW STUDIO",
-      titleA: "כל ניהול המותג",
-      titleB: "האישי שלך —",
-      titleC: "במקום אחד.",
+      titleA: "בדקי איך המותג שלך",
+      titleB: "נראה מבחוץ —",
+      titleC: "בשבע דקות.",
       subtitle:
-        "פודקאסט, ניוזלטר, סושיאל ואנליטיקס — תכננת, פרסמת, מדדת. בלי לקפוץ בין חמישה כלים.",
-      cta: "התחילי בחינם",
-      ctaSecondary: "מנהלת סוכנות?",
-      caption: "המותג הראשון חינם, לתמיד. בלי כרטיס.",
+        "מדביקות לינקים, המערכת קוראת את הנוכחות הדיגיטלית שלך, ומחזירה ניתוח אסטרטגי של המותג — מה ייחודי בך, מה ההזדמנות שאף אחד לא מדבר עליה, ואיפה את עוד לא לוקחת אחריות. אחרי הניתוח, את נכנסת לסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
+      cta: "להתחיל את הניתוח",
+      ctaSecondary: "מה יש בסטודיו?",
+      caption: "התהליך חינמי. בלי כרטיס. כ-7 דקות.",
       visualLabel: "studio",
       visualCaption: "תכנון פרק 14 · גרסה 2",
       visualMetric: "12 / 7",
     },
 
-    surfaces: {
-      eyebrow: "WHAT YOU SHIP",
-      title: "מה את יוצרת השבוע?",
+    wizard: {
+      eyebrow: "BRAND ANALYSIS WIZARD",
+      title: "מה הניתוח אומר לך עלייך.",
       subtitle:
-        "כל פורמט של תוכן מקבל את המקום שלו — תכנון, פרסום, מעקב. ללא תוספים, ללא צ'אט עם לקוחות.",
+        "מדביקות את כל מה שכבר קיים — אתר, אינסטגרם, לינקדאין, יוטיוב, פודקאסט. המערכת קוראת את הקול שלך, מסתכלת על הוויזואלים, ומפיקה מסמך אסטרטגי שאת חוזרת אליו לחודשים.",
+      bullets: [
+        {
+          title: "איך המותג שלך נראה מבחוץ",
+          body: "מה הוא בעצם משדר — ובאילו מקומות הוא סותר את עצמו. בלי לרכך.",
+        },
+        {
+          title: "מה שהופך אותך לבלתי ניתנת להעתקה",
+          body: "שלוש עד שבע תכונות חתימה — מה שלקוחה תזכור גם כשהיא תסגור את הטאב.",
+        },
+        {
+          title: "המתח שעוד לא לקחת על עצמך",
+          body: "האבחנה החדה ביותר במסמך — איפה את אומרת דבר אחד ומשדרת אחר, ולמה זה משתלם לדייק.",
+        },
+        {
+          title: "ההזדמנות האסטרטגית שלך",
+          body: "ה-Blue Ocean של השוק — הכאב שאף אחד לא נוגע בו, או הקהל שאף אחד לא פונה אליו ישירות.",
+        },
+      ],
+      cta: "להתחיל את הניתוח",
+      caption: "התהליך חינמי. כ-7 דקות.",
+    },
+
+    surfaces: {
+      eyebrow: "AFTER THE ANALYSIS",
+      title: "מהניתוח, ישר לסטודיו.",
+      subtitle:
+        "ברגע שהניתוח גמור, את עוברת לסטודיו עצמו — מקום אחד שמרכז את כל הערוצים שכבר בנית. תכנון, פרסום, מעקב.",
       items: [
         {
           tag: "Podcast",
           title: "פודקאסט",
-          body: "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ'אפטרים אוטומטיים.",
+          body: "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ׳אפטרים אוטומטיים.",
         },
         {
           tag: "Newsletter",
@@ -68,7 +96,7 @@ export const DICT = {
 
     features: {
       eyebrow: "INSIDE THE STUDIO",
-      title: "מה שיקבלת ביום הראשון.",
+      title: "מה שמחכה לך אחרי הניתוח.",
       subtitle: "תכונות הליבה שכבר בנויות. אין מה לחפש בתוספים.",
       items: [
         { title: "לוח שנה לכל הערוצים", body: "תכנון שבועי וחודשי, גרירה והעתקה. החודש כולו על מסך אחד." },
@@ -93,7 +121,7 @@ export const DICT = {
         },
         {
           quote:
-            "אני שולחת ניוזלטר אחד בשבוע ופוסט כל יום. עד שהגעתי לכאן הייתי משלמת על שלושה כלים.",
+            "הניתוח אמר לי משפט אחד שתפסתי את עצמי מצטטת אותו לעצמי שבועות. זה היה שווה את 7 הדקות.",
           name: "נטע בן־דוד",
           role: "יוצרת תוכן · Indie Studio",
           product: "studio" as const,
@@ -107,18 +135,18 @@ export const DICT = {
         },
         {
           quote:
-            "כשהצטרפנו עם הצוות לגרסת הסוכנויות, החלפנו ארבעה כלים. הסטודיו עבד יום ראשון.",
+            "תהליך הניתוח חידד לי את הפוזיציוני בלי לחיות בוורדים שבוע. נכנסתי לסטודיו עם בהירות.",
           name: "תמר אבני",
-          role: "Founder · Bloom Agency",
-          product: "agencies" as const,
+          role: "מאמנת מנהיגות",
+          product: "studio" as const,
         },
       ],
     },
 
     pricing: {
       eyebrow: "PRICING",
-      title: "תוכניות פשוטות. בלי הפתעות.",
-      subtitle: "התחילי בחינם. שדרגי כשהעבודה גדלה.",
+      title: "אחת. חינם. לתמיד.",
+      subtitle: "מותג אחד עם כל הערוצים — ללא תשלום, בלי כרטיס, בלי תאריך תפוגה.",
       perMonth: "/ חודש",
       featured: "Studio",
       tiers: [
@@ -129,68 +157,36 @@ export const DICT = {
           price: "₪0",
           priceNote: "חינם לתמיד למותג אחד",
           bullets: [
-            "מותג אחד, כל הערוצים",
+            "ניתוח מותג מלא",
             "פודקאסט · ניוזלטר · סושיאל",
             "אנליטיקס מאוחד",
             "ספריית מדיה",
             "אינטגרציות מלאות",
           ],
-          cta: "התחילי בחינם",
+          cta: "להתחיל את הניתוח",
           featured: true,
-        },
-        {
-          chip: "agencies",
-          product: "agencies" as const,
-          name: "Agency",
-          price: "₪149",
-          priceNote: "לעורך, כולל את כל ה־Studio",
-          bullets: [
-            "כל מה שיש ב־Studio",
-            "ניהול לקוחות ללא הגבלה",
-            "אישורים, חשבוניות, CRM",
-            "צוות עם הרשאות",
-            "דוחות חודשיים מוכנים",
-            "תמיכה ייעודית",
-          ],
-          cta: "להתחיל ניסיון",
-          featured: false,
         },
       ],
       footnote: "צריכה משהו אחר? ",
       footnoteCta: "דברי איתנו →",
     },
 
-    agencyBand: {
-      eyebrow: "FOR AGENCIES",
-      title: "מנהלת סוכנות?",
-      body:
-        "Coflow Agencies מקבלות את כל ה־Studio — ובנוסף ניהול לקוחות, אישורים, CRM וצוות. שכבה שלמה מעל המוצר שאת כבר מכירה.",
-      cta: "ראי את חבילת הסוכנויות →",
-    },
-
     footer: {
-      tagline: "כל ניהול המותג האישי שלך במקום אחד.",
+      tagline: "מתחילים מניתוח מותג. ממשיכים לסטודיו אחד שמרכז הכל.",
       cols: {
         studio: "Studio",
-        agencies: "Agencies",
         company: "החברה",
         legal: "משפטי",
       },
       studioLinks: [
+        { label: "ניתוח המותג", href: "/#wizard" },
         { label: "פודקאסטים", href: "/studio#podcast" },
         { label: "ניוזלטרים", href: "/studio#newsletter" },
         { label: "סושיאל", href: "/studio#social" },
         { label: "אנליטיקס", href: "/studio#analytics" },
       ],
-      agenciesLinks: [
-        { label: "ניהול לקוחות", href: "/agencies" },
-        { label: "אישורים", href: "/agencies#approvals" },
-        { label: "CRM", href: "/agencies#crm" },
-        { label: "צוות", href: "/agencies#team" },
-      ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
-        { label: "בלוג", href: "/blog" },
         { label: "צרי קשר", href: "/contact" },
       ],
       legalLinks: [
@@ -204,90 +200,12 @@ export const DICT = {
 
     waitlist: {
       placeholder: "האימייל שלך",
-      submit: "להתחיל",
+      submit: "להישאר בקשר",
       sourceLabel: "מי את?",
-      sources: ["יוצרת תוכן", "סוכנות סושיאל", "פרילנסרית", "אחר"],
-      success: "נכנסת! נחזור אליך בהקדם.",
+      sources: ["יוצרת תוכן", "פודקאסטרית", "מאמנת / יועצת", "אחר"],
+      success: "נכנסת! נשמור עדכון כשתהיינה תכונות חדשות.",
       error: "משהו לא עבד, ננסי שוב?",
       privacy: "אנחנו לא שולחים ספאם. אפשר להסיר את עצמך בכל רגע.",
-    },
-
-    agenciesPage: {
-      eyebrow: "COFLOW AGENCIES",
-      titleA: "שכבה אחת",
-      titleB: "מעל ה־Studio —",
-      titleC: "לסוכנות שלך.",
-      subtitle:
-        "ניהול לקוחות, אישורים, CRM וצוות — כל מה שסוכנות צריכה כדי להפעיל אינסוף Studios של לקוחות, ממקום אחד.",
-      ctaPrimary: "להתחיל ניסיון",
-      ctaSecondary: "ראי את הטבלה",
-      caption: "Studio של הלקוח כלול. בלי כפילויות.",
-      surfaces: {
-        eyebrow: "WHAT THE AGENCY ADDS",
-        title: "מה הסוכנות מקבלת מעל ה־Studio.",
-        subtitle:
-          "Studio של הלקוח נשאר Studio של הלקוח. הסוכנות יושבת מעליו ומפעילה — לא משכפלת.",
-        items: [
-          {
-            id: "clients",
-            tag: "Clients",
-            title: "ניהול לקוחות",
-            body:
-              "כל לקוח עם ה־Studio שלו, פרופיל מותג, וצוות סוכנות שמוקצה אליו. תצוגה אחת לכל ההתקדמות.",
-          },
-          {
-            id: "approvals",
-            tag: "Approvals",
-            title: "אישורים",
-            body:
-              "הלקוח רואה רק מה שצריך אישור — בודק, מאשר או מבקש שינוי, כולל הקשר. בלי וואטסאפ, בלי Loom.",
-          },
-          {
-            id: "crm",
-            tag: "CRM",
-            title: "CRM של הסוכנות",
-            body:
-              "אנשי קשר, צינור עסקאות, פעילות. צמוד למותגים שאת באמת משרתת — בלי לעבור בין כלים.",
-          },
-          {
-            id: "team",
-            tag: "Team",
-            title: "צוות והרשאות",
-            body:
-              "מנהלות סושיאל, עורכות, גרפיקאיות — כל אחת רואה את מה שהיא צריכה. הרשאות פר תפקיד, לא פר משימה.",
-          },
-        ],
-      },
-      pillars: {
-        eyebrow: "WHY AGENCIES SWITCH",
-        title: "ארבע סיבות שסוכנות עוברת ל־Coflow.",
-        items: [
-          {
-            title: "Studio של הלקוח כלול",
-            body: "הלקוח עובד בכלי אמיתי, לא בטופס אישור. את עובדת מעליו.",
-          },
-          {
-            title: "מחליף חמישה כלים",
-            body: "Planable, Asana, Pipedrive, Notion, Later — בתוכנית אחת.",
-          },
-          {
-            title: "אישורים בלי דרמה",
-            body: "תהליך אחד שכולם מבינים. בלי לרדוף אחרי אישור בוואטסאפ.",
-          },
-          {
-            title: "דוחות חודשיים מוכנים",
-            body: "מספרים לכל לקוח, מקובץ אוטומטית. ללחיצה אחת.",
-          },
-        ],
-      },
-      cta: {
-        eyebrow: "READY?",
-        title: "תיכנסי לקבוצה הראשונה של סוכנויות.",
-        body:
-          "Coflow Agencies בגרסה מוקדמת. אנחנו פותחות קבוצה חדשה כל שבוע — לא יותר מ־5 סוכנויות בכל פעם.",
-        ctaPrimary: "להצטרף לרשימה",
-        ctaSecondary: "ראי את התמחור",
-      },
     },
 
     studioPage: {
@@ -297,8 +215,8 @@ export const DICT = {
       titleC: "במקום אחד.",
       subtitle:
         "פודקאסט, ניוזלטר, סושיאל ואנליטיקס — תכננת, פרסמת, מדדת. מותג אחד חינם לתמיד.",
-      ctaPrimary: "התחילי בחינם",
-      ctaSecondary: "מנהלת סוכנות?",
+      ctaPrimary: "להתחיל את הניתוח",
+      ctaSecondary: "ראי את התמחור",
       caption: "המותג הראשון חינם לתמיד. בלי כרטיס.",
       surfaces: {
         eyebrow: "WHAT YOU SHIP",
@@ -311,7 +229,7 @@ export const DICT = {
             tag: "Podcast",
             title: "פודקאסט",
             body:
-              "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ'אפטרים אוטומטיים.",
+              "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ׳אפטרים אוטומטיים.",
           },
           {
             id: "newsletter",
@@ -341,6 +259,10 @@ export const DICT = {
         title: "מה הופך את ה־Studio למוצר בודד שעובד.",
         items: [
           {
+            title: "מתחילים מניתוח",
+            body: "ניתוח אסטרטגי של המותג שלך בכניסה — ואז כלי שעובד עם הפלט.",
+          },
+          {
             title: "אפס קפיצות",
             body: "תוכן, פרסום ומדידה במקום אחד. לא חמישה טאבים.",
           },
@@ -352,18 +274,14 @@ export const DICT = {
             title: "אנליטיקס מאוחד",
             body: "כל הערוצים על אותו ציר זמן. מסע של פוסט מהרעיון עד הקליק.",
           },
-          {
-            title: "מוכן ליום הראשון",
-            body: "אינטגרציות לכל הערוצים בקליק. בלי תוספים, בלי תיכנות.",
-          },
         ],
       },
       cta: {
         eyebrow: "READY?",
-        title: "התחילי עם המותג הראשון בחינם.",
+        title: "התחילי עם הניתוח. ההמשך מתגלגל מאליו.",
         body:
           "כל הערוצים, אנליטיקס מאוחד, ספריית מדיה — חינם לתמיד למותג אחד.",
-        ctaPrimary: "להתחיל",
+        ctaPrimary: "להתחיל את הניתוח",
         ctaSecondary: "ראי את התמחור",
       },
     },
@@ -371,34 +289,60 @@ export const DICT = {
 
   en: {
     nav: {
-      features: "Features",
+      wizard: "Brand analysis",
+      features: "What's in Studio",
       pricing: "Pricing",
-      blog: "Blog",
-      forAgencies: "For agencies",
       signIn: "Sign in",
-      cta: "Start free",
+      cta: "Run my analysis",
     },
 
     hero: {
       eyebrow: "COFLOW STUDIO",
-      titleA: "Your whole",
-      titleB: "personal brand —",
-      titleC: "in one place.",
+      titleA: "See how your brand",
+      titleB: "looks from the outside —",
+      titleC: "in seven minutes.",
       subtitle:
-        "Podcast, newsletter, social and analytics. Plan it, ship it, measure it. No more jumping between five tools.",
-      cta: "Start free",
-      ctaSecondary: "Running an agency?",
-      caption: "First brand free, forever. No card.",
+        "Paste your links and we read your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a strategic analysis: what makes you unique, where the opportunity nobody talks about is, and where you're not yet owning your edge. Then you step into the Studio that runs every channel from one place.",
+      cta: "Run my analysis",
+      ctaSecondary: "See what's in the Studio",
+      caption: "Free. No card. About 7 minutes.",
       visualLabel: "studio",
       visualCaption: "Episode 14 · v2",
       visualMetric: "12 / 7",
     },
 
-    surfaces: {
-      eyebrow: "WHAT YOU SHIP",
-      title: "What are you making this week?",
+    wizard: {
+      eyebrow: "BRAND ANALYSIS WIZARD",
+      title: "What the analysis tells you about you.",
       subtitle:
-        "Every content format gets its own home — plan, publish, track. No add-ons, no client chat.",
+        "Paste whatever's already out there — site, Instagram, LinkedIn, YouTube, podcast. The system reads your voice, looks at your visuals, and produces a strategic document you'll come back to for months.",
+      bullets: [
+        {
+          title: "How your brand reads from the outside",
+          body: "What it actually signals — and where it contradicts itself. No softening.",
+        },
+        {
+          title: "What makes you impossible to copy",
+          body: "Three to seven signature traits — what a client remembers after she closes the tab.",
+        },
+        {
+          title: "The tension you're not yet owning",
+          body: "The sharpest finding in the doc — where you say one thing and signal another, and why sharpening it pays off.",
+        },
+        {
+          title: "Your strategic opportunity",
+          body: "The market's blue ocean — the pain no one touches, or the audience nobody is speaking to directly.",
+        },
+      ],
+      cta: "Run my analysis",
+      caption: "Free. About 7 minutes.",
+    },
+
+    surfaces: {
+      eyebrow: "AFTER THE ANALYSIS",
+      title: "Straight from the analysis into the Studio.",
+      subtitle:
+        "The moment the analysis is ready, you step into the Studio itself — one place that runs every channel you've already built. Plan, publish, measure.",
       items: [
         {
           tag: "Podcast",
@@ -425,7 +369,7 @@ export const DICT = {
 
     features: {
       eyebrow: "INSIDE THE STUDIO",
-      title: "What you get on day one.",
+      title: "What's waiting after the analysis.",
       subtitle: "Core features built in. Nothing to hunt for in plugins.",
       items: [
         { title: "Calendar across channels", body: "Weekly and monthly planning, drag and copy. The whole month on one screen." },
@@ -448,7 +392,8 @@ export const DICT = {
           product: "studio" as const,
         },
         {
-          quote: "I send one newsletter a week and a daily post. Before this I was paying for three tools.",
+          quote:
+            "The analysis gave me one sentence I caught myself quoting for weeks. Worth the 7 minutes on its own.",
           name: "Neta Ben-David",
           role: "Creator · Indie Studio",
           product: "studio" as const,
@@ -460,18 +405,20 @@ export const DICT = {
           product: "studio" as const,
         },
         {
-          quote: "When we joined the Agency tier with our team we replaced four tools. Studio worked from day one.",
+          quote:
+            "The analysis sharpened my positioning without a week of journaling. I walked into the Studio with clarity.",
           name: "Tamar Avni",
-          role: "Founder · Bloom Agency",
-          product: "agencies" as const,
+          role: "Leadership coach",
+          product: "studio" as const,
         },
       ],
     },
 
     pricing: {
       eyebrow: "PRICING",
-      title: "Simple plans. No surprises.",
-      subtitle: "Start free. Upgrade when the work grows.",
+      title: "One plan. Free. Forever.",
+      subtitle:
+        "One brand with every channel — no charge, no card, no expiry.",
       perMonth: "/ month",
       featured: "Studio",
       tiers: [
@@ -482,68 +429,36 @@ export const DICT = {
           price: "$0",
           priceNote: "Free forever for one brand",
           bullets: [
-            "One brand, every channel",
+            "Full brand analysis",
             "Podcast · newsletter · social",
             "Unified analytics",
             "Media library",
             "Full integrations",
           ],
-          cta: "Start free",
+          cta: "Run my analysis",
           featured: true,
-        },
-        {
-          chip: "agencies",
-          product: "agencies" as const,
-          name: "Agency",
-          price: "$39",
-          priceNote: "Per editor — includes all of Studio",
-          bullets: [
-            "Everything in Studio",
-            "Unlimited clients",
-            "Approvals, invoices, CRM",
-            "Team with permissions",
-            "Monthly reports ready",
-            "Dedicated support",
-          ],
-          cta: "Start trial",
-          featured: false,
         },
       ],
       footnote: "Need something different? ",
       footnoteCta: "Talk to us →",
     },
 
-    agencyBand: {
-      eyebrow: "FOR AGENCIES",
-      title: "Running an agency?",
-      body:
-        "Coflow Agencies includes everything in Studio — plus client management, approvals, CRM, and team. A whole layer on top of the product you already know.",
-      cta: "See the agency tier →",
-    },
-
     footer: {
-      tagline: "Your whole personal brand in one place.",
+      tagline: "Start with a brand analysis. Continue with one Studio for every channel.",
       cols: {
         studio: "Studio",
-        agencies: "Agencies",
         company: "Company",
         legal: "Legal",
       },
       studioLinks: [
+        { label: "Brand analysis", href: "/#wizard" },
         { label: "Podcasts", href: "/studio#podcast" },
         { label: "Newsletters", href: "/studio#newsletter" },
         { label: "Social", href: "/studio#social" },
         { label: "Analytics", href: "/studio#analytics" },
       ],
-      agenciesLinks: [
-        { label: "Client mgmt", href: "/agencies" },
-        { label: "Approvals", href: "/agencies#approvals" },
-        { label: "CRM", href: "/agencies#crm" },
-        { label: "Team", href: "/agencies#team" },
-      ],
       companyLinks: [
         { label: "About", href: "/about" },
-        { label: "Blog", href: "/blog" },
         { label: "Contact", href: "/contact" },
       ],
       legalLinks: [
@@ -557,90 +472,12 @@ export const DICT = {
 
     waitlist: {
       placeholder: "Your email",
-      submit: "Get started",
+      submit: "Keep me posted",
       sourceLabel: "Who are you?",
-      sources: ["Creator", "Social media agency", "Freelancer", "Other"],
-      success: "You're in! We'll be in touch shortly.",
+      sources: ["Creator", "Podcaster", "Coach / consultant", "Other"],
+      success: "You're in! We'll keep you posted on new features.",
       error: "Something didn't work. Try again?",
       privacy: "We don't send spam. Unsubscribe anytime.",
-    },
-
-    agenciesPage: {
-      eyebrow: "COFLOW AGENCIES",
-      titleA: "One layer",
-      titleB: "on top of Studio —",
-      titleC: "for your agency.",
-      subtitle:
-        "Client management, approvals, CRM, and team — everything an agency needs to operate any number of client Studios from one place.",
-      ctaPrimary: "Start trial",
-      ctaSecondary: "See the comparison",
-      caption: "Client's Studio is included. No duplication.",
-      surfaces: {
-        eyebrow: "WHAT THE AGENCY ADDS",
-        title: "What the agency gets on top of Studio.",
-        subtitle:
-          "The client's Studio stays the client's Studio. The agency sits above and operates — never duplicates.",
-        items: [
-          {
-            id: "clients",
-            tag: "Clients",
-            title: "Client management",
-            body:
-              "Each client with their own Studio, brand profile, and assigned agency team. One view for everything in motion.",
-          },
-          {
-            id: "approvals",
-            tag: "Approvals",
-            title: "Approvals",
-            body:
-              "Clients see only what needs them — review, approve, or request changes in context. No more WhatsApp, no more Loom.",
-          },
-          {
-            id: "crm",
-            tag: "CRM",
-            title: "Agency CRM",
-            body:
-              "Contacts, deal pipeline, activity. Right next to the brands you actually serve — no tool-hopping.",
-          },
-          {
-            id: "team",
-            tag: "Team",
-            title: "Team & permissions",
-            body:
-              "Social managers, editors, designers — each sees what they need. Permissions by role, not per task.",
-          },
-        ],
-      },
-      pillars: {
-        eyebrow: "WHY AGENCIES SWITCH",
-        title: "Four reasons agencies move to Coflow.",
-        items: [
-          {
-            title: "Client's Studio is included",
-            body: "The client works in a real tool, not an approval form. You operate above it.",
-          },
-          {
-            title: "Replaces five tools",
-            body: "Planable, Asana, Pipedrive, Notion, Later — in one plan.",
-          },
-          {
-            title: "Approvals without drama",
-            body: "One process everyone gets. No more chasing approvals on WhatsApp.",
-          },
-          {
-            title: "Monthly reports, ready",
-            body: "Numbers per client, aggregated automatically. One click.",
-          },
-        ],
-      },
-      cta: {
-        eyebrow: "READY?",
-        title: "Join the first cohort of agencies.",
-        body:
-          "Coflow Agencies is in early access. We open a new cohort each week — no more than 5 agencies at a time.",
-        ctaPrimary: "Join the waitlist",
-        ctaSecondary: "See pricing",
-      },
     },
 
     studioPage: {
@@ -650,8 +487,8 @@ export const DICT = {
       titleC: "in one place.",
       subtitle:
         "Podcast, newsletter, social and analytics. Plan it, ship it, measure it. One brand free, forever.",
-      ctaPrimary: "Start free",
-      ctaSecondary: "Running an agency?",
+      ctaPrimary: "Run my analysis",
+      ctaSecondary: "See pricing",
       caption: "First brand free, forever. No card.",
       surfaces: {
         eyebrow: "WHAT YOU SHIP",
@@ -694,6 +531,10 @@ export const DICT = {
         title: "Why Studio works as a single product.",
         items: [
           {
+            title: "Starts with analysis",
+            body: "Strategic read of your brand on entry — then a tool that works with that output.",
+          },
+          {
             title: "Zero tab-jumping",
             body: "Content, publishing, and measurement in one place. Not five tabs.",
           },
@@ -705,18 +546,14 @@ export const DICT = {
             title: "Unified analytics",
             body: "Every channel on the same timeline. A post's journey from idea to click.",
           },
-          {
-            title: "Day-one ready",
-            body: "Integrations to every channel in one click. No plugins, no code.",
-          },
         ],
       },
       cta: {
         eyebrow: "READY?",
-        title: "Start with your first brand for free.",
+        title: "Start with the analysis. The rest flows from there.",
         body:
           "All channels, unified analytics, media library — free forever for one brand.",
-        ctaPrimary: "Get started",
+        ctaPrimary: "Run my analysis",
         ctaSecondary: "See pricing",
       },
     },

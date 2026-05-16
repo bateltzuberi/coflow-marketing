@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionary";
+import { SITE } from "@/lib/site";
 
 export function PricingSnippet({ t }: { t: Dictionary["pricing"] }) {
   return (
@@ -13,7 +14,9 @@ export function PricingSnippet({ t }: { t: Dictionary["pricing"] }) {
           <p className="mt-4 text-[17px] text-ink-700">{t.subtitle}</p>
         </div>
 
-        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+        {/* Single Studio tier centered. Agency tier returns when that
+            product launches; until then we show one honest plan. */}
+        <div className="mt-14 md:mt-16 grid grid-cols-1 gap-5 max-w-md mx-auto">
           {t.tiers.map((tier) => (
             <Tier
               key={tier.product}
@@ -112,9 +115,9 @@ function Tier({
       </ul>
 
       <div className="mt-8">
-        <Link href="/#waitlist" className={btn}>
+        <a href={SITE.wizardUrl} className={btn}>
           {cta} →
-        </Link>
+        </a>
       </div>
     </div>
   );

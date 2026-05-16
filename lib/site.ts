@@ -1,85 +1,58 @@
 export const SITE = {
   name: "Coflow",
-  tagline: "Your whole personal brand in one place",
+  tagline: "See how your brand looks from the outside.",
   url: "https://coflow.social",
-  // Single app login URL (legacy): redirects to studio or agency app post-auth.
-  appUrl: "https://app.coflow.social",
+  // Single app login URL (legacy). studioAppUrl is the canonical entry
+  // point now — login + /start (the wizard) both live there.
+  appUrl: "https://studio.coflow.social",
   studioAppUrl: "https://studio.coflow.social",
-  agencyAppUrl: "https://agency.coflow.social",
+  // Wizard entry — the marketing CTA across the site points here.
+  wizardUrl: "https://studio.coflow.social/start",
   description:
-    "Coflow is one workspace for personal brands and the agencies that run them. Studio for solo creators — podcast, newsletter, social, analytics. Agencies on top — client management, approvals, CRM, team.",
+    "Coflow runs a brand-analysis wizard that reads your existing presence (site, podcast, socials) and hands back a strategic profile in ~7 minutes. Then you step into the Studio that runs podcast, newsletter, social and analytics from one place.",
   ogImage: "/og/default.png",
   twitter: "@coflow",
 } as const;
 
-// Positioning + scarcity copy used across the site. Updating this in one
-// place is enough — every page that shows waitlist scarcity reads from here.
-export const INVITE = {
-  status: "Invite-only · Early access",
-  waitlistCopy: "Currently invite-only. We open a new cohort each week.",
-  scarcityLine: "Join the waitlist · limited invites each week",
-  ctaPrimary: "Request early access",
-  ctaSecondary: "Join the waitlist",
+// Positioning copy used across the site. The product is live and free
+// for one brand; the agency tier ships later (intentionally not exposed
+// on the public site).
+export const POSITIONING = {
+  status: "Free · one brand",
+  scarcityLine: "Free for your first brand, forever.",
+  ctaPrimary: "Run my analysis",
+  ctaSecondary: "See what's in the Studio",
 } as const;
-
-// The tools we explicitly replace — used across the site for SEO comparisons.
-export const REPLACES = [
-  { name: "Planable", slug: "planable", category: "Content approval" },
-  { name: "Asana", slug: "asana", category: "Project management" },
-  { name: "Monday", slug: "monday", category: "Project management" },
-  { name: "Later", slug: "later", category: "Social scheduling" },
-  { name: "Hootsuite", slug: "hootsuite", category: "Social scheduling" },
-  { name: "Notion", slug: "notion", category: "Docs & tasks" },
-  { name: "Pipedrive", slug: "pipedrive", category: "CRM" },
-] as const;
 
 export const FEATURES = [
   {
+    slug: "brand-analysis",
+    name: "Brand analysis",
+    h1: "See how your brand looks from the outside",
+    short: "Paste your links. The system reads your presence and hands back a strategic analysis in ~7 minutes.",
+  },
+  {
     slug: "content-calendar",
     name: "Content calendar",
-    h1: "A content calendar built for social media agencies",
-    short: "One calm calendar per brand — drafts, reviews, approvals, scheduled, published.",
+    h1: "A calm content calendar for your whole brand",
+    short: "One calendar across podcast, newsletter, and social. Drafts, scheduled, published — on one screen.",
   },
   {
-    slug: "client-approvals",
-    name: "Client approvals",
-    h1: "Client approval software that ends the WhatsApp chaos",
-    short: "Your clients see only the posts that need them. They approve, comment, or request changes — in context.",
+    slug: "podcast",
+    name: "Podcast",
+    h1: "Plan, publish, and grow your podcast inside one Studio",
+    short: "Episode planning, guest management, auto descriptions and chapters across every platform.",
   },
   {
-    slug: "crm",
-    name: "Agency CRM",
-    h1: "A CRM built into your social media agency workspace",
-    short: "Contacts, deals pipeline, activity — next to the brands you actually serve.",
-  },
-  {
-    slug: "tasks",
-    name: "Tasks & projects",
-    h1: "Task management for social media managers — without the bloat",
-    short: "Agency, sales, client tasks — calendar, kanban, templates. No Asana required.",
+    slug: "newsletter",
+    name: "Newsletter",
+    h1: "Write, schedule, and measure your newsletter",
+    short: "Write, schedule, send. Opens and clicks flow into your unified analytics.",
   },
   {
     slug: "analytics",
-    name: "Brand analytics",
-    h1: "Social media analytics, per brand, per client",
-    short: "See what's performing for each brand without bouncing between tabs.",
-  },
-] as const;
-
-export const PERSONAS = [
-  {
-    slug: "social-media-managers",
-    name: "Social media managers",
-    h1: "The best tool for social media managers in 2026",
-  },
-  {
-    slug: "agencies",
-    name: "Social media agencies",
-    h1: "Social media agency software that replaces five tools",
-  },
-  {
-    slug: "freelancers",
-    name: "Freelance social media managers",
-    h1: "Freelance social media management — one clean workspace",
+    name: "Unified analytics",
+    h1: "One analytics view across every channel you run",
+    short: "Podcast, newsletter, social — one timeline. See the journey from idea to click.",
   },
 ] as const;
