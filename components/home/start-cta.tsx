@@ -10,13 +10,13 @@ export function StartCta({ locale }: { locale: Locale }) {
   const copy = locale === "he"
     ? {
         title: "מוכנה לראות את הניתוח שלך?",
-        body: "מדביקות לינקים, מקבלות בחזרה תמונה חדה של איך המותג שלך נראה מבחוץ — תוך דקות. את חידוד המסרים אנחנו עושות ביחד, בקצב שלך.",
+        body: "מדביקות לינקים, מקבלות בחזרה תמונה חדה של איך המותג שלך נראה מבחוץ — תוך 2 דקות. חידוד המסרים זו עבודה שאנחנו עושות איתך, בקצב שלך.",
         cta: "להתחיל את הניתוח",
         caption: "בלי כרטיס · המותג הראשון חינם לתמיד",
       }
     : {
         title: "Ready to see your analysis?",
-        body: "Paste your links and get a clear read of how your brand looks from the outside — in minutes. Sharpening your messages is the work we do together, at your pace.",
+        body: "Paste your links and get a clear read of how your brand looks from the outside — in 2 minutes. Sharpening your messages is the work we do with you, at your pace.",
         cta: "Run my analysis",
         caption: "No card · First brand free, forever",
       };
