@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/lib/dictionary";
-import { SITE } from "@/lib/site";
+import type { Locale } from "@/lib/locale";
+import { wizardUrlFor } from "@/lib/site";
 
 /**
  * Wizard CTA band — the funnel's centerpiece. Sits right after the hero
@@ -11,7 +12,7 @@ import { SITE } from "@/lib/site";
  * Primary CTA points to the live wizard at studio.coflow.social/start.
  * No client-side state — the wizard owns its own flow.
  */
-export function WizardCta({ t }: { t: Dictionary["wizard"] }) {
+export function WizardCta({ t, locale }: { t: Dictionary["wizard"]; locale: Locale }) {
   return (
     <section id="wizard" className="section">
       <div className="container-page">
@@ -54,7 +55,7 @@ export function WizardCta({ t }: { t: Dictionary["wizard"] }) {
             </ul>
 
             <div className="mt-10 flex flex-col items-center gap-3">
-              <a href={SITE.wizardUrl} className="btn btn-lavender">
+              <a href={wizardUrlFor(locale)} className="btn btn-lavender">
                 {t.cta} →
               </a>
               <p className="text-[13px] text-lavender-ink/65">{t.caption}</p>

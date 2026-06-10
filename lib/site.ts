@@ -14,6 +14,14 @@ export const SITE = {
   twitter: "@coflow",
 } as const;
 
+// Wizard entry carrying the visitor's current language across to the app.
+// The Studio app reads `?lang=` and locks it for the whole onboarding flow,
+// so the language someone is browsing this marketing site in is the language
+// the /start flow opens in (no more English landing → Hebrew onboarding).
+export function wizardUrlFor(locale: "he" | "en"): string {
+  return `${SITE.wizardUrl}?lang=${locale}`;
+}
+
 // Positioning copy used across the site. The product is live and free
 // for one brand; the agency tier ships later (intentionally not exposed
 // on the public site).

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionary";
+import type { Locale } from "@/lib/locale";
 import { TheInfiniteGrid } from "@/components/ui/the-infinite-grid";
-import { SITE } from "@/lib/site";
+import { wizardUrlFor } from "@/lib/site";
 
-export function Hero({ t }: { t: Dictionary["hero"] }) {
+export function Hero({ t, locale }: { t: Dictionary["hero"]; locale: Locale }) {
   return (
     <section className="relative overflow-hidden isolate">
       <TheInfiniteGrid />
@@ -21,7 +22,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href={SITE.wizardUrl} className="btn btn-lime w-full sm:w-auto">
+          <a href={wizardUrlFor(locale)} className="btn btn-lime w-full sm:w-auto">
             {t.cta} →
           </a>
           <Link

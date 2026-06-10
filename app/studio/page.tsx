@@ -7,7 +7,7 @@ import { ProductCta } from "@/components/product/product-cta";
 import { JsonLd, breadcrumbsJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { SITE } from "@/lib/site";
+import { wizardUrlFor } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Coflow Studio — your whole personal brand in one place",
@@ -32,7 +32,7 @@ export default async function StudioPage() {
       <main>
         <ProductHero
           tone="studio"
-          ctaPrimaryHref={SITE.wizardUrl}
+          ctaPrimaryHref={wizardUrlFor(locale)}
           ctaSecondaryHref="/#pricing"
           t={t}
         />
@@ -43,6 +43,7 @@ export default async function StudioPage() {
           source="studio-page"
           secondaryHref="/#pricing"
           t={t.cta}
+          locale={locale}
         />
       </main>
       <Footer />

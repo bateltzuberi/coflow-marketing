@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/locale";
-import { SITE } from "@/lib/site";
+import { wizardUrlFor } from "@/lib/site";
 
 /**
  * Closing CTA at the bottom of the home page. Mirrors the wizard CTA
@@ -32,7 +32,7 @@ export function StartCta({ locale }: { locale: Locale }) {
             {copy.body}
           </p>
           <div className="mt-8 flex flex-col items-center gap-3">
-            <a href={SITE.wizardUrl} className="btn btn-lime">
+            <a href={wizardUrlFor(locale)} className="btn btn-lime">
               {copy.cta} →
             </a>
             <p className="text-[13px] text-ink-500">{copy.caption}</p>

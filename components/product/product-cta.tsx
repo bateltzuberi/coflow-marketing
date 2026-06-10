@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site";
+import type { Locale } from "@/lib/locale";
+import { wizardUrlFor } from "@/lib/site";
 
 type ProductCtaCopy = {
   eyebrow: string;
@@ -14,6 +15,7 @@ export function ProductCta({
   source: _source,
   secondaryHref,
   t,
+  locale,
 }: {
   tone: "studio" | "agencies";
   /** Retained for compatibility — was used by the legacy waitlist form,
@@ -21,6 +23,7 @@ export function ProductCta({
   source: string;
   secondaryHref: string;
   t: ProductCtaCopy;
+  locale: Locale;
 }) {
   const isAgencies = tone === "agencies";
   const surfaceClass = isAgencies
@@ -50,7 +53,7 @@ export function ProductCta({
 
           <div className="mt-8 flex flex-col items-center gap-3">
             <a
-              href={SITE.wizardUrl}
+              href={wizardUrlFor(locale)}
               className={isAgencies ? "btn btn-lavender" : "btn btn-lime"}
             >
               {t.ctaPrimary} →
