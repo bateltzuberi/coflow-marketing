@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionary";
-import { SITE } from "@/lib/site";
+import type { Locale } from "@/lib/locale";
+import { wizardUrlFor } from "@/lib/site";
 
-export function PricingSnippet({ t }: { t: Dictionary["pricing"] }) {
+export function PricingSnippet({ t, locale }: { t: Dictionary["pricing"]; locale: Locale }) {
   return (
     <section id="pricing" className="section">
       <div className="container-page">
@@ -30,6 +31,7 @@ export function PricingSnippet({ t }: { t: Dictionary["pricing"] }) {
               cta={tier.cta}
               featured={tier.featured}
               featuredLabel={t.featured}
+              locale={locale}
             />
           ))}
         </div>
@@ -54,6 +56,7 @@ function Tier({
   cta,
   featured,
   featuredLabel,
+  locale,
 }: {
   tone: "studio" | "agencies";
   chip: string;
@@ -65,6 +68,7 @@ function Tier({
   cta: string;
   featured: boolean;
   featuredLabel: string;
+  locale: Locale;
 }) {
   const isStudio = tone === "studio";
   const chipClass = isStudio ? "chip chip-lime" : "chip chip-lavender";
@@ -115,7 +119,7 @@ function Tier({
       </ul>
 
       <div className="mt-8">
-        <a href={SITE.wizardUrl} className={btn}>
+        <a href={wizardUrlFor(locale)} className={btn}>
           {cta} →
         </a>
       </div>

@@ -36,12 +36,12 @@ export default async function Home() {
          *   6. PricingSnippet — one free tier
          *   7. StartCta — closing wizard CTA
          */}
-        <Hero t={dict.hero} />
-        <WizardCta t={dict.wizard} />
+        <Hero t={dict.hero} locale={locale} />
+        <WizardCta t={dict.wizard} locale={locale} />
         <StudioSurfaces t={dict.surfaces} />
         <Features t={dict.features} />
         <Testimonials t={dict.testimonials} />
-        <PricingSnippet t={dict.pricing} />
+        <PricingSnippet t={dict.pricing} locale={locale} />
         <StartCta locale={locale} />
       </main>
       <Footer />

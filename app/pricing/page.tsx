@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd, buildMetadata, faqJsonLd, breadcrumbsJsonLd } from "@/lib/seo";
-import { POSITIONING, SITE } from "@/lib/site";
+import { POSITIONING, wizardUrlFor } from "@/lib/site";
+import { getLocale } from "@/lib/locale";
 
 // Public pricing. One real tier today (Studio · free for one brand).
 // The agency tier returns when that product ships; until then we keep
@@ -53,7 +54,8 @@ const PLAN = {
   ],
 } as const;
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const locale = await getLocale();
   return (
     <>
       <JsonLd data={faqJsonLd(PRICING_FAQS)} />
@@ -76,7 +78,7 @@ export default function PricingPage() {
           is on its way; until then, this is what you pay.
         </p>
         <div className="mt-6">
-          <a href={SITE.wizardUrl} className="btn-primary min-h-12 text-sm">
+          <a href={wizardUrlFor(locale)} className="btn-primary min-h-12 text-sm">
             Run my analysis
           </a>
         </div>
@@ -98,7 +100,7 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <a href={SITE.wizardUrl} className="mt-8 btn-accent min-h-11 text-sm text-center">
+          <a href={wizardUrlFor(locale)} className="mt-8 btn-accent min-h-11 text-sm text-center">
             Run my analysis →
           </a>
         </article>

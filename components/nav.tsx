@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { SITE } from "@/lib/site";
+import { SITE, wizardUrlFor } from "@/lib/site";
 
 export async function Nav() {
   const locale = await getLocale();
@@ -36,7 +36,7 @@ export async function Nav() {
           >
             {t.signIn}
           </a>
-          <a href={SITE.wizardUrl} className="btn btn-lime btn-sm">
+          <a href={wizardUrlFor(locale)} className="btn btn-lime btn-sm">
             {t.cta}
           </a>
         </div>
