@@ -28,7 +28,7 @@ export async function Footer() {
         {/* 3 columns — agencies column will return when the agency tier
             ships. Until then, Studio carries the product surfaces. */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-10">
-          <FooterCol title={t.cols.studio} dot="lime" links={t.studioLinks} />
+          <FooterCol title={t.cols.product} dot="lime" links={t.productLinks} />
           <FooterCol title={t.cols.company} links={t.companyLinks} />
           <FooterCol title={t.cols.legal} links={t.legalLinks} />
         </div>
