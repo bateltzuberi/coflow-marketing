@@ -1,189 +1,159 @@
 import type { Locale } from "./locale";
 
 /**
- * All marketing copy in one place. Hebrew is primary (the brand voice
- * is written in Hebrew first, then translated). Keep the structure
- * mirror-symmetric across languages or `t()` calls will break.
+ * All marketing copy in one place. Hebrew is primary (the brand voice is
+ * written in Hebrew first, then translated). The `he` shape defines the
+ * Dictionary type, so `en` must mirror it key-for-key.
  *
- * Positioning: wizard-led. The home page sells the brand-analysis
- * wizard ("see how your brand looks from the outside") as the funnel
- * entry, then explains what Studio actually does once the user is in.
- *
- * Agency surfaces are intentionally not exposed — agency tier ships
- * later. Lime is the dominant accent; lavender is reserved for the
- * wizard CTA blocks.
+ * Positioning (Instagram-only MVP): the site sells ONE thing — the free
+ * Instagram read (the lead magnet). Every primary button does the same
+ * single action: start the free read. "How it works" is the only secondary
+ * action (a quiet link to the system explainer). No multi-platform "Studio"
+ * surface, no testimonials yet. Voice: plain, concrete, a little blunt. No
+ * slogans, no em-dashes.
  */
 export const DICT = {
   he: {
     nav: {
-      wizard: "ניתוח המותג",
-      features: "מה בסטודיו",
-      pricing: "מחירים",
+      howItWorks: "איך זה עובד",
       signIn: "התחברות",
-      cta: "ראי את הניתוח שלך",
+      cta: "לאבחון החינמי",
     },
 
     hero: {
-      eyebrow: "COFLOW STUDIO",
-      titleA: "בדקי איך המותג שלך",
-      titleB: "נראה מבחוץ —",
-      titleC: "תוך 2 דקות.",
-      subtitle:
-        "מדביקות לינקים, המערכת סורקת את הנוכחות הדיגיטלית שלך ומחזירה ניתוח אסטרטגי תוך 2 דקות. משם — חידוד המסרים, הפוזיציוני וההזדמנות שעוד לא לקחת על עצמך — זו העבודה האמיתית, ואותה אנחנו עושות איתך בקצב שלך, בסטודיו שמרכז את כל הערוצים שלך במקום אחד.",
-      cta: "להתחיל את הניתוח",
-      ctaSecondary: "מה יש בסטודיו?",
-      caption: "הניתוח חינמי. 2 דקות לתמונה. בלי כרטיס.",
-      visualLabel: "studio",
-      visualCaption: "תכנון פרק 14 · גרסה 2",
-      visualMetric: "12 / 7",
+      eyebrow: "אבחון אינסטגרם חינמי",
+      title: "תגלי למה האינסטגרם שלך לא מביא לקוחות.",
+      sub: "את מעלה פוסטים כל שבוע, וזה כמעט לא זז. קופלו קוראת את העמוד האמיתי שלך ואומרת לך תוך שתי דקות מה מבריח אנשים בשקט, ומה הדבר הראשון לתקן. בחינם.",
+      cta: "לאבחון החינמי",
+      micro: "רק שם המשתמש. בלי הרשמה, בלי כרטיס.",
     },
 
-    wizard: {
-      eyebrow: "BRAND ANALYSIS WIZARD",
-      title: "מה הניתוח אומר לך עלייך.",
-      subtitle:
-        "מדביקות את כל מה שכבר קיים — אתר, אינסטגרם, לינקדאין, יוטיוב, פודקאסט. המערכת קוראת את הקול שלך, מסתכלת על הוויזואלים, ומפיקה מסמך אסטרטגי שאת חוזרת אליו לחודשים.",
-      bullets: [
-        {
-          title: "איך המותג שלך נראה מבחוץ",
-          body: "מה הוא בעצם משדר — ובאילו מקומות הוא סותר את עצמו. בלי לרכך.",
-        },
-        {
-          title: "מה שהופך אותך לבלתי ניתנת להעתקה",
-          body: "שלוש עד שבע תכונות חתימה — מה שלקוחה תזכור גם כשהיא תסגור את הטאב.",
-        },
-        {
-          title: "המתח שעוד לא לקחת על עצמך",
-          body: "האבחנה החדה ביותר במסמך — איפה את אומרת דבר אחד ומשדרת אחר, ולמה זה משתלם לדייק.",
-        },
-        {
-          title: "ההזדמנות האסטרטגית שלך",
-          body: "ה-Blue Ocean של השוק — הכאב שאף אחד לא נוגע בו, או הקהל שאף אחד לא פונה אליו ישירות.",
-        },
+    problem: {
+      title: "נשמע מוכר?",
+      lines: [
+        "את מעלה שלושה פוסטים בשבוע, ואותם עשרים אנשים עושים לייק כל פעם.",
+        "את יושבת שעה על קופי, ומקבלת שנים עשר לייקים ואפס פניות.",
+        "אנשים עוקבים, ואז כלום. אין שאלות, אין לקוחות.",
+        "את פותחת את הפיד של עצמך וכבר לא בטוחה מה את בכלל מוכרת.",
       ],
-      cta: "להתחיל את הניתוח",
-      caption: "הניתוח חינמי ולוקח 2 דקות. חידוד המסרים — בקצב שלך.",
+      reframe:
+        "כלום מזה לא אומר שאת לא טובה בזה. זה אומר שדבר אחד ספציפי בעמוד עומד בדרך. האבחון מוצא אותו.",
     },
 
-    surfaces: {
-      eyebrow: "AFTER THE ANALYSIS",
-      title: "מהניתוח, ישר לסטודיו.",
-      subtitle:
-        "ברגע שהניתוח גמור, את עוברת לסטודיו עצמו — מקום אחד שמרכז את כל הערוצים שכבר בנית. תכנון, פרסום, מעקב.",
+    value: {
+      eyebrow: "מה את מקבלת",
+      title: "כל זה תוך שתי דקות, על העמוד האמיתי שלך.",
       items: [
         {
-          tag: "Podcast",
-          title: "פודקאסט",
-          body: "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ׳אפטרים אוטומטיים.",
+          title: "מה אנשים באמת חושבים שאת עושה",
+          body: "ברגע שהם נוחתים על העמוד, במשפט אחד. בדרך כלל זה לא מה שהתכוונת.",
         },
         {
-          tag: "Newsletter",
-          title: "ניוזלטר",
-          body: "כתיבה, תזמון ושליחה. מעקב פתיחות וקליקים שמתרגם לאנליטיקס במקום אחד.",
+          title: "אילו פוסטים מושכים אנשים פנימה, ואילו מאבדים אותם בשקט",
+          body: "מוצג על הפוסטים האמיתיים שלך, לא כתיאוריה.",
         },
         {
-          tag: "Social",
-          title: "סושיאל",
-          body: "לוח שנה לכל הערוצים. תזמון, ארכיון פוסטים ושימוש חוזר במה שעבד.",
-        },
-        {
-          tag: "Analytics",
-          title: "אנליטיקס",
-          body: "מספרים אחידים על פני כל הערוצים. רואה מה עובד באמת — לא דוחות נפרדים.",
+          title: "הדבר האחד שעולה לך הכי הרבה עוקבים עכשיו",
+          body: "ומה לשנות בו כבר השבוע. לא עשרים דברים. אחד.",
         },
       ],
+      grounding: "בנוי מהביו והפוסטים האמיתיים שלך. שני עמודים מקבלים שני אבחונים שונים.",
+      cta: "לאבחון החינמי",
     },
 
-    features: {
-      eyebrow: "INSIDE THE STUDIO",
-      title: "מה שמחכה לך אחרי הניתוח.",
-      subtitle: "תכונות הליבה שכבר בנויות. אין מה לחפש בתוספים.",
-      items: [
-        { title: "לוח שנה לכל הערוצים", body: "תכנון שבועי וחודשי, גרירה והעתקה. החודש כולו על מסך אחד." },
-        { title: "אוטומציות", body: "שגרות חוזרות שמייצרות משימות בעצמן. את לא צריכה לזכור." },
-        { title: "אנליטיקס", body: "מספרים ברורים. לא דוח של חמישים עמודים שאף אחד לא קורא." },
-        { title: "ספריית מדיה", body: "קבצים, גרסאות, אסטים. הכל במקום אחד שאפשר לחפש בו." },
-        { title: "שיתוף פעולה", body: "תגובות והערות בתוך הפוסט עצמו. בלי וואטסאפ ובלי Loom." },
-        { title: "אינטגרציות", body: "יוטיוב, מטא, טיקטוק, גוגל ועוד. בקליק, בלי תיכנות." },
-      ],
-    },
-
-    testimonials: {
-      eyebrow: "WHAT OUR PEOPLE SAY",
-      title: "מה שאומרים עלינו.",
+    why: {
+      eyebrow: "למה לסמוך על זה",
+      title: "שונה מכל ״כלי AI״ שניסית.",
       items: [
         {
-          quote:
-            "סוף סוף הפסקתי לקפוץ בין חמישה טאבים בכל פרק. הפודקאסט והניוזלטר חיים יחד.",
-          name: "מיכל גרין",
-          role: "פודקאסטרית · The Quiet Way",
-          product: "studio" as const,
+          title: "זה מסתכל על העמוד האמיתי שלך",
+          body: "הביו האמיתי, הפוסטים האחרונים האמיתיים. לא תבנית, לא צ׳קליסט גנרי. ואם משהו חבוי מאחורי ההתחברות של אינסטגרם, זה אומר לך, במקום להמציא.",
         },
         {
-          quote:
-            "הניתוח אמר לי משפט אחד שתפסתי את עצמי מצטטת אותו לעצמי שבועות. ידעתי שאני בידיים נכונות.",
-          name: "נטע בן־דוד",
-          role: "יוצרת תוכן · Indie Studio",
-          product: "studio" as const,
+          title: "זו שיטה, לא תחושה",
+          body: "כל עמוד נקרא על אותם שישה דברים: ברור מה את עושה, מה מייחד אותך, האם את נקראת כמי שמבינה בתחום שלה, למי זה מדבר, מה כל פוסט בא לעשות, ואיך כל זה הופך לכסף.",
         },
         {
-          quote:
-            "המספרים סוף סוף מסתדרים יחד. רואה את המסע של פוסט מהרעיון עד הקליק בניוזלטר.",
-          name: "ענת לוי",
-          role: "סופרת · בלי תהילה",
-          product: "studio" as const,
-        },
-        {
-          quote:
-            "תהליך הניתוח חידד לי את הפוזיציוני בלי לחיות בוורדים שבוע. נכנסתי לסטודיו עם בהירות.",
-          name: "תמר אבני",
-          role: "מאמנת מנהיגות",
-          product: "studio" as const,
+          title: "זה אומר לך את החלק הלא נוח",
+          body: "מחמאה קל למכור לך. אנחנו מעדיפים לתת לך את הדבר שבאמת תוקע אותך, גם אם זה צורב, כי זה החלק שאפשר לתקן.",
         },
       ],
     },
 
-    pricing: {
-      eyebrow: "PRICING",
-      title: "אחת. חינם. לתמיד.",
-      subtitle: "מותג אחד עם כל הערוצים — ללא תשלום, בלי כרטיס, בלי תאריך תפוגה.",
-      perMonth: "/ חודש",
-      featured: "Studio",
-      tiers: [
+    bridge: {
+      text: "האבחון בחינם, וזו רק ההתחלה. ואם תרצי, קופלו לוקחת את זה הלאה והופכת את זה לתוכנית ולפוסטים אמיתיים בקול שלך.",
+      linkLabel: "ככה זה עובד",
+    },
+
+    faq: {
+      title: "לפני שאת מתחילה",
+      items: [
         {
-          chip: "studio",
-          product: "studio" as const,
-          name: "Studio",
-          price: "₪0",
-          priceNote: "חינם לתמיד למותג אחד",
-          bullets: [
-            "ניתוח מותג מלא",
-            "פודקאסט · ניוזלטר · סושיאל",
-            "אנליטיקס מאוחד",
-            "ספריית מדיה",
-            "אינטגרציות מלאות",
-          ],
-          cta: "להתחיל את הניתוח",
-          featured: true,
+          q: "זה באמת בחינם?",
+          a: "כן. האבחון לא עולה כלום ולא צריך כרטיס. המערכת שאת בונה אחריו היא מוצר בתשלום.",
+        },
+        {
+          q: "אני חייבת לחבר את האינסטגרם?",
+          a: "לא. מדביקה שם משתמש, ואנחנו קוראים את מה שגלוי. בלי סיסמאות, בלי הרשאות.",
+        },
+        {
+          q: "זו עוד עצה גנרית של AI?",
+          a: "לא. זה בנוי מהביו והפוסטים האמיתיים שלך. שני עמודים שונים מקבלים שני אבחונים שונים.",
+        },
+        {
+          q: "ומה עם המידע שלי?",
+          a: "אנחנו קוראים את הפרופיל הציבורי שלך כדי להפיק את האבחון. זה הכל.",
         },
       ],
-      footnote: "צריכה משהו אחר? ",
-      footnoteCta: "דברי איתנו →",
+    },
+
+    finalCta: {
+      title: "תפסיקי לנחש מה לא בסדר באינסטגרם שלך.",
+      sub: "תגלי תוך שתי דקות, בחינם.",
+      cta: "לאבחון החינמי",
+      micro: "רק שם המשתמש. בלי הרשמה, בלי כרטיס.",
+    },
+
+    howItWorks: {
+      eyebrow: "איך זה עובד",
+      heroTitle: "האבחון החינמי מראה לך את הבעיה. קופלו פותרת אותה איתך.",
+      heroSub: "האבחון אומר לך מה תוקע את העמוד. קופלו זה מה שהופך את זה לפוסטים: אסטרטגיה, רעיונות וקופי בקול שלך, על לוח אחד.",
+      cta: "לאבחון החינמי",
+      stages: [
+        {
+          title: "את מגלה בדיוק מה תוקע את העמוד מלגדול",
+          body: "זה האבחון החינמי. קריאה ישרה של העמוד האמיתי שלך, בשתי דקות.",
+        },
+        {
+          title: "את מפסיקה לנחש מה להעלות",
+          body: "שיחה של עשר דקות נותנת לך תשובה ברורה למי העמוד מדבר ואילו סוגי פוסטים באמת עובדים לך. לא קורס, לא תיאוריה.",
+        },
+        {
+          title: "את מתיישבת להעלות ולא נתקעת",
+          body: "את מקבלת רעיונות ספציפיים שמתאימים לך, במקום לבהות במלבן ריק.",
+        },
+        {
+          title: "את מפסיקה לשרוף שעה על כל קופי",
+          body: "את אומרת בכמה מילים מה בא לך להעביר. קופלו כותבת את הקופי המלא, את שורת הפתיחה ואת ההאשטגים, בקול שלך, לא ברובוטית.",
+        },
+        {
+          title: "את באמת מעלה באופן עקבי",
+          body: "לכל פוסט יש מקום: בעבודה, מוכן, עלה. בלי להעלות בהתפרצות ואז להיעלם לשבועיים.",
+        },
+      ],
+      positioning: "לא AI שמפרסם במקומך. אסטרטגית וצוות תוכן ששומרים על הקול ועל ההחלטות שלך.",
     },
 
     footer: {
-      tagline: "מתחילים מניתוח מותג. ממשיכים לסטודיו אחד שמרכז הכל.",
+      tagline: "מתחילים מאבחון חינמי של האינסטגרם. ממשיכים לאסטרטגיה ולפוסטים בקול שלך.",
       cols: {
-        studio: "Studio",
+        product: "המוצר",
         company: "החברה",
         legal: "משפטי",
       },
-      studioLinks: [
-        { label: "ניתוח המותג", href: "/#wizard" },
-        { label: "פודקאסטים", href: "/studio#podcast" },
-        { label: "ניוזלטרים", href: "/studio#newsletter" },
-        { label: "סושיאל", href: "/studio#social" },
-        { label: "אנליטיקס", href: "/studio#analytics" },
+      productLinks: [
+        { label: "איך זה עובד", href: "/how-it-works" },
+        { label: "האבחון החינמי", href: "/how-it-works#stages" },
       ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
@@ -197,265 +167,149 @@ export const DICT = {
       langSwitcher: "EN",
       langSwitcherAria: "Switch to English",
     },
-
-    waitlist: {
-      placeholder: "האימייל שלך",
-      submit: "להישאר בקשר",
-      sourceLabel: "מי את?",
-      sources: ["יוצרת תוכן", "פודקאסטרית", "מאמנת / יועצת", "אחר"],
-      success: "נכנסת! נשמור עדכון כשתהיינה תכונות חדשות.",
-      error: "משהו לא עבד, ננסי שוב?",
-      privacy: "אנחנו לא שולחים ספאם. אפשר להסיר את עצמך בכל רגע.",
-    },
-
-    studioPage: {
-      eyebrow: "COFLOW STUDIO",
-      titleA: "כל ניהול",
-      titleB: "המותג האישי",
-      titleC: "במקום אחד.",
-      subtitle:
-        "פודקאסט, ניוזלטר, סושיאל ואנליטיקס — תכננת, פרסמת, מדדת. מותג אחד חינם לתמיד.",
-      ctaPrimary: "להתחיל את הניתוח",
-      ctaSecondary: "ראי את התמחור",
-      caption: "המותג הראשון חינם לתמיד. בלי כרטיס.",
-      surfaces: {
-        eyebrow: "WHAT YOU SHIP",
-        title: "מה את יוצרת השבוע?",
-        subtitle:
-          "כל פורמט של תוכן מקבל את המקום שלו — תכנון, פרסום, מעקב. במקום אחד.",
-        items: [
-          {
-            id: "podcast",
-            tag: "Podcast",
-            title: "פודקאסט",
-            body:
-              "תכנון פרקים, ניהול אורחים, פרסום לכל הפלטפורמות עם תיאור וצ׳אפטרים אוטומטיים.",
-          },
-          {
-            id: "newsletter",
-            tag: "Newsletter",
-            title: "ניוזלטר",
-            body:
-              "כתיבה, תזמון ושליחה. פתיחות וקליקים שמתרגם לאנליטיקס במקום אחד.",
-          },
-          {
-            id: "social",
-            tag: "Social",
-            title: "סושיאל",
-            body:
-              "לוח שנה לכל הערוצים. תזמון, ארכיון פוסטים ושימוש חוזר במה שעבד.",
-          },
-          {
-            id: "analytics",
-            tag: "Analytics",
-            title: "אנליטיקס",
-            body:
-              "מספרים אחידים על פני כל הערוצים. רואה מה עובד באמת — לא דוחות נפרדים.",
-          },
-        ],
-      },
-      pillars: {
-        eyebrow: "WHY STUDIO",
-        title: "מה הופך את ה־Studio למוצר בודד שעובד.",
-        items: [
-          {
-            title: "מתחילים מניתוח",
-            body: "ניתוח אסטרטגי של המותג שלך בכניסה — ואז כלי שעובד עם הפלט.",
-          },
-          {
-            title: "אפס קפיצות",
-            body: "תוכן, פרסום ומדידה במקום אחד. לא חמישה טאבים.",
-          },
-          {
-            title: "מחיר שמתחיל מאפס",
-            body: "מותג אחד חינם לתמיד. שדרגי כשהעבודה גדלה.",
-          },
-          {
-            title: "אנליטיקס מאוחד",
-            body: "כל הערוצים על אותו ציר זמן. מסע של פוסט מהרעיון עד הקליק.",
-          },
-        ],
-      },
-      cta: {
-        eyebrow: "READY?",
-        title: "התחילי עם הניתוח. ההמשך מתגלגל מאליו.",
-        body:
-          "כל הערוצים, אנליטיקס מאוחד, ספריית מדיה — חינם לתמיד למותג אחד.",
-        ctaPrimary: "להתחיל את הניתוח",
-        ctaSecondary: "ראי את התמחור",
-      },
-    },
   },
 
   en: {
     nav: {
-      wizard: "Brand analysis",
-      features: "What's in Studio",
-      pricing: "Pricing",
-      signIn: "Sign in",
-      cta: "Run my analysis",
+      howItWorks: "How it works",
+      signIn: "Log in",
+      cta: "Read my page free",
     },
 
     hero: {
-      eyebrow: "COFLOW STUDIO",
-      titleA: "See how your brand",
-      titleB: "looks from the outside —",
-      titleC: "in 2 minutes.",
-      subtitle:
-        "Paste your links and we scan your digital presence — site, Instagram, LinkedIn, YouTube, podcast — and hand back a strategic analysis in 2 minutes. From there, sharpening your messages, your positioning, and the edge you're not yet owning is the real work — and we do that together, at your pace, inside the Studio that runs every channel from one place.",
-      cta: "Run my analysis",
-      ctaSecondary: "See what's in the Studio",
-      caption: "Free. 2 minutes for the analysis. No card.",
-      visualLabel: "studio",
-      visualCaption: "Episode 14 · v2",
-      visualMetric: "12 / 7",
+      eyebrow: "FREE INSTAGRAM READ",
+      title: "Find out why your Instagram isn't bringing you clients.",
+      sub: "You post every week and it barely moves. Coflow reads your real page and tells you, in two minutes, what's quietly pushing people away and the first thing to fix. Free.",
+      cta: "Read my page free",
+      micro: "Just your @handle. No sign-up, no card.",
     },
 
-    wizard: {
-      eyebrow: "BRAND ANALYSIS WIZARD",
-      title: "What the analysis tells you about you.",
-      subtitle:
-        "Paste whatever's already out there — site, Instagram, LinkedIn, YouTube, podcast. The system reads your voice, looks at your visuals, and produces a strategic document you'll come back to for months.",
-      bullets: [
-        {
-          title: "How your brand reads from the outside",
-          body: "What it actually signals — and where it contradicts itself. No softening.",
-        },
-        {
-          title: "What makes you impossible to copy",
-          body: "Three to seven signature traits — what a client remembers after she closes the tab.",
-        },
-        {
-          title: "The tension you're not yet owning",
-          body: "The sharpest finding in the doc — where you say one thing and signal another, and why sharpening it pays off.",
-        },
-        {
-          title: "Your strategic opportunity",
-          body: "The market's blue ocean — the pain no one touches, or the audience nobody is speaking to directly.",
-        },
+    problem: {
+      title: "Sound familiar?",
+      lines: [
+        "You post three times a week, and it's the same twenty people liking it every time.",
+        "You spend an hour on a caption, and it gets twelve likes and zero DMs.",
+        "People follow you, and then nothing. No questions, no clients.",
+        "You open your own feed and you're not even sure what you're selling anymore.",
       ],
-      cta: "Run my analysis",
-      caption: "Free. The analysis takes 2 minutes. Sharpening continues at your pace.",
+      reframe:
+        "None of that means you're bad at this. It means one specific thing on your page is in the way. The read finds it.",
     },
 
-    surfaces: {
-      eyebrow: "AFTER THE ANALYSIS",
-      title: "Straight from the analysis into the Studio.",
-      subtitle:
-        "The moment the analysis is ready, you step into the Studio itself — one place that runs every channel you've already built. Plan, publish, measure.",
+    value: {
+      eyebrow: "WHAT YOU GET",
+      title: "All of this in two minutes, on your real page.",
       items: [
         {
-          tag: "Podcast",
-          title: "Podcast",
-          body: "Plan episodes, manage guests, publish to every platform with auto descriptions and chapters.",
+          title: "What people actually think you do",
+          body: "The second they land on your page, in one sentence. Usually it's not what you meant.",
         },
         {
-          tag: "Newsletter",
-          title: "Newsletter",
-          body: "Write, schedule, send. Open and click tracking that flows into one analytics view.",
+          title: "Which posts pull people in, and which lose them in silence",
+          body: "Shown on your real posts, not as a theory.",
         },
         {
-          tag: "Social",
-          title: "Social",
-          body: "Calendar across every channel. Schedule, archive, and reuse what worked.",
-        },
-        {
-          tag: "Analytics",
-          title: "Analytics",
-          body: "One unified view across all channels. See what actually worked — not separate dashboards.",
+          title: "The one thing costing you the most followers right now",
+          body: "And what to change about it this week. Not twenty things. One.",
         },
       ],
+      grounding: "Built from your real bio and posts. Two pages get two different reads.",
+      cta: "Read my page free",
     },
 
-    features: {
-      eyebrow: "INSIDE THE STUDIO",
-      title: "What's waiting after the analysis.",
-      subtitle: "Core features built in. Nothing to hunt for in plugins.",
-      items: [
-        { title: "Calendar across channels", body: "Weekly and monthly planning, drag and copy. The whole month on one screen." },
-        { title: "Automations", body: "Recurring routines that create their own tasks. You don't have to remember." },
-        { title: "Analytics", body: "Clear numbers. Not a fifty-page report nobody reads." },
-        { title: "Media library", body: "Files, versions, assets. One place you can search through." },
-        { title: "Collaboration", body: "Comments and approvals on the post itself. No more WhatsApp, no more Loom." },
-        { title: "Integrations", body: "YouTube, Meta, TikTok, Google and more. One click, no code." },
-      ],
-    },
-
-    testimonials: {
-      eyebrow: "WHAT OUR PEOPLE SAY",
-      title: "What people say.",
+    why: {
+      eyebrow: "WHY TRUST IT",
+      title: "Different from every “AI tool” you've tried.",
       items: [
         {
-          quote: "Finally stopped jumping between five tabs for every episode. Podcast and newsletter live together.",
-          name: "Michal Green",
-          role: "Podcaster · The Quiet Way",
-          product: "studio" as const,
+          title: "It looks at your real page",
+          body: "Your actual bio, your actual last posts. Not a template, not a generic checklist. If something is hidden behind Instagram's login, it tells you, instead of inventing it.",
         },
         {
-          quote:
-            "The analysis gave me one sentence I caught myself quoting for weeks. I knew I was in the right place.",
-          name: "Neta Ben-David",
-          role: "Creator · Indie Studio",
-          product: "studio" as const,
+          title: "It's a method, not a vibe",
+          body: "Every page gets read on the same six things: is it clear what you do, what makes you different, do you read as someone who knows her field, who it's for, what each post is there to do, and how any of it turns into money.",
         },
         {
-          quote: "The numbers finally line up. I can see a post's journey from idea to newsletter click.",
-          name: "Anat Levy",
-          role: "Author · No Spotlight",
-          product: "studio" as const,
-        },
-        {
-          quote:
-            "The analysis sharpened my positioning without a week of journaling. I walked into the Studio with clarity.",
-          name: "Tamar Avni",
-          role: "Leadership coach",
-          product: "studio" as const,
+          title: "It tells you the uncomfortable part",
+          body: "A compliment is easy to sell you. We'd rather hand you the thing that's actually holding you back, even if it stings, because that's the part you can fix.",
         },
       ],
     },
 
-    pricing: {
-      eyebrow: "PRICING",
-      title: "One plan. Free. Forever.",
-      subtitle:
-        "One brand with every channel — no charge, no card, no expiry.",
-      perMonth: "/ month",
-      featured: "Studio",
-      tiers: [
+    bridge: {
+      text: "The read is free, and it's where it starts. If you want, Coflow takes it from there and turns it into a plan and real posts in your voice.",
+      linkLabel: "See how that works",
+    },
+
+    faq: {
+      title: "Before you start",
+      items: [
         {
-          chip: "studio",
-          product: "studio" as const,
-          name: "Studio",
-          price: "$0",
-          priceNote: "Free forever for one brand",
-          bullets: [
-            "Full brand analysis",
-            "Podcast · newsletter · social",
-            "Unified analytics",
-            "Media library",
-            "Full integrations",
-          ],
-          cta: "Run my analysis",
-          featured: true,
+          q: "Is it really free?",
+          a: "Yes. The read costs nothing and needs no card. The system you build after it is a paid product.",
+        },
+        {
+          q: "Do I have to connect my Instagram?",
+          a: "No. You paste your handle, we read what's public. No passwords, no permissions.",
+        },
+        {
+          q: "Is this generic AI advice?",
+          a: "No. It's built from your real bio and posts. Two different pages get two different reads.",
+        },
+        {
+          q: "What about my data?",
+          a: "We read your public profile to produce the read. That's all.",
         },
       ],
-      footnote: "Need something different? ",
-      footnoteCta: "Talk to us →",
+    },
+
+    finalCta: {
+      title: "Stop guessing what's wrong with your Instagram.",
+      sub: "Find out in two minutes, free.",
+      cta: "Read my page free",
+      micro: "Just your @handle. No sign-up, no card.",
+    },
+
+    howItWorks: {
+      eyebrow: "HOW IT WORKS",
+      heroTitle: "The free read shows you the problem. Coflow fixes it with you.",
+      heroSub: "The read tells you what's stopping your page. Coflow is what turns that into posts: strategy, ideas, and captions in your voice, on one board.",
+      cta: "Read my page free",
+      stages: [
+        {
+          title: "You find out exactly what's stopping your page from growing",
+          body: "That's the free read. An honest look at your real page, in two minutes.",
+        },
+        {
+          title: "You stop guessing what to post",
+          body: "A ten minute conversation gives you a clear answer to who your page is for and the few types of posts that actually work for you. No course, no theory.",
+        },
+        {
+          title: "You sit down to post and you're not stuck",
+          body: "You get specific ideas that fit you, instead of staring at an empty box.",
+        },
+        {
+          title: "You stop spending an hour on every caption",
+          body: "You say in a few words what you want to get across. Coflow writes the full caption, the opening line and the hashtags, in your voice, not in robot.",
+        },
+        {
+          title: "You actually post consistently",
+          body: "Every post has a place: in progress, ready, posted. No more posting in bursts and then going quiet for two weeks.",
+        },
+      ],
+      positioning: "Not an AI that posts for you. A strategist and a content team that keep your voice and your decisions.",
     },
 
     footer: {
-      tagline: "Start with a brand analysis. Continue with one Studio for every channel.",
+      tagline: "Start with a free read of your Instagram. Then a strategy and posts in your voice.",
       cols: {
-        studio: "Studio",
+        product: "Product",
         company: "Company",
         legal: "Legal",
       },
-      studioLinks: [
-        { label: "Brand analysis", href: "/#wizard" },
-        { label: "Podcasts", href: "/studio#podcast" },
-        { label: "Newsletters", href: "/studio#newsletter" },
-        { label: "Social", href: "/studio#social" },
-        { label: "Analytics", href: "/studio#analytics" },
+      productLinks: [
+        { label: "How it works", href: "/how-it-works" },
+        { label: "The free read", href: "/how-it-works#stages" },
       ],
       companyLinks: [
         { label: "About", href: "/about" },
@@ -467,95 +321,7 @@ export const DICT = {
       ],
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "עב",
-      langSwitcherAria: "Switch to Hebrew",
-    },
-
-    waitlist: {
-      placeholder: "Your email",
-      submit: "Keep me posted",
-      sourceLabel: "Who are you?",
-      sources: ["Creator", "Podcaster", "Coach / consultant", "Other"],
-      success: "You're in! We'll keep you posted on new features.",
-      error: "Something didn't work. Try again?",
-      privacy: "We don't send spam. Unsubscribe anytime.",
-    },
-
-    studioPage: {
-      eyebrow: "COFLOW STUDIO",
-      titleA: "Your whole",
-      titleB: "personal brand",
-      titleC: "in one place.",
-      subtitle:
-        "Podcast, newsletter, social and analytics. Plan it, ship it, measure it. One brand free, forever.",
-      ctaPrimary: "Run my analysis",
-      ctaSecondary: "See pricing",
-      caption: "First brand free, forever. No card.",
-      surfaces: {
-        eyebrow: "WHAT YOU SHIP",
-        title: "What are you making this week?",
-        subtitle:
-          "Every content format gets its own home — plan, publish, track. All in one place.",
-        items: [
-          {
-            id: "podcast",
-            tag: "Podcast",
-            title: "Podcast",
-            body:
-              "Plan episodes, manage guests, publish to every platform with auto descriptions and chapters.",
-          },
-          {
-            id: "newsletter",
-            tag: "Newsletter",
-            title: "Newsletter",
-            body:
-              "Write, schedule, send. Open and click tracking that flows into one analytics view.",
-          },
-          {
-            id: "social",
-            tag: "Social",
-            title: "Social",
-            body:
-              "Calendar across every channel. Schedule, archive, and reuse what worked.",
-          },
-          {
-            id: "analytics",
-            tag: "Analytics",
-            title: "Analytics",
-            body:
-              "One unified view across all channels. See what actually worked — not separate dashboards.",
-          },
-        ],
-      },
-      pillars: {
-        eyebrow: "WHY STUDIO",
-        title: "Why Studio works as a single product.",
-        items: [
-          {
-            title: "Starts with analysis",
-            body: "Strategic read of your brand on entry — then a tool that works with that output.",
-          },
-          {
-            title: "Zero tab-jumping",
-            body: "Content, publishing, and measurement in one place. Not five tabs.",
-          },
-          {
-            title: "Starts at zero",
-            body: "One brand free, forever. Upgrade when the work grows.",
-          },
-          {
-            title: "Unified analytics",
-            body: "Every channel on the same timeline. A post's journey from idea to click.",
-          },
-        ],
-      },
-      cta: {
-        eyebrow: "READY?",
-        title: "Start with the analysis. The rest flows from there.",
-        body:
-          "All channels, unified analytics, media library — free forever for one brand.",
-        ctaPrimary: "Run my analysis",
-        ctaSecondary: "See pricing",
-      },
+      langSwitcherAria: "החלפה לעברית",
     },
   },
 } as const;
