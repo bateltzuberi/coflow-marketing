@@ -1,147 +1,139 @@
 import type { Locale } from "./locale";
 
 /**
- * All marketing copy in one place. Hebrew is primary (the brand voice is
- * written in Hebrew first, then translated). The `he` shape defines the
- * Dictionary type, so `en` must mirror it key-for-key.
+ * All marketing copy in one place, ported 1:1 from the approved copy doc.
+ * Hebrew is primary (לשון נקבה); `en` mirrors the `he` shape key-for-key.
  *
- * Positioning (Instagram-only MVP): the site sells ONE thing — the free
- * Instagram read (the lead magnet). Every primary button does the same
- * single action: start the free read. "How it works" is the only secondary
- * action (a quiet link to the system explainer). No multi-platform "Studio"
- * surface, no testimonials yet. Voice: plain, concrete, a little blunt. No
- * slogans, no em-dashes.
+ * Positioning: the site sells ONE thing - the free Instagram diagnosis (the
+ * lead magnet). Every CTA points only at the diagnosis. Page 1 is the
+ * diagnosis landing; Page 2 explains the system but still returns to the
+ * diagnosis CTA.
  */
 export const DICT = {
   he: {
     nav: {
-      howItWorks: "איך זה עובד",
+      howItWorks: "איך Coflow עובדת",
       signIn: "התחברות",
-      cta: "לאבחון החינמי",
+      cta: "להתחיל אבחון בחינם",
     },
 
     hero: {
-      eyebrow: "אבחון אינסטגרם חינמי",
-      title: "תגלי למה האינסטגרם שלך לא מביא לקוחות.",
-      sub: "את מעלה פוסטים כל שבוע, וזה כמעט לא זז. קופלו קוראת את העמוד האמיתי שלך ואומרת לך תוך שתי דקות מה מבריח אנשים בשקט, ומה הדבר הראשון לתקן. בחינם.",
-      cta: "לאבחון החינמי",
-      micro: "רק שם המשתמש. בלי הרשמה, בלי כרטיס.",
+      title: "תפסיקי לנחש מה האינסטגרם שלך משדר.",
+      sub: "קבלי אבחון חד של הפרופיל שלך - לפי הביו, הפוסטים והמסרים שכבר קיימים אצלך בעמוד.",
+      promise: "מדביקה לינק לאינסטגרם. מקבלת אבחון תוך דקות.",
+      inputPlaceholder: "מדביקה לינק לאינסטגרם",
+      inputCta: "קבלי אבחון",
+      secondary: "בלי הרשמה. בלי חיבור חשבונות. רק לינק לאינסטגרם.",
     },
 
-    problem: {
-      title: "נשמע מוכר?",
-      lines: [
-        "את מעלה שלושה פוסטים בשבוע, ואותם עשרים אנשים עושים לייק כל פעם.",
-        "את יושבת שעה על קופי, ומקבלת שנים עשר לייקים ואפס פניות.",
-        "אנשים עוקבים, ואז כלום. אין שאלות, אין לקוחות.",
-        "את פותחת את הפיד של עצמך וכבר לא בטוחה מה את בכלל מוכרת.",
+    centralMessage: "האינסטגרם שלך כבר ממצב אותך. Coflow מראה לך אם הוא עושה את זה נכון.",
+
+    mock: {
+      label: "דוגמה לאבחון",
+      handle: "@your_page",
+      rows: [
+        { lens: "בהירות", verdict: "חלש", tone: "weak" },
+        { lens: "בידול", verdict: "חלקי", tone: "partial" },
+        { lens: "סמכות", verdict: "חזק", tone: "strong" },
+        { lens: "דרך להכנסה", verdict: "חסר", tone: "weak" },
       ],
-      reframe:
-        "כלום מזה לא אומר שאת לא טובה בזה. זה אומר שדבר אחד ספציפי בעמוד עומד בדרך. האבחון מוצא אותו.",
+      evidenceLabel: "על סמך",
+      evidence: "הביו אומר ׳עוזרת לנשים׳, אבל לא ברור במה בדיוק ולמי.",
+      fixLabel: "לתקן השבוע",
+      fix: "להחליף את שורת הביו במשפט אחד: מה את עושה, ולמי.",
     },
 
-    value: {
-      eyebrow: "מה את מקבלת",
-      title: "כל זה תוך שתי דקות, על העמוד האמיתי שלך.",
-      items: [
-        {
-          title: "מה אנשים באמת חושבים שאת עושה",
-          body: "ברגע שהם נוחתים על העמוד, במשפט אחד. בדרך כלל זה לא מה שהתכוונת.",
-        },
-        {
-          title: "אילו פוסטים מושכים אנשים פנימה, ואילו מאבדים אותם בשקט",
-          body: "מוצג על הפוסטים האמיתיים שלך, לא כתיאוריה.",
-        },
-        {
-          title: "הדבר האחד שעולה לך הכי הרבה עוקבים עכשיו",
-          body: "ומה לשנות בו כבר השבוע. לא עשרים דברים. אחד.",
-        },
-      ],
-      grounding: "בנוי מהביו והפוסטים האמיתיים שלך. שני עמודים מקבלים שני אבחונים שונים.",
-      cta: "לאבחון החינמי",
-    },
-
-    why: {
-      eyebrow: "למה לסמוך על זה",
-      title: "שונה מכל ״כלי AI״ שניסית.",
-      items: [
-        {
-          title: "זה מסתכל על העמוד האמיתי שלך",
-          body: "הביו האמיתי, הפוסטים האחרונים האמיתיים. לא תבנית, לא צ׳קליסט גנרי. ואם משהו חבוי מאחורי ההתחברות של אינסטגרם, זה אומר לך, במקום להמציא.",
-        },
-        {
-          title: "זו שיטה, לא תחושה",
-          body: "כל עמוד נקרא על אותם שישה דברים: ברור מה את עושה, מה מייחד אותך, האם את נקראת כמי שמבינה בתחום שלה, למי זה מדבר, מה כל פוסט בא לעשות, ואיך כל זה הופך לכסף.",
-        },
-        {
-          title: "זה אומר לך את החלק הלא נוח",
-          body: "מחמאה קל למכור לך. אנחנו מעדיפים לתת לך את הדבר שבאמת תוקע אותך, גם אם זה צורב, כי זה החלק שאפשר לתקן.",
-        },
+    whatItShows: {
+      lead: "העמוד שלך כבר מספר סיפור. השאלה היא אם זה הסיפור הנכון.",
+      intro: "Coflow מסתכלת על האינסטגרם שלך מבחוץ ומראה לך:",
+      bullets: [
+        "האם ברור מה את עושה?",
+        "האם ברור למי זה מיועד?",
+        "האם את נקראת כאוטוריטה - או כעוד יוצרת תוכן?",
+        "האם הבידול שלך באמת עובר?",
+        "האם התוכן שלך בונה אמון?",
+        "האם יש דרך ברורה מתשומת לב להכנסה?",
       ],
     },
 
-    bridge: {
-      text: "האבחון בחינם, וזו רק ההתחלה. ואם תרצי, קופלו לוקחת את זה הלאה והופכת את זה לתוכנית ולפוסטים אמיתיים בקול שלך.",
-      linkLabel: "ככה זה עובד",
-    },
-
-    faq: {
-      title: "לפני שאת מתחילה",
-      items: [
-        {
-          q: "זה באמת בחינם?",
-          a: "כן. האבחון לא עולה כלום ולא צריך כרטיס. המערכת שאת בונה אחריו היא מוצר בתשלום.",
-        },
-        {
-          q: "אני חייבת לחבר את האינסטגרם?",
-          a: "לא. מדביקה שם משתמש, ואנחנו קוראים את מה שגלוי. בלי סיסמאות, בלי הרשאות.",
-        },
-        {
-          q: "זו עוד עצה גנרית של AI?",
-          a: "לא. זה בנוי מהביו והפוסטים האמיתיים שלך. שני עמודים שונים מקבלים שני אבחונים שונים.",
-        },
-        {
-          q: "ומה עם המידע שלי?",
-          a: "אנחנו קוראים את הפרופיל הציבורי שלך כדי להפיק את האבחון. זה הכל.",
-        },
+    bluntAudit: {
+      lead: "לא דוח AI גנרי. קריאה אמיתית של העמוד שלך.",
+      intro: "האבחון מראה לך:",
+      bullets: [
+        "מה כבר עובד",
+        "מה מבלבל אנשים",
+        "מה מחליש את הסמכות שלך",
+        "מה כנראה עולה לך בלידים, אמון או מכירות",
+        "מה הכי חשוב לתקן כבר השבוע",
       ],
     },
 
-    finalCta: {
-      title: "תפסיקי לנחש מה לא בסדר באינסטגרם שלך.",
-      sub: "תגלי תוך שתי דקות, בחינם.",
-      cta: "לאבחון החינמי",
-      micro: "רק שם המשתמש. בלי הרשמה, בלי כרטיס.",
+    whyItMatters: {
+      lead: "כי ״לפרסם יותר״ לא יפתור מיצוב לא ברור.",
+      p1a: "לרוב האנשים אין בעיית תוכן.",
+      p1b: "יש להם בעיית בהירות.",
+      p2: "הם מפרסמים, משקיעים, מצלמים, עורכים - אבל העמוד עדיין לא עונה מספיק מהר על השאלות החשובות:",
+      questions: ["למה דווקא את?", "למה עכשיו?", "למה לסמוך עלייך?", "ומה הצעד הבא?"],
+      close: "זה בדיוק מה שהאבחון חושף.",
+    },
+
+    midCta: {
+      line: "תראי מה האינסטגרם שלך באמת משדר.",
+      cta: "להתחיל אבחון בחינם",
     },
 
     howItWorks: {
-      eyebrow: "איך זה עובד",
-      heroTitle: "האבחון החינמי מראה לך את הבעיה. קופלו פותרת אותה איתך.",
-      heroSub: "האבחון אומר לך מה תוקע את העמוד. קופלו זה מה שהופך את זה לפוסטים: אסטרטגיה, רעיונות וקופי בקול שלך, על לוח אחד.",
-      cta: "לאבחון החינמי",
-      stages: [
+      heroTitle: "מ״מה בכלל לפרסם?״ לאסטרטגיית תוכן שאפשר לעבוד איתה.",
+      heroSub: "Coflow מתחילה מאבחון של האינסטגרם שלך, ואז הופכת את האבחון לכיוון ברור, עוגני תוכן, רעיונות, קופי ולוח עבודה שעוזר לך באמת לפרסם.",
+      cta: "להתחיל באבחון חינם",
+      stepLabel: "שלב",
+      steps: [
         {
-          title: "את מגלה בדיוק מה תוקע את העמוד מלגדול",
-          body: "זה האבחון החינמי. קריאה ישרה של העמוד האמיתי שלך, בשתי דקות.",
+          name: "אבחון",
+          title: "קודם Coflow קוראת את העמוד שלך מבחוץ.",
+          body: "לפני שהיא אומרת לך מה לפרסם, Coflow בודקת מה האינסטגרם שלך משדר עכשיו: בהירות, סמכות, קהל יעד, בידול, אמון ודרך להכנסה.",
         },
         {
-          title: "את מפסיקה לנחש מה להעלות",
-          body: "שיחה של עשר דקות נותנת לך תשובה ברורה למי העמוד מדבר ואילו סוגי פוסטים באמת עובדים לך. לא קורס, לא תיאוריה.",
+          name: "כיוון",
+          title: "אחר כך היא שואלת לאן את רוצה לקחת את המותג.",
+          body: "העמוד הנוכחי הוא רק צד אחד של התמונה. Coflow צריכה להבין גם את הרצוי: את מי את רוצה למשוך, על מה את רוצה שיכירו אותך, ומה את רוצה שיקרה בעסק עכשיו.",
         },
         {
-          title: "את מתיישבת להעלות ולא נתקעת",
-          body: "את מקבלת רעיונות ספציפיים שמתאימים לך, במקום לבהות במלבן ריק.",
+          name: "אסטרטגיה",
+          title: "Coflow מזהה את הפער בין איך שהמותג נראה עכשיו לבין לאן שאת רוצה לקחת אותו.",
+          body: "ואז היא הופכת את הפער הזה לאסטרטגיה ברורה: קהל, מיצוב, קול, כיוון תוכן ו־2–6 עוגני תוכן שאפשר לחזור אליהם שוב ושוב.",
         },
         {
-          title: "את מפסיקה לשרוף שעה על כל קופי",
-          body: "את אומרת בכמה מילים מה בא לך להעביר. קופלו כותבת את הקופי המלא, את שורת הפתיחה ואת ההאשטגים, בקול שלך, לא ברובוטית.",
+          name: "רעיונות",
+          title: "בלי דף ריק.",
+          body: "מקבלת רעיונות שמתאימים לאסטרטגיה שלך - לא הצעות AI גנריות. כל רעיון מחובר לעוגן תוכן ולמטרה ברורה.",
         },
         {
-          title: "את באמת מעלה באופן עקבי",
-          body: "לכל פוסט יש מקום: בעבודה, מוכן, עלה. בלי להעלות בהתפרצות ואז להיעלם לשבועיים.",
+          name: "קופי",
+          title: "להפוך רעיון לתוכן בקול שלך.",
+          body: "בוחרת רעיון, ו־Coflow כותבת הוק, קופי, האשטגים ופירוק לקרוסלה - לפי האסטרטגיה, הקול והמסרים שלך.",
+        },
+        {
+          name: "לוח",
+          title: "כי אסטרטגיה לא שווה כלום אם היא לא יוצאת החוצה.",
+          body: "מעבירה פוסטים מרעיון, לעבודה, למוכן, לפורסם. מוסיפה תאריכים, תתי־משימות ושומרת על תנועה.",
         },
       ],
-      positioning: "לא AI שמפרסם במקומך. אסטרטגית וצוות תוכן ששומרים על הקול ועל ההחלטות שלך.",
+      authority: {
+        title: "בנוי על אסטרטגיית מותג, לא על טריקים של תוכן.",
+        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מאבחנים איך המותג נראה היום, אחר כך מבינים לאן את רוצה לקחת אותו, מזהים את הפער - והופכים את הפער הזה לפעולות ברורות.",
+        p2: "זה אומר שהתוכן שלך לא נוצר מטרנדים בלבד, מטמפלטים או מפרומפטים רנדומליים. הוא נוצר מתוך החיבור בין:",
+        bullets: [
+          "איך המותג שלך נתפס עכשיו",
+          "על מה את רוצה שיכירו אותך",
+          "את מי את רוצה למשוך",
+          "מה צריך להפוך לברור יותר",
+          "איזה תוכן באמת יקדם את המותג קדימה",
+        ],
+        closeA: "לכן Coflow לא רק מייצרת פוסטים.",
+        closeB: "היא עוזרת לך לבנות מותג שאנשים מבינים, סומכים עליו - וקונים ממנו.",
+        cta: "להתחיל אבחון בחינם",
+      },
     },
 
     footer: {
@@ -152,8 +144,8 @@ export const DICT = {
         legal: "משפטי",
       },
       productLinks: [
-        { label: "איך זה עובד", href: "/how-it-works" },
-        { label: "האבחון החינמי", href: "/how-it-works#stages" },
+        { label: "איך Coflow עובדת", href: "/how-it-works" },
+        { label: "להתחיל אבחון", href: "/#start" },
       ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
@@ -171,145 +163,140 @@ export const DICT = {
 
   en: {
     nav: {
-      howItWorks: "How it works",
+      howItWorks: "How Coflow works",
       signIn: "Log in",
-      cta: "Read my page free",
+      cta: "Start free diagnosis",
     },
 
     hero: {
-      eyebrow: "FREE INSTAGRAM READ",
-      title: "Find out why your Instagram isn't bringing you clients.",
-      sub: "You post every week and it barely moves. Coflow reads your real page and tells you, in two minutes, what's quietly pushing people away and the first thing to fix. Free.",
-      cta: "Read my page free",
-      micro: "Just your @handle. No sign-up, no card.",
+      title: "Stop guessing what your Instagram says about your brand.",
+      sub: "Get a blunt, outside-in diagnosis of your Instagram profile - based on your actual bio and recent posts.",
+      promise: "Paste your Instagram link. Get your brand diagnosis in minutes.",
+      inputPlaceholder: "Paste your Instagram link",
+      inputCta: "Get my diagnosis",
+      secondary: "No sign-up. No account connection. Just your Instagram link.",
     },
 
-    problem: {
-      title: "Sound familiar?",
-      lines: [
-        "You post three times a week, and it's the same twenty people liking it every time.",
-        "You spend an hour on a caption, and it gets twelve likes and zero DMs.",
-        "People follow you, and then nothing. No questions, no clients.",
-        "You open your own feed and you're not even sure what you're selling anymore.",
+    centralMessage: "Your Instagram is already positioning you. Coflow shows you whether it's positioning you correctly.",
+
+    mock: {
+      label: "Sample diagnosis",
+      handle: "@your_page",
+      rows: [
+        { lens: "Clarity", verdict: "Weak", tone: "weak" },
+        { lens: "Differentiation", verdict: "Partial", tone: "partial" },
+        { lens: "Authority", verdict: "Strong", tone: "strong" },
+        { lens: "Path to money", verdict: "Missing", tone: "weak" },
       ],
-      reframe:
-        "None of that means you're bad at this. It means one specific thing on your page is in the way. The read finds it.",
+      evidenceLabel: "Based on",
+      evidence: "Your bio says “I help women,” but not with what, exactly, or for whom.",
+      fixLabel: "Fix this week",
+      fix: "Replace the bio line with one sentence: what you do, and who for.",
     },
 
-    value: {
-      eyebrow: "WHAT YOU GET",
-      title: "All of this in two minutes, on your real page.",
-      items: [
-        {
-          title: "What people actually think you do",
-          body: "The second they land on your page, in one sentence. Usually it's not what you meant.",
-        },
-        {
-          title: "Which posts pull people in, and which lose them in silence",
-          body: "Shown on your real posts, not as a theory.",
-        },
-        {
-          title: "The one thing costing you the most followers right now",
-          body: "And what to change about it this week. Not twenty things. One.",
-        },
-      ],
-      grounding: "Built from your real bio and posts. Two pages get two different reads.",
-      cta: "Read my page free",
-    },
-
-    why: {
-      eyebrow: "WHY TRUST IT",
-      title: "Different from every “AI tool” you've tried.",
-      items: [
-        {
-          title: "It looks at your real page",
-          body: "Your actual bio, your actual last posts. Not a template, not a generic checklist. If something is hidden behind Instagram's login, it tells you, instead of inventing it.",
-        },
-        {
-          title: "It's a method, not a vibe",
-          body: "Every page gets read on the same six things: is it clear what you do, what makes you different, do you read as someone who knows her field, who it's for, what each post is there to do, and how any of it turns into money.",
-        },
-        {
-          title: "It tells you the uncomfortable part",
-          body: "A compliment is easy to sell you. We'd rather hand you the thing that's actually holding you back, even if it stings, because that's the part you can fix.",
-        },
+    whatItShows: {
+      lead: "Your page is already saying something. The question is whether it's saying the right thing.",
+      intro: "Coflow reads your Instagram from the outside and shows you:",
+      bullets: [
+        "Is it clear what you do?",
+        "Is it clear who this is for?",
+        "Do you look like an authority - or just another content creator?",
+        "Is your differentiation visible?",
+        "Does your content create trust?",
+        "Is there a clear path from attention to money?",
       ],
     },
 
-    bridge: {
-      text: "The read is free, and it's where it starts. If you want, Coflow takes it from there and turns it into a plan and real posts in your voice.",
-      linkLabel: "See how that works",
-    },
-
-    faq: {
-      title: "Before you start",
-      items: [
-        {
-          q: "Is it really free?",
-          a: "Yes. The read costs nothing and needs no card. The system you build after it is a paid product.",
-        },
-        {
-          q: "Do I have to connect my Instagram?",
-          a: "No. You paste your handle, we read what's public. No passwords, no permissions.",
-        },
-        {
-          q: "Is this generic AI advice?",
-          a: "No. It's built from your real bio and posts. Two different pages get two different reads.",
-        },
-        {
-          q: "What about my data?",
-          a: "We read your public profile to produce the read. That's all.",
-        },
+    bluntAudit: {
+      lead: "Not a generic AI report. A real read of your page.",
+      intro: "You'll get a direct profile audit with:",
+      bullets: [
+        "what's already working",
+        "what's confusing people",
+        "what's weakening your authority",
+        "what might be costing you leads, trust, or sales",
+        "what to fix first this week",
       ],
     },
 
-    finalCta: {
-      title: "Stop guessing what's wrong with your Instagram.",
-      sub: "Find out in two minutes, free.",
-      cta: "Read my page free",
-      micro: "Just your @handle. No sign-up, no card.",
+    whyItMatters: {
+      lead: "Because “posting more” won't fix unclear positioning.",
+      p1a: "Most people don't have a content problem.",
+      p1b: "They have a clarity problem.",
+      p2: "They post consistently, but the page still doesn't make it obvious:",
+      questions: ["why them,", "why now,", "why trust them,", "and what to do next."],
+      close: "That's exactly what the diagnosis exposes.",
+    },
+
+    midCta: {
+      line: "See what your Instagram is really communicating.",
+      cta: "Start free diagnosis",
     },
 
     howItWorks: {
-      eyebrow: "HOW IT WORKS",
-      heroTitle: "The free read shows you the problem. Coflow fixes it with you.",
-      heroSub: "The read tells you what's stopping your page. Coflow is what turns that into posts: strategy, ideas, and captions in your voice, on one board.",
-      cta: "Read my page free",
-      stages: [
+      heroTitle: "From “what should I post?” to a brand strategy you can actually use.",
+      heroSub: "Coflow starts with a diagnosis of your Instagram, then turns that diagnosis into direction, content anchors, ideas, captions, and a simple board that helps you actually publish.",
+      cta: "Start with free diagnosis",
+      stepLabel: "Step",
+      steps: [
         {
-          title: "You find out exactly what's stopping your page from growing",
-          body: "That's the free read. An honest look at your real page, in two minutes.",
+          name: "Diagnosis",
+          title: "First, Coflow reads your page from the outside.",
+          body: "Before it tells you what to post, Coflow checks what your Instagram currently communicates: clarity, authority, audience, differentiation, trust, and money path.",
         },
         {
-          title: "You stop guessing what to post",
-          body: "A ten minute conversation gives you a clear answer to who your page is for and the few types of posts that actually work for you. No course, no theory.",
+          name: "Direction",
+          title: "Then it asks where you want the brand to go.",
+          body: "Your current page is only one side of the picture. Coflow also needs to understand your desired direction - who you want to attract, what you want to be known for, and what business outcome you want next.",
         },
         {
-          title: "You sit down to post and you're not stuck",
-          body: "You get specific ideas that fit you, instead of staring at an empty box.",
+          name: "Strategy",
+          title: "Coflow finds the gap between where your brand is and where you want it to go.",
+          body: "Then it turns that gap into a clear strategy: audience, positioning, voice, content direction, and 2–6 repeatable content anchors.",
         },
         {
-          title: "You stop spending an hour on every caption",
-          body: "You say in a few words what you want to get across. Coflow writes the full caption, the opening line and the hashtags, in your voice, not in robot.",
+          name: "Ideas",
+          title: "No more blank page.",
+          body: "Get post ideas that fit your strategy - not random AI suggestions. Each idea is connected to a content anchor and a clear purpose.",
         },
         {
-          title: "You actually post consistently",
-          body: "Every post has a place: in progress, ready, posted. No more posting in bursts and then going quiet for two weeks.",
+          name: "Captions",
+          title: "Turn ideas into content in your voice.",
+          body: "Pick an idea and Coflow writes the hook, caption, hashtags, and carousel breakdown - based on your strategy and talking points.",
+        },
+        {
+          name: "Board",
+          title: "Because strategy only matters if it ships.",
+          body: "Move posts from idea to in progress to ready to published. Add dates, subtasks, and keep the content moving.",
         },
       ],
-      positioning: "Not an AI that posts for you. A strategist and a content team that keep your voice and your decisions.",
+      authority: {
+        title: "Built on brand strategy, not content hacks.",
+        p1: "Coflow is based on a strategic brand-building process: first diagnose the current brand, then understand the desired direction, identify the gap, and turn that gap into focused action.",
+        p2: "That means your content is not created from trends alone, templates, or random prompts. It is created from the relationship between:",
+        bullets: [
+          "how your brand is perceived now",
+          "what you want to be known for",
+          "who you want to attract",
+          "what needs to become clearer",
+          "what content can move the brand forward",
+        ],
+        closeA: "This is why Coflow does not just generate posts.",
+        closeB: "It helps you build a brand people can understand, trust, and buy from.",
+        cta: "Start free diagnosis",
+      },
     },
 
     footer: {
-      tagline: "Start with a free read of your Instagram. Then a strategy and posts in your voice.",
+      tagline: "Start with a free diagnosis of your Instagram. Then a strategy and posts in your voice.",
       cols: {
         product: "Product",
         company: "Company",
         legal: "Legal",
       },
       productLinks: [
-        { label: "How it works", href: "/how-it-works" },
-        { label: "The free read", href: "/how-it-works#stages" },
+        { label: "How Coflow works", href: "/how-it-works" },
+        { label: "Start free diagnosis", href: "/#start" },
       ],
       companyLinks: [
         { label: "About", href: "/about" },

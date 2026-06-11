@@ -1,20 +1,22 @@
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/home/hero";
-import { Problem } from "@/components/home/problem";
-import { Value } from "@/components/home/value";
-import { WhyDifferent } from "@/components/home/why-different";
-import { Bridge } from "@/components/home/bridge";
-import { Faq } from "@/components/home/faq";
-import { FinalCta } from "@/components/home/final-cta";
+import { DiagnosisMock } from "@/components/home/diagnosis-mock";
+import {
+  CentralMessage,
+  WhatItShows,
+  BluntAudit,
+  WhyItMatters,
+  MidCta,
+} from "@/components/home/sections";
 import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 
 export const metadata = buildMetadata({
-  title: "Coflow — see why your Instagram isn't bringing you clients",
+  title: "Coflow — a blunt diagnosis of your Instagram",
   description:
-    "Paste your handle and get a free, honest read of your Instagram in two minutes: what's pushing people away and the first thing to fix. No sign-up, no card.",
+    "Paste your Instagram link and get a blunt, outside-in diagnosis of your profile in minutes: clarity, authority, differentiation, trust, and the path to money. No sign-up.",
   path: "/",
 });
 
@@ -27,22 +29,23 @@ export default async function Home() {
       <JsonLd data={organizationJsonLd()} />
       <Nav />
       <main>
-        {/* One job: drive the free read. Order:
-         *   1. Hero — the promise + the one button
-         *   2. Problem — her real day, in concrete scenes
-         *   3. Value — what the read gives her + CTA
-         *   4. WhyDifferent — authority (reads your real page, a method, honest)
-         *   5. Bridge — there's a system after; the only secondary link
-         *   6. Faq — objection-killers
-         *   7. FinalCta — last call, same single action
+        {/* Short and sharp. Pain, curiosity, diagnosis. Every CTA points at
+         *   the diagnosis only; the system is explained on /how-it-works.
+         *   1. Hero — the paste field + the promise
+         *   2. CentralMessage — the core positioning line
+         *   3. DiagnosisMock — show it's a sharp scorecard, not an AI report
+         *   4. WhatItShows — the six questions it answers
+         *   5. BluntAudit — what the audit hands you
+         *   6. WhyItMatters — clarity, not content
+         *   7. MidCta — back to the diagnosis
          */}
         <Hero t={dict.hero} locale={locale} />
-        <Problem t={dict.problem} />
-        <Value t={dict.value} locale={locale} />
-        <WhyDifferent t={dict.why} />
-        <Bridge t={dict.bridge} />
-        <Faq t={dict.faq} />
-        <FinalCta t={dict.finalCta} locale={locale} />
+        <CentralMessage text={dict.centralMessage} />
+        <DiagnosisMock t={dict.mock} />
+        <WhatItShows t={dict.whatItShows} />
+        <BluntAudit t={dict.bluntAudit} />
+        <WhyItMatters t={dict.whyItMatters} />
+        <MidCta t={dict.midCta} href="#start" />
       </main>
       <Footer />
     </>
