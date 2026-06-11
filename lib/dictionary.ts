@@ -4,7 +4,7 @@ import type { Locale } from "./locale";
  * All marketing copy in one place, ported 1:1 from the approved copy doc.
  * Hebrew is primary (לשון נקבה); `en` mirrors the `he` shape key-for-key.
  *
- * Positioning: the site sells ONE thing — the free Instagram diagnosis (the
+ * Positioning: the site sells ONE thing - the free Instagram diagnosis (the
  * lead magnet). Every CTA points only at the diagnosis. Page 1 is the
  * diagnosis landing; Page 2 explains the system but still returns to the
  * diagnosis CTA.
@@ -19,7 +19,7 @@ export const DICT = {
 
     hero: {
       title: "תפסיקי לנחש מה האינסטגרם שלך משדר.",
-      sub: "קבלי אבחון חד של הפרופיל שלך — לפי הביו, הפוסטים והמסרים שכבר קיימים אצלך בעמוד.",
+      sub: "קבלי אבחון חד של הפרופיל שלך - לפי הביו, הפוסטים והמסרים שכבר קיימים אצלך בעמוד.",
       promise: "מדביקה לינק לאינסטגרם. מקבלת אבחון תוך דקות.",
       inputPlaceholder: "מדביקה לינק לאינסטגרם",
       inputCta: "קבלי אבחון",
@@ -49,7 +49,7 @@ export const DICT = {
       bullets: [
         "האם ברור מה את עושה?",
         "האם ברור למי זה מיועד?",
-        "האם את נקראת כאוטוריטה — או כעוד יוצרת תוכן?",
+        "האם את נקראת כאוטוריטה - או כעוד יוצרת תוכן?",
         "האם הבידול שלך באמת עובר?",
         "האם התוכן שלך בונה אמון?",
         "האם יש דרך ברורה מתשומת לב להכנסה?",
@@ -72,7 +72,7 @@ export const DICT = {
       lead: "כי ״לפרסם יותר״ לא יפתור מיצוב לא ברור.",
       p1a: "לרוב האנשים אין בעיית תוכן.",
       p1b: "יש להם בעיית בהירות.",
-      p2: "הם מפרסמים, משקיעים, מצלמים, עורכים — אבל העמוד עדיין לא עונה מספיק מהר על השאלות החשובות:",
+      p2: "הם מפרסמים, משקיעים, מצלמים, עורכים - אבל העמוד עדיין לא עונה מספיק מהר על השאלות החשובות:",
       questions: ["למה דווקא את?", "למה עכשיו?", "למה לסמוך עלייך?", "ומה הצעד הבא?"],
       close: "זה בדיוק מה שהאבחון חושף.",
     },
@@ -106,12 +106,12 @@ export const DICT = {
         {
           name: "רעיונות",
           title: "בלי דף ריק.",
-          body: "מקבלת רעיונות שמתאימים לאסטרטגיה שלך — לא הצעות AI גנריות. כל רעיון מחובר לעוגן תוכן ולמטרה ברורה.",
+          body: "מקבלת רעיונות שמתאימים לאסטרטגיה שלך - לא הצעות AI גנריות. כל רעיון מחובר לעוגן תוכן ולמטרה ברורה.",
         },
         {
           name: "קופי",
           title: "להפוך רעיון לתוכן בקול שלך.",
-          body: "בוחרת רעיון, ו־Coflow כותבת הוק, קופי, האשטגים ופירוק לקרוסלה — לפי האסטרטגיה, הקול והמסרים שלך.",
+          body: "בוחרת רעיון, ו־Coflow כותבת הוק, קופי, האשטגים ופירוק לקרוסלה - לפי האסטרטגיה, הקול והמסרים שלך.",
         },
         {
           name: "לוח",
@@ -121,7 +121,7 @@ export const DICT = {
       ],
       authority: {
         title: "בנוי על אסטרטגיית מותג, לא על טריקים של תוכן.",
-        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מאבחנים איך המותג נראה היום, אחר כך מבינים לאן את רוצה לקחת אותו, מזהים את הפער — והופכים את הפער הזה לפעולות ברורות.",
+        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מאבחנים איך המותג נראה היום, אחר כך מבינים לאן את רוצה לקחת אותו, מזהים את הפער - והופכים את הפער הזה לפעולות ברורות.",
         p2: "זה אומר שהתוכן שלך לא נוצר מטרנדים בלבד, מטמפלטים או מפרומפטים רנדומליים. הוא נוצר מתוך החיבור בין:",
         bullets: [
           "איך המותג שלך נתפס עכשיו",
@@ -131,7 +131,7 @@ export const DICT = {
           "איזה תוכן באמת יקדם את המותג קדימה",
         ],
         closeA: "לכן Coflow לא רק מייצרת פוסטים.",
-        closeB: "היא עוזרת לך לבנות מותג שאנשים מבינים, סומכים עליו — וקונים ממנו.",
+        closeB: "היא עוזרת לך לבנות מותג שאנשים מבינים, סומכים עליו - וקונים ממנו.",
         cta: "להתחיל אבחון בחינם",
       },
     },
@@ -170,7 +170,7 @@ export const DICT = {
 
     hero: {
       title: "Stop guessing what your Instagram says about your brand.",
-      sub: "Get a blunt, outside-in diagnosis of your Instagram profile — based on your actual bio and recent posts.",
+      sub: "Get a blunt, outside-in diagnosis of your Instagram profile - based on your actual bio and recent posts.",
       promise: "Paste your Instagram link. Get your brand diagnosis in minutes.",
       inputPlaceholder: "Paste your Instagram link",
       inputCta: "Get my diagnosis",
@@ -200,7 +200,7 @@ export const DICT = {
       bullets: [
         "Is it clear what you do?",
         "Is it clear who this is for?",
-        "Do you look like an authority — or just another content creator?",
+        "Do you look like an authority - or just another content creator?",
         "Is your differentiation visible?",
         "Does your content create trust?",
         "Is there a clear path from attention to money?",
@@ -247,7 +247,7 @@ export const DICT = {
         {
           name: "Direction",
           title: "Then it asks where you want the brand to go.",
-          body: "Your current page is only one side of the picture. Coflow also needs to understand your desired direction — who you want to attract, what you want to be known for, and what business outcome you want next.",
+          body: "Your current page is only one side of the picture. Coflow also needs to understand your desired direction - who you want to attract, what you want to be known for, and what business outcome you want next.",
         },
         {
           name: "Strategy",
@@ -257,12 +257,12 @@ export const DICT = {
         {
           name: "Ideas",
           title: "No more blank page.",
-          body: "Get post ideas that fit your strategy — not random AI suggestions. Each idea is connected to a content anchor and a clear purpose.",
+          body: "Get post ideas that fit your strategy - not random AI suggestions. Each idea is connected to a content anchor and a clear purpose.",
         },
         {
           name: "Captions",
           title: "Turn ideas into content in your voice.",
-          body: "Pick an idea and Coflow writes the hook, caption, hashtags, and carousel breakdown — based on your strategy and talking points.",
+          body: "Pick an idea and Coflow writes the hook, caption, hashtags, and carousel breakdown - based on your strategy and talking points.",
         },
         {
           name: "Board",
