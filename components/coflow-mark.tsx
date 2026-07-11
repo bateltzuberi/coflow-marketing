@@ -30,8 +30,8 @@ export function CoflowMark({
         : tone === "ink"
           ? "#1a1a1c"
           : tone === "lime"
-            ? "#ddf3a0"
-            : "#ccb8f5";
+            ? "#871A18"
+            : "#FBEEB9";
 
   const textClass =
     tone === "bridge"
@@ -56,8 +56,8 @@ export function CoflowMark({
         {tone === "bridge" && (
           <defs>
             <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ccb8f5" />
-              <stop offset="100%" stopColor="#ddf3a0" />
+              <stop offset="0%" stopColor="#FBEEB9" />
+              <stop offset="100%" stopColor="#871A18" />
             </linearGradient>
           </defs>
         )}
