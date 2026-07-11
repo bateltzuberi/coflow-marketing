@@ -18,24 +18,24 @@
   --color-ink-500:              #8a8a94;
   --color-ink-300:              #c7c7cc;
 
-  /* ── Lavender · agencies ─────────────────────────────── */
-  --color-lavender:             #ccb8f5;
-  --color-lavender-deep:        #8b6fd9;
-  --color-lavender-tint:        #f7f3ff;
-  --color-lavender-soft:        #ede4ff;
-  --color-lavender-ink:         #4a2f8a;
+  /* ── Lavender · agencies (recolored to warm cream) ───── */
+  --color-lavender:             #FBEEB9;
+  --color-lavender-deep:        #B8860B;
+  --color-lavender-tint:        #FEFBEE;
+  --color-lavender-soft:        #FDF6D8;
+  --color-lavender-ink:         #6B5214;
 
-  /* ── Lime · studio ───────────────────────────────────── */
-  --color-lime:                 #ddf3a0;
-  --color-lime-deep:            #9bc94a;
-  --color-lime-tint:            #f8fce6;
-  --color-lime-soft:            #effbc7;
-  --color-lime-ink:             #4d6611;
+  /* ── Lime · studio (recolored to deep red) ───────────── */
+  --color-lime:                 #871A18;
+  --color-lime-deep:            #6B1513;
+  --color-lime-tint:            #FCEEED;
+  --color-lime-soft:            #F7DAD8;
+  --color-lime-ink:             #5A1210;
 
   /* ── Bridge gradient (the brand DNA) ─────────────────── */
-  --gradient-bridge:            linear-gradient(135deg, #ccb8f5 0%, #ddf3a0 100%);
-  --gradient-bridge-soft:       linear-gradient(135deg, #f7f3ff 0%, #f8fce6 100%);
-  --gradient-bridge-deep:       linear-gradient(135deg, #8b6fd9 0%, #9bc94a 100%);
+  --gradient-bridge:            linear-gradient(135deg, #FBEEB9 0%, #871A18 100%);
+  --gradient-bridge-soft:       linear-gradient(135deg, #FEFBEE 0%, #FCEEED 100%);
+  --gradient-bridge-deep:       linear-gradient(135deg, #B8860B 0%, #6B1513 100%);
 
   /* ── Radii ───────────────────────────────────────────── */
   --radius-chip:                10px;
@@ -234,17 +234,17 @@ body {
 
 .btn-lime {
   background: var(--color-lime);
-  color: var(--color-lime-ink);
+  color: #fff;
   border-color: var(--color-lime);
 }
-.btn-lime:hover { background: #d2eb88; border-color: #d2eb88; }
+.btn-lime:hover { background: #6b1513; border-color: #6b1513; }
 
 .btn-lavender {
   background: var(--color-lavender);
   color: var(--color-lavender-ink);
   border-color: var(--color-lavender);
 }
-.btn-lavender:hover { background: #bca8e8; border-color: #bca8e8; }
+.btn-lavender:hover { background: #b8860b; border-color: #b8860b; color: #fff; }
 
 .btn-ghost {
   background: var(--color-surface);
@@ -346,8 +346,8 @@ body {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle 720px at 0% 0%, rgba(204, 184, 245, 0.35), transparent 60%),
-    radial-gradient(circle 720px at 100% 100%, rgba(221, 243, 160, 0.45), transparent 60%),
+    radial-gradient(circle 720px at 0% 0%, rgba(251, 238, 185, 0.45), transparent 60%),
+    radial-gradient(circle 720px at 100% 100%, rgba(135, 26, 24, 0.16), transparent 60%),
     linear-gradient(to right, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
     var(--color-paper);
