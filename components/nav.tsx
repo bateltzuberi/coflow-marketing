@@ -10,7 +10,7 @@ export async function Nav() {
   const t = getDict(locale).nav;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-lavender/80 backdrop-blur supports-[backdrop-filter]:bg-lavender/65">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur supports-[backdrop-filter]:bg-paper/65">
       <div className="container-page flex h-16 md:h-[72px] items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
@@ -27,7 +27,6 @@ export async function Nav() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <LocaleSwitcher locale={locale} className="text-ink-700 hover:text-ink-900" />
           <a
             href={`${SITE.studioAppUrl}/login`}
             className="hidden sm:inline-flex text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"
@@ -37,6 +36,7 @@ export async function Nav() {
           <a href={wizardUrlFor(locale)} className="btn btn-lime btn-sm">
             {t.cta}
           </a>
+          <LocaleSwitcher locale={locale} className="text-ink-700 hover:text-ink-900" />
         </div>
       </div>
     </header>
