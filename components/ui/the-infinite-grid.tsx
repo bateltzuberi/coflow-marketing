@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
  * (https://21st.dev/community/components/shadway/the-infinite-grid/default).
  *
  * Differences from the original:
- *  - Recolored to the coflow brand: cream (#FBEEB9) + deep-red (#871A18).
+ *  - Recolored to the coflow brand: cream (#FBEEB9) + blue (#4054F7).
  *  - Decoupled from the original demo's centered headline — this version
  *    is a pure background. Headline + CTAs are owned by the Hero.
  *  - The mouse-follow radial mask is opt-in (defaults on for desktop) so
@@ -85,7 +85,7 @@ export function TheInfiniteGrid({
         />
         <div
           className="absolute -bottom-[20%] start-[-8%] w-[55%] h-[55%] rounded-full blur-[120px]"
-          style={{ background: "rgba(135, 26, 24, 0.18)", opacity: intensity }}
+          style={{ background: "rgba(64, 84, 247, 0.18)", opacity: intensity }}
         />
         <div
           className="absolute bottom-[10%] start-[15%] w-[25%] h-[25%] rounded-full blur-[100px]"
