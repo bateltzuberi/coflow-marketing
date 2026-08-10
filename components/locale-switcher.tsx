@@ -6,7 +6,7 @@ import { getDict } from "@/lib/dictionary";
  * Plain-form locale switch. Server action sets the cookie and
  * revalidates, so it works even with JS disabled.
  */
-export function LocaleSwitcher({ locale }: { locale: Locale }) {
+export function LocaleSwitcher({ locale, className = "text-white/60 hover:text-white" }: { locale: Locale; className?: string }) {
   const t = getDict(locale).footer;
   const next = otherLocale(locale);
   return (
@@ -15,7 +15,7 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
       <button
         type="submit"
         aria-label={t.langSwitcherAria}
-        className="font-mono-label text-white/60 hover:text-white transition"
+        className={`font-mono-label transition ${className}`}
         lang={next}
       >
         {t.langSwitcher}
