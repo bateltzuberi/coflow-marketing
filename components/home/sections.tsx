@@ -16,11 +16,20 @@ export function CentralMessage({ text }: { text: string }) {
 /** What the diagnosis shows — six questions it answers. */
 export function WhatItShows({ t }: { t: Dictionary["whatItShows"] }) {
   return (
-    <section className="section">
+    <section className="section relative overflow-hidden">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 -rotate-12 w-72 h-72"
+        >
+      <circle cx="50" cy="50" r="50" className="fill-lime/10" />
+      <rect x="30" y="30" width="40" height="40" rx="12" className="fill-none stroke-lime/40" strokeWidth="2" />
+      <circle cx="50" cy="50" r="10" className="fill-none stroke-lime/40" strokeWidth="2" />
+      <circle cx="65" cy="35" r="2.5" className="fill-lime/40" />
+      </svg>
       <div className="container-page">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-display-h2 text-[24px] md:text-[34px]">{t.lead}</h2>
-          <p className="mt-5 text-[16px] md:text-[17px] text-ink-700">{t.intro}</p>
+          <p className="text-[16px] md:text-[17px] text-ink-700">{t.intro}</p>
           <ul className="mt-6 space-y-2.5">
             {t.bullets.map((b) => (
               <li

@@ -30,7 +30,7 @@ export function CoflowMark({
         : tone === "ink"
           ? "#1a1a1c"
           : tone === "lime"
-            ? "#871A18"
+            ? "#4054F7"
             : "#FBEEB9";
 
   const textClass =
@@ -57,7 +57,7 @@ export function CoflowMark({
           <defs>
             <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FBEEB9" />
-              <stop offset="100%" stopColor="#871A18" />
+              <stop offset="100%" stopColor="#4054F7" />
             </linearGradient>
           </defs>
         )}

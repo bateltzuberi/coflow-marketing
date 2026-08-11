@@ -8,7 +8,7 @@
 
 :root {
   /* ── Surfaces / ink ──────────────────────────────────── */
-  --color-paper:                #fafaf7;
+  --color-paper:                #f1f1f1;
   --color-surface:              #ffffff;
   --color-surface-2:            #f5f4ef;
   --color-line:                 #ececea;
@@ -25,17 +25,17 @@
   --color-lavender-soft:        #FDF6D8;
   --color-lavender-ink:         #6B5214;
 
-  /* ── Lime · studio (recolored to deep red) ───────────── */
-  --color-lime:                 #871A18;
-  --color-lime-deep:            #6B1513;
-  --color-lime-tint:            #FCEEED;
-  --color-lime-soft:            #F7DAD8;
-  --color-lime-ink:             #5A1210;
+  /* ── Lime · studio (recolored to blue) ───────────── */
+  --color-lime:                 #4054F7;
+  --color-lime-deep:            #3343C5;
+  --color-lime-tint:            #F5F6FF;
+  --color-lime-soft:            #E6E9FE;
+  --color-lime-ink:             #2B39A7;
 
   /* ── Bridge gradient (the brand DNA) ─────────────────── */
-  --gradient-bridge:            linear-gradient(135deg, #FBEEB9 0%, #871A18 100%);
-  --gradient-bridge-soft:       linear-gradient(135deg, #FEFBEE 0%, #FCEEED 100%);
-  --gradient-bridge-deep:       linear-gradient(135deg, #B8860B 0%, #6B1513 100%);
+  --gradient-bridge:            linear-gradient(135deg, #FBEEB9 0%, #4054F7 100%);
+  --gradient-bridge-soft:       linear-gradient(135deg, #FEFBEE 0%, #F5F6FF 100%);
+  --gradient-bridge-deep:       linear-gradient(135deg, #B8860B 0%, #3343C5 100%);
 
   /* ── Radii ───────────────────────────────────────────── */
   --radius-chip:                10px;
@@ -237,7 +237,7 @@ body {
   color: #fff;
   border-color: var(--color-lime);
 }
-.btn-lime:hover { background: #6b1513; border-color: #6b1513; }
+.btn-lime:hover { background: #3343c5; border-color: #3343c5; }
 
 .btn-lavender {
   background: var(--color-lavender);
@@ -347,7 +347,7 @@ body {
   pointer-events: none;
   background:
     radial-gradient(circle 720px at 0% 0%, rgba(251, 238, 185, 0.45), transparent 60%),
-    radial-gradient(circle 720px at 100% 100%, rgba(135, 26, 24, 0.16), transparent 60%),
+    radial-gradient(circle 720px at 100% 100%, rgba(64, 84, 247, 0.16), transparent 60%),
     linear-gradient(to right, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(26, 26, 28, 0.045) 1px, transparent 1px),
     var(--color-paper);
@@ -364,10 +364,10 @@ body {
 }
 @media (min-width: 768px)  { .container-page { padding-inline: 32px; } }
 
-.section { padding-block: 64px; }
-@media (min-width: 768px)  { .section { padding-block: 96px; } }
-@media (min-width: 1024px) { .section { padding-block: 120px; } }
-@media (min-width: 1280px) { .section { padding-block: 144px; } }
+.section { padding-block: 40px; }
+@media (min-width: 768px)  { .section { padding-block: 56px; } }
+@media (min-width: 1024px) { .section { padding-block: 72px; } }
+@media (min-width: 1280px) { .section { padding-block: 88px; } }
 
 /* Bridge text (inline gradient on a span). */
 .text-bridge {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
+import { LocaleSwitcher } from "./locale-switcher";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 import { SITE, wizardUrlFor } from "@/lib/site";
@@ -13,7 +14,7 @@ export async function Nav() {
       <div className="container-page flex h-16 md:h-[72px] items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
-            <CoflowMark size={30} tone="ink" />
+            <CoflowMark size={30} tone="lime" />
           </Link>
 
           {/* One quiet secondary link. The primary action lives in the
@@ -35,6 +36,7 @@ export async function Nav() {
           <a href={wizardUrlFor(locale)} className="btn btn-lime btn-sm">
             {t.cta}
           </a>
+          <LocaleSwitcher locale={locale} className="text-ink-700 hover:text-ink-900" />
         </div>
       </div>
     </header>

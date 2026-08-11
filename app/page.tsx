@@ -33,18 +33,18 @@ export default async function Home() {
          *   the diagnosis only; the system is explained on /how-it-works.
          *   1. Hero — the paste field + the promise
          *   2. CentralMessage — the core positioning line
-         *   3. DiagnosisMock — show it's a sharp scorecard, not an AI report
-         *   4. WhatItShows — the six questions it answers
-         *   5. BluntAudit — what the audit hands you
-         *   6. WhyItMatters — clarity, not content
+         *   3. WhatItShows — the six questions it answers, right under the message
+         *   4. BluntAudit — what the audit hands you
+         *   5. WhyItMatters — clarity, not content
+         *   6. DiagnosisMock — show it's a sharp scorecard, not an AI report
          *   7. MidCta — back to the diagnosis
          */}
         <Hero t={dict.hero} locale={locale} />
         <CentralMessage text={dict.centralMessage} />
-        <DiagnosisMock t={dict.mock} />
         <WhatItShows t={dict.whatItShows} />
         <BluntAudit t={dict.bluntAudit} />
         <WhyItMatters t={dict.whyItMatters} />
+        <DiagnosisMock t={dict.mock} />
         <MidCta t={dict.midCta} href="#start" />
       </main>
       <Footer />

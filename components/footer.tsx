@@ -10,17 +10,17 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 bg-ink-900 text-white">
+    <footer className="mt-24 bg-lavender text-lavender-ink">
       <div className="container-page py-20 md:py-24">
         {/* Big master mark only — wordmark removed per brand direction */}
         <div className="flex flex-col items-center text-center">
           <div className="hidden md:block">
-            <CoflowMark size={140} showWordmark={false} />
+            <CoflowMark size={140} showWordmark={false} tone="lime" />
           </div>
           <div className="md:hidden">
-            <CoflowMark size={96} showWordmark={false} />
+            <CoflowMark size={96} showWordmark={false} tone="lime" />
           </div>
-          <p className="mt-8 text-base text-white/60 max-w-md">
+          <p className="mt-8 text-base text-lavender-ink/70 max-w-md">
             {t.tagline}
           </p>
         </div>
@@ -35,11 +35,11 @@ export async function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="container-page py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-white/55">
+      <div className="border-t border-lavender-deep/15">
+        <div className="container-page py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-lavender-ink/70">
           <p className="tabular-nums">{t.copy.replace("{year}", String(year))}</p>
           <div className="flex items-center gap-5">
-            <LocaleSwitcher locale={locale} />
+            <LocaleSwitcher locale={locale} className="text-lavender-ink/70 hover:text-lavender-ink" />
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <p className="font-mono-label !text-white/55 mb-4 inline-flex items-center gap-2">
+      <p className="font-mono-label !text-lavender-ink/60 mb-4 inline-flex items-center gap-2">
         {dot && <span className={`dot dot-${dot}`} aria-hidden="true" />}
         {title}
       </p>
@@ -67,7 +67,7 @@ function FooterCol({
           <li key={l.label}>
             <Link
               href={l.href}
-              className="text-sm text-white/75 hover:text-white transition"
+              className="text-sm text-lavender-ink/75 hover:text-lavender-ink transition"
             >
               {l.label}
             </Link>
