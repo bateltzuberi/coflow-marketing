@@ -19,8 +19,7 @@ export function WhatItShows({ t }: { t: Dictionary["whatItShows"] }) {
     <section className="section">
       <div className="container-page">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-display-h2 text-[24px] md:text-[34px]">{t.lead}</h2>
-          <p className="mt-5 text-[16px] md:text-[17px] text-ink-700">{t.intro}</p>
+          <h2 className="font-display-h2 text-[24px] md:text-[34px]">{t.intro}</h2>
           <ul className="mt-6 space-y-2.5">
             {t.bullets.map((b) => (
               <li
