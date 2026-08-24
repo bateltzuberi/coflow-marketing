@@ -29,7 +29,7 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "מערכת לניהול מותג, לא עוד כלי שמייצר פוסטים.",
+      heroTitle: "איך Coflow מנהלת מותג.",
       heroSub: "Coflow מגדירה את המותג שלך פעם אחת, ומשם מנהלת את כל מה שנגזר ממנו: תוכן בארבע פלטפורמות, לוח שמוציא אותו החוצה, ומכירה בסוף.",
       cta: "הרשמה עם קוד",
       stepLabel: "שלב",
@@ -90,8 +90,8 @@ export const DICT = {
       // The category, said plainly. Everything under it is an argument for why
       // a brand-management system is a different thing from a content tool.
       eyebrow: "מערכת לניהול מותג עם AI",
-      title: "מותג לא נבנה מעוד פוסטים.",
-      sub: "Coflow מחזיקה את ההגדרה של המותג שלך במקום אחד, וכל תוכן שנוצר בה נכתב ממנה. אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
+      title: "המותג שלך מוגדר פעם אחת. כל השאר נגזר ממנו.",
+      sub: "אבחון, אסטרטגיה, קול וערכת מותג במקום אחד. משם נכתב התוכן לאינסטגרם, לפודקאסט, לניוזלטר וליוטיוב, עובר ללוח, ונגמר במכירה.",
       inviteNote: "בשלב הזה נכנסים עם קוד.",
 
       codeLabel: "קוד הזמנה",
@@ -107,7 +107,6 @@ export const DICT = {
 
       // Four claims. Each one takes a position you could argue with, and then
       // says what in the system makes it true. No claim without its mechanism.
-      messagesTitle: "למה מערכת ולא עוד כלי תוכן",
       messages: [
         {
           claim: "הבעיה היא לא כמה תוכן את מוציאה.",
@@ -127,8 +126,6 @@ export const DICT = {
         },
       ],
 
-      whyTitle: "למה בהזמנה בלבד",
-      whyBody: "כי בקבוצה קטנה אפשר לשבת על כל מותג ברצינות, לתקן מהר, ולבנות את המערכת סביב מה שבאמת חסר. המחיר הזה הוא מחיר של השלב הזה.",
     },
 
     footer: {
@@ -172,7 +169,7 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "A brand-management system, not another tool that generates posts.",
+      heroTitle: "How Coflow manages a brand.",
       heroSub: "Coflow defines your brand once, then runs everything that follows from it: content on four platforms, a board that ships it, and a sale at the end.",
       cta: "Sign up with a code",
       stepLabel: "Step",
@@ -228,8 +225,8 @@ export const DICT = {
     // ----- /join — the invite-only launch landing -----
     join: {
       eyebrow: "An AI brand-management system",
-      title: "A brand isn't built out of more posts.",
-      sub: "Coflow holds the definition of your brand in one place, and every piece of content it writes comes off that. Instagram, podcast, newsletter, YouTube.",
+      title: "Your brand is defined once. Everything else follows from it.",
+      sub: "Diagnosis, strategy, voice and brand kit in one place. From there content is written for Instagram, the podcast, the newsletter and YouTube, moves onto the board, and ends in a sale.",
       inviteNote: "Right now you get in with a code.",
 
       codeLabel: "Invite code",
@@ -243,7 +240,6 @@ export const DICT = {
       noCodeLabel: "Don't have a code?",
       noCodeCta: "Get in touch",
 
-      messagesTitle: "Why a system and not another content tool",
       messages: [
         {
           claim: "The problem isn't how much content you publish.",
@@ -263,8 +259,6 @@ export const DICT = {
         },
       ],
 
-      whyTitle: "Why invite-only",
-      whyBody: "Because with a small group we can sit on every brand properly, fix things fast, and build the product around what's actually missing. This price belongs to this stage.",
     },
 
     footer: {
