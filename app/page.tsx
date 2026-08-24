@@ -43,8 +43,11 @@ export default async function Home() {
             <h1 className="mt-4 font-display text-center mx-auto max-w-[900px] text-[36px] sm:text-[50px] md:text-[60px] leading-[1.07]">
               {t.title}
             </h1>
-            <p className="mt-6 mx-auto max-w-[600px] text-center text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
+            <p className="mt-6 mx-auto max-w-[620px] text-center text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
               {t.sub}
+            </p>
+            <p className="mt-5 text-center text-[15px] font-semibold text-ink-900">
+              {t.inviteNote}
             </p>
 
             <div className="mt-8">
@@ -60,23 +63,27 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* What the subscription actually buys. Four concrete things, not
-            adjectives — she is deciding whether €14 is worth it. */}
+        {/* The messages. Each is a position you could disagree with, followed
+            by the thing in the product that makes it true. A claim without its
+            mechanism is a slogan; a mechanism without its claim is a feature
+            list. Both were wrong here before. */}
         <section className="section">
           <div className="container-page">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-display-h2 text-[24px] md:text-[34px] text-center">
-                {t.includesTitle}
+                {t.messagesTitle}
               </h2>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {t.includes.map((item) => (
+              <div className="mt-10 space-y-5">
+                {t.messages.map((m) => (
                   <div
-                    key={item.title}
-                    className="rounded-[18px] border border-line bg-surface p-6"
+                    key={m.claim}
+                    className="rounded-[18px] border border-line bg-surface p-6 md:p-8"
                   >
-                    <h3 className="text-[17px] font-semibold text-ink-900">{item.title}</h3>
-                    <p className="mt-2.5 text-[15px] leading-[1.6] text-ink-700">
-                      {item.body}
+                    <h3 className="text-[20px] md:text-[24px] font-bold leading-snug text-ink-900">
+                      {m.claim}
+                    </h3>
+                    <p className="mt-3 text-[16px] leading-[1.65] text-ink-700">
+                      {m.body}
                     </p>
                   </div>
                 ))}

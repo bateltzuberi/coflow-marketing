@@ -1,23 +1,19 @@
 import type { MetadataRoute } from "next";
-import { SITE, FEATURES } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const base = SITE.url;
 
   const staticRoutes: MetadataRoute.Sitemap = [
+    // Only pages that actually render. /studio and /pricing are redirects and
+    // /blog does not exist at all; listing them told crawlers to fetch a 404
+    // and two hops. The site is two real pages right now.
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/studio`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/pricing`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/how-it-works`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
   ];
 
-  const features = FEATURES.map((f) => ({
-    url: `${base}/features/${f.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
-
-  return [...staticRoutes, ...features];
+  // No /features/* routes exist. They used to be listed here and every one of
+  // them 404'd for anything that crawled the sitemap.
+  return staticRoutes;
 }

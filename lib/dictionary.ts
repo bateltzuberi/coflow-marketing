@@ -29,45 +29,45 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "מותג אישי אחד. ארבע פלטפורמות. מערכת אחת שמריצה את כולן.",
-      heroSub: "Coflow מתחילה מהאסטרטגיה של המותג שלך, והופכת אותה לתוכן שיוצא באמת — באינסטגרם, בפודקאסט, בניוזלטר וביוטיוב — עד המכירה ועד המספרים.",
+      heroTitle: "מערכת לניהול מותג, לא עוד כלי שמייצר פוסטים.",
+      heroSub: "Coflow מגדירה את המותג שלך פעם אחת, ומשם מנהלת את כל מה שנגזר ממנו: תוכן בארבע פלטפורמות, לוח שמוציא אותו החוצה, ומכירה בסוף.",
       cta: "הרשמה עם קוד",
       stepLabel: "שלב",
       steps: [
         {
           name: "פרופיל מותג",
           title: "הכל נשען על מקום אחד שיודע מי את.",
-          body: "אבחון של איך המותג נקרא מבחוץ, האסטרטגיה שנגזרת ממנו, הקול שלך, וערכת המותג — צבעים, פונטים, לוגו וגלריה. כל שאר המערכת קוראת מכאן, אז התוכן לא נוצר מאפס בכל פעם.",
+          body: "אבחון של איך המותג נקרא מבחוץ, האסטרטגיה שנגזרת ממנו, הקול שלך, וערכת המותג: צבעים, פונטים, לוגו וגלריה. כל שאר המערכת קוראת מכאן, אז התוכן לא נוצר מאפס בכל פעם.",
         },
         {
           name: "עוגני תוכן",
           title: "2–6 נושאים שחוזרים אליהם, לכל פלטפורמה בנפרד.",
-          body: "העוגן הוא מה שאת רוצה שיכירו אותך בזכותו. לכל פלטפורמה העוגנים שלה, הרפרנסים שלה והטמפלטים שלה — כי מה שעובד בקרוסלה לא מה שעובד בפרק פודקאסט.",
+          body: "העוגן הוא מה שאת רוצה שיכירו אותך בזכותו. לכל פלטפורמה העוגנים שלה, הרפרנסים שלה והטמפלטים שלה, כי מה שעובד בקרוסלה לא מה שעובד בפרק פודקאסט.",
         },
         {
           name: "יצירה",
-          title: "קרוסלות, ריאלס, גיליונות ותסריטים — בקול שלך.",
-          body: "התוכן נכתב מהעוגן ומהקול, לא מפרומפט גנרי: הוק, קופי, פירוק לשקופיות, בחירת מדיה מהגלריה, וטמפלט מעוצב במיתוג שלך.",
+          title: "AI שלא יודע מי את יכתוב תוכן של מישהי אחרת.",
+          body: "לכן הכתיבה יוצאת מהעוגן ומהקול שלך, לא מפרומפט ריק. הוק, קופי, פירוק לשקופיות, בחירת מדיה מהגלריה, וטמפלט מעוצב במיתוג שלך. קרוסלה, ריל, גיליון ניוזלטר או תסריט לפרק.",
         },
         {
           name: "לוח ופרסום",
-          title: "כי אסטרטגיה לא שווה כלום אם היא לא יוצאת החוצה.",
-          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון, לעבודה, למוכן, לפורסם. תאריכים, תתי־משימות, ומשימות שלא נופלות בין הכיסאות.",
+          title: "אסטרטגיה שנשארת במצגת לא שווה כלום.",
+          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון לעבודה, למוכן ולפורסם. תאריכים ותתי משימות, כדי שדברים לא נתקעים בטיוטות.",
         },
         {
           name: "מכירה",
           title: "תוכן שנגמר במכירה, לא באוויר.",
-          body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות — כדי שהדרך מפוסט ללקוחה תהיה קיימת ולא משוערת.",
+          body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. כך הדרך מפוסט ללקוחה קיימת במערכת ולא משוערת.",
         },
         {
           name: "מדידה",
           title: "מה באמת עבד, ולא מה שהרגיש שעבד.",
-          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים ומה בלט בשבוע האחרון — ומזין בחזרה את מה שכדאי לעשות יותר.",
+          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים ומה בלט בשבוע האחרון. משם רואים מה כדאי לעשות יותר.",
         },
       ],
       authority: {
         title: "בנוי על אסטרטגיית מותג, לא על טריקים של תוכן.",
-        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מבינים איך המותג נראה היום, אחר כך לאן את רוצה לקחת אותו, מזהים את הפער — והופכים את הפער הזה לפעולות ברורות.",
+        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מבינים איך המותג נראה היום, אחר כך לאן את רוצה לקחת אותו, מזהים את הפער והופכים אותו לפעולות ברורות.",
         p2: "זה אומר שהתוכן שלך לא נוצר מטרנדים בלבד, מטמפלטים או מפרומפטים רנדומליים. הוא נוצר מתוך החיבור בין:",
         bullets: [
           "איך המותג שלך נתפס עכשיו",
@@ -87,50 +87,43 @@ export const DICT = {
     // account, €14/month. No free tier, no diagnosis first — the diagnosis is
     // one of the things waiting inside.
     join: {
-      eyebrow: "פתיחה בהזמנה בלבד",
-      title: "Coflow נפתחת לקבוצה סגורה.",
-      sub: "סטודיו אחד שמריץ את המותג האישי שלך על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב. בשלב הזה נכנסים רק עם קוד.",
-      codeLabel: "קוד ההזמנה",
+      // The category, said plainly. Everything under it is an argument for why
+      // a brand-management system is a different thing from a content tool.
+      eyebrow: "מערכת לניהול מותג עם AI",
+      title: "מותג לא נבנה מעוד פוסטים.",
+      sub: "Coflow מחזיקה את ההגדרה של המותג שלך במקום אחד, וכל תוכן שנוצר בה נכתב ממנה. אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
+      inviteNote: "בשלב הזה נכנסים עם קוד.",
+
+      codeLabel: "קוד הזמנה",
       codePlaceholder: "הקוד שקיבלת",
       cta: "כניסה",
       ctaLoading: "בודקת…",
       errInvalid: "הקוד לא תקף. בדקי שהעתקת אותו במלואו.",
       errEmpty: "צריך להזין קוד.",
       errNetwork: "לא הצלחנו לבדוק את הקוד. נסי שוב.",
-      priceLine: "€14 לחודש. בלי תקופת ניסיון, בלי התחייבות — אפשר לבטל בכל רגע.",
+      priceLine: "14 יורו לחודש. בלי תקופת ניסיון, בלי התחייבות, אפשר לבטל בכל רגע.",
       noCodeLabel: "אין לך קוד?",
       noCodeCta: "כתבי לנו",
-      // Someone can land on the home page without an invite. Sending them
-      // away empty-handed wastes the visit — the diagnosis is still free and
-      // still open, it just isn't the front door any more.
-      noCodeDiagnosisLead: "רוצה בינתיים לראות מה האינסטגרם שלך משדר?",
-      noCodeDiagnosisCta: "לאבחון החינמי",
 
-      includesTitle: "מה יש במערכת",
-      includes: [
+      // Four claims. Each one takes a position you could argue with, and then
+      // says what in the system makes it true. No claim without its mechanism.
+      messagesTitle: "למה מערכת ולא עוד כלי תוכן",
+      messages: [
         {
-          title: "פרופיל מותג",
-          body: "המקום שכל השאר נשען עליו: אבחון של איך המותג נקרא מבחוץ, אסטרטגיה, הקול שלך, וערכת מותג — צבעים, פונטים, לוגו, גלריה.",
+          claim: "הבעיה היא לא כמה תוכן את מוציאה.",
+          body: "היא שאין מקום אחד שיודע מה המותג שלך אומר, ולכן כל פוסט מתחיל מאפס ושום דבר לא מצטבר. ב-Coflow יש פרופיל מותג אחד: אבחון של איך את נקראת מבחוץ, האסטרטגיה, הקול וערכת המותג. כל שאר המערכת קוראת משם.",
         },
         {
-          title: "ארבע פלטפורמות במקום אחד",
-          body: "אינסטגרם, פודקאסט, ניוזלטר ויוטיוב. לכל אחת עוגני תוכן, טמפלטים, רפרנסים, לוח משלה ואנליטיקס — לא ארבעה כלים נפרדים.",
+          claim: "AI שלא יודע מי את יכתוב לך תוכן של מישהי אחרת.",
+          body: "לכן התוכן כאן לא נכתב מפרומפט ריק. לכל פלטפורמה יש עוגני תוכן, רפרנסים וטמפלטים משלה, והכתיבה יוצאת מהם ומהקול שלך. קרוסלה, ריל, גיליון ניוזלטר או תסריט לפרק.",
         },
         {
-          title: "יצירה לפי האסטרטגיה שלך",
-          body: "קרוסלות, ריאלס, גיליונות ניוזלטר, תסריטים לפרקים — נכתבים מהעוגנים ומהקול שלך, לא מפרומפט גנרי.",
+          claim: "אסטרטגיה שנשארת במצגת לא שווה כלום.",
+          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון לעבודה, למוכן ולפורסם. תאריכים ותתי משימות, כדי שדברים לא נתקעים בטיוטות.",
         },
         {
-          title: "לוח תוכן ומשימות",
-          body: "יומן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון, לעבודה, למוכן, לפורסם. תאריכים ותתי־משימות.",
-        },
-        {
-          title: "מוצרים, משפכים ו-CRM",
-          body: "מה את מוכרת, דפי נחיתה וטפסים שאוספים לידים, ואנשי קשר ועסקאות במקום אחד — כדי שתוכן יגמר במכירה ולא באוויר.",
-        },
-        {
-          title: "מדידה",
-          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים, ומה עבד בשבוע האחרון.",
+          claim: "תוכן שלא נגמר במכירה הוא תחביב.",
+          body: "יש כאן מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. ולוח בקרה שמראה מה באמת עבד: עוקבים, חשיפה וביצועי פוסטים בכל הפלטפורמות.",
         },
       ],
 
@@ -139,7 +132,7 @@ export const DICT = {
     },
 
     footer: {
-      tagline: "סטודיו אחד שמריץ את המותג האישי שלך — אסטרטגיה, תוכן, פרסום ומכירה — על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
+      tagline: "מערכת לניהול מותג עם AI. אסטרטגיה, תוכן, פרסום ומכירה, על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
       cols: {
         product: "המוצר",
         company: "החברה",
@@ -179,45 +172,45 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "One personal brand. Four platforms. One system running all of them.",
-      heroSub: "Coflow starts from your brand strategy and turns it into content that actually ships — on Instagram, your podcast, your newsletter and YouTube — through to the sale and the numbers.",
+      heroTitle: "A brand-management system, not another tool that generates posts.",
+      heroSub: "Coflow defines your brand once, then runs everything that follows from it: content on four platforms, a board that ships it, and a sale at the end.",
       cta: "Sign up with a code",
       stepLabel: "Step",
       steps: [
         {
           name: "Brand profile",
           title: "Everything runs off one place that knows who you are.",
-          body: "A diagnosis of how the brand reads from the outside, the strategy that follows from it, your voice, and the brand kit — colors, fonts, logo, gallery. The rest of the system reads from here, so content isn't invented from scratch every time.",
+          body: "A diagnosis of how the brand reads from the outside, the strategy that follows from it, your voice, and the brand kit: colors, fonts, logo, gallery. The rest of the system reads from here, so content isn't invented from scratch every time.",
         },
         {
           name: "Content anchors",
           title: "2–6 subjects you keep coming back to, per platform.",
-          body: "An anchor is what you want to be known for. Each platform gets its own anchors, references and templates — what works in a carousel isn't what works in a podcast episode.",
+          body: "An anchor is what you want to be known for. Each platform gets its own anchors, references and templates, because what works in a carousel is not what works in a podcast episode.",
         },
         {
           name: "Creation",
-          title: "Carousels, reels, issues and scripts — in your voice.",
-          body: "Content is written off the anchor and the voice, not off a generic prompt: hook, copy, the slide breakdown, media picked from your gallery, and a template designed in your branding.",
+          title: "An AI that doesn't know who you are will write someone else's content.",
+          body: "So the writing comes off your anchor and your voice, not an empty prompt. Hook, copy, the slide breakdown, media picked from your gallery, and a template designed in your branding. A carousel, a reel, a newsletter issue, an episode script.",
         },
         {
           name: "Calendar and publishing",
-          title: "Strategy is worth nothing if it never ships.",
-          body: "One content calendar across every platform, and a board that moves a piece from idea to in-progress to ready to published. Dates, subtasks, and nothing falling through the gaps.",
+          title: "A strategy that stays in a deck is worth nothing.",
+          body: "One content calendar across every platform, and a board that moves a piece from idea to in progress to ready to published. Dates and subtasks, so things don't die in drafts.",
         },
         {
           name: "Selling",
           title: "Content that ends in a sale, not in the air.",
-          body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals — so the path from a post to a customer exists instead of being assumed.",
+          body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. The path from a post to a customer exists in the system instead of being assumed.",
         },
         {
           name: "Measurement",
           title: "What actually worked, not what felt like it worked.",
-          body: "A dashboard pulling the numbers together across platforms: followers, reach, how posts performed and what stood out last week — feeding back into what to do more of.",
+          body: "A dashboard pulling the numbers together across platforms: followers, reach, how posts performed and what stood out last week. That is where you see what to do more of.",
         },
       ],
       authority: {
         title: "Built on brand strategy, not content tricks.",
-        p1: "Coflow runs on a strategic process: first understand how the brand looks today, then where you want to take it, identify the gap - and turn that gap into clear actions.",
+        p1: "Coflow runs on a strategic process: first understand how the brand looks today, then where you want to take it, identify the gap and turn it into clear actions.",
         p2: "Which means your content isn't generated from trends alone, from templates, or from random prompts. It comes from the connection between:",
         bullets: [
           "How your brand is perceived right now",
@@ -234,9 +227,11 @@ export const DICT = {
 
     // ----- /join — the invite-only launch landing -----
     join: {
-      eyebrow: "Invite-only launch",
-      title: "Coflow is opening to a closed group.",
-      sub: "One studio running your personal brand across Instagram, podcast, newsletter and YouTube. Right now you get in with a code.",
+      eyebrow: "An AI brand-management system",
+      title: "A brand isn't built out of more posts.",
+      sub: "Coflow holds the definition of your brand in one place, and every piece of content it writes comes off that. Instagram, podcast, newsletter, YouTube.",
+      inviteNote: "Right now you get in with a code.",
+
       codeLabel: "Invite code",
       codePlaceholder: "The code you were sent",
       cta: "Enter",
@@ -244,37 +239,27 @@ export const DICT = {
       errInvalid: "That code isn't valid. Check you copied all of it.",
       errEmpty: "Enter your code first.",
       errNetwork: "We couldn't check that code. Try again.",
-      priceLine: "€14/month. No trial, no lock-in — cancel any time.",
+      priceLine: "14 euro a month. No trial, no lock-in, cancel any time.",
       noCodeLabel: "Don't have a code?",
       noCodeCta: "Get in touch",
-      noCodeDiagnosisLead: "Want to see what your Instagram is saying in the meantime?",
-      noCodeDiagnosisCta: "Run the free diagnosis",
 
-      includesTitle: "What's in the studio",
-      includes: [
+      messagesTitle: "Why a system and not another content tool",
+      messages: [
         {
-          title: "Brand profile",
-          body: "What everything else runs off: a diagnosis of how the brand reads from the outside, your strategy, your voice, and a brand kit — colors, fonts, logo, gallery.",
+          claim: "The problem isn't how much content you publish.",
+          body: "It's that nothing holds what your brand actually says, so every post starts from zero and none of it adds up. Coflow keeps one brand profile: a diagnosis of how you read from the outside, the strategy, the voice and the brand kit. Everything else reads from there.",
         },
         {
-          title: "Four platforms, one place",
-          body: "Instagram, podcast, newsletter and YouTube. Each with its own content anchors, templates, references, board and analytics — not four separate tools.",
+          claim: "An AI that doesn't know who you are will write someone else's content.",
+          body: "So nothing here is written from an empty prompt. Every platform has its own content anchors, references and templates, and the writing comes off those and off your voice. A carousel, a reel, a newsletter issue, an episode script.",
         },
         {
-          title: "Content written off your strategy",
-          body: "Carousels, reels, newsletter issues, episode scripts — written from your anchors and your voice, not from a generic prompt.",
+          claim: "A strategy that stays in a deck is worth nothing.",
+          body: "One content calendar across every platform, and a board that moves a piece from idea to in progress to ready to published. Dates and subtasks, so things don't die in drafts.",
         },
         {
-          title: "A calendar and a board",
-          body: "One calendar across every platform, and a board that moves a piece from idea to in-progress to ready to published. Dates and subtasks included.",
-        },
-        {
-          title: "Products, funnels and CRM",
-          body: "What you sell, landing pages and forms that collect leads, and contacts and deals in one place — so content ends in a sale instead of in the air.",
-        },
-        {
-          title: "Measurement",
-          body: "A dashboard that pulls the numbers together across platforms: followers, reach, how posts performed, and what actually worked last week.",
+          claim: "Content that doesn't end in a sale is a hobby.",
+          body: "There are products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. Plus a dashboard showing what actually worked: followers, reach and post performance across platforms.",
         },
       ],
 
@@ -283,7 +268,7 @@ export const DICT = {
     },
 
     footer: {
-      tagline: "One studio running your personal brand — strategy, content, publishing and sales — across Instagram, podcast, newsletter and YouTube.",
+      tagline: "An AI brand-management system. Strategy, content, publishing and sales, across Instagram, podcast, newsletter and YouTube.",
       cols: {
         product: "Product",
         company: "Company",
