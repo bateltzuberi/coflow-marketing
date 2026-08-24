@@ -15,6 +15,9 @@ export const DICT = {
       howItWorks: "איך Coflow עובדת",
       signIn: "התחברות",
       cta: "להתחיל אבחון בחינם",
+      // The invite door. Quiet by design: it means nothing to a visitor who
+      // wasn't sent a code, and is the only thing that matters to one who was.
+      haveCode: "יש לי קוד",
     },
 
     hero: {
@@ -136,6 +139,49 @@ export const DICT = {
       },
     },
 
+    // ----- /join — the invite-only launch landing -----
+    // Coflow opens to a closed group first. This page is the door: a code, an
+    // account, €14/month. No free tier, no diagnosis first — the diagnosis is
+    // one of the things waiting inside.
+    join: {
+      eyebrow: "פתיחה בהזמנה בלבד",
+      title: "Coflow נפתחת לקבוצה סגורה.",
+      sub: "בשלב הזה נכנסים רק עם קוד. אם קיבלת אחד — הוא הכרטיס שלך פנימה.",
+      codeLabel: "קוד ההזמנה",
+      codePlaceholder: "הקוד שקיבלת",
+      cta: "כניסה",
+      ctaLoading: "בודקת…",
+      errInvalid: "הקוד לא תקף. בדקי שהעתקת אותו במלואו.",
+      errEmpty: "צריך להזין קוד.",
+      errNetwork: "לא הצלחנו לבדוק את הקוד. נסי שוב.",
+      priceLine: "€14 לחודש. בלי תקופת ניסיון, בלי התחייבות — אפשר לבטל בכל רגע.",
+      noCodeLabel: "אין לך קוד?",
+      noCodeCta: "כתבי לנו",
+
+      includesTitle: "מה מחכה בפנים",
+      includes: [
+        {
+          title: "אבחון המותג",
+          body: "אותה קריאה חדה של האינסטגרם שלך — בהירות, סמכות, בידול, דרך להכנסה. רצה מתוך המערכת, מתי שתרצי.",
+        },
+        {
+          title: "אסטרטגיה ועוגני תוכן",
+          body: "מהאבחון לכיוון: קהל, מיצוב, קול, ו־2–6 עוגני תוכן שחוזרים אליהם שוב ושוב.",
+        },
+        {
+          title: "רעיונות וקופי בקול שלך",
+          body: "הוק, קופי, האשטגים ופירוק לקרוסלה — לפי האסטרטגיה שלך, לא לפי פרומפט גנרי.",
+        },
+        {
+          title: "לוח תוכן שמזיז דברים",
+          body: "מרעיון, לעבודה, למוכן, לפורסם. תאריכים, תתי־משימות, וכל הפלטפורמות במקום אחד.",
+        },
+      ],
+
+      whyTitle: "למה בהזמנה בלבד",
+      whyBody: "כי בקבוצה קטנה אפשר לשבת על כל מותג ברצינות, לתקן מהר, ולבנות את המערכת סביב מה שבאמת חסר. המחיר הזה הוא מחיר של השלב הזה.",
+    },
+
     footer: {
       tagline: "מתחילים מאבחון חינמי של האינסטגרם. ממשיכים לאסטרטגיה ולפוסטים בקול שלך.",
       cols: {
@@ -146,6 +192,7 @@ export const DICT = {
       productLinks: [
         { label: "איך Coflow עובדת", href: "/how-it-works" },
         { label: "להתחיל אבחון", href: "/#start" },
+        { label: "כניסה עם קוד", href: "/join" },
       ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
@@ -166,6 +213,7 @@ export const DICT = {
       howItWorks: "How Coflow works",
       signIn: "Log in",
       cta: "Start free diagnosis",
+      haveCode: "I have a code",
     },
 
     hero: {
@@ -287,6 +335,46 @@ export const DICT = {
       },
     },
 
+    // ----- /join — the invite-only launch landing -----
+    join: {
+      eyebrow: "Invite-only launch",
+      title: "Coflow is opening to a closed group.",
+      sub: "Right now you get in with a code. If you were sent one, that's your way in.",
+      codeLabel: "Invite code",
+      codePlaceholder: "The code you were sent",
+      cta: "Enter",
+      ctaLoading: "Checking…",
+      errInvalid: "That code isn't valid. Check you copied all of it.",
+      errEmpty: "Enter your code first.",
+      errNetwork: "We couldn't check that code. Try again.",
+      priceLine: "€14/month. No trial, no lock-in — cancel any time.",
+      noCodeLabel: "Don't have a code?",
+      noCodeCta: "Get in touch",
+
+      includesTitle: "What's waiting inside",
+      includes: [
+        {
+          title: "The brand diagnosis",
+          body: "The same blunt read of your Instagram — clarity, authority, differentiation, path to money. Run it from inside, whenever you want.",
+        },
+        {
+          title: "Strategy and content anchors",
+          body: "From the diagnosis to a direction: audience, positioning, voice, and 2–6 content anchors you come back to.",
+        },
+        {
+          title: "Ideas and copy in your voice",
+          body: "Hook, copy, hashtags and the carousel breakdown — off your strategy, not off a generic prompt.",
+        },
+        {
+          title: "A board that actually moves",
+          body: "Idea to in-progress to ready to published. Dates, subtasks, every platform in one place.",
+        },
+      ],
+
+      whyTitle: "Why invite-only",
+      whyBody: "Because with a small group we can sit on every brand properly, fix things fast, and build the product around what's actually missing. This price belongs to this stage.",
+    },
+
     footer: {
       tagline: "Start with a free diagnosis of your Instagram. Then a strategy and posts in your voice.",
       cols: {
@@ -297,6 +385,7 @@ export const DICT = {
       productLinks: [
         { label: "How Coflow works", href: "/how-it-works" },
         { label: "Start free diagnosis", href: "/#start" },
+        { label: "Enter with a code", href: "/join" },
       ],
       companyLinks: [
         { label: "About", href: "/about" },

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { SITE, wizardUrlFor } from "@/lib/site";
+import { JOIN_PATH, SITE, wizardUrlFor } from "@/lib/site";
 
 export async function Nav() {
   const locale = await getLocale();
@@ -21,6 +21,12 @@ export async function Nav() {
           <nav aria-label="Primary" className="hidden md:flex items-center gap-7">
             <Link href="/how-it-works" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
               {t.howItWorks}
+            </Link>
+            {/* The invite door. Deliberately a quiet text link, not a second
+                button — it's noise to anyone who wasn't sent a code, and the
+                people who were are looking for exactly these words. */}
+            <Link href={JOIN_PATH} className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
+              {t.haveCode}
             </Link>
           </nav>
         </div>
