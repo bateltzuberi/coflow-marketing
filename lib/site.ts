@@ -14,6 +14,22 @@ export const SITE = {
   twitter: "@coflow",
 } as const;
 
+// Invite-only launch (2026-08). Signup lives in the Studio app at /signup and
+// needs a code; the code is validated here first (server-side, see
+// app/join/actions.ts) so a wrong code fails on THIS page instead of bouncing
+// the visitor to an app screen that rejects them.
+export const JOIN_PATH = "/join";
+
+// The Studio signup screen, carrying the validated code + the language she was
+// reading the site in. The code in the URL is a convenience only — the Studio
+// revalidates it server-side before creating anything.
+export function signupUrlFor(locale: "he" | "en", code: string): string {
+  const url = new URL(`${SITE.studioAppUrl}/signup`);
+  url.searchParams.set("lang", locale);
+  if (code) url.searchParams.set("code", code);
+  return url.toString();
+}
+
 // Wizard entry carrying the visitor's current language across to the app.
 // The Studio app reads `?lang=` and locks it for the whole onboarding flow,
 // so the language someone is browsing this marketing site in is the language
