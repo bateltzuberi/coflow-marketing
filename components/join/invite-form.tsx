@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 
-import { verifyInviteCode } from "@/app/join/actions";
+import { verifyInviteCode } from "@/app/invite-actions";
 import { signupUrlFor } from "@/lib/site";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/locale";

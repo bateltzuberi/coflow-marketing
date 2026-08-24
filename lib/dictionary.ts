@@ -14,10 +14,11 @@ export const DICT = {
     nav: {
       howItWorks: "איך Coflow עובדת",
       signIn: "התחברות",
-      cta: "להתחיל אבחון בחינם",
-      // The invite door. Quiet by design: it means nothing to a visitor who
-      // wasn't sent a code, and is the only thing that matters to one who was.
-      haveCode: "יש לי קוד",
+      // The primary button is registration now — the launch is invite-only and
+      // the home page is the door.
+      cta: "הרשמה עם קוד",
+      // The free diagnosis, which used to be the home page.
+      diagnosis: "אבחון חינם",
     },
 
     hero: {
@@ -157,6 +158,11 @@ export const DICT = {
       priceLine: "€14 לחודש. בלי תקופת ניסיון, בלי התחייבות — אפשר לבטל בכל רגע.",
       noCodeLabel: "אין לך קוד?",
       noCodeCta: "כתבי לנו",
+      // Someone can land on the home page without an invite. Sending them
+      // away empty-handed wastes the visit — the diagnosis is still free and
+      // still open, it just isn't the front door any more.
+      noCodeDiagnosisLead: "רוצה בינתיים לראות מה האינסטגרם שלך משדר?",
+      noCodeDiagnosisCta: "לאבחון החינמי",
 
       includesTitle: "מה מחכה בפנים",
       includes: [
@@ -191,8 +197,8 @@ export const DICT = {
       },
       productLinks: [
         { label: "איך Coflow עובדת", href: "/how-it-works" },
-        { label: "להתחיל אבחון", href: "/#start" },
-        { label: "כניסה עם קוד", href: "/join" },
+        { label: "הרשמה עם קוד", href: "/" },
+        { label: "אבחון חינם", href: "/diagnosis" },
       ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
@@ -212,8 +218,8 @@ export const DICT = {
     nav: {
       howItWorks: "How Coflow works",
       signIn: "Log in",
-      cta: "Start free diagnosis",
-      haveCode: "I have a code",
+      cta: "Sign up with a code",
+      diagnosis: "Free diagnosis",
     },
 
     hero: {
@@ -350,6 +356,8 @@ export const DICT = {
       priceLine: "€14/month. No trial, no lock-in — cancel any time.",
       noCodeLabel: "Don't have a code?",
       noCodeCta: "Get in touch",
+      noCodeDiagnosisLead: "Want to see what your Instagram is saying in the meantime?",
+      noCodeDiagnosisCta: "Run the free diagnosis",
 
       includesTitle: "What's waiting inside",
       includes: [
@@ -384,8 +392,8 @@ export const DICT = {
       },
       productLinks: [
         { label: "How Coflow works", href: "/how-it-works" },
-        { label: "Start free diagnosis", href: "/#start" },
-        { label: "Enter with a code", href: "/join" },
+        { label: "Sign up with a code", href: "/" },
+        { label: "Free diagnosis", href: "/diagnosis" },
       ],
       companyLinks: [
         { label: "About", href: "/about" },
