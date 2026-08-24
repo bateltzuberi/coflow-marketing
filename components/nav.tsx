@@ -13,7 +13,7 @@ export async function Nav() {
       <div className="container-page flex h-16 md:h-[72px] items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
-            <CoflowMark size={30} tone="ink" />
+            <CoflowMark size={30} tone="blue" />
           </Link>
 
           {/* One quiet secondary link. The primary action lives in the

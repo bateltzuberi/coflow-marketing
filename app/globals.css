@@ -25,17 +25,22 @@
   --color-lavender-soft:        #FDF6D8;
   --color-lavender-ink:         #6B5214;
 
-  /* ── Lime · studio (recolored to deep red) ───────────── */
-  --color-lime:                 #871A18;
-  --color-lime-deep:            #6B1513;
-  --color-lime-tint:            #FCEEED;
-  --color-lime-soft:            #F7DAD8;
-  --color-lime-ink:             #5A1210;
+  /* ── Lime · studio (the brand blue) ──────────────────────
+     The accent is coflow blue — the same #4054F7 the logo files are cut in
+     and the Studio's own auth screens use. It was briefly deep red, which
+     left the site's buttons disagreeing with its own logo. Cream stays as
+     the second brand colour (the pairing on dark surfaces).
+     The token names are historical; only the values are the brand. */
+  --color-lime:                 #4054F7;
+  --color-lime-deep:            #2F41D9;
+  --color-lime-tint:            #EEF0FE;
+  --color-lime-soft:            #D7DDFC;
+  --color-lime-ink:             #22309B;
 
   /* ── Bridge gradient (the brand DNA) ─────────────────── */
-  --gradient-bridge:            linear-gradient(135deg, #FBEEB9 0%, #871A18 100%);
-  --gradient-bridge-soft:       linear-gradient(135deg, #FEFBEE 0%, #FCEEED 100%);
-  --gradient-bridge-deep:       linear-gradient(135deg, #B8860B 0%, #6B1513 100%);
+  --gradient-bridge:            linear-gradient(135deg, #FBEEB9 0%, #4054F7 100%);
+  --gradient-bridge-soft:       linear-gradient(135deg, #FEFBEE 0%, #EEF0FE 100%);
+  --gradient-bridge-deep:       linear-gradient(135deg, #B8860B 0%, #2F41D9 100%);
 
   /* ── Radii ───────────────────────────────────────────── */
   --radius-chip:                10px;
@@ -237,7 +242,7 @@ body {
   color: #fff;
   border-color: var(--color-lime);
 }
-.btn-lime:hover { background: #6b1513; border-color: #6b1513; }
+.btn-lime:hover { background: var(--color-lime-deep); border-color: var(--color-lime-deep); }
 
 .btn-lavender {
   background: var(--color-lavender);
