@@ -29,8 +29,8 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "איך Coflow מנהלת מותג.",
-      heroSub: "Coflow מגדירה את המותג שלך פעם אחת, ומשם מנהלת את כל מה שנגזר ממנו: תוכן בארבע פלטפורמות, לוח שמוציא אותו החוצה, ומכירה בסוף.",
+      heroTitle: "מה נכלל בניהול מותג.",
+      heroSub: "מהגדרת המותג ועד המכירה, בשישה שלבים שיושבים באותה מערכת.",
       cta: "הרשמה עם קוד",
       stepLabel: "שלב",
       steps: [
@@ -90,8 +90,8 @@ export const DICT = {
       // The category, said plainly. Everything under it is an argument for why
       // a brand-management system is a different thing from a content tool.
       eyebrow: "מערכת לניהול מותג עם AI",
-      title: "המותג שלך מוגדר פעם אחת. כל השאר נגזר ממנו.",
-      sub: "אבחון, אסטרטגיה, קול וערכת מותג במקום אחד. משם נכתב התוכן לאינסטגרם, לפודקאסט, לניוזלטר וליוטיוב, עובר ללוח, ונגמר במכירה.",
+      title: "כל המותג שלך במקום אחד.",
+      sub: "מערכת אחת שמנהלת את המותג האישי שלך מהאסטרטגיה ועד המכירה. אינסטגרם, פודקאסט, ניוזלטר ויוטיוב, כולם מאותה הגדרה.",
       inviteNote: "בשלב הזה נכנסים עם קוד.",
 
       codeLabel: "קוד הזמנה",
@@ -109,27 +109,26 @@ export const DICT = {
       // says what in the system makes it true. No claim without its mechanism.
       messages: [
         {
-          claim: "הבעיה היא לא כמה תוכן את מוציאה.",
-          body: "היא שאין מקום אחד שיודע מה המותג שלך אומר, ולכן כל פוסט מתחיל מאפס ושום דבר לא מצטבר. ב-Coflow יש פרופיל מותג אחד: אבחון של איך את נקראת מבחוץ, האסטרטגיה, הקול וערכת המותג. כל שאר המערכת קוראת משם.",
+          claim: "מותג הוא לא רק התוכן שלו.",
+          body: "לפני שמוציאים פוסט אחד, יש כאן פרופיל מותג: אבחון של איך את נקראת מבחוץ, האסטרטגיה, הקול וערכת המותג עם הצבעים, הפונטים והלוגו. כל שאר המערכת קוראת משם, ולכן שום דבר לא מתחיל מאפס.",
         },
         {
-          claim: "AI שלא יודע מי את יכתוב לך תוכן של מישהי אחרת.",
-          body: "לכן התוכן כאן לא נכתב מפרומפט ריק. לכל פלטפורמה יש עוגני תוכן, רפרנסים וטמפלטים משלה, והכתיבה יוצאת מהם ומהקול שלך. קרוסלה, ריל, גיליון ניוזלטר או תסריט לפרק.",
+          claim: "מותג אחד, לא ארבעה חשבונות שרצים במקביל.",
+          body: "אינסטגרם, פודקאסט, ניוזלטר ויוטיוב יושבים באותה מערכת ונגזרים מאותה הגדרה. לכל אחד עוגני תוכן, רפרנסים וטמפלטים משלו, כי מה שעובד בקרוסלה לא מה שעובד בפרק.",
         },
         {
-          claim: "אסטרטגיה שנשארת במצגת לא שווה כלום.",
-          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון לעבודה, למוכן ולפורסם. תאריכים ותתי משימות, כדי שדברים לא נתקעים בטיוטות.",
+          claim: "ניהול מותג הוא גם התפעול, לא רק הרעיונות.",
+          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון לעבודה, למוכן ולפורסם, עם תאריכים ותתי משימות. זה ההבדל בין אסטרטגיה שכתובה לבין אסטרטגיה שקורית.",
         },
         {
-          claim: "תוכן שלא נגמר במכירה הוא תחביב.",
-          body: "יש כאן מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. ולוח בקרה שמראה מה באמת עבד: עוקבים, חשיפה וביצועי פוסטים בכל הפלטפורמות.",
+          claim: "מותג נמדד גם בהכנסה.",
+          body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. ולוח בקרה שמאחד את המספרים מכל הפלטפורמות, כדי לראות מה עבד ולא מה שהרגיש שעבד.",
         },
       ],
-
     },
 
     footer: {
-      tagline: "מערכת לניהול מותג עם AI. אסטרטגיה, תוכן, פרסום ומכירה, על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
+      tagline: "מערכת לניהול מותג עם AI. כל המותג שלך במקום אחד, מהאסטרטגיה ועד המכירה.",
       cols: {
         product: "המוצר",
         company: "החברה",
@@ -169,8 +168,8 @@ export const DICT = {
 
 
     howItWorks: {
-      heroTitle: "How Coflow manages a brand.",
-      heroSub: "Coflow defines your brand once, then runs everything that follows from it: content on four platforms, a board that ships it, and a sale at the end.",
+      heroTitle: "What managing a brand covers.",
+      heroSub: "From defining the brand through to the sale, in six steps that live in the same system.",
       cta: "Sign up with a code",
       stepLabel: "Step",
       steps: [
@@ -225,8 +224,8 @@ export const DICT = {
     // ----- /join — the invite-only launch landing -----
     join: {
       eyebrow: "An AI brand-management system",
-      title: "Your brand is defined once. Everything else follows from it.",
-      sub: "Diagnosis, strategy, voice and brand kit in one place. From there content is written for Instagram, the podcast, the newsletter and YouTube, moves onto the board, and ends in a sale.",
+      title: "Your whole brand in one place.",
+      sub: "One system running your personal brand from the strategy through to the sale. Instagram, podcast, newsletter and YouTube, all off the same definition.",
       inviteNote: "Right now you get in with a code.",
 
       codeLabel: "Invite code",
@@ -242,27 +241,26 @@ export const DICT = {
 
       messages: [
         {
-          claim: "The problem isn't how much content you publish.",
-          body: "It's that nothing holds what your brand actually says, so every post starts from zero and none of it adds up. Coflow keeps one brand profile: a diagnosis of how you read from the outside, the strategy, the voice and the brand kit. Everything else reads from there.",
+          claim: "A brand is not just its content.",
+          body: "Before a single post, there is a brand profile: a diagnosis of how you read from the outside, the strategy, the voice, and the brand kit with your colors, fonts and logo. Everything else reads from there, so nothing starts from zero.",
         },
         {
-          claim: "An AI that doesn't know who you are will write someone else's content.",
-          body: "So nothing here is written from an empty prompt. Every platform has its own content anchors, references and templates, and the writing comes off those and off your voice. A carousel, a reel, a newsletter issue, an episode script.",
+          claim: "One brand, not four accounts running in parallel.",
+          body: "Instagram, podcast, newsletter and YouTube live in the same system and come off the same definition. Each has its own anchors, references and templates, because what works in a carousel is not what works in an episode.",
         },
         {
-          claim: "A strategy that stays in a deck is worth nothing.",
-          body: "One content calendar across every platform, and a board that moves a piece from idea to in progress to ready to published. Dates and subtasks, so things don't die in drafts.",
+          claim: "Managing a brand is the operations too, not only the ideas.",
+          body: "One content calendar across every platform, and a board that moves a piece from idea to in progress to ready to published, with dates and subtasks. That is the difference between a strategy that is written and a strategy that happens.",
         },
         {
-          claim: "Content that doesn't end in a sale is a hobby.",
-          body: "There are products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. Plus a dashboard showing what actually worked: followers, reach and post performance across platforms.",
+          claim: "A brand is measured in revenue as well.",
+          body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. Plus a dashboard pulling the numbers together across platforms, so you see what worked and not what felt like it worked.",
         },
       ],
-
     },
 
     footer: {
-      tagline: "An AI brand-management system. Strategy, content, publishing and sales, across Instagram, podcast, newsletter and YouTube.",
+      tagline: "An AI brand-management system. Your whole brand in one place, from the strategy through to the sale.",
       cols: {
         product: "Product",
         company: "Company",
