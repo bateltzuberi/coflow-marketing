@@ -70,10 +70,7 @@ export default async function Home() {
         <section className="section">
           <div className="container-page">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display-h2 text-[24px] md:text-[34px] text-center">
-                {t.messagesTitle}
-              </h2>
-              <div className="mt-10 space-y-5">
+              <div className="space-y-5">
                 {t.messages.map((m) => (
                   <div
                     key={m.claim}
@@ -92,20 +89,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Why it's closed — answers the obvious question instead of leaving
-            it to feel like artificial scarcity. */}
-        <section className="section">
-          <div className="container-page">
-            <div className="max-w-2xl mx-auto rounded-[28px] bg-lavender-tint border border-lavender-deep/20 p-8 md:p-12">
-              <h2 className="font-display-h2 text-[22px] md:text-[30px] text-lavender-ink">
-                {t.whyTitle}
-              </h2>
-              <p className="mt-4 text-[16px] md:text-[17px] leading-[1.6] text-lavender-ink/85">
-                {t.whyBody}
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
