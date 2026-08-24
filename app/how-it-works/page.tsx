@@ -7,7 +7,7 @@ import { getDict } from "@/lib/dictionary";
 export const metadata = buildMetadata({
   title: "How Coflow works",
   description:
-    "Coflow starts with a diagnosis of your Instagram, then turns it into direction, strategy, content anchors, ideas, captions, and a board that helps you publish.",
+    "Coflow runs a personal brand end to end: brand strategy, content anchors, and content written in your voice for Instagram, podcast, newsletter and YouTube — plus a calendar, products, funnels, a CRM and one dashboard.",
   path: "/how-it-works",
 });
 
@@ -37,7 +37,7 @@ export default async function HowItWorksPage() {
                 {t.heroSub}
               </p>
               <div className="mt-8">
-                <a href="/diagnosis#start" className="btn btn-lime">
+                <a href="/" className="btn btn-lime">
                   {t.cta}
                 </a>
               </div>
@@ -96,7 +96,7 @@ export default async function HowItWorksPage() {
                 {a.closeB}
               </p>
               <div className="mt-8">
-                <a href="/diagnosis#start" className="btn btn-lime">
+                <a href="/" className="btn btn-lime">
                   {a.cta}
                 </a>
               </div>

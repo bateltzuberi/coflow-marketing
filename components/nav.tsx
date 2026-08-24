@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { DIAGNOSIS_PATH, JOIN_PATH, SITE } from "@/lib/site";
+import { JOIN_PATH, SITE } from "@/lib/site";
 
 export async function Nav() {
   const locale = await getLocale();
@@ -21,11 +21,6 @@ export async function Nav() {
           <nav aria-label="Primary" className="hidden md:flex items-center gap-7">
             <Link href="/how-it-works" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
               {t.howItWorks}
-            </Link>
-            {/* The free diagnosis. It used to be the home page; now it's the
-                secondary path, for someone who isn't ready to register. */}
-            <Link href={DIAGNOSIS_PATH} className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
-              {t.diagnosis}
             </Link>
           </nav>
         </div>
