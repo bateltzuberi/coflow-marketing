@@ -80,7 +80,7 @@ export default async function OpengraphImage() {
               flexWrap: "wrap",
             }}
           >
-            Coflow is opening to a closed group.
+            Your whole brand in one place.
           </div>
           <div
             style={{
@@ -90,7 +90,7 @@ export default async function OpengraphImage() {
               display: "flex",
             }}
           >
-            Brand diagnosis · Strategy · Content anchors · Copy in your voice
+            Strategy · Voice · Content · Publishing · Sales · Analytics
           </div>
         </div>
 
