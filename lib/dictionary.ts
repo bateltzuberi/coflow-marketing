@@ -21,111 +21,53 @@ export const DICT = {
       diagnosis: "אבחון חינם",
     },
 
-    hero: {
-      title: "תפסיקי לנחש מה האינסטגרם שלך משדר.",
-      sub: "קבלי אבחון חד של הפרופיל שלך - לפי הביו, הפוסטים והמסרים שכבר קיימים אצלך בעמוד.",
-      promise: "מדביקה לינק לאינסטגרם. מקבלת אבחון תוך דקות.",
-      inputPlaceholder: "מדביקה לינק לאינסטגרם",
-      inputCta: "קבלי אבחון",
-      secondary: "בלי הרשמה. בלי חיבור חשבונות. רק לינק לאינסטגרם.",
-    },
 
-    centralMessage: "האינסטגרם שלך כבר ממצב אותך. Coflow מראה לך אם הוא עושה את זה נכון.",
 
-    mock: {
-      label: "דוגמה לאבחון",
-      handle: "@your_page",
-      rows: [
-        { lens: "בהירות", verdict: "חלש", tone: "weak" },
-        { lens: "בידול", verdict: "חלקי", tone: "partial" },
-        { lens: "סמכות", verdict: "חזק", tone: "strong" },
-        { lens: "דרך להכנסה", verdict: "חסר", tone: "weak" },
-      ],
-      evidenceLabel: "על סמך",
-      evidence: "הביו אומר ׳עוזרת לנשים׳, אבל לא ברור במה בדיוק ולמי.",
-      fixLabel: "לתקן השבוע",
-      fix: "להחליף את שורת הביו במשפט אחד: מה את עושה, ולמי.",
-    },
 
-    whatItShows: {
-      lead: "העמוד שלך כבר מספר סיפור. השאלה היא אם זה הסיפור הנכון.",
-      intro: "Coflow מסתכלת על האינסטגרם שלך מבחוץ ומראה לך:",
-      bullets: [
-        "האם ברור מה את עושה?",
-        "האם ברור למי זה מיועד?",
-        "האם את נקראת כאוטוריטה - או כעוד יוצרת תוכן?",
-        "האם הבידול שלך באמת עובר?",
-        "האם התוכן שלך בונה אמון?",
-        "האם יש דרך ברורה מתשומת לב להכנסה?",
-      ],
-    },
 
-    bluntAudit: {
-      lead: "לא דוח AI גנרי. קריאה אמיתית של העמוד שלך.",
-      intro: "האבחון מראה לך:",
-      bullets: [
-        "מה כבר עובד",
-        "מה מבלבל אנשים",
-        "מה מחליש את הסמכות שלך",
-        "מה כנראה עולה לך בלידים, אמון או מכירות",
-        "מה הכי חשוב לתקן כבר השבוע",
-      ],
-    },
 
-    whyItMatters: {
-      lead: "כי ״לפרסם יותר״ לא יפתור מיצוב לא ברור.",
-      p1a: "לרוב האנשים אין בעיית תוכן.",
-      p1b: "יש להם בעיית בהירות.",
-      p2: "הם מפרסמים, משקיעים, מצלמים, עורכים - אבל העמוד עדיין לא עונה מספיק מהר על השאלות החשובות:",
-      questions: ["למה דווקא את?", "למה עכשיו?", "למה לסמוך עלייך?", "ומה הצעד הבא?"],
-      close: "זה בדיוק מה שהאבחון חושף.",
-    },
 
-    midCta: {
-      line: "תראי מה האינסטגרם שלך באמת משדר.",
-      cta: "להתחיל אבחון בחינם",
-    },
 
     howItWorks: {
-      heroTitle: "מ״מה בכלל לפרסם?״ לאסטרטגיית תוכן שאפשר לעבוד איתה.",
-      heroSub: "Coflow מתחילה מאבחון של האינסטגרם שלך, ואז הופכת את האבחון לכיוון ברור, עוגני תוכן, רעיונות, קופי ולוח עבודה שעוזר לך באמת לפרסם.",
-      cta: "להתחיל באבחון חינם",
+      heroTitle: "מותג אישי אחד. ארבע פלטפורמות. מערכת אחת שמריצה את כולן.",
+      heroSub: "Coflow מתחילה מהאסטרטגיה של המותג שלך, והופכת אותה לתוכן שיוצא באמת — באינסטגרם, בפודקאסט, בניוזלטר וביוטיוב — עד המכירה ועד המספרים.",
+      cta: "הרשמה עם קוד",
       stepLabel: "שלב",
       steps: [
         {
-          name: "אבחון",
-          title: "קודם Coflow קוראת את העמוד שלך מבחוץ.",
-          body: "לפני שהיא אומרת לך מה לפרסם, Coflow בודקת מה האינסטגרם שלך משדר עכשיו: בהירות, סמכות, קהל יעד, בידול, אמון ודרך להכנסה.",
+          name: "פרופיל מותג",
+          title: "הכל נשען על מקום אחד שיודע מי את.",
+          body: "אבחון של איך המותג נקרא מבחוץ, האסטרטגיה שנגזרת ממנו, הקול שלך, וערכת המותג — צבעים, פונטים, לוגו וגלריה. כל שאר המערכת קוראת מכאן, אז התוכן לא נוצר מאפס בכל פעם.",
         },
         {
-          name: "כיוון",
-          title: "אחר כך היא שואלת לאן את רוצה לקחת את המותג.",
-          body: "העמוד הנוכחי הוא רק צד אחד של התמונה. Coflow צריכה להבין גם את הרצוי: את מי את רוצה למשוך, על מה את רוצה שיכירו אותך, ומה את רוצה שיקרה בעסק עכשיו.",
+          name: "עוגני תוכן",
+          title: "2–6 נושאים שחוזרים אליהם, לכל פלטפורמה בנפרד.",
+          body: "העוגן הוא מה שאת רוצה שיכירו אותך בזכותו. לכל פלטפורמה העוגנים שלה, הרפרנסים שלה והטמפלטים שלה — כי מה שעובד בקרוסלה לא מה שעובד בפרק פודקאסט.",
         },
         {
-          name: "אסטרטגיה",
-          title: "Coflow מזהה את הפער בין איך שהמותג נראה עכשיו לבין לאן שאת רוצה לקחת אותו.",
-          body: "ואז היא הופכת את הפער הזה לאסטרטגיה ברורה: קהל, מיצוב, קול, כיוון תוכן ו־2–6 עוגני תוכן שאפשר לחזור אליהם שוב ושוב.",
+          name: "יצירה",
+          title: "קרוסלות, ריאלס, גיליונות ותסריטים — בקול שלך.",
+          body: "התוכן נכתב מהעוגן ומהקול, לא מפרומפט גנרי: הוק, קופי, פירוק לשקופיות, בחירת מדיה מהגלריה, וטמפלט מעוצב במיתוג שלך.",
         },
         {
-          name: "רעיונות",
-          title: "בלי דף ריק.",
-          body: "מקבלת רעיונות שמתאימים לאסטרטגיה שלך - לא הצעות AI גנריות. כל רעיון מחובר לעוגן תוכן ולמטרה ברורה.",
-        },
-        {
-          name: "קופי",
-          title: "להפוך רעיון לתוכן בקול שלך.",
-          body: "בוחרת רעיון, ו־Coflow כותבת הוק, קופי, האשטגים ופירוק לקרוסלה - לפי האסטרטגיה, הקול והמסרים שלך.",
-        },
-        {
-          name: "לוח",
+          name: "לוח ופרסום",
           title: "כי אסטרטגיה לא שווה כלום אם היא לא יוצאת החוצה.",
-          body: "מעבירה פוסטים מרעיון, לעבודה, למוכן, לפורסם. מוסיפה תאריכים, תתי־משימות ושומרת על תנועה.",
+          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון, לעבודה, למוכן, לפורסם. תאריכים, תתי־משימות, ומשימות שלא נופלות בין הכיסאות.",
+        },
+        {
+          name: "מכירה",
+          title: "תוכן שנגמר במכירה, לא באוויר.",
+          body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות — כדי שהדרך מפוסט ללקוחה תהיה קיימת ולא משוערת.",
+        },
+        {
+          name: "מדידה",
+          title: "מה באמת עבד, ולא מה שהרגיש שעבד.",
+          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים ומה בלט בשבוע האחרון — ומזין בחזרה את מה שכדאי לעשות יותר.",
         },
       ],
       authority: {
         title: "בנוי על אסטרטגיית מותג, לא על טריקים של תוכן.",
-        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מאבחנים איך המותג נראה היום, אחר כך מבינים לאן את רוצה לקחת אותו, מזהים את הפער - והופכים את הפער הזה לפעולות ברורות.",
+        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מבינים איך המותג נראה היום, אחר כך לאן את רוצה לקחת אותו, מזהים את הפער — והופכים את הפער הזה לפעולות ברורות.",
         p2: "זה אומר שהתוכן שלך לא נוצר מטרנדים בלבד, מטמפלטים או מפרומפטים רנדומליים. הוא נוצר מתוך החיבור בין:",
         bullets: [
           "איך המותג שלך נתפס עכשיו",
@@ -136,7 +78,7 @@ export const DICT = {
         ],
         closeA: "לכן Coflow לא רק מייצרת פוסטים.",
         closeB: "היא עוזרת לך לבנות מותג שאנשים מבינים, סומכים עליו - וקונים ממנו.",
-        cta: "להתחיל אבחון בחינם",
+        cta: "הרשמה עם קוד",
       },
     },
 
@@ -147,7 +89,7 @@ export const DICT = {
     join: {
       eyebrow: "פתיחה בהזמנה בלבד",
       title: "Coflow נפתחת לקבוצה סגורה.",
-      sub: "בשלב הזה נכנסים רק עם קוד. אם קיבלת אחד — הוא הכרטיס שלך פנימה.",
+      sub: "סטודיו אחד שמריץ את המותג האישי שלך על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב. בשלב הזה נכנסים רק עם קוד.",
       codeLabel: "קוד ההזמנה",
       codePlaceholder: "הקוד שקיבלת",
       cta: "כניסה",
@@ -164,23 +106,31 @@ export const DICT = {
       noCodeDiagnosisLead: "רוצה בינתיים לראות מה האינסטגרם שלך משדר?",
       noCodeDiagnosisCta: "לאבחון החינמי",
 
-      includesTitle: "מה מחכה בפנים",
+      includesTitle: "מה יש במערכת",
       includes: [
         {
-          title: "אבחון המותג",
-          body: "אותה קריאה חדה של האינסטגרם שלך — בהירות, סמכות, בידול, דרך להכנסה. רצה מתוך המערכת, מתי שתרצי.",
+          title: "פרופיל מותג",
+          body: "המקום שכל השאר נשען עליו: אבחון של איך המותג נקרא מבחוץ, אסטרטגיה, הקול שלך, וערכת מותג — צבעים, פונטים, לוגו, גלריה.",
         },
         {
-          title: "אסטרטגיה ועוגני תוכן",
-          body: "מהאבחון לכיוון: קהל, מיצוב, קול, ו־2–6 עוגני תוכן שחוזרים אליהם שוב ושוב.",
+          title: "ארבע פלטפורמות במקום אחד",
+          body: "אינסטגרם, פודקאסט, ניוזלטר ויוטיוב. לכל אחת עוגני תוכן, טמפלטים, רפרנסים, לוח משלה ואנליטיקס — לא ארבעה כלים נפרדים.",
         },
         {
-          title: "רעיונות וקופי בקול שלך",
-          body: "הוק, קופי, האשטגים ופירוק לקרוסלה — לפי האסטרטגיה שלך, לא לפי פרומפט גנרי.",
+          title: "יצירה לפי האסטרטגיה שלך",
+          body: "קרוסלות, ריאלס, גיליונות ניוזלטר, תסריטים לפרקים — נכתבים מהעוגנים ומהקול שלך, לא מפרומפט גנרי.",
         },
         {
-          title: "לוח תוכן שמזיז דברים",
-          body: "מרעיון, לעבודה, למוכן, לפורסם. תאריכים, תתי־משימות, וכל הפלטפורמות במקום אחד.",
+          title: "לוח תוכן ומשימות",
+          body: "יומן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון, לעבודה, למוכן, לפורסם. תאריכים ותתי־משימות.",
+        },
+        {
+          title: "מוצרים, משפכים ו-CRM",
+          body: "מה את מוכרת, דפי נחיתה וטפסים שאוספים לידים, ואנשי קשר ועסקאות במקום אחד — כדי שתוכן יגמר במכירה ולא באוויר.",
+        },
+        {
+          title: "מדידה",
+          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים, ומה עבד בשבוע האחרון.",
         },
       ],
 
@@ -189,7 +139,7 @@ export const DICT = {
     },
 
     footer: {
-      tagline: "מתחילים מאבחון חינמי של האינסטגרם. ממשיכים לאסטרטגיה ולפוסטים בקול שלך.",
+      tagline: "סטודיו אחד שמריץ את המותג האישי שלך — אסטרטגיה, תוכן, פרסום ומכירה — על פני אינסטגרם, פודקאסט, ניוזלטר ויוטיוב.",
       cols: {
         product: "המוצר",
         company: "החברה",
@@ -198,7 +148,6 @@ export const DICT = {
       productLinks: [
         { label: "איך Coflow עובדת", href: "/how-it-works" },
         { label: "הרשמה עם קוד", href: "/" },
-        { label: "אבחון חינם", href: "/diagnosis" },
       ],
       companyLinks: [
         { label: "עלינו", href: "/about" },
@@ -222,122 +171,64 @@ export const DICT = {
       diagnosis: "Free diagnosis",
     },
 
-    hero: {
-      title: "Stop guessing what your Instagram says about your brand.",
-      sub: "Get a blunt, outside-in diagnosis of your Instagram profile - based on your actual bio and recent posts.",
-      promise: "Paste your Instagram link. Get your brand diagnosis in minutes.",
-      inputPlaceholder: "Paste your Instagram link",
-      inputCta: "Get my diagnosis",
-      secondary: "No sign-up. No account connection. Just your Instagram link.",
-    },
 
-    centralMessage: "Your Instagram is already positioning you. Coflow shows you whether it's positioning you correctly.",
 
-    mock: {
-      label: "Sample diagnosis",
-      handle: "@your_page",
-      rows: [
-        { lens: "Clarity", verdict: "Weak", tone: "weak" },
-        { lens: "Differentiation", verdict: "Partial", tone: "partial" },
-        { lens: "Authority", verdict: "Strong", tone: "strong" },
-        { lens: "Path to money", verdict: "Missing", tone: "weak" },
-      ],
-      evidenceLabel: "Based on",
-      evidence: "Your bio says “I help women,” but not with what, exactly, or for whom.",
-      fixLabel: "Fix this week",
-      fix: "Replace the bio line with one sentence: what you do, and who for.",
-    },
 
-    whatItShows: {
-      lead: "Your page is already saying something. The question is whether it's saying the right thing.",
-      intro: "Coflow reads your Instagram from the outside and shows you:",
-      bullets: [
-        "Is it clear what you do?",
-        "Is it clear who this is for?",
-        "Do you look like an authority - or just another content creator?",
-        "Is your differentiation visible?",
-        "Does your content create trust?",
-        "Is there a clear path from attention to money?",
-      ],
-    },
 
-    bluntAudit: {
-      lead: "Not a generic AI report. A real read of your page.",
-      intro: "You'll get a direct profile audit with:",
-      bullets: [
-        "what's already working",
-        "what's confusing people",
-        "what's weakening your authority",
-        "what might be costing you leads, trust, or sales",
-        "what to fix first this week",
-      ],
-    },
 
-    whyItMatters: {
-      lead: "Because “posting more” won't fix unclear positioning.",
-      p1a: "Most people don't have a content problem.",
-      p1b: "They have a clarity problem.",
-      p2: "They post consistently, but the page still doesn't make it obvious:",
-      questions: ["why them,", "why now,", "why trust them,", "and what to do next."],
-      close: "That's exactly what the diagnosis exposes.",
-    },
 
-    midCta: {
-      line: "See what your Instagram is really communicating.",
-      cta: "Start free diagnosis",
-    },
 
     howItWorks: {
-      heroTitle: "From “what should I post?” to a brand strategy you can actually use.",
-      heroSub: "Coflow starts with a diagnosis of your Instagram, then turns that diagnosis into direction, content anchors, ideas, captions, and a simple board that helps you actually publish.",
-      cta: "Start with free diagnosis",
+      heroTitle: "One personal brand. Four platforms. One system running all of them.",
+      heroSub: "Coflow starts from your brand strategy and turns it into content that actually ships — on Instagram, your podcast, your newsletter and YouTube — through to the sale and the numbers.",
+      cta: "Sign up with a code",
       stepLabel: "Step",
       steps: [
         {
-          name: "Diagnosis",
-          title: "First, Coflow reads your page from the outside.",
-          body: "Before it tells you what to post, Coflow checks what your Instagram currently communicates: clarity, authority, audience, differentiation, trust, and money path.",
+          name: "Brand profile",
+          title: "Everything runs off one place that knows who you are.",
+          body: "A diagnosis of how the brand reads from the outside, the strategy that follows from it, your voice, and the brand kit — colors, fonts, logo, gallery. The rest of the system reads from here, so content isn't invented from scratch every time.",
         },
         {
-          name: "Direction",
-          title: "Then it asks where you want the brand to go.",
-          body: "Your current page is only one side of the picture. Coflow also needs to understand your desired direction - who you want to attract, what you want to be known for, and what business outcome you want next.",
+          name: "Content anchors",
+          title: "2–6 subjects you keep coming back to, per platform.",
+          body: "An anchor is what you want to be known for. Each platform gets its own anchors, references and templates — what works in a carousel isn't what works in a podcast episode.",
         },
         {
-          name: "Strategy",
-          title: "Coflow finds the gap between where your brand is and where you want it to go.",
-          body: "Then it turns that gap into a clear strategy: audience, positioning, voice, content direction, and 2–6 repeatable content anchors.",
+          name: "Creation",
+          title: "Carousels, reels, issues and scripts — in your voice.",
+          body: "Content is written off the anchor and the voice, not off a generic prompt: hook, copy, the slide breakdown, media picked from your gallery, and a template designed in your branding.",
         },
         {
-          name: "Ideas",
-          title: "No more blank page.",
-          body: "Get post ideas that fit your strategy - not random AI suggestions. Each idea is connected to a content anchor and a clear purpose.",
+          name: "Calendar and publishing",
+          title: "Strategy is worth nothing if it never ships.",
+          body: "One content calendar across every platform, and a board that moves a piece from idea to in-progress to ready to published. Dates, subtasks, and nothing falling through the gaps.",
         },
         {
-          name: "Captions",
-          title: "Turn ideas into content in your voice.",
-          body: "Pick an idea and Coflow writes the hook, caption, hashtags, and carousel breakdown - based on your strategy and talking points.",
+          name: "Selling",
+          title: "Content that ends in a sale, not in the air.",
+          body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals — so the path from a post to a customer exists instead of being assumed.",
         },
         {
-          name: "Board",
-          title: "Because strategy only matters if it ships.",
-          body: "Move posts from idea to in progress to ready to published. Add dates, subtasks, and keep the content moving.",
+          name: "Measurement",
+          title: "What actually worked, not what felt like it worked.",
+          body: "A dashboard pulling the numbers together across platforms: followers, reach, how posts performed and what stood out last week — feeding back into what to do more of.",
         },
       ],
       authority: {
-        title: "Built on brand strategy, not content hacks.",
-        p1: "Coflow is based on a strategic brand-building process: first diagnose the current brand, then understand the desired direction, identify the gap, and turn that gap into focused action.",
-        p2: "That means your content is not created from trends alone, templates, or random prompts. It is created from the relationship between:",
+        title: "Built on brand strategy, not content tricks.",
+        p1: "Coflow runs on a strategic process: first understand how the brand looks today, then where you want to take it, identify the gap - and turn that gap into clear actions.",
+        p2: "Which means your content isn't generated from trends alone, from templates, or from random prompts. It comes from the connection between:",
         bullets: [
-          "how your brand is perceived now",
-          "what you want to be known for",
-          "who you want to attract",
-          "what needs to become clearer",
-          "what content can move the brand forward",
+          "How your brand is perceived right now",
+          "What you want to be known for",
+          "Who you want to attract",
+          "What needs to become clearer",
+          "Which content will actually move the brand forward",
         ],
-        closeA: "This is why Coflow does not just generate posts.",
-        closeB: "It helps you build a brand people can understand, trust, and buy from.",
-        cta: "Start free diagnosis",
+        closeA: "That's why Coflow doesn't just produce posts.",
+        closeB: "It helps you build a brand people understand, trust - and buy from.",
+        cta: "Sign up with a code",
       },
     },
 
@@ -345,7 +236,7 @@ export const DICT = {
     join: {
       eyebrow: "Invite-only launch",
       title: "Coflow is opening to a closed group.",
-      sub: "Right now you get in with a code. If you were sent one, that's your way in.",
+      sub: "One studio running your personal brand across Instagram, podcast, newsletter and YouTube. Right now you get in with a code.",
       codeLabel: "Invite code",
       codePlaceholder: "The code you were sent",
       cta: "Enter",
@@ -359,23 +250,31 @@ export const DICT = {
       noCodeDiagnosisLead: "Want to see what your Instagram is saying in the meantime?",
       noCodeDiagnosisCta: "Run the free diagnosis",
 
-      includesTitle: "What's waiting inside",
+      includesTitle: "What's in the studio",
       includes: [
         {
-          title: "The brand diagnosis",
-          body: "The same blunt read of your Instagram — clarity, authority, differentiation, path to money. Run it from inside, whenever you want.",
+          title: "Brand profile",
+          body: "What everything else runs off: a diagnosis of how the brand reads from the outside, your strategy, your voice, and a brand kit — colors, fonts, logo, gallery.",
         },
         {
-          title: "Strategy and content anchors",
-          body: "From the diagnosis to a direction: audience, positioning, voice, and 2–6 content anchors you come back to.",
+          title: "Four platforms, one place",
+          body: "Instagram, podcast, newsletter and YouTube. Each with its own content anchors, templates, references, board and analytics — not four separate tools.",
         },
         {
-          title: "Ideas and copy in your voice",
-          body: "Hook, copy, hashtags and the carousel breakdown — off your strategy, not off a generic prompt.",
+          title: "Content written off your strategy",
+          body: "Carousels, reels, newsletter issues, episode scripts — written from your anchors and your voice, not from a generic prompt.",
         },
         {
-          title: "A board that actually moves",
-          body: "Idea to in-progress to ready to published. Dates, subtasks, every platform in one place.",
+          title: "A calendar and a board",
+          body: "One calendar across every platform, and a board that moves a piece from idea to in-progress to ready to published. Dates and subtasks included.",
+        },
+        {
+          title: "Products, funnels and CRM",
+          body: "What you sell, landing pages and forms that collect leads, and contacts and deals in one place — so content ends in a sale instead of in the air.",
+        },
+        {
+          title: "Measurement",
+          body: "A dashboard that pulls the numbers together across platforms: followers, reach, how posts performed, and what actually worked last week.",
         },
       ],
 
@@ -384,7 +283,7 @@ export const DICT = {
     },
 
     footer: {
-      tagline: "Start with a free diagnosis of your Instagram. Then a strategy and posts in your voice.",
+      tagline: "One studio running your personal brand — strategy, content, publishing and sales — across Instagram, podcast, newsletter and YouTube.",
       cols: {
         product: "Product",
         company: "Company",
@@ -393,7 +292,6 @@ export const DICT = {
       productLinks: [
         { label: "How Coflow works", href: "/how-it-works" },
         { label: "Sign up with a code", href: "/" },
-        { label: "Free diagnosis", href: "/diagnosis" },
       ],
       companyLinks: [
         { label: "About", href: "/about" },

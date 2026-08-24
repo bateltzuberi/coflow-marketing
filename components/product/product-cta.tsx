@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/locale";
-import { wizardUrlFor } from "@/lib/site";
+import { signupEntryFor } from "@/lib/site";
 
 type ProductCtaCopy = {
   eyebrow: string;
@@ -53,7 +53,7 @@ export function ProductCta({
 
           <div className="mt-8 flex flex-col items-center gap-3">
             <a
-              href={wizardUrlFor(locale)}
+              href={signupEntryFor(locale)}
               className={isAgencies ? "btn btn-lavender" : "btn btn-lime"}
             >
               {t.ctaPrimary} →

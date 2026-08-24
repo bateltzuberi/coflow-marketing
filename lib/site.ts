@@ -1,15 +1,18 @@
 export const SITE = {
   name: "Coflow",
-  tagline: "See how your brand looks from the outside.",
+  tagline: "One studio for your personal brand.",
   url: "https://coflow.social",
   // Single app login URL (legacy). studioAppUrl is the canonical entry
   // point now — login + /start (the wizard) both live there.
   appUrl: "https://studio.coflow.social",
   studioAppUrl: "https://studio.coflow.social",
-  // Wizard entry — the marketing CTA across the site points here.
+  // The Studio's diagnosis funnel. NOT a marketing CTA any more: while the
+  // launch is invite-only it is a way around the code, and the app now
+  // redirects anonymous visitors from it to /signup. Kept only so the constant
+  // has one definition if it's ever needed again.
   wizardUrl: "https://studio.coflow.social/start",
   description:
-    "Coflow scans your existing presence — site, podcast, socials — and hands back a strategic brand analysis in 2 minutes. From there, sharpening your messaging is the work we do together at your pace, inside the Studio that runs podcast, newsletter, social and analytics from one place.",
+    "Coflow is one studio for a personal brand: strategy and voice in one place, content anchors and content written from them for Instagram, podcast, newsletter and YouTube, a shared calendar and board, plus products, funnels, a CRM and one dashboard over all of it.",
   ogImage: "/og/default.png",
   twitter: "@coflow",
 } as const;
@@ -22,9 +25,6 @@ export const SITE = {
 // (/join still resolves — it redirects here — because the URL was shared.)
 export const JOIN_PATH = "/";
 
-// The free Instagram diagnosis, which used to be the home page.
-export const DIAGNOSIS_PATH = "/diagnosis";
-
 // The Studio signup screen, carrying the validated code + the language she was
 // reading the site in. The code in the URL is a convenience only — the Studio
 // revalidates it server-side before creating anything.
@@ -35,12 +35,11 @@ export function signupUrlFor(locale: "he" | "en", code: string): string {
   return url.toString();
 }
 
-// Wizard entry carrying the visitor's current language across to the app.
-// The Studio app reads `?lang=` and locks it for the whole onboarding flow,
-// so the language someone is browsing this marketing site in is the language
-// the /start flow opens in (no more English landing → Hebrew onboarding).
-export function wizardUrlFor(locale: "he" | "en"): string {
-  return `${SITE.wizardUrl}?lang=${locale}`;
+// Registration entry carrying the visitor's language across to the app. Every
+// CTA on the site funnels here — the home page (the code field) is the door,
+// and this is where "sign up" goes from the deeper pages.
+export function signupEntryFor(locale: "he" | "en"): string {
+  return `${SITE.studioAppUrl}/signup?lang=${locale}`;
 }
 
 // Positioning copy used across the site. The product is live and free

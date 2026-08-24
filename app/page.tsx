@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { InviteForm } from "@/components/join/invite-form";
@@ -7,7 +5,6 @@ import { TheInfiniteGrid } from "@/components/ui/the-infinite-grid";
 import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { DIAGNOSIS_PATH } from "@/lib/site";
 
 // The home page IS the door.
 //
@@ -84,23 +81,6 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* The escape hatch for a visitor who arrived without an invite. The
-            diagnosis is still free and still open — it just isn't the front
-            door any more, so it has to be offered explicitly here. */}
-        <section className="section pt-0">
-          <div className="container-page">
-            <div className="max-w-2xl mx-auto rounded-[18px] border border-line bg-surface px-6 py-6 text-center">
-              <p className="text-[16px] text-ink-900">{t.noCodeDiagnosisLead}</p>
-              <Link
-                href={DIAGNOSIS_PATH}
-                className="btn btn-ghost btn-sm mt-4 inline-flex"
-              >
-                {t.noCodeDiagnosisCta}
-              </Link>
             </div>
           </div>
         </section>

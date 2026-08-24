@@ -1,4 +1,4 @@
-import { SITE, POSITIONING } from "@/lib/site";
+import { SITE, POSITIONING, JOIN_PATH } from "@/lib/site";
 
 /**
  * Generic closing CTA used by features / blog / sub-pages. Points to the
@@ -32,7 +32,7 @@ export function CtaSection({
           {subtitle}
         </p>
         <div className="mt-8">
-          <a href={SITE.wizardUrl} className="btn-accent min-h-12 text-sm">
+          <a href={JOIN_PATH} className="btn-accent min-h-12 text-sm">
             {ctaLabel} →
           </a>
         </div>
