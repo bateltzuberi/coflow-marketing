@@ -15,7 +15,8 @@ import { cn } from "@/lib/utils";
  * (https://21st.dev/community/components/shadway/the-infinite-grid/default).
  *
  * Differences from the original:
- *  - Recolored to the coflow brand: cream (#FBEEB9) + deep-red (#871A18).
+ *  - Colored from the brand tokens: cream (--color-lavender) + coflow blue
+ *    (--color-lime). Reads the CSS variables, so a palette change reaches it.
  *  - Decoupled from the original demo's centered headline — this version
  *    is a pure background. Headline + CTAs are owned by the Hero.
  *  - The mouse-follow radial mask is opt-in (defaults on for desktop) so

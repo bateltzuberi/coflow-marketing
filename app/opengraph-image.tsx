@@ -2,17 +2,21 @@ import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/site";
 
 export const runtime = "edge";
-export const alt = "Coflow — see how your brand looks from the outside";
+export const alt = "Coflow — נפתחת לקבוצה סגורה";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Brand tokens duplicated here on purpose: ImageResponse runs at the edge
-// without our Tailwind/CSS pipeline, so we inline the few colors we need.
-const INK = "#2B2A27";
-const PAPER = "#FAF8F2";
-const PARCHMENT = "#F3F0E7";
-const OCHRE = "#E8B84A";
-const MUTED = "#7A7870";
+// The share card. This is the first thing anyone sees when the launch link is
+// pasted into WhatsApp or a DM, so it carries the launch message, not a generic
+// product line: closed group, invite code, €14.
+//
+// Brand colors are inlined because ImageResponse runs at the edge without our
+// Tailwind pipeline. The wordmark is the REAL file, fetched over HTTP from our
+// own public/ — the edge runtime has no filesystem, and redrawing the logo in
+// markup is what put an off-brand "CO flow" on this card in the first place.
+const BLUE = "#4054F7";
+const CREAM = "#FBEEB9";
+const WORDMARK = `${SITE.url}/brand/coflow-wordmark-cream.png`;
 
 export default async function OpengraphImage() {
   return new ImageResponse(
@@ -21,8 +25,7 @@ export default async function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: PAPER,
-          color: INK,
+          background: BLUE,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -30,24 +33,16 @@ export default async function OpengraphImage() {
           fontFamily: "Inter, system-ui, sans-serif",
         }}
       >
-        {/* Top: wordmark + status pill */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "8px", color: INK }}>
-            <span style={{ fontSize: 48, fontWeight: 900, letterSpacing: "-0.02em" }}>CO</span>
-            <span
-              style={{
-                fontSize: 56,
-                fontFamily: "Georgia, serif",
-                fontStyle: "italic",
-                color: "#4A4944",
-                borderBottom: `4px solid ${OCHRE}`,
-                paddingBottom: "4px",
-                lineHeight: 1,
-              }}
-            >
-              flow
-            </span>
-          </div>
+        {/* Top: the real wordmark + the launch status */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={WORDMARK} alt="coflow" height={64} width={280} />
           <div
             style={{
               display: "flex",
@@ -55,50 +50,71 @@ export default async function OpengraphImage() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: INK,
-              background: "#F7E9B8",
+              color: BLUE,
+              background: CREAM,
               padding: "10px 18px",
               borderRadius: "999px",
             }}
           >
-            Free · One brand
+            Invite only
           </div>
         </div>
 
-        {/* Middle: headline */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: 980 }}>
+        {/* Middle: the launch message */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            maxWidth: 980,
+          }}
+        >
           <div
             style={{
               fontSize: 78,
               lineHeight: 1.05,
               fontWeight: 700,
               letterSpacing: "-0.02em",
-              color: INK,
+              color: "#ffffff",
               display: "flex",
               flexWrap: "wrap",
             }}
           >
-            See how your brand looks from the outside — in 2 minutes.
+            Coflow is opening to a closed group.
           </div>
-          <div style={{ fontSize: 28, color: MUTED, lineHeight: 1.4, display: "flex" }}>
-            Brand analysis · Podcast · Newsletter · Social · Unified analytics
+          <div
+            style={{
+              fontSize: 28,
+              color: CREAM,
+              lineHeight: 1.4,
+              display: "flex",
+            }}
+          >
+            Brand diagnosis · Strategy · Content anchors · Copy in your voice
           </div>
         </div>
 
-        {/* Bottom: strip */}
+        {/* Bottom: price + domain */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: `1px solid ${PARCHMENT}`,
+            borderTop: "1px solid rgba(251,238,185,0.35)",
             paddingTop: "24px",
           }}
         >
-          <div style={{ fontSize: 22, color: MUTED, display: "flex" }}>
-            Free for your first brand, forever
+          <div style={{ fontSize: 22, color: CREAM, display: "flex" }}>
+            €14/month · no trial · cancel any time
           </div>
-          <div style={{ fontSize: 22, color: INK, fontWeight: 600, display: "flex" }}>
+          <div
+            style={{
+              fontSize: 22,
+              color: "#ffffff",
+              fontWeight: 600,
+              display: "flex",
+            }}
+          >
             {SITE.url.replace("https://", "")}
           </div>
         </div>

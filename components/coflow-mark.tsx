@@ -1,18 +1,42 @@
-import { useId } from "react";
+import Image from "next/image";
 
-type Tone = "bridge" | "white" | "ink" | "lime" | "lavender";
+type Tone = "blue" | "cream";
 
 /**
- * The brand mark — the CF monogram from the master logo files. The
- * mark alone is the approved logo; the "coflow" wordmark beside it is
- * NOT part of the official brand assets and must be opted into
- * explicitly via `showWordmark`.
+ * The brand mark — the REAL logo files, shared with the Studio app
+ * (public/brand/*.png, copied from shebossit-cms so both surfaces render the
+ * same artwork).
+ *
+ * This used to be a hand-drawn SVG approximation of the CF monogram. It was
+ * close enough to look intentional and wrong enough to be off-brand, which is
+ * exactly the failure mode of redrawing a logo in code. Don't do that again:
+ * if a new colourway is needed, add the file.
+ *
+ * Two tones, because there are two files: `blue` (#4054F7) for light
+ * backgrounds, `cream` for dark ones. There is no red variant — the site's
+ * accent moved to the brand blue so the mark and the buttons agree.
  */
+
+const MARK = {
+  blue: "/brand/coflow-mark-blue.png",
+  cream: "/brand/coflow-mark-cream.png",
+} as const;
+
+const WORDMARK = {
+  blue: "/brand/coflow-wordmark-blue.png",
+  cream: "/brand/coflow-wordmark-cream.png",
+} as const;
+
+// Intrinsic aspect ratios of the source files, so next/image gets honest
+// dimensions and the layout doesn't shift while they load.
+const MARK_RATIO = 400 / 365; // w/h
+const WORDMARK_RATIO = 900 / 206;
+
 export function CoflowMark({
   className = "",
   size = 28,
   showWordmark = false,
-  tone = "bridge",
+  tone = "blue",
 }: {
   className?: string;
   /** Mark height in px. The wordmark (when shown) scales relative to this. */
@@ -20,66 +44,30 @@ export function CoflowMark({
   showWordmark?: boolean;
   tone?: Tone;
 }) {
-  const id = useId();
-  const gradId = `cf-grad-${id.replace(/:/g, "")}`;
-  const fill =
-    tone === "bridge"
-      ? `url(#${gradId})`
-      : tone === "white"
-        ? "#ffffff"
-        : tone === "ink"
-          ? "#1a1a1c"
-          : tone === "lime"
-            ? "#871A18"
-            : "#FBEEB9";
-
-  const textClass =
-    tone === "bridge"
-      ? "coflow-mark"
-      : tone === "white"
-        ? "coflow-mark coflow-mark--solid text-white"
-        : tone === "ink"
-          ? "coflow-mark coflow-mark--solid text-ink-900"
-          : tone === "lime"
-            ? "coflow-mark coflow-mark--solid text-lime-ink"
-            : "coflow-mark coflow-mark--solid text-lavender-ink";
+  // The wordmark already contains the letterforms, so showing both would read
+  // as the logo twice. When the wordmark is asked for, it IS the logo.
+  if (showWordmark) {
+    const height = Math.round(size * 0.72);
+    return (
+      <Image
+        src={WORDMARK[tone]}
+        alt="coflow"
+        width={Math.round(height * WORDMARK_RATIO)}
+        height={height}
+        className={`h-auto w-auto ${className}`}
+        priority
+      />
+    );
+  }
 
   return (
-    <span className={`inline-flex items-center gap-2 leading-none ${className}`}>
-      <svg
-        viewBox="0 0 200 200"
-        width={size}
-        height={size}
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        {tone === "bridge" && (
-          <defs>
-            <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FBEEB9" />
-              <stop offset="100%" stopColor="#871A18" />
-            </linearGradient>
-          </defs>
-        )}
-        <path
-          d="M 110 28 L 60 28 A 50 50 0 0 0 60 128 L 110 128 L 110 100 L 78 100 A 22 22 0 0 1 78 56 L 110 56 Z"
-          fill={fill}
-        />
-        <path
-          d="M 118 28 L 172 28 L 172 56 L 146 56 L 146 78 L 168 78 L 168 100 L 146 100 L 146 172 L 118 172 Z"
-          fill={fill}
-        />
-        <rect x="106" y="100" width="16" height="28" fill={fill} opacity={0.6} />
-      </svg>
-      {showWordmark && (
-        <span
-          lang="en"
-          className={textClass}
-          style={{ fontSize: Math.round(size * 0.85) }}
-        >
-          coflow
-        </span>
-      )}
-    </span>
+    <Image
+      src={MARK[tone]}
+      alt="coflow"
+      width={Math.round(size * MARK_RATIO)}
+      height={size}
+      className={`h-auto w-auto shrink-0 ${className}`}
+      priority
+    />
   );
 }

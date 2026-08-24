@@ -18,7 +18,12 @@ export const SITE = {
 // needs a code; the code is validated here first (server-side, see
 // app/join/actions.ts) so a wrong code fails on THIS page instead of bouncing
 // the visitor to an app screen that rejects them.
-export const JOIN_PATH = "/join";
+// The invite door is the HOME page while the launch is invite-only.
+// (/join still resolves — it redirects here — because the URL was shared.)
+export const JOIN_PATH = "/";
+
+// The free Instagram diagnosis, which used to be the home page.
+export const DIAGNOSIS_PATH = "/diagnosis";
 
 // The Studio signup screen, carrying the validated code + the language she was
 // reading the site in. The code in the URL is a convenience only — the Studio

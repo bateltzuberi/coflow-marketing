@@ -37,7 +37,7 @@ export default async function HowItWorksPage() {
                 {t.heroSub}
               </p>
               <div className="mt-8">
-                <a href="/#start" className="btn btn-lime">
+                <a href="/diagnosis#start" className="btn btn-lime">
                   {t.cta}
                 </a>
               </div>
@@ -96,7 +96,7 @@ export default async function HowItWorksPage() {
                 {a.closeB}
               </p>
               <div className="mt-8">
-                <a href="/#start" className="btn btn-lime">
+                <a href="/diagnosis#start" className="btn btn-lime">
                   {a.cta}
                 </a>
               </div>

@@ -39,7 +39,8 @@ export const metadata: Metadata = {
   publisher: SITE.name,
   robots: { index: true, follow: true },
   // No explicit `icons` — Next.js auto-generates the favicon link tag
-  // from `app/icon.svg` (file-based icon convention).
+  // from `app/icon.png` (file-based icon convention) — the real brand mark on
+  // a blue tile, generated from public/brand/coflow-mark-cream.png.
 };
 
 export default async function RootLayout({

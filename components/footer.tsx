@@ -15,10 +15,10 @@ export async function Footer() {
         {/* Big master mark only — wordmark removed per brand direction */}
         <div className="flex flex-col items-center text-center">
           <div className="hidden md:block">
-            <CoflowMark size={140} showWordmark={false} />
+            <CoflowMark size={140} showWordmark={false} tone="cream" />
           </div>
           <div className="md:hidden">
-            <CoflowMark size={96} showWordmark={false} />
+            <CoflowMark size={96} showWordmark={false} tone="cream" />
           </div>
           <p className="mt-8 text-base text-white/60 max-w-md">
             {t.tagline}
