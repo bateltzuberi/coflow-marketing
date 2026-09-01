@@ -103,7 +103,7 @@ export const DICT = {
       errNetwork: "לא הצלחנו לבדוק את הקוד. נסי שוב.",
       priceLine: "14 יורו לחודש. בלי תקופת ניסיון, בלי התחייבות, אפשר לבטל בכל רגע.",
       noCodeLabel: "אין לך קוד?",
-      noCodeCta: "כתבי לנו",
+      noCodeCta: "לחצי כאן לרשימת המתנה",
 
       // Four claims. Each one takes a position you could argue with, and then
       // says what in the system makes it true. No claim without its mechanism.
@@ -125,6 +125,19 @@ export const DICT = {
           body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. ולוח בקרה שמאחד את המספרים מכל הפלטפורמות, כדי לראות מה עבד ולא מה שהרגיש שעבד.",
         },
       ],
+    },
+
+    // ----- /waitlist — where the "no code" line lands -----
+    // The launch is invite-only, so most visitors arrive without a code. This
+    // page is the only thing they can actually do: leave details on the form
+    // that lives in the Studio CRM, so the list is a real list and not an inbox.
+    waitlist: {
+      eyebrow: "רשימת המתנה",
+      title: "אין לך קוד הזמנה?",
+      sub: "Coflow נפתחת כרגע לקבוצה סגורה. השאירי פרטים ונעדכן אותך כשייפתח מקום.",
+      formTitle: "טופס רשימת המתנה",
+      backLabel: "יש לך כבר קוד?",
+      backCta: "להרשמה",
     },
 
     footer: {
@@ -237,7 +250,7 @@ export const DICT = {
       errNetwork: "We couldn't check that code. Try again.",
       priceLine: "14 euro a month. No trial, no lock-in, cancel any time.",
       noCodeLabel: "Don't have a code?",
-      noCodeCta: "Get in touch",
+      noCodeCta: "Join the waitlist",
 
       messages: [
         {
@@ -257,6 +270,16 @@ export const DICT = {
           body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. Plus a dashboard pulling the numbers together across platforms, so you see what worked and not what felt like it worked.",
         },
       ],
+    },
+
+    // ----- /waitlist -----
+    waitlist: {
+      eyebrow: "Waitlist",
+      title: "Don't have an invite code?",
+      sub: "Coflow is open to a closed group right now. Leave your details and we'll let you know when a place opens up.",
+      formTitle: "Waitlist form",
+      backLabel: "Already have a code?",
+      backCta: "Sign up",
     },
 
     footer: {

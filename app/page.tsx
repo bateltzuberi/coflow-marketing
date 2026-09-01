@@ -56,7 +56,7 @@ export default async function Home() {
 
             <p className="mt-6 text-center text-[13px] text-ink-500">
               {t.noCodeLabel}{" "}
-              <a href="/contact" className="font-medium text-ink-900 underline underline-offset-4">
+              <a href="/waitlist" className="font-medium text-ink-900 underline underline-offset-4">
                 {t.noCodeCta}
               </a>
             </p>
