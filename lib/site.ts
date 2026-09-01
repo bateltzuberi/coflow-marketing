@@ -41,3 +41,13 @@ export function signupUrlFor(locale: "he" | "en", code: string): string {
 export function signupEntryFor(locale: "he" | "en"): string {
   return `${SITE.studioAppUrl}/signup?lang=${locale}`;
 }
+
+// The waitlist form is a real CRM form in the Studio (studio.coflow.social/f/…),
+// not a mailto: — someone who leaves details lands in the same contacts table
+// as everyone else. It is embedded on /waitlist in an iframe that resizes
+// itself off the form's `coflow-form-resize` postMessage.
+export const WAITLIST_FORM_ID = "28500fe2-28a7-48a1-871a-28225b6d337c";
+
+export function formEmbedUrl(formId: string): string {
+  return `${SITE.studioAppUrl}/f/${formId}`;
+}
