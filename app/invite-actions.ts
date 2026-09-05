@@ -16,7 +16,7 @@ import { SITE } from "@/lib/site";
  */
 export async function verifyInviteCode(
   code: string,
-): Promise<{ valid: boolean; error?: "network" }> {
+): Promise<{ valid: boolean; retired?: boolean; error?: "network" }> {
   const trimmed = code.trim();
   if (!trimmed) return { valid: false };
 
@@ -32,8 +32,14 @@ export async function verifyInviteCode(
     if (!res.ok && res.status !== 429 && res.status !== 403) {
       return { valid: false, error: "network" };
     }
-    const json = (await res.json().catch(() => ({}))) as { valid?: boolean };
-    return { valid: json.valid === true };
+    const json = (await res.json().catch(() => ({}))) as {
+      valid?: boolean;
+      reason?: string;
+    };
+    // "retired" = a code we really issued that has since closed. Worth saying,
+    // because COFLOW2026 is still in sent emails and posts: those people will
+    // type it correctly and deserve better than being told to check it.
+    return { valid: json.valid === true, retired: json.reason === "retired" };
   } catch {
     return { valid: false, error: "network" };
   }
