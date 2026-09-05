@@ -8,7 +8,7 @@ export const contentType = "image/png";
 
 // The share card. This is the first thing anyone sees when the launch link is
 // pasted into WhatsApp or a DM, so it carries the launch message, not a generic
-// product line: closed group, invite code, €14.
+// product line: closed group, invite code, €24.
 //
 // Brand colors are inlined because ImageResponse runs at the edge without our
 // Tailwind pipeline. The wordmark is the REAL file, fetched over HTTP from our
@@ -105,7 +105,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ fontSize: 22, color: CREAM, display: "flex" }}>
-            €14/month · no trial · cancel any time
+            €24/month · no trial · cancel any time
           </div>
           <div
             style={{

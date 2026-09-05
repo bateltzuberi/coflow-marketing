@@ -19,7 +19,7 @@ import { getDict } from "@/lib/dictionary";
 export const metadata = buildMetadata({
   title: "Coflow — כניסה עם קוד הזמנה",
   description:
-    "Coflow נפתחת לקבוצה סגורה. ההרשמה בשלב הזה היא עם קוד הזמנה בלבד — €14 לחודש, בלי תקופת ניסיון.",
+    "Coflow נפתחת לקבוצה סגורה. ההרשמה בשלב הזה היא עם קוד הזמנה בלבד — €24 לחודש, בלי תקופת ניסיון.",
   path: "/",
 });
 
