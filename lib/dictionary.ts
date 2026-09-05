@@ -84,7 +84,7 @@ export const DICT = {
 
     // ----- /join — the invite-only launch landing -----
     // Coflow opens to a closed group first. This page is the door: a code, an
-    // account, €14/month. No free tier, no diagnosis first — the diagnosis is
+    // account, €24/month. No free tier, no diagnosis first — the diagnosis is
     // one of the things waiting inside.
     join: {
       // The category, said plainly. Everything under it is an argument for why
@@ -101,7 +101,7 @@ export const DICT = {
       errInvalid: "הקוד לא תקף. בדקי שהעתקת אותו במלואו.",
       errEmpty: "צריך להזין קוד.",
       errNetwork: "לא הצלחנו לבדוק את הקוד. נסי שוב.",
-      priceLine: "14 יורו לחודש. בלי תקופת ניסיון, בלי התחייבות, אפשר לבטל בכל רגע.",
+      priceLine: "24 יורו לחודש. בלי תקופת ניסיון, בלי התחייבות, אפשר לבטל בכל רגע.",
       noCodeLabel: "אין לך קוד?",
       noCodeCta: "לחצי כאן לרשימת המתנה",
 
@@ -248,7 +248,7 @@ export const DICT = {
       errInvalid: "That code isn't valid. Check you copied all of it.",
       errEmpty: "Enter your code first.",
       errNetwork: "We couldn't check that code. Try again.",
-      priceLine: "14 euro a month. No trial, no lock-in, cancel any time.",
+      priceLine: "24 euro a month. No trial, no lock-in, cancel any time.",
       noCodeLabel: "Don't have a code?",
       noCodeCta: "Join the waitlist",
 
