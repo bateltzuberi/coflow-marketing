@@ -39,7 +39,7 @@ export function InviteForm({
         return;
       }
       if (!result.valid) {
-        setError(t.errInvalid);
+        setError(result.retired ? t.errRetired : t.errInvalid);
         return;
       }
       window.location.href = signupUrlFor(locale, value);
