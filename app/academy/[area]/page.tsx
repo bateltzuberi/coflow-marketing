@@ -136,6 +136,34 @@ export default async function AcademyAreaPage({
                         {paragraph}
                       </p>
                     ))}
+                    {a.steps && a.steps.length > 0 && (
+                      <ol className="mt-4 space-y-3">
+                        {a.steps.map((step, k) => (
+                          <li key={k} className="flex gap-3">
+                            <span
+                              aria-hidden
+                              className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface-2 text-[12px] font-bold text-ink-900"
+                            >
+                              {k + 1}
+                            </span>
+                            <span className="min-w-0">
+                              <span className="block text-[16px] leading-[1.65] text-ink-700">
+                                {step.text}
+                              </span>
+                              {step.link && (
+                                <a
+                                  href={academyLinkHref(step.link.href)}
+                                  className="mt-1 inline-block text-[14px] text-ink-900 underline-offset-4 hover:underline"
+                                >
+                                  {step.link.label} →
+                                </a>
+                              )}
+                            </span>
+                          </li>
+                        ))}
+                      </ol>
+                    )}
+
                     {a.shots?.map((shot) => (
                       <AcademyShotFigure key={shot.src} shot={shot} />
                     ))}

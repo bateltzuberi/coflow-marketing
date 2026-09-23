@@ -32,9 +32,18 @@ export interface AcademyShot {
   hotspots?: AcademyShotHotspot[];
 }
 
+/** One numbered instruction in a guide, and where it happens. */
+export interface AcademyStep {
+  text: string;
+  link?: AcademyLink;
+}
+
 export interface AcademyArticleSide {
   q: string;
   a: string[];
+  /** The procedure. A guide without these renders as its intro line alone,
+   *  which is how the public site was showing them. */
+  steps?: AcademyStep[];
   shots?: AcademyShot[];
   links?: AcademyLink[];
 }
