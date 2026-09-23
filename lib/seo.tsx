@@ -17,11 +17,15 @@ export function buildMetadata({
   noindex,
 }: PageSEO): Metadata {
   const url = `${SITE.url}${path}`;
-  const fullTitle = title.endsWith(SITE.name) ? title : `${title} · ${SITE.name}`;
+  // The ROOT layout owns the suffix (`template: "%s · Coflow"`), so the page
+  // title must not carry one: adding it here printed "How Coflow works · Coflow
+  // · Coflow" in the tab and in Google's result on every page of the site.
+  // Social cards have no template, so they get the composed form.
+  const socialTitle = title.endsWith(SITE.name) ? title : `${title} · ${SITE.name}`;
   const image = ogImage ?? SITE.ogImage;
 
   return {
-    title: fullTitle,
+    title,
     description,
     metadataBase: new URL(SITE.url),
     alternates: { canonical: url },
@@ -29,7 +33,7 @@ export function buildMetadata({
       ? { index: false, follow: false }
       : { index: true, follow: true },
     openGraph: {
-      title: fullTitle,
+      title: socialTitle,
       description,
       url,
       siteName: SITE.name,
@@ -39,7 +43,7 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      title: socialTitle,
       description,
       images: [image],
       creator: SITE.twitter,
