@@ -87,19 +87,40 @@ const ENDPOINT = `${SITE.studioAppUrl}/api/academy`;
  * whatever the studio is doing, and an empty help centre is a bad page while a
  * failed build is a dead site. Callers render an empty state.
  */
-export async function getAcademyAreas(): Promise<AcademyArea[]> {
+export async function getAcademyPayload(): Promise<{
+  areas: AcademyArea[];
+  /** Words people type for a thing, next to the word the product prints.
+   *  Authored beside the articles and published with them, so this site never
+   *  keeps a second copy of the product's vocabulary. Empty on an older
+   *  payload — search then matches only what was typed. */
+  synonyms: string[][];
+}> {
+  const empty = { areas: [], synonyms: [] };
   try {
     const res = await fetch(ENDPOINT, { next: { revalidate: 3600 } });
-    if (!res.ok) return [];
+    if (!res.ok) return empty;
     const json: unknown = await res.json();
-    if (!json || typeof json !== "object") return [];
-    const { schema, areas } = json as { schema?: number; areas?: unknown };
-    if (typeof schema !== "number" || schema < SCHEMA) return [];
-    if (!Array.isArray(areas)) return [];
-    return areas as AcademyArea[];
+    if (!json || typeof json !== "object") return empty;
+    const { schema, areas, synonyms } = json as {
+      schema?: number;
+      areas?: unknown;
+      synonyms?: unknown;
+    };
+    if (typeof schema !== "number" || schema < SCHEMA) return empty;
+    if (!Array.isArray(areas)) return empty;
+    return {
+      areas: areas as AcademyArea[],
+      synonyms: Array.isArray(synonyms)
+        ? (synonyms.filter((g) => Array.isArray(g)) as string[][])
+        : [],
+    };
   } catch {
-    return [];
+    return empty;
   }
+}
+
+export async function getAcademyAreas(): Promise<AcademyArea[]> {
+  return (await getAcademyPayload()).areas;
 }
 
 export async function getAcademyArea(id: string): Promise<AcademyArea | null> {
