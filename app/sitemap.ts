@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
+import { getAcademyAreas } from "@/lib/academy";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const base = SITE.url;
 
@@ -17,5 +18,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // No /features/* routes exist. They used to be listed here and every one of
   // them 404'd for anything that crawled the sitemap.
-  return staticRoutes;
+
+  // The help centre: its index plus one page per area. The list comes from the
+  // product (lib/academy.ts) so an area added there is crawled without a commit
+  // here; if that fetch fails the sitemap is simply the static routes, never a
+  // list of URLs that 404.
+  const areas = await getAcademyAreas();
+  const academyRoutes: MetadataRoute.Sitemap = areas.length
+    ? [
+        { url: `${base}/academy`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+        ...areas.map((area) => ({
+          url: `${base}/academy/${area.id}`,
+          lastModified: now,
+          changeFrequency: "weekly" as const,
+          priority: 0.7,
+        })),
+      ]
+    : [];
+
+  return [...staticRoutes, ...academyRoutes];
 }
