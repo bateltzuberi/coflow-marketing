@@ -141,6 +141,26 @@ export const DICT = {
       backCta: "להרשמה",
     },
 
+    academy: {
+      // The public help centre at coflow.social/academy. The ANSWERS are not
+      // here — they are published by the product app and fetched (lib/academy.ts).
+      // Only the page's own framing lives in this dictionary.
+      title: "קופלו אקדמי",
+      heroSub:
+        "איך המערכת עובדת, אזור אזור — ותשובות לשאלות שמשתמשות באמת שאלו.",
+      countLine: "{areas} אזורים · {questions} שאלות ותשובות",
+      areasTitle: "כל האזורים",
+      questionsCount: "{n} שאלות",
+      inThisArea: "בעמוד הזה",
+      backToIndex: "לכל האזורים",
+      openInStudio: "פתיחה בסטודיו",
+      askedBadge: "נשאל",
+      emptyTitle: "האקדמיה לא נטענה כרגע",
+      emptyBody: "נסי לרענן בעוד רגע. בינתיים אפשר להיכנס לסטודיו ולפתוח את האקדמיה משם.",
+      ctaTitle: "רוצה לראות את זה בפנים?",
+      ctaBody: "האקדמיה נמצאת גם בתוך המערכת, עם קישור ישיר לכל מסך שמוזכר בתשובה.",
+      ctaButton: "כניסה לסטודיו",
+    },
     footer: {
       tagline: "מערכת לניהול מותג עם AI. כל המותג שלך במקום אחד, מהאסטרטגיה ועד המכירה.",
       cols: {
@@ -150,6 +170,7 @@ export const DICT = {
       },
       productLinks: [
         { label: "איך Coflow עובדת", href: "/how-it-works" },
+        { label: "קופלו אקדמי", href: "/academy" },
         { label: "הרשמה עם קוד", href: "/" },
       ],
       companyLinks: [
@@ -284,6 +305,23 @@ export const DICT = {
       backCta: "Sign up",
     },
 
+    academy: {
+      title: "Coflow Academy",
+      heroSub:
+        "How the system works, area by area — and answers to the questions people actually asked.",
+      countLine: "{areas} areas · {questions} questions answered",
+      areasTitle: "All areas",
+      questionsCount: "{n} questions",
+      inThisArea: "On this page",
+      backToIndex: "All areas",
+      openInStudio: "Open in the studio",
+      askedBadge: "Asked",
+      emptyTitle: "The academy didn't load",
+      emptyBody: "Try again in a moment. In the meantime you can open the academy inside the studio.",
+      ctaTitle: "Want to see it from the inside?",
+      ctaBody: "The academy is in the product too, with a direct link to every screen an answer mentions.",
+      ctaButton: "Go to the studio",
+    },
     footer: {
       tagline: "An AI brand-management system. Your whole brand in one place, from the strategy through to the sale.",
       cols: {
@@ -293,6 +331,7 @@ export const DICT = {
       },
       productLinks: [
         { label: "How Coflow works", href: "/how-it-works" },
+        { label: "Coflow Academy", href: "/academy" },
         { label: "Sign up with a code", href: "/" },
       ],
       companyLinks: [
