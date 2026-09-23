@@ -9,7 +9,7 @@ import { AcademySearch, type ApexSearchRow } from "@/components/academy-search";
 import {
   academySide,
   articleSide,
-  getAcademyAreas,
+  getAcademyPayload,
   totalQuestions,
 } from "@/lib/academy";
 
@@ -36,7 +36,7 @@ export const metadata = buildMetadata({
 export default async function AcademyIndexPage() {
   const locale = await getLocale();
   const t = getDict(locale).academy;
-  const areas = await getAcademyAreas();
+  const { areas, synonyms } = await getAcademyPayload();
 
   return (
     <>
@@ -69,6 +69,7 @@ export default async function AcademyIndexPage() {
                       areaTitle: academySide(area, locale).title,
                     })),
                   )}
+                  synonyms={synonyms}
                   placeholder={t.searchPlaceholder}
                   label={t.searchLabel}
                   noResults={t.searchNoResults}
