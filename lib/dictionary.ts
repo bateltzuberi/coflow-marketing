@@ -147,6 +147,10 @@ export const DICT = {
       // Only the page's own framing lives in this dictionary.
       title: "האקדמיה של קופלו",
       heroQuestion: "איך אפשר לעזור?",
+      searchPlaceholder: "חיפוש שאלה…",
+      searchLabel: "חיפוש באקדמיה",
+      searchNoResults: "לא נמצאה שאלה כזאת.",
+      searchNoResultsHint: "נסי מילה אחת במקום משפט, או עייני בנושאים למטה.",
       heroSub:
         "איך המערכת עובדת, אזור אזור — ותשובות לשאלות שמשתמשות באמת שאלו.",
       countLine: "{areas} אזורים · {questions} שאלות ותשובות",
@@ -309,6 +313,10 @@ export const DICT = {
     academy: {
       title: "Coflow Academy",
       heroQuestion: "How can we help?",
+      searchPlaceholder: "Search for a question…",
+      searchLabel: "Search the academy",
+      searchNoResults: "No question matched that.",
+      searchNoResultsHint: "Try one word instead of a sentence, or browse the topics below.",
       heroSub:
         "How the system works, area by area — and answers to the questions people actually asked.",
       countLine: "{areas} areas · {questions} questions answered",

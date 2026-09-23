@@ -5,6 +5,7 @@ import { JsonLd, breadcrumbsJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 import { SITE } from "@/lib/site";
+import { AcademySearch, type ApexSearchRow } from "@/components/academy-search";
 import {
   academySide,
   articleSide,
@@ -59,6 +60,21 @@ export default async function AcademyIndexPage() {
               <p className="mt-5 text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
                 {t.heroSub}
               </p>
+              {areas.length > 0 && (
+                <AcademySearch
+                  rows={areas.flatMap((area): ApexSearchRow[] =>
+                    area.articles.map((article) => ({
+                      q: articleSide(article, locale).q,
+                      href: `/academy/${area.id}#${article.id}`,
+                      areaTitle: academySide(area, locale).title,
+                    })),
+                  )}
+                  placeholder={t.searchPlaceholder}
+                  label={t.searchLabel}
+                  noResults={t.searchNoResults}
+                  noResultsHint={t.searchNoResultsHint}
+                />
+              )}
               {areas.length > 0 && (
                 <p className="mt-5 font-mono-label text-ink-500">
                   {t.countLine
