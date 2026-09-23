@@ -9,7 +9,7 @@ import { academyShotSrc, type AcademyShot } from "@/lib/academy";
 export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
   const hotspots = shot.hotspots ?? [];
   return (
-    <figure className="mt-5">
+    <figure className="mt-5 max-w-[70ch]">
       <div className="relative overflow-hidden rounded-[16px] border border-line bg-surface-2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={academyShotSrc(shot.src)} alt={shot.alt} className="block w-full" loading="lazy" />
