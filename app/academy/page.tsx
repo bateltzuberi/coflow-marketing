@@ -29,7 +29,7 @@ const PREVIEW_QUESTIONS = 3;
 export const metadata = buildMetadata({
   title: "Coflow Academy",
   description:
-    "How Coflow works, area by area: brand profile, platforms, content anchors, funnels, products, CRM, tasks and measurement — with answers to the questions people actually ask.",
+    "How Coflow works, area by area: products, funnels, brand profile, platforms, content anchors, CRM, tasks and measurement.",
   path: "/academy",
 });
 

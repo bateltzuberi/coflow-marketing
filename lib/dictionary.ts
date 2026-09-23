@@ -152,7 +152,7 @@ export const DICT = {
       searchNoResults: "לא נמצאה שאלה כזאת.",
       searchNoResultsHint: "נסי מילה אחת במקום משפט, או עייני בנושאים למטה.",
       heroSub:
-        "איך המערכת עובדת, אזור אזור — ותשובות לשאלות שמשתמשות באמת שאלו.",
+        "איך המערכת עובדת, אזור אזור. חפשי שאלה, או עברי לפי נושא.",
       countLine: "{areas} אזורים · {questions} שאלות ותשובות",
       areasTitle: "עיון לפי נושא",
       questionsCount: "{n} שאלות",
@@ -318,7 +318,7 @@ export const DICT = {
       searchNoResults: "No question matched that.",
       searchNoResultsHint: "Try one word instead of a sentence, or browse the topics below.",
       heroSub:
-        "How the system works, area by area — and answers to the questions people actually asked.",
+        "How the system works, area by area. Search a question, or browse by topic.",
       countLine: "{areas} areas · {questions} questions answered",
       areasTitle: "Browse by topic",
       questionsCount: "{n} questions",
