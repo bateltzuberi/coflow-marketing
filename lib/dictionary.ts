@@ -145,11 +145,12 @@ export const DICT = {
       // The public help centre at coflow.social/academy. The ANSWERS are not
       // here — they are published by the product app and fetched (lib/academy.ts).
       // Only the page's own framing lives in this dictionary.
-      title: "קופלו אקדמי",
+      title: "האקדמיה של קופלו",
+      heroQuestion: "איך אפשר לעזור?",
       heroSub:
         "איך המערכת עובדת, אזור אזור — ותשובות לשאלות שמשתמשות באמת שאלו.",
       countLine: "{areas} אזורים · {questions} שאלות ותשובות",
-      areasTitle: "כל האזורים",
+      areasTitle: "עיון לפי נושא",
       questionsCount: "{n} שאלות",
       inThisArea: "בעמוד הזה",
       backToIndex: "לכל האזורים",
@@ -170,7 +171,7 @@ export const DICT = {
       },
       productLinks: [
         { label: "איך Coflow עובדת", href: "/how-it-works" },
-        { label: "קופלו אקדמי", href: "/academy" },
+        { label: "האקדמיה של קופלו", href: "/academy" },
         { label: "הרשמה עם קוד", href: "/" },
       ],
       companyLinks: [
@@ -307,10 +308,11 @@ export const DICT = {
 
     academy: {
       title: "Coflow Academy",
+      heroQuestion: "How can we help?",
       heroSub:
         "How the system works, area by area — and answers to the questions people actually asked.",
       countLine: "{areas} areas · {questions} questions answered",
-      areasTitle: "All areas",
+      areasTitle: "Browse by topic",
       questionsCount: "{n} questions",
       inThisArea: "On this page",
       backToIndex: "All areas",

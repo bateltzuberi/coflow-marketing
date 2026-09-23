@@ -55,6 +55,9 @@ export interface AcademyAreaSide {
 export interface AcademyArea {
   id: string;
   icon: string;
+  /** The area's palette colour, published by the studio so a topic is the same
+   *  colour in the product and here. Older payloads may not carry it. */
+  color?: string;
   he: AcademyAreaSide;
   en: AcademyAreaSide;
   articles: AcademyArticle[];
