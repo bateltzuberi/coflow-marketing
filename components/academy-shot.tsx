@@ -13,7 +13,10 @@ import { academyShotSrc, type AcademyShot } from "@/lib/academy";
 // it have to draw the same picture, and this site does not carry the studio's
 // variables.
 
-const MARK = "#4054F7";
+/** Red, not one of ours: a mark on a screenshot has to look added on top of
+ *  the product rather than like another button in it. Written out because the
+ *  same drawing must appear in the product, which carries different tokens. */
+const MARK = "#E4002B";
 
 export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
   const hotspots = shot.hotspots ?? [];
@@ -32,6 +35,15 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
             </span>
           );
           if (h.w && h.h) {
+            // The number hangs off the ring, never over it — on the corner it
+            // covers the first letters of whatever is inside. A ring at the
+            // very top gets its number below, or the frame clips it.
+            // Percentages, pixels: the badge is offset in px, so on a short
+            // screenshot "6% from the top" can still be less than the badge's
+            // own height. Flip it below the ring whenever the ring starts in
+            // the top eighth of the picture — badge 1 on the products shot was
+            // clipped clean off the frame.
+            const nearTop = h.y - h.h / 2 < 12;
             return (
               <span
                 key={`${h.x}-${h.y}-${i}`}
@@ -46,7 +58,14 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
                   boxShadow: `0 0 0 2px #fff, 0 0 0 4px ${MARK}22`,
                 }}
               >
-                <span className="absolute" style={{ insetInlineStart: -12, top: -12 }}>
+                <span
+                  className="absolute"
+                  style={
+                    nearTop
+                      ? { insetInlineStart: -18, bottom: -18 }
+                      : { insetInlineStart: -18, top: -18 }
+                  }
+                >
                   {badge}
                 </span>
               </span>
@@ -57,7 +76,7 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
               key={`${h.x}-${h.y}-${i}`}
               aria-hidden
               className="absolute"
-              style={{ left: `${h.x}%`, top: `${h.y}%`, marginInlineStart: -12, marginTop: -12 }}
+              style={{ left: `${h.x}%`, top: `${h.y}%`, marginInlineStart: -26, marginTop: -26 }}
             >
               {badge}
             </span>
