@@ -38,7 +38,12 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
             // The number hangs off the ring, never over it — on the corner it
             // covers the first letters of whatever is inside. A ring at the
             // very top gets its number below, or the frame clips it.
-            const nearTop = h.y - h.h / 2 < 6;
+            // Percentages, pixels: the badge is offset in px, so on a short
+            // screenshot "6% from the top" can still be less than the badge's
+            // own height. Flip it below the ring whenever the ring starts in
+            // the top eighth of the picture — badge 1 on the products shot was
+            // clipped clean off the frame.
+            const nearTop = h.y - h.h / 2 < 12;
             return (
               <span
                 key={`${h.x}-${h.y}-${i}`}
@@ -57,8 +62,8 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
                   className="absolute"
                   style={
                     nearTop
-                      ? { insetInlineStart: -30, bottom: -30 }
-                      : { insetInlineStart: -30, top: -30 }
+                      ? { insetInlineStart: -18, bottom: -18 }
+                      : { insetInlineStart: -18, top: -18 }
                   }
                 >
                   {badge}
