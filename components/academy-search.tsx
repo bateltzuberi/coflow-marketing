@@ -22,17 +22,26 @@ export interface ApexSearchRow {
   areaTitle: string;
 }
 
+/** The letters Hebrew glues onto the front of a word: bet, he, vav, kaf,
+ *  lamed, mem, shin. Written as code points because they are grammar, not
+ *  words anyone should translate. */
+const HEBREW_PREFIX_LETTER = /^[\u05d1\u05d4\u05d5\u05db\u05dc\u05de\u05e9]/;
+
 /** Other spellings of one typed word: its synonym group (published with the
  *  content, so this file holds no vocabulary of its own) and, for Hebrew, the
- *  word with its first letter or two taken off — Hebrew glues its prepositions
- *  and its article onto the front of a word ("בעוגן"), so what a reader types
- *  is often what we wrote with a letter in front of it. Loose on purpose: the
- *  only caller runs it when the exact words found nothing. */
+ *  word without the prepositions and article glued to its front ("בעוגן").
+ *
+ *  Only a real prefix letter comes off, and only while three letters remain:
+ *  taking any first letters off turned "דילים" into "ילים", which sits inside
+ *  "מילים" and "כלים". */
 function alternatives(term: string, synonyms: string[][]): string[] {
   const out = new Set<string>([term]);
-  if (/^[\u0590-\u05ff]/.test(term)) {
-    if (term.length >= 4) out.add(term.slice(1));
-    if (term.length >= 5) out.add(term.slice(2));
+  let stem = term;
+  // Twice, because Hebrew stacks them: ש + ה + תבנית.
+  for (let i = 0; i < 2; i++) {
+    if (!HEBREW_PREFIX_LETTER.test(stem) || stem.length - 1 < 3) break;
+    stem = stem.slice(1);
+    out.add(stem);
   }
   for (const group of synonyms) {
     if (group.some((word) => out.has(word))) {
@@ -41,6 +50,9 @@ function alternatives(term: string, synonyms: string[][]): string[] {
   }
   return [...out];
 }
+
+/** Below this, a result list is thin enough that a near-miss is worth adding. */
+const THIN_RESULT_LIST = 3;
 
 export function AcademySearch({
   rows,
@@ -68,12 +80,12 @@ export function AcademySearch({
     if (!terms.length) return [];
     const hay = (r: ApexSearchRow) => `${r.q} ${r.areaTitle}`.toLowerCase();
     const strict = rows.filter((r) => terms.every((t) => hay(r).includes(t)));
-    const hits = strict.length
-      ? strict
-      : rows.filter((r) =>
-          terms.every((t) => alternatives(t, synonyms).some((alt) => hay(r).includes(alt))),
-        );
-    return hits.slice(0, 10);
+    if (strict.length >= THIN_RESULT_LIST) return strict.slice(0, 10);
+
+    const alts = terms.map((t) => alternatives(t, synonyms));
+    const near = rows.filter((r) => alts.every((group) => group.some((alt) => hay(r).includes(alt))));
+    const seen = new Set(strict.map((r) => r.href));
+    return [...strict, ...near.filter((r) => !seen.has(r.href))].slice(0, 10);
   }, [rows, terms, synonyms]);
 
   return (
