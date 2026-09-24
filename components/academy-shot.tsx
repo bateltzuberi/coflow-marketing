@@ -1,10 +1,19 @@
 import { academyShotSrc, type AcademyShot } from "@/lib/academy";
 
-// A screenshot inside an answer, with numbered points on it.
+// A screenshot inside an answer, with the points worth pointing at marked.
 //
-// Same rule as in the product: every marker on the image is repeated as a
-// numbered line under it. The circle is a shortcut for the people who can see
-// it, never the only place the information exists.
+// A marker that carries a size is drawn as a RING AROUND the control, with its
+// number on the corner: "press this one". Without a size it falls back to a
+// numbered dot, which says "look here" and covers the thing it names.
+//
+// Same rule as in the product: every marker is repeated as a numbered line
+// under the image. The drawing is a shortcut for the people who can see it,
+// never the only place the information exists — and the colour is written out
+// rather than taken from a token, because this file and the product's copy of
+// it have to draw the same picture, and this site does not carry the studio's
+// variables.
+
+const MARK = "#4054F7";
 
 export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
   const hotspots = shot.hotspots ?? [];
@@ -13,24 +22,47 @@ export function AcademyShotFigure({ shot }: { shot: AcademyShot }) {
       <div className="relative overflow-hidden rounded-[16px] border border-line bg-surface-2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={academyShotSrc(shot.src)} alt={shot.alt} className="block w-full" loading="lazy" />
-        {hotspots.map((h, i) => (
-          <span
-            key={`${h.x}-${h.y}-${i}`}
-            aria-hidden
-            className="absolute flex h-6 w-6 items-center justify-center rounded-full text-[12px] font-bold"
-            style={{
-              left: `${h.x}%`,
-              top: `${h.y}%`,
-              marginInlineStart: -12,
-              marginTop: -12,
-              background: "var(--color-ink-900)",
-              color: "#fff",
-              boxShadow: "0 0 0 3px #fff",
-            }}
-          >
-            {i + 1}
-          </span>
-        ))}
+        {hotspots.map((h, i) => {
+          const badge = (
+            <span
+              className="flex h-6 w-6 items-center justify-center rounded-full text-[12px] font-bold"
+              style={{ background: MARK, color: "#fff", boxShadow: "0 0 0 2px #fff" }}
+            >
+              {i + 1}
+            </span>
+          );
+          if (h.w && h.h) {
+            return (
+              <span
+                key={`${h.x}-${h.y}-${i}`}
+                aria-hidden
+                className="absolute rounded-[10px]"
+                style={{
+                  left: `${h.x - h.w / 2}%`,
+                  top: `${h.y - h.h / 2}%`,
+                  width: `${h.w}%`,
+                  height: `${h.h}%`,
+                  border: `2px solid ${MARK}`,
+                  boxShadow: `0 0 0 2px #fff, 0 0 0 4px ${MARK}22`,
+                }}
+              >
+                <span className="absolute" style={{ insetInlineStart: -12, top: -12 }}>
+                  {badge}
+                </span>
+              </span>
+            );
+          }
+          return (
+            <span
+              key={`${h.x}-${h.y}-${i}`}
+              aria-hidden
+              className="absolute"
+              style={{ left: `${h.x}%`, top: `${h.y}%`, marginInlineStart: -12, marginTop: -12 }}
+            >
+              {badge}
+            </span>
+          );
+        })}
       </div>
       {(hotspots.length > 0 || shot.caption) && (
         <figcaption className="mt-2 text-[13px] leading-[1.6] text-ink-500">

@@ -18,6 +18,10 @@ export interface AcademyLink {
 }
 
 export interface AcademyShotHotspot {
+  /** Size of the marked control, as a percentage of the image. With it, the
+   *  marker is a ring drawn around the control instead of a dot on top of it. */
+  w?: number;
+  h?: number;
   /** 0-100, percentages of the image box. */
   x: number;
   y: number;
