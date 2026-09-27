@@ -39,4 +39,5 @@ linking a path outside it. Until then `app/globals.css` is the source of truth, 
 4. **Spacing scale only** from `{4, 8, 12, 16, 20, 24, 32, 40, 56, 72, 96}`. No inline hex — only
    `var(--token)`.
 
-Read `README.md` for what this site actually contains: five real pages, everything else redirects.
+Read `PRODUCT.md` for what Coflow is and what may be claimed, and `README.md` for what this site
+contains: five real pages, everything else redirects.
