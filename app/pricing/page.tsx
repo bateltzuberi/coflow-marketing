@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
 
-// Pricing is intentionally off the public site for the Instagram-only MVP:
-// the read is free, and the paid model for the system is still being built.
-// Until there's a real price to show, send /pricing to the product explainer
-// (which is honest: the read is free, the system is a paid product).
+// There is no separate pricing page because the price is on the home page:
+// the launch is invite-only, so the door and the price are the same screen
+// (€24/month, no trial — see `join.priceLine`). /pricing therefore sends
+// people to the explainer rather than to a page that would repeat one line.
+// (This used to say there was no public price yet. There is one.)
 export default function PricingPage() {
   redirect("/how-it-works");
 }

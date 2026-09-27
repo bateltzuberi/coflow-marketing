@@ -46,8 +46,8 @@ for why it was retired):
 ```
 /join        → /            the invite door moved to the home page
 /diagnosis   → /            the free IG diagnosis is inside the product now, not a public entry
-/pricing     → /how-it-works   no public price while the paid model is being built
-/studio      → /how-it-works   the old multi-platform product page, retired for the IG-only MVP
+/pricing     → /how-it-works   the price lives on the home page — €24/mo, next to the code field
+/studio      → /how-it-works   the old product page; explaining the product moved to /how-it-works
 ```
 
 `/features/*`, `/vs/*`, `/for/*` and `/blog` **do not exist and never shipped**. `lib/content.ts`
