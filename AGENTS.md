@@ -41,3 +41,6 @@ linking a path outside it. Until then `app/globals.css` is the source of truth, 
 
 Read `PRODUCT.md` for what Coflow is and what may be claimed, and `README.md` for what this site
 contains: five real pages, everything else redirects.
+
+**Before you write anything Batel will read — a message, a report, a document, copy — read
+`WORKING-WITH-BATEL.md`.** It is how she wants to be talked to, with the failure modes named.
