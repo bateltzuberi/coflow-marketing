@@ -42,3 +42,7 @@ yarn-error.log*
 # committed; the per-source scratch notes that produced it are not — they are
 # long, duplicated across runs, and superseded the moment the report is written.
 /research_notes/
+
+# A report's PDF is generated from its .md — the markdown is the source that
+# gets reviewed and diffed, so the binary stays out of the history.
+/reports/*.pdf
