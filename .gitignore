@@ -37,3 +37,8 @@ yarn-error.log*
 
 # Claude Code tooling
 .claude/
+
+# Raw notes behind a research report. The finished report in reports/ is
+# committed; the per-source scratch notes that produced it are not — they are
+# long, duplicated across runs, and superseded the moment the report is written.
+/research_notes/
