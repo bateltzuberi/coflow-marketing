@@ -37,6 +37,36 @@ Top-level areas, in the app's own words: **דשבורד ראשי · פרופיל
 4. **The business side** — products, funnels (landing pages + email sequences), CRM, tasks, and a
    dashboard that rolls the numbers up.
 
+## How it actually works (the chain — this is the product)
+
+Nothing here is a prompt box. Each step feeds the next, and that chain is the reason the output
+sounds like the person instead of like AI:
+
+1. **Diagnosis → strategy → voice → brand kit.** What the brand is about, who it is for, what it
+   claims, how it sounds, what it looks like. Stored once, in the brand profile.
+2. **Anchors, per platform.** An anchor is what she wants to be known for. Each platform gets its
+   own anchors, because what works in a carousel is not what works in an episode.
+3. **References.** Real posts she points at as "like this". The system reads them and derives the
+   structure — it does not follow rules someone typed.
+4. **Templates.** A design built off those references, in her branding.
+5. **Content creation.** Hook, copy, slide breakdown, media picked from her own gallery, laid into
+   the template. A carousel, a reel, a newsletter issue, an episode script.
+6. **The board and the calendar.** One place, every platform.
+7. **Products, funnels, CRM.** The content ends in something for sale: landing pages, email
+   sequences, a pipeline, and links that are tracked back.
+8. **The dashboard.** What was published, what it did, what it sold.
+
+The short way to say it: **it defines what the brand is about, writes the content off that
+definition, and tracks what the content sold.** Steps 1-2 are what nobody else does, and they are
+why step 5 is not slop.
+
+## Words
+
+Hebrew is primary and written in לשון נקבה; English mirrors it. Use the product's own plain names
+for things (פרופיל מותג, עוגן, רפרנס, טמפלט, לוח תוכן) — they are literal, and the app uses them on
+its own screens. No motivational copy, no "unleash / transform / 10x", no invented feature names,
+no claims with a number in them unless the number was checked at its source.
+
 ## What must NOT be claimed
 
 - **Only those four platforms.** TikTok, X, LinkedIn, Facebook, Threads, Pinterest and blog are
