@@ -4,10 +4,12 @@ import type { Locale } from "./locale";
  * All marketing copy in one place, ported 1:1 from the approved copy doc.
  * Hebrew is primary (לשון נקבה); `en` mirrors the `he` shape key-for-key.
  *
- * Positioning: the site sells ONE thing - the free Instagram diagnosis (the
- * lead magnet). Every CTA points only at the diagnosis. Page 1 is the
- * diagnosis landing; Page 2 explains the system but still returns to the
- * diagnosis CTA.
+ * Positioning (current): the site sells the Studio subscription, and the
+ * launch is invite-only — the home page is the code door and every CTA points
+ * at registration. The free Instagram diagnosis it used to sell is gone from
+ * the public site; it lives inside the paid product. The copy below claims
+ * four platforms (Instagram, podcast, newsletter, YouTube) because the product
+ * has four — see PRODUCT.md before changing that list.
  */
 export const DICT = {
   he: {

@@ -6,12 +6,38 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Coflow design system
 
-This repo is the **Coflow marketing site** at the apex `coflow.social` — the single marketing site for the whole Coflow product family (agencies at `/Users/bateltzuberi/sma/` and studio at `/Users/bateltzuberi/shebossit-cms/`). Individual products do NOT have their own marketing sites; everything funnels through here. Before any UI work, design tokens, color, type, layout, or component change:
+This repo is the **Coflow marketing site** at the apex `coflow.social`. It is the only marketing
+site for the whole product family — individual products do NOT get their own site.
 
-1. **Read** `/Users/bateltzuberi/SheBossit Dropbox/Kasol Social/Mac/Downloads/עיצוב/coflow-upgrade/project/global_guidelines.html` top to bottom. It is the source of truth for tokens, type scale, spacing, components, motion, copy, and accessibility across all three properties.
-2. **Marketing accent rule:** the gradient `linear-gradient(135deg, #ccb8f5 0%, #ddf3a0 100%)` (lavender → lime) is permitted on **one** hero element per page only — typically a single word, a CTA, or one tile. The rest of the page is neutral with accents drawn from **both** lavender and lime. The marketing site is the *only* surface where both colors coexist.
-3. **Light mode only.** Paper `#fafaf7`, surface `#ffffff`, ink-900 `#1a1a1c`. No dark variants.
-4. **Bilingual He+En with RTL default.** Heebo (he, headings 700), Geist (en, headings 600), JetBrains Mono (technical labels). Inline English in Hebrew copy: wrap in `<span class="en">` to switch font-family.
-5. **Spacing scale only** from `{4, 8, 12, 16, 20, 24, 32, 40, 56, 72, 96}`. No hex inline — only `var(--token)`.
+**The product app is `bateltzuberi/shebossit-cms`** (`/Users/bateltzuberi/shebossit-cms`): one deploy
+serves both `studio.coflow.social` and `agency.coflow.social`. `/Users/bateltzuberi/sma/` is the
+**retired** standalone agency app, merged into `shebossit-cms` long ago — never read it for current
+behaviour, and there is no `app.coflow.social`.
 
-Bundle also contains `tokens.css`, `visual_identity.html`, `marketing_brief.html` (read this for marketing-specific guidance), `refinement_brief.html`, `product_mockups_v3.html`, per-property logo SVGs, and favicon sets. Read the bundle's `README.md` first.
+## Where the design truth lives
+
+`app/globals.css` in this repo. Read it before any UI work.
+
+The external design bundle this file used to point at
+(`…/Dropbox/…/עיצוב/coflow-upgrade/project/global_guidelines.html`, `tokens.css`,
+`marketing_brief.html`, …) **is not on the machine any more** — the whole folder is gone, so nobody,
+local or cloud, can read it. If it turns up, commit it into this repo under `design/` instead of
+linking a path outside it. Until then `app/globals.css` is the source of truth, not a fallback.
+
+## The rules
+
+1. **Two brand colours: yellow `#FBEEB9` and blue `#4054F7`**, joined by the bridge gradient
+   `linear-gradient(135deg, #FBEEB9 0%, #4054F7 100%)` (`--gradient-bridge`). Use the gradient on
+   **one** hero element per page — a single word, a CTA, or one tile. The rest of the page is
+   neutral with accents drawn from both colours.
+   ⚠️ The variables are still **named** `--color-lavender-*` and `--color-lime-*` from a dead
+   lavender/lime palette. The names lie; the values are the yellow and the blue. Read the value.
+2. **Light mode only.** Paper `#fafaf7`, surface `#ffffff`, ink-900 `#1a1a1c`. No dark variants.
+3. **Bilingual He+En with RTL default.** Heebo (he, headings 700), Geist (en, headings 600),
+   JetBrains Mono (technical labels). Inline English inside Hebrew copy: wrap in `<span class="en">`
+   so the font-family switches.
+4. **Spacing scale only** from `{4, 8, 12, 16, 20, 24, 32, 40, 56, 72, 96}`. No inline hex — only
+   `var(--token)`.
+
+Read `PRODUCT.md` for what Coflow is and what may be claimed, and `README.md` for what this site
+contains: five real pages, everything else redirects.
