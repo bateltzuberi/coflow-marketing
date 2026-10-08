@@ -5,21 +5,17 @@ import { useEffect, useState } from "react";
 /**
  * "Built for …" under the headline: each audience types out, waits, erases,
  * and the next one comes. The caret is pink, the studio's colour for "now".
- * With reduced motion the words simply change every two seconds.
+ * It types with Reduce Motion on too; only the caret stops blinking.
  */
 export function TypedLine({ lead, words }: { lead: string; words: readonly string[] }) {
   const [text, setText] = useState(words[0]);
 
   useEffect(() => {
+    // Typing is text changing, not movement, so it runs with Reduce Motion
+    // on too (it used to fall back to swapping whole words, which on a phone
+    // with that setting looked like the typing didn't work). Only the caret's
+    // blink is switched off for reduced motion, in home.css.
     let timer: ReturnType<typeof setTimeout>;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      let i = 0;
-      const id = setInterval(() => {
-        i = (i + 1) % words.length;
-        setText(words[i]);
-      }, 2000);
-      return () => clearInterval(id);
-    }
     let w = 0;
     let c = words[0].length;
     let erasing = true;

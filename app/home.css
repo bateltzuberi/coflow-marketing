@@ -108,11 +108,13 @@
 .hm-fan-item .hm-fan-tile {
   width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; flex: none;
   background: var(--hm-white); color: var(--hm-cocoa);
-  box-shadow: inset 0 0 0 1px var(--hm-line), 0 1px 2px rgba(58, 46, 40, 0.04), 0 8px 24px rgba(58, 46, 40, 0.08);
+  box-shadow: inset 0 0 0 1px var(--hm-line), 0 4px 10px rgba(58, 46, 40, 0.12), 0 12px 28px -6px rgba(58, 46, 40, 0.28);
   transition: box-shadow 0.15s;
 }
 .hm-fan-item .hm-fan-tile svg { width: 18px; height: 18px; }
-.hm-fan-item .hm-fan-label { white-space: nowrap; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600; background: var(--hm-butter-2); color: var(--hm-cocoa); }
+/* The names carry a shadow too: over the page's text (a phone, a headline
+   behind) a flat cream pill disappeared into what was under it. */
+.hm-fan-item .hm-fan-label { white-space: nowrap; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600; background: var(--hm-butter-2); color: var(--hm-cocoa); box-shadow: 0 0 0 1px var(--hm-butter-edge), 0 4px 10px rgba(58, 46, 40, 0.14), 0 12px 28px -6px rgba(58, 46, 40, 0.28); }
 .hm-fan-item:hover .hm-fan-tile { box-shadow: inset 0 0 0 1px var(--hm-butter-edge), 0 10px 24px rgba(58, 46, 40, 0.16); }
 .hm-fan-catch { position: fixed; inset: 0; z-index: 29; }
 
@@ -123,9 +125,14 @@
 .hm-story > span { display: block; width: 100%; height: 100%; border-radius: 50%; border: 0.045em solid var(--hm-paper); background: var(--hm-oat-2); position: relative; overflow: hidden; }
 .hm-story > span::before { content: ""; position: absolute; width: 38%; height: 38%; border-radius: 50%; background: var(--hm-cocoa-3); top: 20%; left: 31%; }
 .hm-story > span::after { content: ""; position: absolute; width: 70%; height: 46%; border-radius: 50% 50% 0 0; background: var(--hm-cocoa-3); bottom: -8%; left: 15%; }
-.hm-typed { margin-top: 24px; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--hm-cocoa-2); min-height: 1.4em; display: flex; justify-content: center; align-items: center; }
+/* Inline text, not flex: a long audience ("מרצות ומנחות סדנאות") wraps like a
+   sentence on a narrow phone instead of breaking the line apart. The height
+   holds two lines on a phone so the page doesn't jump as words change. */
+.hm-typed { margin-top: 24px; font-size: clamp(22px, 3vw, 36px); line-height: 1.35; font-weight: 700; color: var(--hm-cocoa-2); text-align: center; min-height: 1.35em; }
+@media (max-width: 560px) { .hm-typed { min-height: 2.7em; } }
 .hm-typed .hm-tw { color: var(--hm-cocoa); font-weight: 800; }
-.hm-typed .hm-caret { display: inline-block; width: 3px; height: 1.05em; background: var(--hm-pink); border-radius: 2px; margin-inline-start: 4px; animation: hm-blink 1s steps(1) infinite; }
+.hm-typed .hm-caret { display: inline-block; width: 3px; height: 1.05em; vertical-align: -0.15em; background: var(--hm-pink); border-radius: 2px; margin-inline-start: 4px; animation: hm-blink 1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .hm-typed .hm-caret { animation: none; } }
 @keyframes hm-blink { 50% { opacity: 0; } }
 .hm-hero .hm-sub { margin-top: 16px; font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; color: var(--hm-cocoa-2); }
 .hm-hero .hm-btn { margin-top: 36px; font-size: 22px; padding: 20px 40px; }
