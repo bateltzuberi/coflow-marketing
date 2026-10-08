@@ -46,7 +46,10 @@ export function signupEntryFor(locale: "he" | "en"): string {
 // not a mailto: — someone who leaves details lands in the same contacts table
 // as everyone else. It is embedded on /waitlist in an iframe that resizes
 // itself off the form's `coflow-form-resize` postMessage.
-export const WAITLIST_FORM_ID = "28500fe2-28a7-48a1-871a-28225b6d337c";
+// coflow.social's OWN copy of the waitlist form ("רשימת המתנה · coflow.social"), so these
+// leads are told apart from the ones that come in through shebossit.co.il, which
+// embeds the original. Same questions, product and list.
+export const WAITLIST_FORM_ID = "1a9f6927-25aa-46c0-b795-3784e29e3038";
 
 export function formEmbedUrl(formId: string): string {
   return `${SITE.studioAppUrl}/f/${formId}`;
