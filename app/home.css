@@ -22,9 +22,9 @@
   --hm-cocoa-2: #6e6058;
   --hm-cocoa-3: #a09287;
   --hm-butter: #fbeeb9;
-  --hm-butter-2: #f7e3a1;
-  --hm-butter-hover: #f3da8c;
-  --hm-butter-edge: #ebd08a;
+  --hm-butter-2: #fbeeb9;
+  --hm-butter-hover: #fdf4d0;
+  --hm-butter-edge: #f1dfa0;
   --hm-pink: #f29cc3;
   --hm-pink-tint: #fde8f1;
   --hm-blue: #4054f7;
@@ -161,13 +161,17 @@
 .hm-note::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--hm-pink); flex: none; margin-inline-start: auto; }
 
 /* ── sections ───────────────────────────────────────────────── */
-.hm-sec { padding-block: 160px 0; scroll-margin-top: 24px; }
+/* Space between sections is MARGIN, so a jump from the dock (#sales…) lands
+   with the section title near the top instead of 160px of empty space. */
+.hm-sec { margin-top: 160px; scroll-margin-top: 40px; }
+:root:has(.hm) { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { :root:has(.hm) { scroll-behavior: auto; } }
 .hm-opener { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
 .hm-opener i { width: 60px; height: 60px; border-radius: 50%; background: var(--hm-ring); padding: 3px; display: block; }
 .hm-opener i span { width: 100%; height: 100%; border-radius: 50%; border: 3px solid var(--hm-paper); background: var(--hm-butter); display: grid; place-items: center; }
 .hm-opener i svg { width: 24px; height: 24px; }
 .hm-opener b { font-size: 18px; font-weight: 800; }
-.hm-row { display: grid; grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: center; }
+.hm-row { display: grid; grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: start; }
 .hm-row .hm-copy { min-width: 0; }
 .hm-row h2 { font-size: clamp(40px, 4.6vw, 64px); line-height: 1; font-weight: 900; letter-spacing: -0.025em; }
 .hm-row .hm-lead { margin-top: 24px; font-size: 21px; line-height: 1.55; color: var(--hm-cocoa-2); max-width: 29em; }
@@ -220,7 +224,7 @@
 .hm-caption { padding: 12px 14px; font-size: 12px; text-align: start; line-height: 1.4; }
 
 /* ── price: shown the way the studio shows a number ─────────── */
-.hm-price { padding-block: 180px 40px; scroll-margin-top: 24px; }
+.hm-price { margin-top: 180px; padding-bottom: 40px; scroll-margin-top: 40px; }
 .hm-price .hm-row { align-items: start; }
 .hm-price h2 { font-size: clamp(40px, 4.6vw, 64px); font-weight: 900; letter-spacing: -0.025em; }
 .hm-pt { background: var(--hm-butter); border-radius: 40px; padding: 40px 44px; }
@@ -237,7 +241,7 @@
 .hm-code .hm-btn { padding: 14px 26px; font-size: 16px; }
 .hm-join-err { margin-top: 10px; font-size: 14px; color: var(--hm-brick); }
 .hm-fine { margin-top: 28px; font-size: 17px; font-weight: 600; color: var(--hm-cocoa); }
-.hm-wait { margin-top: 16px; background: var(--hm-white); border-radius: 24px; box-shadow: inset 0 0 0 1px var(--hm-line); overflow: hidden; }
+.hm-price-btn { margin-top: 20px; }
 .hm-have-code { margin-top: 16px; }
 .hm-have-code .hm-join-form { margin-top: 0; }
 .hm-link-quiet { border: 0; background: none; padding: 0; cursor: pointer; font: 600 15px var(--hm-font); color: var(--hm-cocoa-2); text-decoration: underline; text-underline-offset: 3px; }
@@ -306,8 +310,8 @@
 @media (max-width: 900px) {
   .hm-row { grid-template-columns: 1fr; gap: 40px; }
   .hm-row.hm-flip .hm-copy { order: 0; }
-  .hm-sec { padding-block: 104px 0; }
-  .hm-price { padding-block: 112px 0; }
+  .hm-sec { margin-top: 104px; }
+  .hm-price { margin-top: 112px; }
   /* hero: the notifications pop up over the phone, like real ones */
   .hm-stage { height: auto; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 56px; }
   .hm-stage .hm-phone { position: relative; left: auto; transform: none; margin-bottom: -190px; width: 270px; }
@@ -325,7 +329,7 @@
   .hm-pt { order: 2; margin-top: 8px; }
   .hm-facts { order: 3; margin-top: 8px; }
   .hm-fine { order: 4; margin-top: 8px; }
-  .hm-wait { order: 5; }
+  .hm-price-btn { order: 5; justify-self: start; }
   .hm-have-code { order: 6; }
 }
 @media (max-width: 560px) {

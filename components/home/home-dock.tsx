@@ -35,7 +35,7 @@ export function HomeDock({ t }: { t: HomeCopy }) {
   const [fanOpen, setFanOpen] = useState(false);
   const [result, setResult] = useState<PlusKey | null>(null);
   // Joining = signing up and waiting for an invite. Every "Join" on the page
-  // (an <a href="#join">, so it still works without JS) opens this instead.
+  // (an <a data-join href="/waitlist">, so without JS it still reaches the form) opens this instead.
   const [signup, setSignup] = useState(false);
   const [layout, setLayout] = useState<{ lift: number; shift: number }[]>([]);
   // Reduced motion: no spring and no stagger, the column is simply there.
@@ -86,7 +86,7 @@ export function HomeDock({ t }: { t: HomeCopy }) {
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
-      const a = (e.target as Element | null)?.closest?.('a[href="#join"]');
+      const a = (e.target as Element | null)?.closest?.("a[data-join]");
       if (!a) return;
       e.preventDefault();
       setFanOpen(false);
@@ -209,12 +209,12 @@ export function HomeDock({ t }: { t: HomeCopy }) {
           <Icon name="users" />
           {t.dock.clients}
         </a>
-        <a href="#join">
+        <a href="#price">
           <Icon name="tag" />
           {t.dock.price}
         </a>
         <span className="hm-sep" />
-        <a className="hm-dock-join" href="#join">
+        <a className="hm-dock-join" href="/waitlist" data-join>
           {t.dock.join}
         </a>
       </nav>
@@ -306,7 +306,7 @@ function ResultPopup({
           <button type="button" className="hm-link" onClick={onMore}>
             {t.plus.back}
           </button>
-          <a ref={joinRef} className="hm-btn" href="#join" onClick={onJoin}>
+          <a ref={joinRef} className="hm-btn" href="/waitlist" data-join onClick={onJoin}>
             {t.plus.cta}
           </a>
         </div>

@@ -5,7 +5,6 @@ import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { HaveCode, HomeJoinForm } from "@/components/home/home-join-form";
-import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { Icon } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
 import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
@@ -21,9 +20,9 @@ import { SITE } from "@/lib/site";
 // every picture on it is a real Coflow screen drawn as a customer would meet
 // it. Colours are the studio's yellow theme (app/home.css).
 //
-// Every "Join" lands on #join, the price section, where joining is the
-// waitlist form for now (sign-up is closed; the list is what is being built).
-// An invite code still works from the "have a code?" link under it.
+// Every "Join" opens the sign-up popup (the Studio waitlist form): sign-up is
+// closed, people sign up and wait for an invite. An invite code still works
+// from the "have a code?" link in the price section.
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = getHomeCopy(await getLocale());
@@ -67,7 +66,7 @@ export default async function Home() {
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
             <p className="hm-sub">{t.hero.sub}</p>
-            <a className="hm-btn" href="#join">
+            <a className="hm-btn" href="/waitlist" data-join>
               {t.hero.cta}
             </a>
             <PlusHint t={t} />
@@ -250,7 +249,7 @@ export default async function Home() {
           </section>
         </div>
 
-        <section className="hm-price" id="join">
+        <section className="hm-price" id="price">
           <div className="hm-wrap">
             <div className="hm-row">
               <div className="hm-copy">
@@ -263,13 +262,13 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* Joining is the waitlist for now: the Studio's own CRM form,
-                    so every sign-up lands in contacts. The code field stays
-                    for whoever was given one. */}
+                {/* Joining = signing up and waiting for an invite. The button
+                    opens the sign-up popup (the Studio waitlist form); the
+                    code field is for whoever was given one. */}
                 <p className="hm-fine">{t.price.fine}</p>
-                <div className="hm-wait">
-                  <WaitlistForm title={t.price.formTitle} />
-                </div>
+                <a className="hm-btn hm-price-btn" href="/waitlist" data-join>
+                  {t.hero.cta}
+                </a>
                 <HaveCode label={t.price.haveCode}>
                   <HomeJoinForm t={join} locale={locale} />
                 </HaveCode>
