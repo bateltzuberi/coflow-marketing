@@ -52,7 +52,7 @@ export default async function WaitlistPage() {
                 state, so the page around it adds width and nothing else — a
                 second border here just draws a box inside a box. */}
             <div className="mt-8 md:mt-10 mx-auto w-full max-w-2xl">
-              <WaitlistForm title={t.formTitle} />
+              <WaitlistForm title={t.formTitle} locale={locale} />
             </div>
 
             <p className="mt-8 text-center text-[13px] text-ink-500">
