@@ -11,7 +11,7 @@ import type { Locale } from "./locale";
  * named Maya Levi, and are written to look like her real content.
  */
 
-export type PlusKey = "sort" | "bio" | "gift" | "call" | "week" | "launch";
+export type PlusKey = "sort" | "bio" | "gift" | "call" | "week" | "launch" | "course";
 
 type Row = readonly [string, string];
 
@@ -138,6 +138,7 @@ const he = {
       { key: "call", title: "שיקבעו איתי שיחה", desc: "דף קביעת שיחה שמכניס את הפגישה ליומן", gets: ["דף קביעת שיחה", "הזמנה ליומן", "עסקה בלוח"] },
       { key: "week", title: "לתכנן תוכן לשבוע", desc: "רעיונות לשבוע עם הוקים ותאריכים בלוח התוכן", gets: ["רעיונות לשבוע", "הוקים מהמסרים שלך", "תאריכים בלוח"] },
       { key: "launch", title: "לתכנן השקה", desc: "תוכנית, רשימת המתנה, תוכן ודף מכירה", gets: ["תוכנית השקה", "רשימת המתנה", "דף מכירה"] },
+      { key: "course", title: "לבנות קורס דיגיטלי", desc: "פרקים ושיעורים כתובים, דף הרשמה ומייל ברוכה הבאה", gets: ["קורס עם שיעורים", "דף הקורס", "מייל ברוכה הבאה"] },
     ] as readonly PlusItem[],
     mock: {
       owner: "מאיה לוי",
@@ -173,6 +174,18 @@ const he = {
       week: {
         cardTitle: "השבוע",
         rows: [["א׳", "קרוסלה על תמחור"], ["ג׳", "ניוזלטר"], ["ה׳", "פרק בפודקאסט"]] as readonly Row[],
+      },
+      course: {
+        name: "קורס מותג בשבוע",
+        continueLabel: "ממשיכים · יום 1 · שיעור 3",
+        lesson: "הסיפור שמוכר בלי למכור",
+        continueButton: "להמשיך לשיעור",
+        progressLabel: "ההתקדמות",
+        progress: "33%",
+        chapters: [["יום 1 · מי את בשביל הקהל", "2 מתוך 3", ""], ["יום 2 · ההבטחה", "נפתח ב־13.10", "locked"]] as readonly (readonly [string, string, string])[],
+        cardTitle: "מייל ברוכה הבאה",
+        welcome: "אפשר להתחיל עכשיו, ההתקדמות נשמרת.",
+        welcomeButton: "להתחלת הקורס",
       },
       launch: {
         cardTitle: "השקה: סדנת תמחור · 12.11 · ₪290",
@@ -325,6 +338,7 @@ const en: HomeCopy = {
       { key: "call", title: "Let people book a call", desc: "A booking page that puts the call in your calendar", gets: ["Booking page", "Calendar invite", "Deal on the board"] },
       { key: "week", title: "Plan a week of content", desc: "A week of ideas with hooks and dates on your board", gets: ["A week of ideas", "Hooks from your messages", "Dates on the board"] },
       { key: "launch", title: "Plan a launch", desc: "A plan, a waitlist, content and a sales page", gets: ["Launch plan", "Waitlist", "Sales page"] },
+      { key: "course", title: "Build a digital course", desc: "Written chapters and lessons, a sign-up page and a welcome email", gets: ["Course with lessons", "Course page", "Welcome email"] },
     ],
     mock: {
       owner: "Maya Levi",
@@ -360,6 +374,18 @@ const en: HomeCopy = {
       week: {
         cardTitle: "This week",
         rows: [["Sun", "Pricing carousel"], ["Tue", "Newsletter"], ["Thu", "Podcast episode"]],
+      },
+      course: {
+        name: "Brand in a week",
+        continueLabel: "Continue · Day 1 · Lesson 3",
+        lesson: "The story that sells without selling",
+        continueButton: "Continue the lesson",
+        progressLabel: "Progress",
+        progress: "33%",
+        chapters: [["Day 1 · Who you are to your audience", "2 of 3", ""], ["Day 2 · The promise", "Opens 13.10", "locked"]],
+        cardTitle: "Welcome email",
+        welcome: "Start now. Your progress is saved.",
+        welcomeButton: "Start the course",
       },
       launch: {
         cardTitle: "Launch: pricing workshop · 12.11 · ₪290",

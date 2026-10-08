@@ -286,6 +286,30 @@
 .hm-card.hm-wide { width: min(330px, 100%); margin-top: 0; align-self: flex-start; }
 .hm-card-who { display: flex; gap: 8px; align-items: center; font-weight: 800; font-size: 13.5px; }
 .hm-card-who span { width: 26px; height: 26px; border-radius: 50%; background: var(--hm-butter); display: grid; place-items: center; font-size: 12px; }
+/* The course result: the student's page in the creator's own colours (an
+   example creator: teal and apricot), as docs/designs/course-student-view. */
+.hm-course { --hm-c: #008471; --hm-c-soft: #57b1a8; --hm-c2: #ffd094; --hm-c-tint: #e6f2ef; background: #fff8ef; min-height: 330px; font-size: 11px; }
+.hm-course-top { display: flex; align-items: center; gap: 7px; padding: 12px 12px 8px; background: #fff; border-bottom: 1px solid #efe5d8; }
+.hm-course-top b { font-size: 12px; font-weight: 800; }
+.hm-course-logo { width: 20px; height: 20px; border-radius: 6px; background: radial-gradient(circle at 50% 60%, var(--hm-c2) 0 35%, var(--hm-c) 36%); flex: none; }
+.hm-course-body { padding: 9px; display: flex; flex-direction: column; gap: 6px; }
+.hm-course-thumb { position: relative; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: radial-gradient(circle at 28% 36%, var(--hm-c2) 0 13%, transparent 14%), linear-gradient(160deg, var(--hm-c-soft), var(--hm-c)); }
+.hm-course-play { position: absolute; inset: 0; margin: auto; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.92); }
+.hm-course-play::after { content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0; border-block: 6px solid transparent; border-left: 9px solid #2f2a26; transform: translateX(1px); } /* a play sign points right in every language */
+.hm-course-k { color: #7a6e66; font-weight: 600; font-size: 10px; }
+.hm-course-h { font-size: 13px; font-weight: 800; line-height: 1.2; }
+.hm-course-btn { background: var(--hm-c); color: #fff; border-radius: 999px; text-align: center; font-weight: 800; padding: 6px; }
+.hm-course-prog { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #efe5d8; border-radius: 12px; padding: 6px 8px; font-weight: 600; color: #7a6e66; }
+.hm-course-prog > i { flex: 1; height: 5px; border-radius: 9px; background: var(--hm-c-tint); overflow: hidden; display: block; }
+.hm-course-prog > i > i { display: block; height: 100%; background: var(--hm-c); border-radius: 9px; }
+.hm-course-prog b { color: var(--hm-c); }
+.hm-course-ch { display: flex; gap: 7px; align-items: center; background: #fff; border: 1px solid #efe5d8; border-radius: 12px; padding: 5px; }
+.hm-course-ch b { display: block; font-size: 10.5px; }
+.hm-course-ch span:not(.hm-course-chimg) { color: #7a6e66; font-size: 9.5px; }
+.hm-course-chimg { width: 38px; aspect-ratio: 16/10; border-radius: 7px; flex: none; background: radial-gradient(circle at 30% 35%, var(--hm-c2) 0 16%, transparent 17%), linear-gradient(160deg, var(--hm-c-soft), var(--hm-c)); }
+.hm-course-ch.hm-locked .hm-course-chimg { filter: grayscale(.6); opacity: .6; }
+.hm-card .hm-course-mailbtn { background: #008471; border-color: #008471; color: #fff; }
+.hm-card-line { font-size: 12.5px; color: var(--hm-cocoa-2); line-height: 1.45; margin-top: 2px; }
 .hm-card b.hm-t { display: block; font-size: 13.5px; font-weight: 800; margin-bottom: 6px; }
 .hm-card .hm-r { font-size: 12.5px; padding-block: 7px; }
 .hm-card .hm-r span:first-child { color: var(--hm-cocoa-3); white-space: nowrap; }
