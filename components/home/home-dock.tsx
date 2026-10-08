@@ -31,7 +31,7 @@ const ITEM_MS = 260;
  * (a column of round icons with cream names, leaning toward the top like the
  * macOS Dock "Fan" stack). Picking one opens what it builds.
  */
-export function HomeDock({ t }: { t: HomeCopy }) {
+export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   const [fanOpen, setFanOpen] = useState(false);
   const [result, setResult] = useState<PlusKey | null>(null);
   // Joining = signing up and waiting for an invite. Every "Join" on the page
@@ -235,7 +235,7 @@ export function HomeDock({ t }: { t: HomeCopy }) {
         />
       )}
 
-      {signup && <SignupPopup t={t} onClose={() => setSignup(false)} />}
+      {signup && <SignupPopup t={t} locale={locale} onClose={() => setSignup(false)} />}
     </>
   );
 }
@@ -456,7 +456,7 @@ function Phone({ children, center = false }: { children: React.ReactNode; center
 }
 
 /** "Join": sign up, then wait for the invite (the waitlist form, from the Studio). */
-function SignupPopup({ t, onClose }: { t: HomeCopy; onClose: () => void }) {
+function SignupPopup({ t, locale, onClose }: { t: HomeCopy; locale: "he" | "en"; onClose: () => void }) {
   return (
     <div
       className="hm-ov"
@@ -478,7 +478,7 @@ function SignupPopup({ t, onClose }: { t: HomeCopy; onClose: () => void }) {
           <p className="hm-pop-sub">{t.price.fine}</p>
         </div>
         <div className="hm-pb">
-          <WaitlistForm title={t.price.formTitle} />
+          <WaitlistForm title={t.price.formTitle} locale={locale} />
         </div>
       </div>
     </div>

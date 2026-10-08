@@ -44,7 +44,7 @@ export default async function Home() {
   return (
     <div className="hm" lang={locale}>
       <JsonLd data={organizationJsonLd()} />
-      <HomeDock t={t} />
+      <HomeDock t={t} locale={locale} />
 
       <div className="hm-wrap hm-top">
         <CoflowMark size={36} showWordmark tone="blue" />
