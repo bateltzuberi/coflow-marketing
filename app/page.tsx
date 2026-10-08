@@ -4,7 +4,8 @@ import "./home.css";
 import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
-import { HomeJoinForm } from "@/components/home/home-join-form";
+import { HaveCode, HomeJoinForm } from "@/components/home/home-join-form";
+import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { Icon } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
 import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
@@ -20,9 +21,9 @@ import { SITE } from "@/lib/site";
 // every picture on it is a real Coflow screen drawn as a customer would meet
 // it. Colours are the studio's yellow theme (app/home.css).
 //
-// It is still the invite door: every "Join" lands on the code field in the
-// price section (#join), which checks the code and hands off to the Studio
-// signup.
+// Every "Join" lands on #join, the price section, where joining is the
+// waitlist form for now (sign-up is closed; the list is what is being built).
+// An invite code still works from the "have a code?" link under it.
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = getHomeCopy(await getLocale());
@@ -262,12 +263,16 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                <div className="hm-join-form-wrap" style={{ display: "contents" }}>
-                  <HomeJoinForm t={join} locale={locale} />
+                {/* Joining is the waitlist for now: the Studio's own CRM form,
+                    so every sign-up lands in contacts. The code field stays
+                    for whoever was given one. */}
+                <p className="hm-fine">{t.price.fine}</p>
+                <div className="hm-wait">
+                  <WaitlistForm title={t.price.formTitle} />
                 </div>
-                <p className="hm-fine">
-                  {t.price.fine} {t.price.noCode} <a href="/waitlist">{t.price.waitlist}</a>
-                </p>
+                <HaveCode label={t.price.haveCode}>
+                  <HomeJoinForm t={join} locale={locale} />
+                </HaveCode>
               </div>
               <div className="hm-pt">
                 <small>{t.price.tileLabel}</small>

@@ -221,7 +221,7 @@
 
 /* ── price: shown the way the studio shows a number ─────────── */
 .hm-price { padding-block: 180px 40px; scroll-margin-top: 24px; }
-.hm-price .hm-row { align-items: end; }
+.hm-price .hm-row { align-items: start; }
 .hm-price h2 { font-size: clamp(40px, 4.6vw, 64px); font-weight: 900; letter-spacing: -0.025em; }
 .hm-pt { background: var(--hm-butter); border-radius: 40px; padding: 40px 44px; }
 .hm-pt small { font-size: 17px; font-weight: 600; }
@@ -236,7 +236,11 @@
 .hm-code input::placeholder { color: var(--hm-cocoa-3); letter-spacing: normal; }
 .hm-code .hm-btn { padding: 14px 26px; font-size: 16px; }
 .hm-join-err { margin-top: 10px; font-size: 14px; color: var(--hm-brick); }
-.hm-fine { margin-top: 14px; font-size: 15px; color: var(--hm-cocoa-2); }
+.hm-fine { margin-top: 28px; font-size: 17px; font-weight: 600; color: var(--hm-cocoa); }
+.hm-wait { margin-top: 16px; background: var(--hm-white); border-radius: 24px; box-shadow: inset 0 0 0 1px var(--hm-line); overflow: hidden; }
+.hm-have-code { margin-top: 16px; }
+.hm-have-code .hm-join-form { margin-top: 0; }
+.hm-link-quiet { border: 0; background: none; padding: 0; cursor: pointer; font: 600 15px var(--hm-font); color: var(--hm-cocoa-2); text-decoration: underline; text-underline-offset: 3px; }
 .hm-fine a { font-weight: 700; color: var(--hm-cocoa); text-decoration: underline; text-underline-offset: 3px; }
 
 .hm-footer { padding-block: 56px 24px; border-top: 1px solid var(--hm-line); margin-top: 120px; font-size: 15px; color: var(--hm-cocoa-2); }
@@ -257,6 +261,7 @@
 .hm-flow { font-size: 13.5px; font-weight: 600; color: var(--hm-cocoa-2); display: flex; align-items: center; gap: 6px; }
 .hm-flow svg { width: 18px; height: 18px; }
 .hm-pop h3 { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+.hm-pop-sub { margin-top: 8px; font-size: 16px; color: var(--hm-cocoa-2); line-height: 1.5; }
 .hm-pb { padding: 8px 28px 24px; display: flex; flex-direction: column; gap: 10px; }
 .hm-res { background: var(--hm-oat); border-radius: 22px; padding: 22px 16px 0; height: 330px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; gap: 12px; }
 .hm-res .hm-phone { width: 196px; border-radius: 34px; padding: 8px; flex: none; box-shadow: none; }
@@ -319,8 +324,9 @@
   .hm-price h2 { order: 1; }
   .hm-pt { order: 2; margin-top: 8px; }
   .hm-facts { order: 3; margin-top: 8px; }
-  .hm-join-form { order: 4; margin-top: 8px; }
-  .hm-fine { order: 5; }
+  .hm-fine { order: 4; margin-top: 8px; }
+  .hm-wait { order: 5; }
+  .hm-have-code { order: 6; }
 }
 @media (max-width: 560px) {
   .hm { padding-bottom: 140px; }

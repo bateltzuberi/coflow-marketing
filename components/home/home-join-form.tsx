@@ -66,3 +66,19 @@ export function HomeJoinForm({ t, locale }: { t: Dictionary["join"]; locale: Loc
     </form>
   );
 }
+
+/** "Have an invite code?": a quiet link that opens the code field. */
+export function HaveCode({ label, children }: { label: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="hm-have-code">
+      {open ? (
+        children
+      ) : (
+        <button type="button" className="hm-link-quiet" onClick={() => setOpen(true)}>
+          {label}
+        </button>
+      )}
+    </div>
+  );
+}

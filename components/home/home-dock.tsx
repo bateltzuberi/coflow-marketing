@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { HomeCopy, PlusKey } from "@/lib/home-copy";
+import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { Icon, type IconName } from "./icon";
 
 /** Any "+" on the page (the hero's hint) opens the dock's fan through this. */
@@ -33,6 +34,9 @@ const ITEM_MS = 260;
 export function HomeDock({ t }: { t: HomeCopy }) {
   const [fanOpen, setFanOpen] = useState(false);
   const [result, setResult] = useState<PlusKey | null>(null);
+  // Joining = signing up and waiting for an invite. Every "Join" on the page
+  // (an <a href="#join">, so it still works without JS) opens this instead.
+  const [signup, setSignup] = useState(false);
   const [layout, setLayout] = useState<{ lift: number; shift: number }[]>([]);
   // Reduced motion: no spring and no stagger, the column is simply there.
   const [still, setStill] = useState(false);
@@ -81,6 +85,19 @@ export function HomeDock({ t }: { t: HomeCopy }) {
   }, []);
 
   useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.('a[href="#join"]');
+      if (!a) return;
+      e.preventDefault();
+      setFanOpen(false);
+      setResult(null);
+      setSignup(true);
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+
+  useEffect(() => {
     const onOpen = () => openFan(true);
     window.addEventListener(OPEN_PLUS_EVENT, onOpen);
     return () => window.removeEventListener(OPEN_PLUS_EVENT, onOpen);
@@ -89,7 +106,8 @@ export function HomeDock({ t }: { t: HomeCopy }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
-      if (result) setResult(null);
+      if (signup) setSignup(false);
+      else if (result) setResult(null);
       else if (fanOpen) {
         setFanOpen(false);
         plusRef.current?.focus();
@@ -97,14 +115,14 @@ export function HomeDock({ t }: { t: HomeCopy }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [fanOpen, result]);
+  }, [fanOpen, result, signup]);
 
   useEffect(() => {
-    document.documentElement.style.overflow = result ? "hidden" : "";
+    document.documentElement.style.overflow = result || signup ? "hidden" : "";
     return () => {
       document.documentElement.style.overflow = "";
     };
-  }, [result]);
+  }, [result, signup]);
 
 
   return (
@@ -216,6 +234,8 @@ export function HomeDock({ t }: { t: HomeCopy }) {
           onJoin={closeAll}
         />
       )}
+
+      {signup && <SignupPopup t={t} onClose={() => setSignup(false)} />}
     </>
   );
 }
@@ -430,6 +450,36 @@ function Phone({ children, center = false }: { children: React.ReactNode; center
     <div className="hm-phone">
       <div className="hm-screen" style={center ? { textAlign: "center" } : undefined}>
         {children}
+      </div>
+    </div>
+  );
+}
+
+/** "Join": sign up, then wait for the invite (the waitlist form, from the Studio). */
+function SignupPopup({ t, onClose }: { t: HomeCopy; onClose: () => void }) {
+  return (
+    <div
+      className="hm-ov"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="hm-pop" role="dialog" aria-modal="true" aria-labelledby="hm-signup-title">
+        <div className="hm-ph">
+          <div className="hm-grab" />
+          <div className="hm-pbar">
+            <span />
+            <span />
+            <button type="button" className="hm-x" aria-label={t.dock.close} onClick={onClose}>
+              <Icon name="x" />
+            </button>
+          </div>
+          <h3 id="hm-signup-title">{t.price.signupTitle}</h3>
+          <p className="hm-pop-sub">{t.price.fine}</p>
+        </div>
+        <div className="hm-pb">
+          <WaitlistForm title={t.price.formTitle} />
+        </div>
       </div>
     </div>
   );

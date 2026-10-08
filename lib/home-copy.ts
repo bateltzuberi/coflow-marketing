@@ -193,9 +193,10 @@ const he = {
     amount: "€24",
     chip: "לחודש · המחיר נשאר שלך",
     facts: ["כל מה שיש בקופלו, בלי חבילות", "המחיר שנרשמת בו נשאר שלך", "בלי התחייבות, מבטלים מתי שרוצים"],
-    fine: "כרגע ההצטרפות עם קוד הזמנה.",
-    noCode: "אין לך קוד?",
-    waitlist: "לרשימת ההמתנה",
+    fine: "קופלו נפתחת בהדרגה. נרשמים כאן, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
+    signupTitle: "הרשמה לקופלו",
+    formTitle: "טופס רשימת המתנה",
+    haveCode: "יש לך קוד הזמנה?",
   },
   footer: {
     links: [
@@ -380,9 +381,10 @@ const en: HomeCopy = {
     amount: "€24",
     chip: "a month · your price stays yours",
     facts: ["Everything in Coflow, no tiers", "The price you join at stays yours", "No commitment, cancel any time"],
-    fine: "For now, joining is by invite code.",
-    noCode: "No code?",
-    waitlist: "Join the waitlist",
+    fine: "Coflow is opening gradually. Sign up here and we'll send you an invite when it's your turn.",
+    signupTitle: "Sign up for Coflow",
+    formTitle: "Waitlist form",
+    haveCode: "Have an invite code?",
   },
   footer: {
     links: [
