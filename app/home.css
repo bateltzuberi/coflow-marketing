@@ -341,7 +341,10 @@
   .hm-pt { padding: 28px; }
   .hm-facts li { font-size: 18px; }
   .hm-ov { place-items: end center; padding: 0; }
-  .hm-pop { border-radius: 28px 28px 0 0; max-height: 92vh; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  /* dvh, not vh: on a real phone 100vh is taller than what shows above the
+     browser's own toolbar, which hid the bottom of the sheet (the send button). */
+  .hm-ov { height: 100vh; height: 100dvh; top: auto; }
+  .hm-pop { border-radius: 28px 28px 0 0; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); padding-bottom: env(safe-area-inset-bottom, 0px); }
   .hm-grab { display: block; }
   .hm-ph, .hm-pb, .hm-pf { padding-inline: 18px; }
   .hm-pop h3 { font-size: 26px; }
