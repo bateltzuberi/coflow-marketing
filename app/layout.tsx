@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Heebo, Geist, JetBrains_Mono } from "next/font/google";
+import { Heebo, Geist, JetBrains_Mono, Red_Hat_Display } from "next/font/google";
 import { SITE } from "@/lib/site";
 import { JsonLd, organizationJsonLd } from "@/lib/seo";
 import { getLocale, dirFor } from "@/lib/locale";
@@ -16,6 +16,16 @@ const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+// The home page's English face (Batel's pick, 2026-10-08): built like Heebo
+// 900 (geometric, even strokes, solid), so the English page has the Hebrew's
+// presence. Used through --font-redhat in app/home.css.
+const redHat = Red_Hat_Display({
+  variable: "--font-redhat",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -51,7 +61,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dirFor(locale)}
-      className={`${heebo.variable} ${geist.variable} ${mono.variable} h-full antialiased`}
+      className={`${heebo.variable} ${geist.variable} ${redHat.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />
