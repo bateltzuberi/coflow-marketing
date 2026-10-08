@@ -48,7 +48,11 @@
   padding-bottom: 120px;
   min-height: 100vh;
 }
-.hm:lang(en) { --hm-font: var(--font-geist), system-ui, -apple-system, sans-serif; }
+/* English: Red Hat Display, set like the Hebrew Heebo 900: heavy and tight.
+   The headline is a little smaller so it keeps the Hebrew's two lines. */
+.hm:lang(en) { --hm-font: var(--font-redhat), system-ui, -apple-system, sans-serif; }
+.hm:lang(en) .hm-hero h1 { font-size: clamp(42px, 7.4vw, 100px); letter-spacing: -0.04em; }
+.hm:lang(en) .hm-row h2, .hm:lang(en) .hm-price h2 { letter-spacing: -0.03em; }
 /* Resets at zero weight (:where), so every hm- class below wins over them. */
 :where(.hm) :where(h1, h2, h3, h4) { margin: 0; text-wrap: balance; font-family: var(--hm-font); color: var(--hm-cocoa); }
 :where(.hm) p { margin: 0; }
