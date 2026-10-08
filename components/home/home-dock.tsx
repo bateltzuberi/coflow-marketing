@@ -34,16 +34,15 @@ const ITEM_MS = 260;
  */
 export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   const [fanOpen, setFanOpen] = useState(false);
-  // The dock waits below the screen while the hero's own Join button is in
-  // view: on a short window it sat right on top of that button. It rises as
-  // soon as the button scrolls away (or when the hero's "+" opens the fan).
+  // The dock waits below the screen only at the very top of the page, where
+  // on a short window it sat on the hero's own Join button. It rises the
+  // moment she starts scrolling (or when the hero's "+" opens the fan).
   const [docked, setDocked] = useState(false);
   useEffect(() => {
-    const cta = document.querySelector(".hm-hero a[data-join]");
-    if (!cta || !("IntersectionObserver" in window)) return setDocked(true);
-    const io = new IntersectionObserver(([e]) => setDocked(!e.isIntersecting), { threshold: 0 });
-    io.observe(cta);
-    return () => io.disconnect();
+    const onScroll = () => setDocked(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const [result, setResult] = useState<PlusKey | null>(null);
   // Joining = signing up and waiting for an invite. Every "Join" on the page
