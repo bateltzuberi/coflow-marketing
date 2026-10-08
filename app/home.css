@@ -80,7 +80,10 @@
   background: var(--hm-white); border-radius: 24px; padding: 8px 10px;
   display: flex; align-items: center; gap: 2px;
   box-shadow: 0 0 0 1px var(--hm-line), 0 16px 40px -12px var(--hm-shadow);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease;
 }
+/* Waiting below the screen while the hero's Join button is in view. */
+.hm-dock.hm-dock-away { transform: translateY(calc(100% + 40px)); opacity: 0; pointer-events: none; }
 .hm-dock > a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 14px; border-radius: 16px; font-size: 12px; font-weight: 600; color: var(--hm-cocoa-2); white-space: nowrap; }
 .hm-dock > a:hover { background: var(--hm-oat); }
 .hm-dock .hm-sep { width: 1px; height: 32px; background: var(--hm-line); margin-inline: 6px; }
