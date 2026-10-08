@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Coflow",
-  tagline: "Your whole brand in one place.",
+  tagline: "The business behind your brand",
   url: "https://coflow.social",
   // Single app login URL (legacy). studioAppUrl is the canonical entry
   // point now — login + /start (the wizard) both live there.
@@ -12,8 +12,10 @@ export const SITE = {
   // has one definition if it's ever needed again.
   wizardUrl: "https://studio.coflow.social/start",
   description:
-    "Coflow is an AI brand-management system: one place that runs your whole personal brand, from strategy, voice and brand kit through content for Instagram, podcast, newsletter and YouTube, a shared calendar and board, and on to products, funnels, a CRM and one dashboard.",
-  ogImage: "/og/default.png",
+    "Coflow keeps your marketing, sales and clients in one place: questionnaires, a link in bio, a content board, leads, tasks and active clients.",
+  // The share card, in the home page's design (public/og/home-{he,en}.png).
+  // /og/default.png never existed, so every shared link went out with no image.
+  ogImage: "/og/home-he.png",
   twitter: "@coflow",
 } as const;
 

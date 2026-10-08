@@ -6,5 +6,5 @@ import { redirect } from "next/navigation";
 // people to the explainer rather than to a page that would repeat one line.
 // (This used to say there was no public price yet. There is one.)
 export default function PricingPage() {
-  redirect("/how-it-works");
+  redirect("/");
 }

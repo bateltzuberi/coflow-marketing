@@ -14,7 +14,6 @@ import type { Locale } from "./locale";
 export const DICT = {
   he: {
     nav: {
-      howItWorks: "איך Coflow עובדת",
       signIn: "התחברות",
       // The primary button is registration now — the launch is invite-only and
       // the home page is the door.
@@ -29,60 +28,6 @@ export const DICT = {
 
 
 
-
-    howItWorks: {
-      heroTitle: "מה נכלל בניהול מותג.",
-      heroSub: "מהגדרת המותג ועד המכירה, בשישה שלבים שיושבים באותה מערכת.",
-      cta: "הרשמה עם קוד",
-      stepLabel: "שלב",
-      steps: [
-        {
-          name: "פרופיל מותג",
-          title: "הכל נשען על מקום אחד שיודע מי את.",
-          body: "אבחון של איך המותג נקרא מבחוץ, האסטרטגיה שנגזרת ממנו, הקול שלך, וערכת המותג: צבעים, פונטים, לוגו וגלריה. כל שאר המערכת קוראת מכאן, אז התוכן לא נוצר מאפס בכל פעם.",
-        },
-        {
-          name: "עוגני תוכן",
-          title: "2–6 נושאים שחוזרים אליהם, לכל פלטפורמה בנפרד.",
-          body: "העוגן הוא מה שאת רוצה שיכירו אותך בזכותו. לכל פלטפורמה העוגנים שלה, הרפרנסים שלה והטמפלטים שלה, כי מה שעובד בקרוסלה לא מה שעובד בפרק פודקאסט.",
-        },
-        {
-          name: "יצירה",
-          title: "AI שלא יודע מי את יכתוב תוכן של מישהי אחרת.",
-          body: "לכן הכתיבה יוצאת מהעוגן ומהקול שלך, לא מפרומפט ריק. הוק, קופי, פירוק לשקופיות, בחירת מדיה מהגלריה, וטמפלט מעוצב במיתוג שלך. קרוסלה, ריל, גיליון ניוזלטר או תסריט לפרק.",
-        },
-        {
-          name: "לוח ופרסום",
-          title: "אסטרטגיה שנשארת במצגת לא שווה כלום.",
-          body: "יומן תוכן אחד לכל הפלטפורמות, ולוח שמזיז פריט מרעיון לעבודה, למוכן ולפורסם. תאריכים ותתי משימות, כדי שדברים לא נתקעים בטיוטות.",
-        },
-        {
-          name: "מכירה",
-          title: "תוכן שנגמר במכירה, לא באוויר.",
-          body: "מוצרים ומחירון, דפי נחיתה וטפסים שאוספים לידים, ו-CRM עם אנשי קשר ועסקאות. כך הדרך מפוסט ללקוחה קיימת במערכת ולא משוערת.",
-        },
-        {
-          name: "מדידה",
-          title: "מה באמת עבד, ולא מה שהרגיש שעבד.",
-          body: "לוח בקרה שמאחד את המספרים מכל הפלטפורמות: עוקבים, חשיפה, ביצועי פוסטים ומה בלט בשבוע האחרון. משם רואים מה כדאי לעשות יותר.",
-        },
-      ],
-      authority: {
-        title: "בנוי על אסטרטגיית מותג, לא על טריקים של תוכן.",
-        p1: "Coflow מבוססת על תהליך אסטרטגי: קודם מבינים איך המותג נראה היום, אחר כך לאן את רוצה לקחת אותו, מזהים את הפער והופכים אותו לפעולות ברורות.",
-        p2: "זה אומר שהתוכן שלך לא נוצר מטרנדים בלבד, מטמפלטים או מפרומפטים רנדומליים. הוא נוצר מתוך החיבור בין:",
-        bullets: [
-          "איך המותג שלך נתפס עכשיו",
-          "על מה את רוצה שיכירו אותך",
-          "את מי את רוצה למשוך",
-          "מה צריך להפוך לברור יותר",
-          "איזה תוכן באמת יקדם את המותג קדימה",
-        ],
-        closeA: "לכן Coflow לא רק מייצרת פוסטים.",
-        closeB: "היא עוזרת לך לבנות מותג שאנשים מבינים, סומכים עליו - וקונים ממנו.",
-        cta: "הרשמה עם קוד",
-      },
-    },
 
     // ----- /join — the invite-only launch landing -----
     // Coflow opens to a closed group first. This page is the door: a code, an
@@ -176,7 +121,6 @@ export const DICT = {
         legal: "משפטי",
       },
       productLinks: [
-        { label: "איך Coflow עובדת", href: "/how-it-works" },
         { label: "האקדמיה של קופלו", href: "/academy" },
         { label: "הרשמה עם קוד", href: "/" },
       ],
@@ -196,7 +140,6 @@ export const DICT = {
 
   en: {
     nav: {
-      howItWorks: "How Coflow works",
       signIn: "Log in",
       cta: "Sign up with a code",
       diagnosis: "Free diagnosis",
@@ -208,60 +151,6 @@ export const DICT = {
 
 
 
-
-    howItWorks: {
-      heroTitle: "What managing a brand covers.",
-      heroSub: "From defining the brand through to the sale, in six steps that live in the same system.",
-      cta: "Sign up with a code",
-      stepLabel: "Step",
-      steps: [
-        {
-          name: "Brand profile",
-          title: "Everything runs off one place that knows who you are.",
-          body: "A diagnosis of how the brand reads from the outside, the strategy that follows from it, your voice, and the brand kit: colors, fonts, logo, gallery. The rest of the system reads from here, so content isn't invented from scratch every time.",
-        },
-        {
-          name: "Content anchors",
-          title: "2–6 subjects you keep coming back to, per platform.",
-          body: "An anchor is what you want to be known for. Each platform gets its own anchors, references and templates, because what works in a carousel is not what works in a podcast episode.",
-        },
-        {
-          name: "Creation",
-          title: "An AI that doesn't know who you are will write someone else's content.",
-          body: "So the writing comes off your anchor and your voice, not an empty prompt. Hook, copy, the slide breakdown, media picked from your gallery, and a template designed in your branding. A carousel, a reel, a newsletter issue, an episode script.",
-        },
-        {
-          name: "Calendar and publishing",
-          title: "A strategy that stays in a deck is worth nothing.",
-          body: "One content calendar across every platform, and a board that moves a piece from idea to in progress to ready to published. Dates and subtasks, so things don't die in drafts.",
-        },
-        {
-          name: "Selling",
-          title: "Content that ends in a sale, not in the air.",
-          body: "Products and a price list, landing pages and forms that collect leads, and a CRM with contacts and deals. The path from a post to a customer exists in the system instead of being assumed.",
-        },
-        {
-          name: "Measurement",
-          title: "What actually worked, not what felt like it worked.",
-          body: "A dashboard pulling the numbers together across platforms: followers, reach, how posts performed and what stood out last week. That is where you see what to do more of.",
-        },
-      ],
-      authority: {
-        title: "Built on brand strategy, not content tricks.",
-        p1: "Coflow runs on a strategic process: first understand how the brand looks today, then where you want to take it, identify the gap and turn it into clear actions.",
-        p2: "Which means your content isn't generated from trends alone, from templates, or from random prompts. It comes from the connection between:",
-        bullets: [
-          "How your brand is perceived right now",
-          "What you want to be known for",
-          "Who you want to attract",
-          "What needs to become clearer",
-          "Which content will actually move the brand forward",
-        ],
-        closeA: "That's why Coflow doesn't just produce posts.",
-        closeB: "It helps you build a brand people understand, trust - and buy from.",
-        cta: "Sign up with a code",
-      },
-    },
 
     // ----- /join — the invite-only launch landing -----
     join: {
@@ -342,7 +231,6 @@ export const DICT = {
         legal: "Legal",
       },
       productLinks: [
-        { label: "How Coflow works", href: "/how-it-works" },
         { label: "Coflow Academy", href: "/academy" },
         { label: "Sign up with a code", href: "/" },
       ],

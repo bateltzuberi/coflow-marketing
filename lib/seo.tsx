@@ -7,6 +7,8 @@ type PageSEO = {
   path: string;
   ogImage?: string;
   noindex?: boolean;
+  /** The language the page is served in, so a share card says so. */
+  locale?: "he" | "en";
 };
 
 export function buildMetadata({
@@ -15,6 +17,7 @@ export function buildMetadata({
   path,
   ogImage,
   noindex,
+  locale = "he",
 }: PageSEO): Metadata {
   const url = `${SITE.url}${path}`;
   // The ROOT layout owns the suffix (`template: "%s · Coflow"`), so the page
@@ -38,7 +41,9 @@ export function buildMetadata({
       url,
       siteName: SITE.name,
       images: [{ url: image, width: 1200, height: 630, alt: SITE.name }],
-      locale: "en_US",
+      // Hebrew is the site's default; it was marked en_US for every page.
+      locale: locale === "en" ? "en_US" : "he_IL",
+      alternateLocale: locale === "en" ? ["he_IL"] : ["en_US"],
       type: "website",
     },
     twitter: {
@@ -78,7 +83,8 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: SITE.name,
     url: SITE.url,
-    logo: `${SITE.url}/logo.png`,
+    // /logo.png never existed (404); this is the real mark.
+    logo: `${SITE.url}/brand/coflow-mark-blue.png`,
   };
 }
 

@@ -16,13 +16,6 @@ export async function Nav() {
             <CoflowMark size={30} tone="blue" />
           </Link>
 
-          {/* One quiet secondary link. The primary action lives in the
-              lime button on the right; nav stays out of its way. */}
-          <nav aria-label="Primary" className="hidden md:flex items-center gap-7">
-            <Link href="/how-it-works" className="text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors">
-              {t.howItWorks}
-            </Link>
-          </nav>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
