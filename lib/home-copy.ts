@@ -201,7 +201,6 @@ const he = {
   footer: {
     links: [
       { label: "אקדמיה", href: "/academy" },
-      { label: "איך קופלו עובדת", href: "/how-it-works" },
       { label: "רשימת המתנה", href: "/waitlist" },
     ],
     company: "SheBossIt LTD",
@@ -389,7 +388,6 @@ const en: HomeCopy = {
   footer: {
     links: [
       { label: "Academy", href: "/academy" },
-      { label: "How Coflow works", href: "/how-it-works" },
       { label: "Waitlist", href: "/waitlist" },
     ],
     company: "SheBossIt LTD",

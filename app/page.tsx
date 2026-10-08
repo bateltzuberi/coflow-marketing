@@ -25,8 +25,17 @@ import { SITE } from "@/lib/site";
 // from the "have a code?" link in the price section.
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getHomeCopy(await getLocale());
-  const base = buildMetadata({ title: t.meta.title, description: t.meta.description, path: "/" });
+  const locale = await getLocale();
+  const t = getHomeCopy(locale);
+  const base = buildMetadata({
+    title: t.meta.title,
+    description: t.meta.description,
+    path: "/",
+    locale,
+    // The share card in the page's own language. Crawlers (WhatsApp, Google)
+    // arrive with no language and get the Hebrew one, the site's default.
+    ogImage: `/og/home-${locale}.png`,
+  });
   return {
     ...base,
     // The copy already carries the brand, so skip the layout's "· Coflow".
