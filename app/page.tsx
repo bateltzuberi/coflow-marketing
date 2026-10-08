@@ -1,96 +1,323 @@
-import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
-import { InviteForm } from "@/components/join/invite-form";
-import { TheInfiniteGrid } from "@/components/ui/the-infinite-grid";
+import type { Metadata } from "next";
+
+import "./home.css";
+import { CoflowMark } from "@/components/coflow-mark";
+import { LocaleSwitcher } from "@/components/locale-switcher";
+import { HomeDock, PlusHint } from "@/components/home/home-dock";
+import { HomeJoinForm } from "@/components/home/home-join-form";
+import { Icon } from "@/components/home/icon";
+import { TypedLine } from "@/components/home/typed-line";
 import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
+import { getHomeCopy } from "@/lib/home-copy";
+import { SITE } from "@/lib/site";
 
-// The home page IS the door.
+// The home page.
 //
-// While the launch is invite-only, coflow.social opens on registration: a code
-// field, the price, and what the subscription buys. The free Instagram
-// diagnosis still exists — it moved to /diagnosis, on its own URL, and is
-// reached from the nav.
+// Built from the new studio (shebossit-cms `staging`): the page is navigated by
+// the studio's own dock, its "+" opens the studio's fan of six set-ups, and
+// every picture on it is a real Coflow screen drawn as a customer would meet
+// it. Colours are the studio's yellow theme (app/home.css).
 //
-// Indexed (unlike the old /join): this is the front door of the site now, so
-// it has to be findable even while the product behind it is closed.
+// It is still the invite door: every "Join" lands on the code field in the
+// price section (#join), which checks the code and hands off to the Studio
+// signup.
 
-export const metadata = buildMetadata({
-  title: "Coflow — כניסה עם קוד הזמנה",
-  description:
-    "Coflow נפתחת לקבוצה סגורה. ההרשמה בשלב הזה היא עם קוד הזמנה בלבד — €24 לחודש, בלי תקופת ניסיון.",
-  path: "/",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const t = getHomeCopy(await getLocale());
+  const base = buildMetadata({ title: t.meta.title, description: t.meta.description, path: "/" });
+  return {
+    ...base,
+    // The copy already carries the brand, so skip the layout's "· Coflow".
+    title: { absolute: t.meta.title },
+    openGraph: { ...base.openGraph, title: t.meta.ogTitle },
+    twitter: { ...base.twitter, title: t.meta.ogTitle },
+  };
+}
 
 export default async function Home() {
   const locale = await getLocale();
-  const t = getDict(locale).join;
+  const t = getHomeCopy(locale);
+  const join = getDict(locale).join;
 
   return (
-    <>
+    <div className="hm" lang={locale}>
       <JsonLd data={organizationJsonLd()} />
-      <Nav />
+      <HomeDock t={t} />
+
+      <div className="hm-wrap hm-top">
+        <CoflowMark size={36} showWordmark tone="blue" />
+        <a className="hm-signin" href={`${SITE.studioAppUrl}/login`}>
+          {t.signIn}
+        </a>
+      </div>
+
       <main>
-        {/* Hero — the code field, above everything else. Someone who already
-            has a code should not have to scroll to use it. */}
-        <section className="relative overflow-hidden isolate">
-          <TheInfiniteGrid />
-          <div className="relative container-page pt-16 md:pt-24 lg:pt-28 pb-14 md:pb-20">
-            <p className="text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-              {t.eyebrow}
-            </p>
-            <h1 className="mt-4 font-display text-center mx-auto max-w-[900px] text-[36px] sm:text-[50px] md:text-[60px] leading-[1.07]">
-              {t.title}
+        <header className="hm-hero">
+          <div className="hm-wrap">
+            <h1>
+              {t.hero.h1a}
+              <br />
+              {t.hero.h1b}{" "}
+              <span className="hm-story" aria-hidden="true">
+                <span />
+              </span>
             </h1>
-            <p className="mt-6 mx-auto max-w-[620px] text-center text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
-              {t.sub}
-            </p>
-            <p className="mt-5 text-center text-[15px] font-semibold text-ink-900">
-              {t.inviteNote}
-            </p>
-
-            <div className="mt-8">
-              <InviteForm t={t} locale={locale} />
-            </div>
-
-            <p className="mt-6 text-center text-[13px] text-ink-500">
-              {t.noCodeLabel}{" "}
-              <a href="/waitlist" className="font-medium text-ink-900 underline underline-offset-4">
-                {t.noCodeCta}
-              </a>
-            </p>
+            <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
+            <p className="hm-sub">{t.hero.sub}</p>
+            <a className="hm-btn" href="#join">
+              {t.hero.cta}
+            </a>
+            <PlusHint t={t} />
           </div>
-        </section>
 
-        {/* The messages. Each is a position you could disagree with, followed
-            by the thing in the product that makes it true. A claim without its
-            mechanism is a slogan; a mechanism without its claim is a feature
-            list. Both were wrong here before. */}
-        <section className="section">
-          <div className="container-page">
-            <div className="max-w-3xl mx-auto">
-              <div className="space-y-5">
-                {t.messages.map((m) => (
-                  <div
-                    key={m.claim}
-                    className="rounded-[18px] border border-line bg-surface p-6 md:p-8"
-                  >
-                    <h3 className="text-[20px] md:text-[24px] font-bold leading-snug text-ink-900">
-                      {m.claim}
-                    </h3>
-                    <p className="mt-3 text-[16px] leading-[1.65] text-ink-700">
-                      {m.body}
-                    </p>
+          {/* Her Instagram in the middle; her business arrives around it. */}
+          <div className="hm-stage" aria-hidden="true">
+            <div className="hm-phone">
+              <div className="hm-screen">
+                <div className="hm-ig">
+                  <div className="hm-ig-top">
+                    <span className="hm-ig-av">
+                      <i />
+                    </span>
+                    <div className="hm-ig-nums">
+                      {t.profile.stats.map(([n, l]) => (
+                        <span key={l}>
+                          <b>{n}</b>
+                          {l}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                ))}
+                  <p className="hm-ig-name">{t.profile.name}</p>
+                  <p className="hm-ig-bio">
+                    {t.profile.bio}
+                    <br />
+                    <span>{t.profile.link}</span>
+                  </p>
+                  <div className="hm-hl">
+                    {(["funnel", "gift", "phone", "rocket"] as const).map((icon, i) => (
+                      <span key={icon}>
+                        <i>
+                          <Icon name={icon} />
+                        </i>
+                        {t.profile.highlights[i]}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="hm-grid">
+                    <div style={{ background: "var(--hm-butter)" }}>{t.profile.grid[0]}</div>
+                    <div style={{ background: "var(--hm-oat-2)" }}>{t.profile.grid[1]}</div>
+                    <div style={{ background: "var(--hm-pink-tint)" }}>{t.profile.grid[2]}</div>
+                    <div style={{ background: "var(--hm-oat)" }} />
+                    <div style={{ background: "var(--hm-butter-2)" }} />
+                    <div style={{ background: "var(--hm-oat-2)" }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {t.notes.map((n, i) => (
+              <div key={n.title} className="hm-note" style={NOTE_AT[i]}>
+                <span className="hm-who" style={{ background: NOTE_BG[i] }}>
+                  {n.who}
+                </span>
+                <div>
+                  <b>{n.title}</b>
+                  <small>{n.sub}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        </header>
+
+        <div className="hm-wrap">
+          <section className="hm-sec" id="sales">
+            <div className="hm-row">
+              <div className="hm-copy">
+                <Opener icon="coin" label={t.sales.label} />
+                <h2>{t.sales.h2}</h2>
+                <p className="hm-lead">{t.sales.lead}</p>
+              </div>
+              <div className="hm-vis" aria-hidden="true">
+                <div className="hm-phone hm-mini" style={{ insetInlineEnd: 0, top: 10, zIndex: 1 }}>
+                  <div className="hm-screen hm-q">
+                    <div className="hm-bar">
+                      <i />
+                      <i className="hm-now" />
+                      <i />
+                      <i />
+                    </div>
+                    <small>{t.sales.formOwner}</small>
+                    <h4>{t.sales.question}</h4>
+                    {t.sales.answers.map((a, i) => (
+                      <div key={a} className={`hm-opt${i === 1 ? " hm-on" : ""}`}>
+                        <i />
+                        {a}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="hm-col" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
+                  <span className="hm-stg">
+                    <i />
+                    {t.sales.stage}
+                  </span>
+                  {t.sales.deals.map((d, i) => (
+                    <div key={d.name} className="hm-deal">
+                      <div className="hm-deal-who">
+                        <i style={{ background: i === 0 ? "var(--hm-butter)" : "var(--hm-pink-tint)" }}>{d.who}</i>
+                        {d.name}
+                        {i === 0 && <span className="hm-dot" />}
+                      </div>
+                      <span className="hm-chip">{d.product}</span>
+                      {d.note && <div className="hm-snip">{d.note}</div>}
+                      <div className="hm-foot">
+                        <span>{d.amount}</span>
+                        <span>{d.source}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="hm-sec" id="marketing">
+            <div className="hm-row hm-flip">
+              <div className="hm-copy">
+                <Opener icon="mega" label={t.marketing.label} />
+                <h2>{t.marketing.h2}</h2>
+                <p className="hm-lead">{t.marketing.lead}</p>
+              </div>
+              <div className="hm-vis" aria-hidden="true">
+                <div className="hm-tile" style={{ insetInlineStart: 0, top: 20, width: 330, padding: 20 }}>
+                  <small className="hm-strong">{t.marketing.weekTitle}</small>
+                  {t.marketing.week.map(([day, idea, platform]) => (
+                    <div className="hm-r" key={day}>
+                      <span>
+                        <b>{day}</b> · {idea}
+                      </span>
+                      <span className="hm-badge">{platform}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="hm-phone hm-mini" style={{ insetInlineEnd: "4%", bottom: 0, zIndex: 1 }}>
+                  <div className="hm-screen">
+                    <div className="hm-slide">
+                      <small>{t.marketing.slideCount}</small>
+                      <b>{t.marketing.slide}</b>
+                      <em>@{t.marketing.handle}</em>
+                    </div>
+                    <div className="hm-caption">
+                      <b>{t.marketing.handle}</b> {t.marketing.caption}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="hm-sec" id="clients">
+            <div className="hm-row">
+              <div className="hm-copy">
+                <Opener icon="users" label={t.clients.label} />
+                <h2>{t.clients.h2}</h2>
+                <p className="hm-lead">{t.clients.lead}</p>
+              </div>
+              <div className="hm-vis" aria-hidden="true">
+                <div className="hm-tile" style={{ insetInlineEnd: 0, top: 20, width: 320 }}>
+                  <small>{t.clients.incomeLabel}</small>
+                  <b className="hm-big">{t.clients.income}</b>
+                  <span className="hm-chg">{t.clients.change}</span>
+                </div>
+                <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 340, padding: 20 }}>
+                  <small className="hm-strong">{t.clients.tasksTitle}</small>
+                  {t.clients.tasks.map(([task, when]) => (
+                    <div className="hm-r" key={task}>
+                      <span>{task}</span>
+                      <span className={`hm-badge hm-${when}`}>{when === "late" ? t.clients.late : t.clients.today}</span>
+                    </div>
+                  ))}
+                  <div className="hm-cf">
+                    <Icon name="spark" />
+                    {t.clients.noticed}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section className="hm-price" id="join">
+          <div className="hm-wrap">
+            <div className="hm-row">
+              <div className="hm-copy">
+                <h2>{t.price.h2}</h2>
+                <ul className="hm-facts">
+                  {(["grid", "lock", "door"] as const).map((icon, i) => (
+                    <li key={icon}>
+                      <Icon name={icon} />
+                      {t.price.facts[i]}
+                    </li>
+                  ))}
+                </ul>
+                <div className="hm-join-form-wrap" style={{ display: "contents" }}>
+                  <HomeJoinForm t={join} locale={locale} />
+                </div>
+                <p className="hm-fine">
+                  {t.price.fine} {t.price.noCode} <a href="/waitlist">{t.price.waitlist}</a>
+                </p>
+              </div>
+              <div className="hm-pt">
+                <small>{t.price.tileLabel}</small>
+                <b className="hm-amount">{t.price.amount}</b>
+                <span className="hm-chg">{t.price.chip}</span>
               </div>
             </div>
           </div>
         </section>
-
       </main>
-      <Footer />
-    </>
+
+      <footer className="hm-footer">
+        <div className="hm-wrap">
+          <CoflowMark size={28} showWordmark tone="blue" />
+          <ul>
+            {t.footer.links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href}>{l.label}</a>
+              </li>
+            ))}
+          </ul>
+          <div className="hm-end">
+            <LocaleSwitcher locale={locale} className="hm-locale" />
+            <span>{t.footer.company}</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// Where each notification sits around the phone (a computer; on a phone they
+// stack over it, see home.css), and the soft colour behind each initial.
+const NOTE_AT: React.CSSProperties[] = [
+  { right: 0, top: 40 },
+  { left: 0, top: 150 },
+  { right: 20, top: 330 },
+  { left: 30, top: 430 },
+];
+const NOTE_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-oat-2)", "var(--hm-sage-bg)"];
+
+function Opener({ icon, label }: { icon: "coin" | "mega" | "users"; label: string }) {
+  return (
+    <div className="hm-opener">
+      <i>
+        <span>
+          <Icon name={icon} />
+        </span>
+      </i>
+      <b>{label}</b>
+    </div>
   );
 }

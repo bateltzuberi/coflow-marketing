@@ -32,8 +32,11 @@ npm run dev
 **Five real pages. Everything else is a redirect.**
 
 ```
-/                       Home = the invite door. The launch is invite-only, so the home
-                        page validates a code and hands off to the Studio signup.
+/                       Home. Built from the new studio: the page is navigated by the
+                        studio's dock, its "+" opens the six set-ups, and every "Join"
+                        lands on the invite-code field (#join), which validates a code
+                        and hands off to the Studio signup. Styles: app/home.css,
+                        words: lib/home-copy.ts.
 /waitlist               No code? Leave an address here
 /how-it-works           The product explained — the site's one real explainer
 /academy                Help centre index
