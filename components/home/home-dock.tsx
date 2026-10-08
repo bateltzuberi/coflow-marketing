@@ -16,6 +16,7 @@ const PLUS_ICON: Record<PlusKey, IconName> = {
   call: "phone",
   week: "cal",
   launch: "rocket",
+  course: "course",
 };
 
 // The fan's geometry and timing, the same numbers as the studio's dock
@@ -432,6 +433,51 @@ function ResultMock({ t, k }: { t: HomeCopy; k: PlusKey }) {
           <div className="hm-card">
             <b className="hm-t">{m.week.cardTitle}</b>
             {rows(m.week.rows)}
+          </div>
+        </>
+      );
+    case "course":
+      // The student's course page as the studio draws it (docs/designs/
+      // course-student-view): her colours, continue where you stopped,
+      // progress, chapters with pictures and the locked one's date.
+      return (
+        <>
+          <div className="hm-phone">
+            <div className="hm-screen hm-flush hm-course">
+              <div className="hm-course-top">
+                <span className="hm-course-logo" />
+                <b>{m.course.name}</b>
+              </div>
+              <div className="hm-course-body">
+                <div className="hm-course-thumb">
+                  <span className="hm-course-play" />
+                </div>
+                <span className="hm-course-k">{m.course.continueLabel}</span>
+                <b className="hm-course-h">{m.course.lesson}</b>
+                <span className="hm-course-btn">{m.course.continueButton}</span>
+                <div className="hm-course-prog">
+                  <span>{m.course.progressLabel}</span>
+                  <i>
+                    <i style={{ width: m.course.progress }} />
+                  </i>
+                  <b>{m.course.progress}</b>
+                </div>
+                {m.course.chapters.map(([name, sub, state]) => (
+                  <div key={name} className={`hm-course-ch${state === "locked" ? " hm-locked" : ""}`}>
+                    <span className="hm-course-chimg" />
+                    <div>
+                      <b>{name}</b>
+                      <span>{sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="hm-card">
+            <b className="hm-t">{m.course.cardTitle}</b>
+            <p className="hm-card-line">{m.course.welcome}</p>
+            <div className="hm-s-btn hm-course-mailbtn">{m.course.welcomeButton}</div>
           </div>
         </>
       );
