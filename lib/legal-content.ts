@@ -263,7 +263,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "16.1 על תנאים אלו יחולו דיני מדינת ישראל, וסמכות השיפוט הבלעדית תהא נתונה לבתי המשפט המוסמכים בקפריסין."
+     "x": "16.1 על תנאים אלו יחולו דיני הרפובליקה של קפריסין, וסמכות השיפוט הבלעדית תהא נתונה לבתי המשפט המוסמכים בקפריסין."
     },
     {
      "t": "h2",
@@ -536,7 +536,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "16.1 These Terms shall be governed by the laws of the State of Israel, and exclusive jurisdiction shall be vested in the competent courts of Cyprus."
+     "x": "16.1 These Terms shall be governed by the laws of the Republic of Cyprus, and exclusive jurisdiction shall be vested in the competent courts of Cyprus."
     },
     {
      "t": "h2",
@@ -695,7 +695,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "הבהרה",
-     "x": "אתר השיווק coflow.social מהווה סביבה נפרדת מהפלטפורמה, וטעון בדיקת עוגיות עצמאית משלו."
+     "x": "אתר השיווק coflow.social מהווה סביבה נפרדת מהפלטפורמה, ומשתמש בעוגייה פונקציונלית אחת בלבד, לשמירת בחירת השפה."
     },
     {
      "t": "h3",
@@ -1098,7 +1098,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "Note",
-     "x": "the marketing website coflow.social is a separate environment from the Platform and requires its own cookie review."
+     "x": "the marketing website coflow.social is a separate environment from the Platform and uses a single functional cookie only, to remember the language choice."
     },
     {
      "t": "h3",
@@ -1326,7 +1326,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "The Service is intended for businesses and users aged 18 and over and is not directed to minors. We do not knowingly collect Personal Data from minors under the age of 16."
+     "x": "The Service is intended for businesses and users aged 18 and over and is not directed to minors. We do not knowingly collect Personal Data from minors under the age of 18."
     },
     {
      "t": "h2",
