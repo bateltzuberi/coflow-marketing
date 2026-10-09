@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     // The only entry point for a visitor who arrives without an invite code.
     { url: `${base}/waitlist`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   // No /features/* routes exist. They used to be listed here and every one of

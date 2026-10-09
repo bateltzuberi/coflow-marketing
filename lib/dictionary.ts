@@ -123,9 +123,9 @@ export const DICT = {
       productLinks: [
         { label: "האקדמיה של קופלו", href: "/academy" },
         { label: "רשימת המתנה", href: "/waitlist" },
+        { label: "תנאי שימוש", href: "/terms" },
+        { label: "מדיניות פרטיות", href: "/privacy" },
       ],
-      // Privacy and terms come back when their texts arrive (Batel, 2026-10-09).
-      // /about and /contact never existed.
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "EN",
       langSwitcherAria: "Switch to English",
@@ -228,6 +228,8 @@ export const DICT = {
       productLinks: [
         { label: "Coflow Academy", href: "/academy" },
         { label: "Waitlist", href: "/waitlist" },
+        { label: "Terms", href: "/terms" },
+        { label: "Privacy", href: "/privacy" },
       ],
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "עב",

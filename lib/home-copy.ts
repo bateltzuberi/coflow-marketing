@@ -215,6 +215,8 @@ const he = {
     links: [
       { label: "אקדמיה", href: "/academy" },
       { label: "רשימת המתנה", href: "/waitlist" },
+      { label: "תנאי שימוש", href: "/terms" },
+      { label: "מדיניות פרטיות", href: "/privacy" },
     ],
     company: "SheBossIt LTD",
   },
@@ -415,6 +417,8 @@ const en: HomeCopy = {
     links: [
       { label: "Academy", href: "/academy" },
       { label: "Waitlist", href: "/waitlist" },
+      { label: "Terms", href: "/terms" },
+      { label: "Privacy", href: "/privacy" },
     ],
     company: "SheBossIt LTD",
   },
