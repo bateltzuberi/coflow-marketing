@@ -1,7 +1,7 @@
 "use client";
 import { localizedPath } from "@/lib/locale-path";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import type { HomeCopy, PlusKey } from "@/lib/home-copy";
 import { WaitlistForm } from "@/components/waitlist/waitlist-form";
@@ -33,6 +33,16 @@ const ITEM_MS = 260;
  * (a column of round icons with cream names, leaning toward the top like the
  * macOS Dock "Fan" stack). Picking one opens what it builds.
  */
+function subscribeReducedMotion(onChange: () => void) {
+  const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+function reducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+function serverReducedMotionSnapshot() { return false; }
+
 export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   const [fanOpen, setFanOpen] = useState(false);
   // The dock waits below the screen only at the very top of the page, where
@@ -51,8 +61,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   const [signup, setSignup] = useState(false);
   const [layout, setLayout] = useState<{ lift: number; shift: number }[]>([]);
   // Reduced motion: no spring and no stagger, the column is simply there.
-  const [still, setStill] = useState(false);
-  useEffect(() => setStill(window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
+  const still = useSyncExternalStore(subscribeReducedMotion, reducedMotionSnapshot, serverReducedMotionSnapshot);
   const plusRef = useRef<HTMLButtonElement>(null);
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const items = t.plus.items;

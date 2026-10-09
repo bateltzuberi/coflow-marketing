@@ -12,7 +12,7 @@ export const SITE = {
   // has one definition if it's ever needed again.
   wizardUrl: "https://studio.coflow.social/start",
   description:
-    "Coflow keeps your marketing, sales and clients in one place: questionnaires, a link in bio, a content board, leads, tasks and active clients.",
+    "Coflow is an AI brand-management system connecting offers, marketing, sales and clients in one workspace.",
   // The share card, in the home page's design (public/og/home-{he,en}.png).
   // /og/default.png never existed, so every shared link went out with no image.
   ogImage: "/og/home-he.png",

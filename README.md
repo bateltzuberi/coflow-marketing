@@ -47,10 +47,10 @@ Redirects (kept so shared and indexed links don't 404 — read the comment at th
 for why it was retired):
 
 ```
-/join        → /            the invite door moved to the home page
-/diagnosis   → /            the free IG diagnosis is inside the product now, not a public entry
-/pricing     → /how-it-works   the price lives on the home page — €24/mo, next to the code field
-/studio      → /how-it-works   the old product page; explaining the product moved to /how-it-works
+/join        → /he          the invite door is the Hebrew home page
+/diagnosis   → /he          diagnosis is inside the product, not a public entry
+/pricing     → /he          the price lives on the home page
+/studio      → /he          the old product page was retired
 ```
 
 `/features/*`, `/vs/*`, `/for/*` and `/blog` **do not exist and never shipped**. `lib/content.ts`
@@ -93,3 +93,18 @@ Helpers in [`lib/seo.tsx`](lib/seo.tsx): `buildMetadata()`, `organizationJsonLd(
 
 Netlify builds `main` automatically. `npm run build`, publish `.next`.
 A merge to `main` is a production deploy of `coflow.social` — Batel approves the merge.
+
+## Public discovery content
+
+Solution pages are `/he|en/solutions/{digital-courses,sales-funnels,crm,ai-brand-management}`.
+Guides are `/he|en/guides/{choose-course-platform,course-sales-funnel}`, with indexes and `/he|en/about`.
+Content lives in `lib/discovery-content.ts` and `lib/guide-content.ts`. Update both languages together;
+course availability is explicitly in development until a verified release.
+
+Research, rationale and account-level follow-up: [SEO and AI discovery](docs/seo-ai-research.md).
+Optional Netlify environment variables `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION`
+render provider-issued verification values; obtain the real values from the owner's accounts.
+Preview and branch deployments must remain noindex; production remains crawlable.
+
+Verification: `npm run build`, `npm run lint`, `node --test lib/locale-path.test.mjs`,
+and `node tests/discovery-smoke.mjs` after a build.

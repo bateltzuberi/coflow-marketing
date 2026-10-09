@@ -403,3 +403,6 @@
   .hm-ov .hm-pop { animation: hm-rise 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
   @keyframes hm-rise { from { transform: translateY(28px); opacity: 0.6; } to { transform: none; opacity: 1; } }
 }
+
+/* Public solution and guide links, using the existing home page spacing. */
+.hm .discovery-home { padding-block: 72px; }

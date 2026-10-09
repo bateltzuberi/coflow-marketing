@@ -8,10 +8,11 @@ import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { HaveCode, HomeJoinForm } from "@/components/home/home-join-form";
 import { Icon } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
-import { JsonLd, organizationJsonLd, buildMetadata } from "@/lib/seo";
+import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 import { getHomeCopy } from "@/lib/home-copy";
+import { DiscoveryLinks } from "@/components/discovery-links";
 import { SITE } from "@/lib/site";
 
 // The home page.
@@ -53,7 +54,7 @@ export default async function Home() {
 
   return (
     <div className="hm" lang={locale}>
-      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={softwareApplicationJsonLd(locale)} />
       <HomeDock t={t} locale={locale} />
 
       <div className="hm-wrap hm-top">
@@ -291,6 +292,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
+        <DiscoveryLinks locale={locale} home />
       </main>
 
       <footer className="hm-footer">

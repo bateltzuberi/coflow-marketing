@@ -1,3 +1,4 @@
+import { discoveryLabels } from "@/lib/discovery-content";
 import { localizedPath } from "@/lib/locale-path";
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
@@ -21,6 +22,7 @@ export async function Nav() {
         </Link>
 
         <div className="flex items-center gap-1 md:gap-3">
+          <Link href={localizedPath("/solutions", locale)} className="hidden md:inline-flex text-[15px] font-bold text-ink-700 px-3 py-2">{discoveryLabels[locale].solutions}</Link>
           <Link
             href={localizedPath("/academy", locale)}
             className="hidden sm:inline-flex text-[15px] font-bold text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"

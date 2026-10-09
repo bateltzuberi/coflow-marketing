@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SITE } from "./site";
-import { localizedPath } from "./locale-path";
+import { localizedPath, type Locale } from "./locale-path";
+import { isPreviewDeployment } from "./indexing";
 
 type PageSEO = {
   title: string;
@@ -33,9 +34,9 @@ export function buildMetadata({
     description,
     metadataBase: new URL(SITE.url),
     alternates: { canonical: url, languages: { he: `${SITE.url}${localizedPath(path, "he")}`, en: `${SITE.url}${localizedPath(path, "en")}`, "x-default": `${SITE.url}${localizedPath(path, "he")}` } },
-    robots: noindex
+    robots: noindex || isPreviewDeployment()
       ? { index: false, follow: false }
-      : { index: true, follow: true },
+      : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
     openGraph: {
       title: socialTitle,
       description,
@@ -52,28 +53,46 @@ export function buildMetadata({
       title: socialTitle,
       description,
       images: [image],
-      creator: SITE.twitter,
     },
   };
 }
 
-// JSON-LD: SoftwareApplication — used on home + feature pages.
-export function softwareApplicationJsonLd() {
+// Describes the application, not a promise that every roadmap feature is live.
+export function softwareApplicationJsonLd(locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${SITE.url}/#software`,
     name: SITE.name,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    description: SITE.description,
-    url: SITE.url,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free forever for your first brand",
-    },
-    aggregateRating: undefined,
+    inLanguage: ["he", "en"],
+    description: locale === "he"
+      ? "מערכת לניהול מותג עם AI: מוצרים, תוכן, משפכים, אנשי קשר ועסקאות באותה סביבת עבודה."
+      : "AI brand management connecting offers, content, funnels, contacts and deals in one workspace.",
+    url: `${SITE.url}${localizedPath("/about", locale)}`,
+    publisher: { "@id": `${SITE.url}/#organization` },
+    offers: { "@type": "Offer", price: "24", priceCurrency: "EUR", description: locale === "he" ? "מנוי חודשי, הצטרפות בהזמנה" : "Monthly subscription, invitation access", url: `${SITE.url}${localizedPath("/", locale)}#price` },
+  };
+}
+
+export function webPageJsonLd(title: string, description: string, path: string, locale: Locale, type = "WebPage") {
+  const url = `${SITE.url}${localizedPath(path, locale)}`;
+  return {
+    "@context": "https://schema.org", "@type": type, "@id": `${url}#page`,
+    name: title, description, url, inLanguage: locale,
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    publisher: { "@id": `${SITE.url}/#organization` },
+    about: { "@id": `${SITE.url}/#software` },
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org", "@type": "WebSite",
+    "@id": `${SITE.url}/#website`, name: SITE.name, alternateName: "קופלו",
+    url: SITE.url, inLanguage: ["he", "en"],
+    publisher: { "@id": `${SITE.url}/#organization` },
   };
 }
 
@@ -82,6 +101,9 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE.url}/#organization`,
+    legalName: "SheBossIt (Cyprus) Ltd",
+    alternateName: "קופלו",
     name: SITE.name,
     url: SITE.url,
     // /logo.png never existed (404); this is the real mark.
@@ -123,8 +145,7 @@ export function JsonLd({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Heebo, Geist, JetBrains_Mono, Red_Hat_Display } from "next/font/google";
 import { SITE } from "@/lib/site";
-import { JsonLd, organizationJsonLd } from "@/lib/seo";
+import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { getLocale, dirFor } from "@/lib/locale";
+import { isPreviewDeployment } from "@/lib/indexing";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -47,7 +48,8 @@ export const metadata: Metadata = {
   authors: [{ name: SITE.name }],
   creator: SITE.name,
   publisher: SITE.name,
-  robots: { index: true, follow: true },
+  robots: { index: !isPreviewDeployment(), follow: !isPreviewDeployment() },
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION, other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : {} },
   // No explicit `icons` — Next.js auto-generates the favicon link tag
   // from `app/icon.png` (file-based icon convention) — the real brand mark on
   // a blue tile, generated from public/brand/coflow-mark-cream.png.
@@ -65,6 +67,7 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
         {children}
       </body>
     </html>

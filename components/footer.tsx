@@ -1,3 +1,4 @@
+import { discoveryLabels } from "@/lib/discovery-content";
 import { localizedPath } from "@/lib/locale-path";
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
@@ -18,7 +19,7 @@ export async function Footer() {
       <div className="container-page py-12 flex flex-wrap items-center gap-x-8 gap-y-4 text-[15px] text-ink-700">
         <CoflowMark size={30} showWordmark tone="blue" />
         <ul className="flex flex-wrap gap-6">
-          {t.productLinks.map((l) => (
+          {[{ label: discoveryLabels[locale].solutions, href: "/solutions" }, { label: discoveryLabels[locale].guides, href: "/guides" }, { label: discoveryLabels[locale].about, href: "/about" }, ...t.productLinks].map((l) => (
             <li key={l.href}>
               <Link href={localizedPath(l.href, locale)} className="hover:text-ink-900 transition-colors">
                 {l.label}
