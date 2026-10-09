@@ -47,17 +47,29 @@ Redirects (kept so shared and indexed links don't 404 — read the comment at th
 for why it was retired):
 
 ```
-/join        → /            the invite door moved to the home page
-/diagnosis   → /            the free IG diagnosis is inside the product now, not a public entry
-/pricing     → /how-it-works   the price lives on the home page — €24/mo, next to the code field
-/studio      → /how-it-works   the old product page; explaining the product moved to /how-it-works
+/join        → /he          the invite door is the Hebrew home page
+/diagnosis   → /he          diagnosis is inside the product, not a public entry
+/pricing     → /he          the price lives on the home page
+/studio      → /he          the old product page was retired
 ```
 
 `/features/*`, `/vs/*`, `/for/*` and `/blog` **do not exist and never shipped**. `lib/content.ts`
 still holds the competitor/feature/persona copy those pages used — unused leftovers, not a live
 data source. Live site-level data is `lib/site.ts`; help-centre content is `lib/academy.ts`.
 
-Bilingual he/en: `lib/locale.ts` + `lib/dictionary.ts`, switched by `components/locale-switcher.tsx`.
+Bilingual he/en: public URLs are `/he` and `/en`, with the same prefix on every page
+(e.g. `/he/academy/forms` and `/en/academy/forms`). `proxy.ts` sets the request language
+from the URL; cookies, geography and Accept-Language cannot change a page's language.
+The localized route files share the existing page implementations. Internal links and
+the language switcher preserve the selected language and destination page.
+
+Unprefixed legacy page URLs permanently redirect (308) to Hebrew, preserving query strings.
+Old aliases (`/home`, `/index`, `/join`, `/diagnosis`, `/pricing`, `/studio`, `/how-it-works`)
+redirect to the home page in the selected language. Static assets, APIs, robots.txt and
+sitemap.xml remain unprefixed. Each page has a self-canonical and reciprocal he/en
+hreflang links; x-default is Hebrew. The sitemap lists both language versions.
+
+Routing regression checks: `node --test lib/locale-path.test.mjs` (Node 22.18+).
 
 ## Brand
 
@@ -81,3 +93,18 @@ Helpers in [`lib/seo.tsx`](lib/seo.tsx): `buildMetadata()`, `organizationJsonLd(
 
 Netlify builds `main` automatically. `npm run build`, publish `.next`.
 A merge to `main` is a production deploy of `coflow.social` — Batel approves the merge.
+
+## Public discovery content
+
+Solution pages are `/he|en/solutions/{digital-courses,sales-funnels,crm,ai-brand-management}`.
+Guides are `/he|en/guides/{choose-course-platform,course-sales-funnel}`, with indexes and `/he|en/about`.
+Content lives in `lib/discovery-content.ts` and `lib/guide-content.ts`. Update both languages together;
+course availability is explicitly in development until a verified release.
+
+Research, rationale and account-level follow-up: [SEO and AI discovery](docs/seo-ai-research.md).
+Optional Netlify environment variables `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION`
+render provider-issued verification values; obtain the real values from the owner's accounts.
+Preview and branch deployments must remain noindex; production remains crawlable.
+
+Verification: `npm run build`, `npm run lint`, `node --test lib/locale-path.test.mjs`,
+and `node tests/discovery-smoke.mjs` after a build.

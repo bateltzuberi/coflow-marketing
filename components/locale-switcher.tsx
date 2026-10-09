@@ -1,32 +1,12 @@
-import { setLocale } from "@/app/actions";
-import { otherLocale, type Locale } from "@/lib/locale";
+import { headers } from "next/headers";
+import { PATH_HEADER, localizedPath, type Locale } from "@/lib/locale-path";
 import { getDict } from "@/lib/dictionary";
 
-/**
- * Plain-form locale switch. Server action sets the cookie and
- * revalidates, so it works even with JS disabled.
- */
-export function LocaleSwitcher({
-  locale,
-  className = "font-mono-label text-white/60 hover:text-white transition",
-}: {
-  locale: Locale;
-  /** The dark footer's look by default; the home page passes its own. */
-  className?: string;
+export async function LocaleSwitcher({ locale, className = "font-bold text-ink-700 hover:text-ink-900 transition" }: {
+  locale: Locale; className?: string;
 }) {
+  const next = locale === "he" ? "en" : "he";
   const t = getDict(locale).footer;
-  const next = otherLocale(locale);
-  return (
-    <form action={setLocale}>
-      <input type="hidden" name="locale" value={next} />
-      <button
-        type="submit"
-        aria-label={t.langSwitcherAria}
-        className={className}
-        lang={next}
-      >
-        {t.langSwitcher}
-      </button>
-    </form>
-  );
+  const path = (await headers()).get(PATH_HEADER) ?? "/";
+  return <a href={localizedPath(path, next)} className={className} lang={next} hrefLang={next} aria-label={t.langSwitcherAria}>{t.langSwitcher}</a>;
 }

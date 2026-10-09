@@ -1,3 +1,4 @@
+import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { WaitlistForm } from "@/components/waitlist/waitlist-form";
@@ -12,12 +13,11 @@ import { getDict } from "@/lib/dictionary";
 // the Studio's waitlist form, embedded — so the details land in the CRM with
 // every other contact instead of in a mailbox.
 
-export const metadata = buildMetadata({
-  title: "הרשמה לקופלו",
-  description:
-    "קופלו נפתחת בהדרגה. נרשמים לרשימת ההמתנה, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
-  path: "/waitlist",
-});
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const t = getDict(locale).waitlist;
+  return buildMetadata({ title: t.title, description: t.sub, path: "/waitlist", locale });
+}
 
 export default async function WaitlistPage() {
   const locale = await getLocale();
@@ -29,7 +29,7 @@ export default async function WaitlistPage() {
         data={breadcrumbsJsonLd([
           { name: "Home", path: "/" },
           { name: "Waitlist", path: "/waitlist" },
-        ])}
+        ], locale)}
       />
       <Nav />
       <main>
@@ -51,7 +51,7 @@ export default async function WaitlistPage() {
 
             <p className="mt-8 text-center text-[15px] text-ink-700">
               {t.backLabel}{" "}
-              <a href="/#price" className="font-bold text-ink-900 underline underline-offset-4">
+              <a href={localizedPath("/#price", locale)} className="font-bold text-ink-900 underline underline-offset-4">
                 {t.backCta}
               </a>
             </p>

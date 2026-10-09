@@ -1,3 +1,4 @@
+import { localizedPath } from "@/lib/locale-path";
 import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -26,12 +27,11 @@ import {
  *  to the area page. */
 const PREVIEW_QUESTIONS = 3;
 
-export const metadata = buildMetadata({
-  title: "Coflow Academy",
-  description:
-    "How Coflow works, area by area: products, funnels, brand profile, platforms, content anchors, CRM, tasks and measurement.",
-  path: "/academy",
-});
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const t = getDict(locale).academy;
+  return buildMetadata({ title: "Coflow Academy", description: t.heroSub, path: "/academy", locale });
+}
 
 export default async function AcademyIndexPage() {
   const locale = await getLocale();
@@ -44,7 +44,7 @@ export default async function AcademyIndexPage() {
         data={breadcrumbsJsonLd([
           { name: "Home", path: "/" },
           { name: "Coflow Academy", path: "/academy" },
-        ])}
+        ], locale)}
       />
       <Nav />
       <main>
@@ -65,7 +65,7 @@ export default async function AcademyIndexPage() {
                   rows={areas.flatMap((area): ApexSearchRow[] =>
                     area.articles.map((article) => ({
                       q: articleSide(article, locale).q,
-                      href: `/academy/${area.id}#${article.id}`,
+                      href: localizedPath(`/academy/${area.id}#${article.id}`, locale),
                       areaTitle: academySide(area, locale).title,
                     })),
                   )}
@@ -117,7 +117,7 @@ export default async function AcademyIndexPage() {
                             style={{ background: area.color ?? "var(--color-line)" }}
                           />
                           <h3 className="text-[19px] md:text-[21px] font-bold text-ink-900 leading-snug">
-                            <Link href={`/academy/${area.id}`}>{side.title}</Link>
+                            <Link href={localizedPath(`/academy/${area.id}`, locale)}>{side.title}</Link>
                           </h3>
                         </div>
                         <p className="mt-3 text-[15px] leading-[1.6] text-ink-700">
@@ -132,7 +132,7 @@ export default async function AcademyIndexPage() {
                           {area.articles.slice(0, PREVIEW_QUESTIONS).map((article) => (
                             <li key={article.id}>
                               <Link
-                                href={`/academy/${area.id}#${article.id}`}
+                                href={localizedPath(`/academy/${area.id}#${article.id}`, locale)}
                                 className="text-[14px] leading-[1.5] text-ink-700 underline-offset-4 hover:underline"
                               >
                                 {articleSide(article, locale).q}
@@ -141,7 +141,7 @@ export default async function AcademyIndexPage() {
                           ))}
                         </ul>
                         <Link
-                          href={`/academy/${area.id}`}
+                          href={localizedPath(`/academy/${area.id}`, locale)}
                           className="mt-4 inline-block font-mono-label text-ink-500 underline-offset-4 hover:underline"
                         >
                           {t.questionsCount.replace("{n}", String(area.articles.length))} ←

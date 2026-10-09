@@ -24,9 +24,9 @@ export type PlusItem = {
 
 const he = {
   meta: {
-    title: "קופלו | שיווק, מכירות ולקוחות למותג אישי",
+    title: "קופלו | מערכת לניהול מותג עם AI",
     description:
-      "קופלו מרכזת את השיווק, המכירות והלקוחות שלך במקום אחד, עם שאלונים, לינק בביו, לוח תוכן, לידים, משימות ולקוחות פעילות.",
+      "קופלו מחברת מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, עם בניית קורסים שנמצאת בפיתוח.",
     ogTitle: "קופלו | העסק שמאחורי המותג שלך במקום אחד",
   },
   signIn: "התחברות",
@@ -213,6 +213,9 @@ const he = {
   },
   footer: {
     links: [
+      { label: "מה אפשר לבנות", href: "/solutions" },
+      { label: "מדריכים", href: "/guides" },
+      { label: "על קופלו", href: "/about" },
       { label: "אקדמיה", href: "/academy" },
       { label: "רשימת המתנה", href: "/waitlist" },
       { label: "תנאי שימוש", href: "/terms" },
@@ -226,9 +229,9 @@ export type HomeCopy = typeof he;
 
 const en: HomeCopy = {
   meta: {
-    title: "Coflow | Marketing, sales and clients for a personal brand",
+    title: "Coflow | AI brand management, funnels and CRM",
     description:
-      "Coflow keeps your marketing, sales and clients in one place: questionnaires, a link in bio, a content board, leads, tasks and active clients.",
+      "Coflow connects offers, funnels, marketing and CRM with AI for course, coaching and service businesses. Course building is in development.",
     ogTitle: "Coflow | The business behind your brand, in one place",
   },
   signIn: "Log in",
@@ -415,6 +418,9 @@ const en: HomeCopy = {
   },
   footer: {
     links: [
+      { label: "What you can build", href: "/solutions" },
+      { label: "Guides", href: "/guides" },
+      { label: "About Coflow", href: "/about" },
       { label: "Academy", href: "/academy" },
       { label: "Waitlist", href: "/waitlist" },
       { label: "Terms", href: "/terms" },

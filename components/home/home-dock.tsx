@@ -1,6 +1,7 @@
 "use client";
+import { localizedPath } from "@/lib/locale-path";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import type { HomeCopy, PlusKey } from "@/lib/home-copy";
 import { WaitlistForm } from "@/components/waitlist/waitlist-form";
@@ -32,6 +33,16 @@ const ITEM_MS = 260;
  * (a column of round icons with cream names, leaning toward the top like the
  * macOS Dock "Fan" stack). Picking one opens what it builds.
  */
+function subscribeReducedMotion(onChange: () => void) {
+  const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+function reducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+function serverReducedMotionSnapshot() { return false; }
+
 export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   const [fanOpen, setFanOpen] = useState(false);
   // The dock waits below the screen only at the very top of the page, where
@@ -46,12 +57,11 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   }, []);
   const [result, setResult] = useState<PlusKey | null>(null);
   // Joining = signing up and waiting for an invite. Every "Join" on the page
-  // (an <a data-join href="/waitlist">, so without JS it still reaches the form) opens this instead.
+  // (an <a data-join href={localizedPath("/waitlist", locale)}>, so without JS it still reaches the form) opens this instead.
   const [signup, setSignup] = useState(false);
   const [layout, setLayout] = useState<{ lift: number; shift: number }[]>([]);
   // Reduced motion: no spring and no stagger, the column is simply there.
-  const [still, setStill] = useState(false);
-  useEffect(() => setStill(window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
+  const still = useSyncExternalStore(subscribeReducedMotion, reducedMotionSnapshot, serverReducedMotionSnapshot);
   const plusRef = useRef<HTMLButtonElement>(null);
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const items = t.plus.items;
@@ -229,7 +239,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
           {t.dock.price}
         </a>
         <span className="hm-sep" />
-        <a className="hm-dock-join" href="/waitlist" data-join>
+        <a className="hm-dock-join" href={localizedPath("/waitlist", locale)} data-join>
           {t.dock.join}
         </a>
       </nav>
@@ -237,6 +247,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
       {result && (
         <ResultPopup
           t={t}
+          locale={locale}
           k={result}
           onClose={() => {
             setResult(null);
@@ -270,12 +281,14 @@ export function PlusHint({ t }: { t: HomeCopy }) {
 
 function ResultPopup({
   t,
+  locale,
   k,
   onClose,
   onMore,
   onJoin,
 }: {
   t: HomeCopy;
+  locale: "he" | "en";
   k: PlusKey;
   onClose: () => void;
   onMore: () => void;
@@ -321,7 +334,7 @@ function ResultPopup({
           <button type="button" className="hm-link" onClick={onMore}>
             {t.plus.back}
           </button>
-          <a ref={joinRef} className="hm-btn" href="/waitlist" data-join onClick={onJoin}>
+          <a ref={joinRef} className="hm-btn" href={localizedPath("/waitlist", locale)} data-join onClick={onJoin}>
             {t.plus.cta}
           </a>
         </div>
