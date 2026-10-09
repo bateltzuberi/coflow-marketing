@@ -23,7 +23,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "1.1 ברוך/ה הבא/ה לקופלו (Coflow), פלטפורמת תוכנה (SaaS) לניהול נוכחות במדיה החברתית עבור עסקים וסוכנויות (להלן: \"הפלטפורמה\" או \"השירות\"), המופעלת על ידי SheBossIt (Cyprus) Ltd (להלן: \"קופלו\", \"החברה\" או \"אנחנו\")."
+     "x": "1.1 ברוך/ה הבא/ה לקופלו (Coflow), פלטפורמת תוכנה (SaaS) לניהול השיווק, המכירות והלקוחות של עסקים, מותגים אישיים וסוכנויות (להלן: \"הפלטפורמה\" או \"השירות\"), המופעלת על ידי SheBossIt (Cyprus) Ltd (להלן: \"קופלו\", \"החברה\" או \"אנחנו\")."
     },
     {
      "t": "p",
@@ -87,11 +87,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "4.1 השירות כולל, בין היתר, כלים לניהול תוכן ותזמון פרסומים, ניהול לקוחות (CRM), מערכת דיוור, אחסון תכני פודקאסט, מעקב מעורבות ומעקב עוקבים, וחיבור לחשבונות חיצוניים."
+     "x": "4.1 השירות כולל, בין היתר, כלים לניהול תוכן ותזמון פרסומים, ניהול לקוחות ועסקאות (CRM), שאלונים וטפסים, דפי נחיתה, דפי קביעת שיחות, קורסים דיגיטליים, ניהול משימות, מערכת דיוור, אחסון תכני פודקאסט, מעקב מעורבות ומעקב עוקבים, וחיבור לחשבונות חיצוניים."
     },
     {
      "t": "p",
-     "x": "4.2 אינטגרציות: ככל שתבחר/י לחבר חשבונות חיצוניים (כגון אינסטגרם, יוטיוב, יומן Google, Zoho Books ו-Wix), החיבור נעשה בהרשאות קריאה בלבד ובכפוף לתנאי השימוש של אותן פלטפורמות."
+     "x": "4.2 אינטגרציות: ככל שתבחר/י לחבר חשבונות חיצוניים (כגון אינסטגרם, יוטיוב, יומן Google, Zoho Books, Wix, ManyChat ורב מסר), החיבור נעשה בהרשאות קריאה בלבד, למעט יומן Google, שבו קופלו מוסיפה ליומן אירועים שנוצרו באמצעות השירות (כגון שיחות שנקבעו ופגישות), ובכפוף לתנאי השימוש של אותן פלטפורמות."
     },
     {
      "t": "h2",
@@ -172,6 +172,42 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "x": "9.3 ביטול: ניתן להודיע על ביטול המנוי בכל עת דרך החשבון או פנייה לתמיכה. הביטול ייכנס לתוקף בתום מחזור החיוב ששולם; לא יינתן החזר יחסי בגין תקופה ששולמה, והגישה תישמר עד תום אותו מחזור."
+    },
+    {
+     "t": "p",
+     "x": "9.4 מחיר ההצטרפות: מחיר המנוי הבסיסי שבו הצטרפת יישאר המחיר שלך כל עוד המנוי פעיל ברציפות, גם אם המחיר לנרשמים חדשים יעלה. מחיר זה חל על החבילה הבסיסית בלבד. תוספות (Add-ons), כגון הגדלת מכסת אנשי הקשר ברשימות הדיוור מעבר למכסה הכלולה בחבילה, מתומחרות בנפרד, ומחיריהן ומכסותיהן עשויים להשתנות. ביטול המנוי והצטרפות מחודשת יהיו במחיר התקף במועד ההצטרפות המחודשת."
+    },
+    {
+     "t": "p",
+     "x": "9.5 קרדיטים: חלק מתכונות הבינה המלאכותית צורכות קרדיטים. המנוי כולל מכסת קרדיטים חודשית, וייתכן שתוצע רכישה חד-פעמית של חבילות קרדיטים נוספות. קרדיטים שנרכשו אינם ניתנים להחזר או להמרה לכסף, ותנאיהם יוצגו בעת הרכישה."
+    },
+    {
+     "t": "h2",
+     "x": "9א. מכירות שלך ללקוחות שלך באמצעות השירות"
+    },
+    {
+     "t": "p",
+     "x": "9א.1 השירות מאפשר ללקוח למכור ללקוחותיו שלו מוצרים ושירותים, כגון קורסים דיגיטליים ושיחות או פגישות בתשלום. התשלום נסלק באמצעות חשבון Stripe של הלקוח עצמו (Stripe Connect), והכספים מועברים ישירות לחשבון זה, בכפוף לתנאי השימוש של Stripe."
+    },
+    {
+     "t": "p",
+     "x": "9א.2 הלקוח הוא המוכר: ההתקשרות מול הקונה היא בין הלקוח לבין הקונה בלבד, וקופלו אינה צד לה. הלקוח אחראי לתוכן המוצר ולאספקתו, למחירים, להנפקת חשבוניות וקבלות, לתשלום המסים החלים, לשירות לקוחות, לביטולים ולהחזרים, ולעמידה בדיני הגנת הצרכן החלים עליו."
+    },
+    {
+     "t": "p",
+     "x": "9א.3 החזרים, ביטולים ומחלוקות תשלום (Chargebacks) מול הקונים יטופלו על ידי הלקוח ועל חשבונו."
+    },
+    {
+     "t": "p",
+     "x": "9א.4 עמלות: ככל שקופלו תגבה עמלה על מכירות כאמור, שיעורה יוצג ללקוח לפני הפעלת המכירות. עמלות Stripe חלות בנפרד."
+    },
+    {
+     "t": "p",
+     "x": "9א.5 המידע האישי של הקונים מעובד על ידי קופלו כמעבד מטעם הלקוח, בהתאם להסכם עיבוד הנתונים."
+    },
+    {
+     "t": "p",
+     "x": "9א.6 קופלו רשאית להשבית את אפשרות המכירה במקרה של שימוש לרעה, הפרת דין או הפרת תנאים אלו."
     },
     {
      "t": "h2",
@@ -296,7 +332,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "1.1 Welcome to Coflow, a software platform (SaaS) for managing social-media presence for businesses and agencies (the \"Platform\" or the \"Service\"), operated by SheBossIt (Cyprus) Ltd   (hereinafter: \"Coflow\", the \"Company\" or \"We\")."
+     "x": "1.1 Welcome to Coflow, a software platform (SaaS) for managing the marketing, sales and clients of businesses, personal brands and agencies (the \"Platform\" or the \"Service\"), operated by SheBossIt (Cyprus) Ltd   (hereinafter: \"Coflow\", the \"Company\" or \"We\")."
     },
     {
      "t": "p",
@@ -360,11 +396,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "4.1 The Service includes, among other things, tools for content management and scheduling, customer management (CRM), a mailing system, podcast hosting, engagement and follower tracking, and connection to external accounts."
+     "x": "4.1 The Service includes, among other things, tools for content management and scheduling, customer and deal management (CRM), questionnaires and forms, landing pages, booking pages, digital courses, task management, a mailing system, podcast hosting, engagement and follower tracking, and connection to external accounts."
     },
     {
      "t": "p",
-     "x": "4.2 Integrations: where you choose to connect external accounts (such as Instagram, YouTube, Google Calendar, Zoho Books and Wix), the connection uses read-only permissions and is subject to those platforms’ terms of use."
+     "x": "4.2 Integrations: where you choose to connect external accounts (such as Instagram, YouTube, Google Calendar, Zoho Books, Wix, ManyChat and Rav Messer), the connection uses read-only permissions, except Google Calendar, where Coflow adds to the calendar events created through the Service (such as booked calls and meetings), and is subject to those platforms’ terms of use."
     },
     {
      "t": "h2",
@@ -445,6 +481,42 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "x": "9.3 Cancellation: you may cancel the subscription at any time via the account or by contacting support. Cancellation takes effect at the end of the paid billing cycle; no pro-rata refund will be given for a period already paid, and access is retained until the end of that cycle."
+    },
+    {
+     "t": "p",
+     "x": "9.4 Price at sign-up: the base subscription price at which you joined remains your price for as long as the subscription stays active without interruption, even if the price for new subscribers rises. This applies to the base plan only. Add-ons, such as raising the number of mailing-list contacts beyond the amount included in the plan, are priced separately, and their prices and limits may change. If you cancel and later rejoin, the price in effect on the date you rejoin applies."
+    },
+    {
+     "t": "p",
+     "x": "9.5 Credits: some AI features consume credits. The subscription includes a monthly credit allowance, and additional credit packs may be offered as one-time purchases. Purchased credits are non-refundable and cannot be exchanged for cash; their terms are shown at purchase."
+    },
+    {
+     "t": "h2",
+     "x": "9A. Your Sales to Your Own Customers Through the Service"
+    },
+    {
+     "t": "p",
+     "x": "9A.1 The Service lets the customer sell products and services to its own buyers, such as digital courses and paid calls or meetings. Payments are processed through the customer’s own Stripe account (Stripe Connect), and the funds go directly to that account, subject to Stripe’s terms."
+    },
+    {
+     "t": "p",
+     "x": "9A.2 The customer is the seller: the engagement with a buyer is between the customer and the buyer only, and Coflow is not a party to it. The customer is responsible for the product’s content and delivery, prices, issuing invoices and receipts, applicable taxes, customer service, cancellations and refunds, and compliance with the consumer-protection laws that apply to it."
+    },
+    {
+     "t": "p",
+     "x": "9A.3 Refunds, cancellations and payment disputes (chargebacks) with buyers are handled by the customer and at its expense."
+    },
+    {
+     "t": "p",
+     "x": "9A.4 Fees: if Coflow charges a fee on such sales, its rate will be shown to the customer before selling is turned on. Stripe’s fees apply separately."
+    },
+    {
+     "t": "p",
+     "x": "9A.5 Buyers’ Personal Data is processed by Coflow as a processor on the customer’s behalf, under the Data Processing Agreement."
+    },
+    {
+     "t": "p",
+     "x": "9A.6 Coflow may disable selling in the event of misuse, a violation of law or a breach of these Terms."
     },
     {
      "t": "h2",
@@ -572,7 +644,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "SheBossIt (Cyprus) Ltd (להלן",
-     "x": "\"קופלו\" או \"אנחנו\"), המפעילה את פלטפורמת קופלו (Coflow) לניהול נוכחות במדיה החברתית עבור עסקים וסוכנויות (להלן: \"הפלטפורמה\" או \"השירות\"), מכבדת את פרטיות המשתמשים והלקוחות שלה ומחויבת להגן על המידע האישי הנאסף אודותיהם. מדיניות פרטיות זו מפרטת כיצד קופלו אוספת, משתמשת, משמרת, חושפת ומגנה על מידע אישי (Personal Data) בעת השימוש בשירות, בהתאם לתקנות הגנת המידע הכלליות של האיחוד האירופי (GDPR) ולהוראות הדין החל."
+     "x": "\"קופלו\" או \"אנחנו\"), המפעילה את פלטפורמת קופלו (Coflow) לניהול השיווק, המכירות והלקוחות של עסקים, מותגים אישיים וסוכנויות (להלן: \"הפלטפורמה\" או \"השירות\"), מכבדת את פרטיות המשתמשים והלקוחות שלה ומחויבת להגן על המידע האישי הנאסף אודותיהם. מדיניות פרטיות זו מפרטת כיצד קופלו אוספת, משתמשת, משמרת, חושפת ומגנה על מידע אישי (Personal Data) בעת השימוש בשירות, בהתאם לתקנות הגנת המידע הכלליות של האיחוד האירופי (GDPR) ולהוראות הדין החל."
     },
     {
      "t": "h3",
@@ -638,7 +710,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "יומן Google (Google Calendar) — גישת קריאה ליומן וכתובת הדוא\"ל של החשבון; קופלו אינה יכולה ליצור או לשנות אירועים."
+     "x": "יומן Google (Google Calendar) — גישת קריאה ליומן וכתובת הדוא\"ל של החשבון, והוספת אירועים שנוצרו באמצעות השירות (כגון שיחות שנקבעו ופגישות). קופלו אינה משנה או מוחקת אירועים קיימים."
     },
     {
      "t": "p",
@@ -647,6 +719,14 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "x": "Wix — עבור לקוחות שאתר האינטרנט שלהם בנוי על Wix."
+    },
+    {
+     "t": "p",
+     "x": "ManyChat — קטלוג האוטומציות של החשבון (שמות התהליכים וכלי הצמיחה), לצורך קישורם למוצרים."
+    },
+    {
+     "t": "p",
+     "x": "רב מסר (Rav Messer) — המנויים ברשימות שבחרת לחבר, לצורך ייבואם לרשימות הדיוור בקופלו."
     },
     {
      "t": "p",
@@ -682,6 +762,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "t": "p",
      "label": "עוגיית שיוך שותפים (Marketing)",
      "x": "עוגייה לזיהוי הקישור השותף שדרכו הגעת (למשך תקופה של 90 יום), לצורך זיכוי שותפים. עוגייה זו אינה חיונית לתפעול השירות ותיקבע אך ורק בכפוף להסכמתך המפורשת באמצעות באנר העוגיות."
+    },
+    {
+     "t": "p",
+     "label": "עוגיית מסלול הגעה (Marketing)",
+     "x": "עוגייה הרושמת דרך אילו ערוצים וקישורים הגעת לשירות (למשך תקופה של 90 יום), לצורך הבנה אילו ערוצים מביאים נרשמים. עוגייה זו אינה חיונית לתפעול השירות ותיקבע אך ורק בכפוף להסכמתך המפורשת באמצעות באנר העוגיות."
     },
     {
      "t": "p",
@@ -811,7 +896,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "נתוני פלטפורמה ואינטגרציות",
-     "x": "Meta/Instagram, Google, Wix, Apify (איסוף פוסטים ציבוריים לצורכי מחקר ומדדים)."
+     "x": "Meta/Instagram, Google, Wix, ManyChat, רב מסר, Apify (איסוף פוסטים ציבוריים לצורכי מחקר ומדדים)."
     },
     {
      "t": "p",
@@ -974,7 +1059,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "SheBossIt (Cyprus) Ltd  (hereinafter",
-     "x": "\"Coflow\" or \"We\"), which operates the Coflow platform for managing social-media presence for businesses and agencies (the \"Platform\" or the \"Service\"), respects the privacy of its users and customers and is committed to protecting the Personal Data collected about them. This privacy policy describes how Coflow collects, uses, retains, discloses, and protects Personal Data when you use the Service, in accordance with the EU General Data Protection Regulation (GDPR) and applicable law."
+     "x": "\"Coflow\" or \"We\"), which operates the Coflow platform for managing the marketing, sales and clients of businesses, personal brands and agencies (the \"Platform\" or the \"Service\"), respects the privacy of its users and customers and is committed to protecting the Personal Data collected about them. This privacy policy describes how Coflow collects, uses, retains, discloses, and protects Personal Data when you use the Service, in accordance with the EU General Data Protection Regulation (GDPR) and applicable law."
     },
     {
      "t": "h3",
@@ -1041,7 +1126,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "Google Calendar — read-only calendar access and the account’s email address; Coflow cannot create or change events."
+     "x": "Google Calendar — read-only calendar access and the account’s email address, and adding events created through the Service (such as booked calls and meetings). Coflow does not change or delete existing events."
     },
     {
      "t": "p",
@@ -1050,6 +1135,14 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "x": "Wix — for customers whose website is built on Wix."
+    },
+    {
+     "t": "p",
+     "x": "ManyChat — the account’s automation catalogue (flow names and growth tools), to link them to offers."
+    },
+    {
+     "t": "p",
+     "x": "Rav Messer — the subscribers in the lists you choose to connect, to import them into your Coflow mailing lists."
     },
     {
      "t": "p",
@@ -1085,6 +1178,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "t": "p",
      "label": "Affiliate (marketing) cookie",
      "x": "records the partner link through which you arrived (90-day lifetime), to credit affiliates. This cookie is not essential to the Service and is set only subject to your explicit consent through the cookie banner."
+    },
+    {
+     "t": "p",
+     "label": "Arrival-journey (marketing) cookie",
+     "x": "records which channels and links you arrived through (90-day lifetime), to understand which channels bring sign-ups. This cookie is not essential to the Service and is set only subject to your explicit consent through the cookie banner."
     },
     {
      "t": "p",
@@ -1209,7 +1307,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "Email and messaging",
-     "x": "Resend (system notifications and mailing). Platform data and integrations: Meta/Instagram, Google, Wix, Apify (collection of publicly available posts for research and metrics)."
+     "x": "Resend (system notifications and mailing). Platform data and integrations: Meta/Instagram, Google, Wix, ManyChat, Rav Messer, Apify (collection of publicly available posts for research and metrics)."
     },
     {
      "t": "p",
