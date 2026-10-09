@@ -51,7 +51,7 @@ export default async function AcademyIndexPage() {
         {/* The band: one question, the promise under it, and the size of the
             place. Help centres open this way for a reason — the visitor
             arrived with a question, not to admire a hero. */}
-        <section className="py-16 md:py-20" style={{ background: "var(--color-lavender)" }}>
+        <section className="py-16 md:py-20" style={{ background: "var(--color-surface-2)" }}>
           <div className="container-page">
             <div className="max-w-2xl mx-auto text-center">
               <h1 className="font-display text-[32px] sm:text-[46px] md:text-[56px] leading-[1.1]">

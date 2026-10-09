@@ -2,32 +2,37 @@ import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { JOIN_PATH, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
+// The header of every page other than home, in the home page's look: the
+// wordmark, a quiet link to the Academy and to sign in, and one cream
+// "Join" that goes to the waitlist (joining = signing up and waiting for an
+// invite).
 export async function Nav() {
   const locale = await getLocale();
   const t = getDict(locale).nav;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur supports-[backdrop-filter]:bg-paper/65">
-      <div className="container-page flex h-16 md:h-[72px] items-center justify-between gap-4">
-        <div className="flex items-center gap-8">
-          <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
-            <CoflowMark size={30} tone="blue" />
+    <header className="sticky top-0 z-40 bg-paper/85 backdrop-blur supports-[backdrop-filter]:bg-paper/70">
+      <div className="container-page flex h-16 md:h-[76px] items-center justify-between gap-4">
+        <Link href="/" aria-label="coflow home" className="no-underline shrink-0">
+          <CoflowMark size={34} showWordmark tone="blue" />
+        </Link>
+
+        <div className="flex items-center gap-1 md:gap-3">
+          <Link
+            href="/academy"
+            className="hidden sm:inline-flex text-[15px] font-bold text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"
+          >
+            {t.academy}
           </Link>
-
-        </div>
-
-        <div className="flex items-center gap-2 md:gap-4">
           <a
             href={`${SITE.studioAppUrl}/login`}
-            className="hidden sm:inline-flex text-sm font-medium text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"
+            className="inline-flex text-[15px] font-bold text-ink-700 hover:text-ink-900 transition-colors px-3 py-2"
           >
             {t.signIn}
           </a>
-          {/* The primary action is now REGISTERING, not the diagnosis — the
-              launch is invite-only and the home page is where that happens. */}
-          <Link href={JOIN_PATH} className="btn btn-lime btn-sm">
+          <Link href="/waitlist" className="btn btn-lime btn-sm">
             {t.cta}
           </Link>
         </div>
