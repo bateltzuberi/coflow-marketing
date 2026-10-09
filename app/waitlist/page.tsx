@@ -4,7 +4,6 @@ import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { JsonLd, breadcrumbsJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { JOIN_PATH } from "@/lib/site";
 
 // Where "אין לך קוד?" lands.
 //
@@ -14,9 +13,9 @@ import { JOIN_PATH } from "@/lib/site";
 // every other contact instead of in a mailbox.
 
 export const metadata = buildMetadata({
-  title: "Coflow — רשימת המתנה",
+  title: "הרשמה לקופלו",
   description:
-    "Coflow נפתחת לקבוצה סגורה וההרשמה היא עם קוד הזמנה. אין לך קוד? השאירי פרטים ברשימת ההמתנה ונעדכן אותך כשייפתח מקום.",
+    "קופלו נפתחת בהדרגה. נרשמים לרשימת ההמתנה, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
   path: "/waitlist",
 });
 
@@ -36,31 +35,23 @@ export default async function WaitlistPage() {
       <main>
         <section className="section">
           <div className="container-page">
-            <div className="max-w-2xl mx-auto text-center pt-8 md:pt-12">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                {t.eyebrow}
-              </p>
-              <h1 className="mt-4 font-display text-[32px] sm:text-[44px] md:text-[52px] leading-[1.1]">
+            <div className="max-w-3xl mx-auto text-center pt-8 md:pt-14">
+              <h1 className="font-black text-[44px] sm:text-[60px] md:text-[76px] leading-[0.95] tracking-[-0.035em] text-ink-900">
                 {t.title}
               </h1>
-              <p className="mt-6 text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
+              <p className="mt-6 text-[18px] md:text-[21px] leading-[1.55] text-ink-700 max-w-[34em] mx-auto">
                 {t.sub}
               </p>
             </div>
 
-            {/* The form itself. It ships its own card, labels and success
-                state, so the page around it adds width and nothing else — a
-                second border here just draws a box inside a box. */}
-            <div className="mt-8 md:mt-10 mx-auto w-full max-w-2xl">
+            {/* The form ships its own card, labels and thank-you state. */}
+            <div className="mt-10 md:mt-12 mx-auto w-full max-w-xl">
               <WaitlistForm title={t.formTitle} locale={locale} />
             </div>
 
-            <p className="mt-8 text-center text-[13px] text-ink-500">
+            <p className="mt-8 text-center text-[15px] text-ink-700">
               {t.backLabel}{" "}
-              <a
-                href={JOIN_PATH}
-                className="font-medium text-ink-900 underline underline-offset-4"
-              >
+              <a href="/#price" className="font-bold text-ink-900 underline underline-offset-4">
                 {t.backCta}
               </a>
             </p>

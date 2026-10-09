@@ -15,9 +15,9 @@ export const DICT = {
   he: {
     nav: {
       signIn: "התחברות",
-      // The primary button is registration now — the launch is invite-only and
-      // the home page is the door.
-      cta: "הרשמה עם קוד",
+      // Joining = signing up for the waitlist (the invite comes later).
+      cta: "להצטרף",
+      academy: "אקדמיה",
       // The free diagnosis, which used to be the home page.
       diagnosis: "אבחון חינם",
     },
@@ -81,11 +81,11 @@ export const DICT = {
     // that lives in the Studio CRM, so the list is a real list and not an inbox.
     waitlist: {
       eyebrow: "רשימת המתנה",
-      title: "אין לך קוד הזמנה?",
-      sub: "Coflow נפתחת כרגע לקבוצה סגורה. השאירי פרטים ונעדכן אותך כשייפתח מקום.",
+      title: "הרשמה לקופלו",
+      sub: "קופלו נפתחת בהדרגה. נרשמים כאן, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
       formTitle: "טופס רשימת המתנה",
-      backLabel: "יש לך כבר קוד?",
-      backCta: "להרשמה",
+      backLabel: "יש לך קוד הזמנה?",
+      backCta: "להזנת הקוד",
     },
 
     academy: {
@@ -114,7 +114,7 @@ export const DICT = {
       ctaButton: "כניסה לסטודיו",
     },
     footer: {
-      tagline: "מערכת לניהול מותג עם AI. כל המותג שלך במקום אחד, מהאסטרטגיה ועד המכירה.",
+      tagline: "העסק שמאחורי המותג שלך. שיווק, מכירות, ניהול לקוחות ומשימות במקום אחד.",
       cols: {
         product: "המוצר",
         company: "החברה",
@@ -122,16 +122,10 @@ export const DICT = {
       },
       productLinks: [
         { label: "האקדמיה של קופלו", href: "/academy" },
-        { label: "הרשמה עם קוד", href: "/" },
+        { label: "רשימת המתנה", href: "/waitlist" },
       ],
-      companyLinks: [
-        { label: "עלינו", href: "/about" },
-        { label: "צרי קשר", href: "/contact" },
-      ],
-      legalLinks: [
-        { label: "פרטיות", href: "/privacy" },
-        { label: "תנאי שימוש", href: "/terms" },
-      ],
+      // Privacy and terms come back when their texts arrive (Batel, 2026-10-09).
+      // /about and /contact never existed.
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "EN",
       langSwitcherAria: "Switch to English",
@@ -141,7 +135,8 @@ export const DICT = {
   en: {
     nav: {
       signIn: "Log in",
-      cta: "Sign up with a code",
+      cta: "Join",
+      academy: "Academy",
       diagnosis: "Free diagnosis",
     },
 
@@ -194,11 +189,11 @@ export const DICT = {
     // ----- /waitlist -----
     waitlist: {
       eyebrow: "Waitlist",
-      title: "Don't have an invite code?",
-      sub: "Coflow is open to a closed group right now. Leave your details and we'll let you know when a place opens up.",
+      title: "Sign up for Coflow",
+      sub: "Coflow is opening gradually. Sign up here and we'll send you an invite when it's your turn.",
       formTitle: "Waitlist form",
-      backLabel: "Already have a code?",
-      backCta: "Sign up",
+      backLabel: "Have an invite code?",
+      backCta: "Enter it",
     },
 
     academy: {
@@ -224,7 +219,7 @@ export const DICT = {
       ctaButton: "Go to the studio",
     },
     footer: {
-      tagline: "An AI brand-management system. Your whole brand in one place, from the strategy through to the sale.",
+      tagline: "The business behind your brand. Marketing, sales, client management and tasks in one place.",
       cols: {
         product: "Product",
         company: "Company",
@@ -232,15 +227,7 @@ export const DICT = {
       },
       productLinks: [
         { label: "Coflow Academy", href: "/academy" },
-        { label: "Sign up with a code", href: "/" },
-      ],
-      companyLinks: [
-        { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" },
-      ],
-      legalLinks: [
-        { label: "Privacy", href: "/privacy" },
-        { label: "Terms", href: "/terms" },
+        { label: "Waitlist", href: "/waitlist" },
       ],
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "עב",

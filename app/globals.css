@@ -8,15 +8,17 @@
 
 :root {
   /* ── Surfaces / ink ──────────────────────────────────── */
-  --color-paper:                #fafaf7;
+  /* 2026-10-09: the new studio's neutrals (cream paper, oat, cocoa text), so
+     every page of the site matches the home page and the product. */
+  --color-paper:                #fffdf9;
   --color-surface:              #ffffff;
-  --color-surface-2:            #f5f4ef;
-  --color-line:                 #ececea;
-  --color-line-strong:          #d8d8d4;
-  --color-ink-900:              #1a1a1c;
-  --color-ink-700:              #4a4a52;
-  --color-ink-500:              #8a8a94;
-  --color-ink-300:              #c7c7cc;
+  --color-surface-2:            #f7f2eb;
+  --color-line:                 #ece4d8;
+  --color-line-strong:          #e2d9cc;
+  --color-ink-900:              #3a2e28;
+  --color-ink-700:              #6e6058;
+  --color-ink-500:              #93857b;
+  --color-ink-300:              #c9bcb0;
 
   /* ── Lavender · agencies (recolored to warm cream) ───── */
   --color-lavender:             #FBEEB9;
@@ -237,12 +239,16 @@ body {
 }
 .btn-ink:hover { background: #2a2a2e; border-color: #2a2a2e; }
 
+/* The main button is the brand cream with cocoa text, as in the studio and on
+   the home page (the name is historical: it used to be the blue). */
 .btn-lime {
-  background: var(--color-lime);
-  color: #fff;
-  border-color: var(--color-lime);
+  background: #fbeeb9;
+  color: var(--color-ink-900);
+  border-color: #f1dfa0;
+  border-radius: 999px;
+  font-weight: 700;
 }
-.btn-lime:hover { background: var(--color-lime-deep); border-color: var(--color-lime-deep); }
+.btn-lime:hover { background: #fdf4d0; border-color: #f1dfa0; }
 
 .btn-lavender {
   background: var(--color-lavender);
@@ -275,13 +281,14 @@ body {
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.01em;
-  border: 1px solid var(--color-ink-900);
-  background: var(--color-ink-900);
-  color: #fff;
+  /* cream, never a dark button (studio rule: no black buttons) */
+  border: 1px solid #f1dfa0;
+  background: #fbeeb9;
+  color: var(--color-ink-900);
   transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
   cursor: pointer;
 }
-.btn-primary:hover { background: #2a2a2e; border-color: #2a2a2e; transform: translateY(-1px); }
+.btn-primary:hover { background: #fdf4d0; border-color: #f1dfa0; transform: translateY(-1px); }
 
 /* ── Chips / pills ──────────────────────────────────────── */
 .chip {
