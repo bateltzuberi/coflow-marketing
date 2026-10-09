@@ -4,14 +4,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-  async redirects() {
-    return [
-      { source: "/home", destination: "/", permanent: true },
-      { source: "/index", destination: "/", permanent: true },
-      // /pricing is now public — Studio is live and free. The previous
-      // redirect to "/" was a holdover from the invite-only phase.
-    ];
-  },
   async headers() {
     return [
       {

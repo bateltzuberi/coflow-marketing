@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE } from "./site";
+import { localizedPath } from "./locale-path";
 
 type PageSEO = {
   title: string;
@@ -8,7 +9,7 @@ type PageSEO = {
   ogImage?: string;
   noindex?: boolean;
   /** The language the page is served in, so a share card says so. */
-  locale?: "he" | "en";
+  locale: "he" | "en";
 };
 
 export function buildMetadata({
@@ -17,9 +18,9 @@ export function buildMetadata({
   path,
   ogImage,
   noindex,
-  locale = "he",
+  locale,
 }: PageSEO): Metadata {
-  const url = `${SITE.url}${path}`;
+  const url = `${SITE.url}${localizedPath(path, locale)}`;
   // The ROOT layout owns the suffix (`template: "%s · Coflow"`), so the page
   // title must not carry one: adding it here printed "How Coflow works · Coflow
   // · Coflow" in the tab and in Google's result on every page of the site.
@@ -31,7 +32,7 @@ export function buildMetadata({
     title,
     description,
     metadataBase: new URL(SITE.url),
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: { he: `${SITE.url}${localizedPath(path, "he")}`, en: `${SITE.url}${localizedPath(path, "en")}`, "x-default": `${SITE.url}${localizedPath(path, "he")}` } },
     robots: noindex
       ? { index: false, follow: false }
       : { index: true, follow: true },
@@ -91,6 +92,7 @@ export function organizationJsonLd() {
 // JSON-LD: BreadcrumbList — used on deep pages (features, vs, for).
 export function breadcrumbsJsonLd(
   items: { name: string; path: string }[],
+  locale: "he" | "en",
 ) {
   return {
     "@context": "https://schema.org",
@@ -99,7 +101,7 @@ export function breadcrumbsJsonLd(
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${SITE.url}${item.path}`,
+      item: `${SITE.url}${localizedPath(item.path, locale)}`,
     })),
   };
 }

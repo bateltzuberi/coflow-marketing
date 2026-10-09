@@ -1,3 +1,4 @@
+import { localizedPath } from "@/lib/locale-path";
 import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -19,7 +20,7 @@ export async function Footer() {
         <ul className="flex flex-wrap gap-6">
           {t.productLinks.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="hover:text-ink-900 transition-colors">
+              <Link href={localizedPath(l.href, locale)} className="hover:text-ink-900 transition-colors">
                 {l.label}
               </Link>
             </li>

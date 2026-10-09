@@ -1,3 +1,4 @@
+import { localizedPath } from "@/lib/locale-path";
 import type { Metadata } from "next";
 
 import "./home.css";
@@ -75,7 +76,7 @@ export default async function Home() {
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
             <p className="hm-sub">{t.hero.sub}</p>
-            <a className="hm-btn" href="/waitlist" data-join>
+            <a className="hm-btn" href={localizedPath("/waitlist", locale)} data-join>
               {t.hero.cta}
             </a>
             <PlusHint t={t} />
@@ -275,7 +276,7 @@ export default async function Home() {
                     opens the sign-up popup (the Studio waitlist form); the
                     code field is for whoever was given one. */}
                 <p className="hm-fine">{t.price.fine}</p>
-                <a className="hm-btn hm-price-btn" href="/waitlist" data-join>
+                <a className="hm-btn hm-price-btn" href={localizedPath("/waitlist", locale)} data-join>
                   {t.hero.cta}
                 </a>
                 <HaveCode label={t.price.haveCode}>
@@ -298,7 +299,7 @@ export default async function Home() {
           <ul>
             {t.footer.links.map((l) => (
               <li key={l.href}>
-                <a href={l.href}>{l.label}</a>
+                <a href={localizedPath(l.href, locale)}>{l.label}</a>
               </li>
             ))}
           </ul>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { getLocale } from "@/lib/locale";
@@ -16,7 +17,8 @@ const COPY = {
 } as const;
 
 export default async function NotFound() {
-  const t = COPY[(await getLocale()) === "en" ? "en" : "he"];
+  const locale = await getLocale();
+  const t = COPY[locale];
   return (
     <>
       <Nav />
@@ -25,8 +27,8 @@ export default async function NotFound() {
         <h1 className="mt-6 font-black text-[40px] md:text-[56px] leading-[1] tracking-[-0.03em] text-ink-900">{t.title}</h1>
         <p className="mt-4 text-[18px] text-ink-700">{t.sub}</p>
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
-          <Link href="/" className="btn btn-lime btn-sm">{t.home}</Link>
-          <Link href="/waitlist" className="btn btn-ghost btn-sm">{t.join}</Link>
+          <Link href={localizedPath("/", locale)} className="btn btn-lime btn-sm">{t.home}</Link>
+          <Link href={localizedPath("/waitlist", locale)} className="btn btn-ghost btn-sm">{t.join}</Link>
         </div>
       </section>
       <Footer />

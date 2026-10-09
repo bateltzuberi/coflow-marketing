@@ -57,7 +57,19 @@ for why it was retired):
 still holds the competitor/feature/persona copy those pages used — unused leftovers, not a live
 data source. Live site-level data is `lib/site.ts`; help-centre content is `lib/academy.ts`.
 
-Bilingual he/en: `lib/locale.ts` + `lib/dictionary.ts`, switched by `components/locale-switcher.tsx`.
+Bilingual he/en: public URLs are `/he` and `/en`, with the same prefix on every page
+(e.g. `/he/academy/forms` and `/en/academy/forms`). `proxy.ts` sets the request language
+from the URL; cookies, geography and Accept-Language cannot change a page's language.
+The localized route files share the existing page implementations. Internal links and
+the language switcher preserve the selected language and destination page.
+
+Unprefixed legacy page URLs permanently redirect (308) to Hebrew, preserving query strings.
+Old aliases (`/home`, `/index`, `/join`, `/diagnosis`, `/pricing`, `/studio`, `/how-it-works`)
+redirect to the home page in the selected language. Static assets, APIs, robots.txt and
+sitemap.xml remain unprefixed. Each page has a self-canonical and reciprocal he/en
+hreflang links; x-default is Hebrew. The sitemap lists both language versions.
+
+Routing regression checks: `node --test lib/locale-path.test.mjs` (Node 22.18+).
 
 ## Brand
 

@@ -1,3 +1,4 @@
+import { localizedPath } from "@/lib/locale-path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -36,13 +37,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { area: areaId } = await params;
   const area = await getAcademyArea(areaId);
-  if (!area) return buildMetadata({ title: "Coflow Academy", description: "", path: "/academy", noindex: true });
-  // Metadata is one fixed language per URL; English is the one search engines
-  // index this site in, and the page body still follows the reader's locale.
+  const locale = await getLocale();
+  if (!area) return buildMetadata({ title: "Coflow Academy", description: "", path: "/academy", noindex: true, locale });
+  const side = academySide(area, locale);
   return buildMetadata({
-    title: `${area.en.title} · Coflow Academy`,
-    description: area.en.blurb,
+    title: `${side.title} · Coflow Academy`,
+    description: side.blurb,
     path: `/academy/${area.id}`,
+    locale,
   });
 }
 
@@ -65,14 +67,14 @@ export default async function AcademyAreaPage({
         data={breadcrumbsJsonLd([
           { name: "Home", path: "/" },
           { name: "Coflow Academy", path: "/academy" },
-          { name: area.en.title, path: `/academy/${area.id}` },
-        ])}
+          { name: side.title, path: `/academy/${area.id}` },
+        ], locale)}
       />
       <JsonLd
         data={faqJsonLd(
           area.articles.map((article) => ({
-            q: article.en.q,
-            a: article.en.a.join(" "),
+            q: articleSide(article, locale).q,
+            a: articleSide(article, locale).a.join(" "),
           })),
         )}
       />
@@ -82,7 +84,7 @@ export default async function AcademyAreaPage({
           <div className="container-page">
             <div className="max-w-2xl mx-auto pt-8 md:pt-12">
               <Link
-                href="/academy"
+                href={localizedPath("/academy", locale)}
                 className="font-mono-label text-ink-500 underline-offset-4 hover:underline"
               >
                 {t.backToIndex}
