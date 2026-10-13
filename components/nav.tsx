@@ -3,12 +3,11 @@ import Link from "next/link";
 import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { SITE } from "@/lib/site";
+import { SITE, signupUrlFor } from "@/lib/site";
 
 // The header of every page other than home, in the home page's look: the
 // wordmark, a sign-in link, and one cream
-// "Join" that goes to the waitlist (joining = signing up and waiting for an
-// invite).
+// "Join" that goes to the Studio sign-up page.
 export async function Nav() {
   const locale = await getLocale();
   const t = getDict(locale).nav;
@@ -27,7 +26,7 @@ export async function Nav() {
           >
             {t.signIn}
           </a>
-          <Link href={localizedPath("/waitlist", locale)} className="btn btn-lime btn-sm">
+          <Link href={signupUrlFor(locale, "")} className="btn btn-lime btn-sm">
             {t.cta}
           </Link>
         </div>

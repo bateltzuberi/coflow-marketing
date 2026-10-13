@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { signupUrlFor } from "@/lib/site";
 import { getLocale } from "@/lib/locale";
 import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
@@ -11,7 +12,7 @@ function copy(he: boolean) {
     description: he ? "קופלו (Coflow) היא מערכת לניהול מותג עם AI של SheBossIt (Cyprus) Ltd, שמחברת מוצרים, שיווק, מכירות ולקוחות." : "Coflow is an AI brand-management system by SheBossIt (Cyprus) Ltd, connecting offers, marketing, sales and clients.",
     intro: he ? "קופלו היא מערכת לניהול מותג עם AI, לעסקים שמוכרים ידע ושירותים: קורסים, ליווי, פגישות וסדנאות. היא מחברת את המוצרים, התוכן, הדפים, הפניות והלקוחות באותה סביבת עבודה." : "Coflow is an AI brand-management system for businesses selling knowledge and services: courses, coaching, appointments and workshops. It brings offers, content, pages, enquiries and clients into one workspace.",
     context: he ? "פרופיל המותג שומר את הקהל, המסרים והקול שלך ומשמש את יצירת התוכן. המוצר מגדיר מה את מוכרת; הדפים והטפסים מובילים אליו, ואנשי הקשר והעסקאות נשמרים ב-CRM." : "The brand profile stores your audience, messages and voice and informs content creation. The offer defines what you sell; pages and forms lead towards it, while contacts and deals stay in your CRM.",
-    stage: he ? "קופלו נפתחת בהדרגה ובהזמנה. מערכת הקורסים נמצאת בפיתוח. המחיר המוצג באתר הוא €24 לחודש; זמינות יכולות ותנאים מפורטים נבדקים לפני הצטרפות." : "Coflow opens gradually by invitation. Course building is in development. The price shown on this site is €24 per month; confirm feature availability and detailed terms before joining.",
+    stage: he ? "קופלו פתוחה להרשמה. מערכת הקורסים נמצאת בפיתוח. המחיר המוצג באתר הוא €24 לחודש; זמינות יכולות ותנאים מפורטים נבדקים לפני הצטרפות." : "Coflow is open for sign-up. Course building is in development. The price shown on this site is €24 per month; confirm feature availability and detailed terms before joining.",
   };
 }
 export async function generateMetadata() {
@@ -28,7 +29,7 @@ export default async function About() {
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.context}</p>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "הצטרפות וזמינות" : "Access and availability"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.stage}</p>
-      <Link className="btn btn-lime mt-8" href={localizedPath("/waitlist", locale)}>{he ? "להרשמה לרשימת ההמתנה" : "Join the waitlist"}</Link>
+      <Link className="btn btn-lime mt-8" href={signupUrlFor(locale, "")}>{he ? "להרשמה" : "Sign up"}</Link>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "החברה" : "The company"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed">{he ? "קופלו מופעלת על ידי SheBossIt (Cyprus) Ltd. פרטי החברה, ההתקשרות והשימוש במידע מופיעים במסמכים המשפטיים." : "Coflow is operated by SheBossIt (Cyprus) Ltd. Company, contact and data-use details are available in the legal documents."}</p>
       <p className="mt-6"><a href="mailto:contact@shebossit.com" className="underline underline-offset-4">contact@shebossit.com</a></p>

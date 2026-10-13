@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // The waitlist is gone: sign-up is open. Old links go to the Studio sign-up.
+  async redirects() {
+    return [
+      { source: "/waitlist", destination: "https://studio.coflow.social/signup?lang=he", permanent: true },
+      { source: "/he/waitlist", destination: "https://studio.coflow.social/signup?lang=he", permanent: true },
+      { source: "/en/waitlist", destination: "https://studio.coflow.social/signup?lang=en", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

@@ -19,17 +19,14 @@ export const SITE = {
   twitter: "@coflow",
 } as const;
 
-// Invite-only launch (2026-08). Signup lives in the Studio app at /signup and
-// needs a code; the code is validated here first (server-side, see
-// app/join/actions.ts) so a wrong code fails on THIS page instead of bouncing
-// the visitor to an app screen that rejects them.
-// The invite door is the HOME page while the launch is invite-only.
-// (/join still resolves — it redirects here — because the URL was shared.)
+// Sign-up is open (2026-10-13). Every "Join" goes to the Studio at /signup, which
+// takes an account and sends the visitor to the €24 checkout. No invite code.
+// (/join and /waitlist still resolve because their URLs were shared.)
 export const JOIN_PATH = "/";
 
-// The Studio signup screen, carrying the validated code + the language she was
-// reading the site in. The code in the URL is a convenience only — the Studio
-// revalidates it server-side before creating anything.
+// The Studio signup screen, carrying the language she was reading the site in.
+// `code` is only for old links that still carry one; the Studio ignores it
+// while sign-up is open.
 export function signupUrlFor(locale: "he" | "en", code: string): string {
   const url = new URL(`${SITE.studioAppUrl}/signup`);
   url.searchParams.set("lang", locale);
@@ -42,26 +39,4 @@ export function signupUrlFor(locale: "he" | "en", code: string): string {
 // and this is where "sign up" goes from the deeper pages.
 export function signupEntryFor(locale: "he" | "en"): string {
   return `${SITE.studioAppUrl}/signup?lang=${locale}`;
-}
-
-// The waitlist form is a real CRM form in the Studio (studio.coflow.social/f/…),
-// not a mailto: — someone who leaves details lands in the same contacts table
-// as everyone else. It is embedded on /waitlist in an iframe that resizes
-// itself off the form's `coflow-form-resize` postMessage.
-// coflow.social's OWN copy of the waitlist form ("רשימת המתנה · coflow.social"), so these
-// leads are told apart from the ones that come in through shebossit.co.il, which
-// embeds the original. Same questions, product and list.
-// One per language: a form's questions are stored text in one language, so
-// the English page has its own copy ("Waitlist · coflow.social (English)").
-// Same product and list, so every sign-up lands in one place.
-export const WAITLIST_FORM_IDS = {
-  he: "1a9f6927-25aa-46c0-b795-3784e29e3038",
-  en: "ff0b4be5-2b20-4fc1-ac57-11a6326c66a8",
-} as const;
-
-export function formEmbedUrl(formId: string, locale: "he" | "en"): string {
-  // ?lang tells the form which language to draw its own words in (errors, the
-  // consent line, direction): inside our iframe it can't read the studio's
-  // locale cookie.
-  return `${SITE.studioAppUrl}/f/${formId}?lang=${locale}`;
 }

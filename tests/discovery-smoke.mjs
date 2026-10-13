@@ -10,7 +10,7 @@ const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "star
 let output = "";
 server.stdout.on("data", d => { output += d; });
 server.stderr.on("data", d => { output += d; });
-const paths = ["/", "/about", "/solutions", "/guides", ...SOLUTION_SLUGS.map(s => `/solutions/${s}`), ...GUIDE_SLUGS.map(s => `/guides/${s}`), "/waitlist", "/terms", "/privacy", "/academy", "/academy/getting-started"];
+const paths = ["/", "/about", "/solutions", "/guides", ...SOLUTION_SLUGS.map(s => `/solutions/${s}`), ...GUIDE_SLUGS.map(s => `/guides/${s}`), "/terms", "/privacy", "/academy", "/academy/getting-started"];
 try {
   let ready = false;
   for (let i = 0; i < 80; i++) {
@@ -47,7 +47,7 @@ try {
   const robots = await (await fetch(origin + "/robots.txt")).text();
   for (const agent of ["OAI-SearchBot", "PerplexityBot"]) assert.ok(robots.includes(`User-Agent: ${agent}`));
   assert.ok(!robots.includes("Disallow: /"));
-  for (const [old, target] of [["/solutions/crm?ref=email", "/he/solutions/crm?ref=email"], ["/en/join?ref=email", "/en?ref=email"]]) {
+  for (const [old, target] of [["/solutions/crm?ref=email", "/he/solutions/crm?ref=email"], ["/en/join?ref=email", "/en?ref=email"], ["/en/waitlist", "https://studio.coflow.social/signup?lang=en"]]) {
     const r = await fetch(origin + old, { redirect: "manual" });
     assert.equal(r.status, 308); assert.ok(r.headers.get("location").endsWith(target));
   }

@@ -206,10 +206,7 @@ const he = {
     amount: "€24",
     chip: "לחודש · המחיר נשאר שלך",
     facts: ["כל מה שיש בקופלו, בלי חבילות", "המחיר שנרשמת בו נשאר שלך", "בלי התחייבות, מבטלים מתי שרוצים"],
-    fine: "קופלו נפתחת בהדרגה. נרשמים כאן, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
-    signupTitle: "הרשמה לקופלו",
-    formTitle: "טופס רשימת המתנה",
-    haveCode: "יש לך קוד הזמנה?",
+    fine: "ההרשמה פתוחה. פותחים חשבון ומתחילים.",
   },
   footer: {
     links: [
@@ -217,7 +214,6 @@ const he = {
       { label: "מדריכים", href: "/guides" },
       { label: "על קופלו", href: "/about" },
       { label: "אקדמיה", href: "/academy" },
-      { label: "רשימת המתנה", href: "/waitlist" },
       { label: "תנאי שימוש", href: "/terms" },
       { label: "מדיניות פרטיות", href: "/privacy" },
     ],
@@ -411,10 +407,7 @@ const en: HomeCopy = {
     amount: "€24",
     chip: "a month · your price stays yours",
     facts: ["Everything in Coflow, no tiers", "The price you join at stays yours", "No commitment, cancel any time"],
-    fine: "Coflow is opening gradually. Sign up here and we'll send you an invite when it's your turn.",
-    signupTitle: "Sign up for Coflow",
-    formTitle: "Waitlist form",
-    haveCode: "Have an invite code?",
+    fine: "Sign-up is open. Create an account and start.",
   },
   footer: {
     links: [
@@ -422,7 +415,6 @@ const en: HomeCopy = {
       { label: "Guides", href: "/guides" },
       { label: "About Coflow", href: "/about" },
       { label: "Academy", href: "/academy" },
-      { label: "Waitlist", href: "/waitlist" },
       { label: "Terms", href: "/terms" },
       { label: "Privacy", href: "/privacy" },
     ],

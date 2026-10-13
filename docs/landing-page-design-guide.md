@@ -1,5 +1,9 @@
 # Landing page design guide (coflow.social)
 
+> Sign-up is open since 2026-10-13: no invite codes, no waitlist. Every "Join" button goes to
+> `signupUrlFor(locale, "")` (the Studio /signup page, €24 a month). Never add a code field or a
+> waitlist form back without Batel asking.
+
 Read this before changing any page on coflow.social. It exists because a change once added a
 block of different-looking content to the end of the home page, after the price, in another
 font and another style. This file is how that does not happen again.
@@ -17,7 +21,6 @@ Product claims: `PRODUCT.md`. How to talk to Batel: `WORKING-WITH-BATEL.md`.
 | `/guides` | What you can build + the guides. All explanatory and SEO content goes here. | `app/[locale]/guides/page.tsx` |
 | `/guides/[slug]`, `/solutions/[slug]` | One article or one solution each | `components/discovery-page.tsx`, `lib/guide-content.ts`, `lib/discovery-content.ts` |
 | `/academy` | Help centre | `app/academy/page.tsx` |
-| `/waitlist` | Sign-up | `app/waitlist/page.tsx` |
 
 `app/[locale]/…/page.tsx` files re-export the page in `app/…`. The URL decides the language
 (`/he/…`, `/en/…`). Edit the real page, not the re-export.
