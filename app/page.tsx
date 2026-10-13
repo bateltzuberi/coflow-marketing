@@ -12,7 +12,6 @@ import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 import { getHomeCopy } from "@/lib/home-copy";
-import { DiscoveryLinks } from "@/components/discovery-links";
 import { SITE } from "@/lib/site";
 
 // The home page.
@@ -292,7 +291,6 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        <DiscoveryLinks locale={locale} home />
       </main>
 
       <footer className="hm-footer">

@@ -44,3 +44,5 @@ contains: five real pages, everything else redirects.
 
 **Before you write anything Batel will read — a message, a report, a document, copy — read
 `WORKING-WITH-BATEL.md`.** It is how she wants to be talked to, with the failure modes named.
+
+**Before adding, moving or restyling anything on a page, read `docs/landing-page-design-guide.md`.** It fixes what the home page contains (it ends at the price), where explanatory content goes (`/guides`), and the skeleton every other page uses.
