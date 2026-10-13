@@ -4,6 +4,7 @@ import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
+import type { LandingCopy } from "@/lib/landing-source-copy";
 import { SITE, signupUrlFor } from "@/lib/site";
 
 // The home page's sections, lifted out of app/page.tsx so a page that shares
@@ -58,14 +59,13 @@ export function BioPhone({ t, style }: { t: HomeCopy; style?: React.CSSPropertie
   );
 }
 
-/** The link-in-bio flow: the two people who arrived through her page (one signed up, one booked a call), each marked as coming from the link in bio. The page itself is drawn in the hero above. */
-export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string; h2: string; lead: string; via: string } }) {
-  const arrivals = [t.notes[1], t.notes[2]];
+/** A page's own flow: cards for what happened (who arrived, what was made), with her own words around them. The hero above already drew the page itself. */
+export function FlowSection({ flow, icon }: { flow: NonNullable<LandingCopy["flow"]>; icon: IconName }) {
   return (
-    <section className="hm-sec" id="pages">
+    <section className="hm-sec" id="flow">
       <div className="hm-row">
         <div className="hm-copy">
-          <Opener icon="link" label={flow.label} />
+          <Opener icon={icon} label={flow.label} />
           <h2>{flow.h2}</h2>
           <p className="hm-lead">{flow.lead}</p>
         </div>
@@ -75,19 +75,40 @@ export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string
               <i />
               {flow.via}
             </span>
-            {arrivals.map((n, i) => (
-              <div key={n.title} className="hm-deal">
+            {flow.cards.map((c, i) => (
+              <div key={c.title} className="hm-deal">
                 <div className="hm-deal-who">
-                  <i style={{ background: i === 0 ? "var(--hm-butter)" : "var(--hm-pink-tint)" }}>{n.who}</i>
-                  {n.title}
+                  <i style={{ background: i % 2 === 0 ? "var(--hm-butter)" : "var(--hm-pink-tint)" }}>{c.who}</i>
+                  {c.title}
                 </div>
-                <div className="hm-snip">{n.sub.split(" · ").slice(1).join(" · ")}</div>
+                <div className="hm-snip">{c.sub}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/** A list of rows on a phone (a podcast's episodes). */
+export function ListPhone({ phone, style }: { phone: NonNullable<LandingCopy["phone"]>; style?: React.CSSProperties }) {
+  return (
+    <div className="hm-phone hm-mini" style={style}>
+      <div className="hm-screen">
+        <div className="hm-bio">
+          <div className="hm-s-av" />
+          <b className="hm-s-name">{phone.owner}</b>
+          <span className="hm-s-sub">{phone.sub}</span>
+          {phone.rows.map(([a, b], i) => (
+            <div key={a} className={`hm-s-link${i === 0 ? " hm-main" : ""}`}>
+              <span>{a}</span>
+              <span>{b}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

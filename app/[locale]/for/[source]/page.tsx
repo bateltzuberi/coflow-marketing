@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 
 import "@/app/home.css";
 import {
-  BioFlowSection,
   BioPhone,
   ClientsSection,
+  FlowSection,
+  ListPhone,
   HomeFooter,
   MarketingSection,
   PriceSection,
@@ -13,9 +14,10 @@ import {
   SalesSection,
   TopBar,
 } from "@/components/home/sections";
+import type { IconName } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
 import { getHomeCopy } from "@/lib/home-copy";
-import { getLandingCopy, isLandingSource } from "@/lib/landing-source-copy";
+import { getLandingCopy, isLandingSource, type LandingSource } from "@/lib/landing-source-copy";
 import { getLocale } from "@/lib/locale";
 import { buildMetadata } from "@/lib/seo";
 import { signupUrlFor } from "@/lib/site";
@@ -74,7 +76,7 @@ export default async function LandingFromBadge({ params }: Props) {
           </div>
 
           <div className="hm-stage hm-stage-src" aria-hidden="true">
-            {source === "bio" ? <BioPhone t={t} /> : <QuestionnairePhone t={t} />}
+            {page.phone ? <ListPhone phone={page.phone} /> : source === "bio" ? <BioPhone t={t} /> : <QuestionnairePhone t={t} />}
             {page.notes.map((n, i) => (
               <div key={n.title} className="hm-note" style={NOTE_AT[i]}>
                 <span className="hm-who" style={{ background: NOTE_BG[i] }}>
@@ -90,7 +92,7 @@ export default async function LandingFromBadge({ params }: Props) {
         </header>
 
         <div className="hm-wrap">
-          {page.flow ? <BioFlowSection t={t} flow={page.flow} /> : <SalesSection t={t} showForm={false} />}
+          {page.flow ? <FlowSection flow={page.flow} icon={FLOW_ICON[source]} /> : <SalesSection t={t} showForm={false} />}
 
           <p className="hm-more">{page.more}</p>
 
@@ -121,6 +123,9 @@ export default async function LandingFromBadge({ params }: Props) {
     </div>
   );
 }
+
+// The opener icon of a source's own flow section.
+const FLOW_ICON: Record<LandingSource, IconName> = { questionnaire: "coin", bio: "link", podcast: "spark" };
 
 // The two notifications around the phone on a computer; on a phone they stack
 // over it (home.css).
