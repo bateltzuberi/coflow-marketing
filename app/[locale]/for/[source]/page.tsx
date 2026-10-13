@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import "@/app/home.css";
 import {
+  BioFlowSection,
+  BioPhone,
   ClientsSection,
   HomeFooter,
   MarketingSection,
@@ -72,7 +74,7 @@ export default async function LandingFromBadge({ params }: Props) {
           </div>
 
           <div className="hm-stage hm-stage-src" aria-hidden="true">
-            <QuestionnairePhone t={t} />
+            {source === "bio" ? <BioPhone t={t} /> : <QuestionnairePhone t={t} />}
             {page.notes.map((n, i) => (
               <div key={n.title} className="hm-note" style={NOTE_AT[i]}>
                 <span className="hm-who" style={{ background: NOTE_BG[i] }}>
@@ -88,12 +90,12 @@ export default async function LandingFromBadge({ params }: Props) {
         </header>
 
         <div className="hm-wrap">
-          <SalesSection t={t} showForm={false} />
+          {page.flow ? <BioFlowSection t={t} flow={page.flow} /> : <SalesSection t={t} showForm={false} />}
 
           <p className="hm-more">{page.more}</p>
 
           <MarketingSection t={t} />
-          <ClientsSection t={t} />
+          {source === "bio" ? <SalesSection t={t} /> : <ClientsSection t={t} />}
         </div>
 
         {/* What Coflow is, right before the price: the home page's headline. */}

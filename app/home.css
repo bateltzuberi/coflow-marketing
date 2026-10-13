@@ -354,6 +354,7 @@
 .hm-hero-src .hm-sub { max-width: 28em; margin-inline: auto; }
 .hm-stage.hm-stage-src { height: 320px; margin-top: 56px; }
 /* The line that turns the page from "this flow" to "the whole system". */
+.hm-bio { font-size: 12px; }
 .hm-more { margin: 128px 0 0; text-align: center; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--hm-cocoa-3); }
 .hm-more + .hm-sec { margin-top: 56px; }
 /* The brand headline before the price: it is a heading, not the page's h1. */

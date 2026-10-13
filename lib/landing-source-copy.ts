@@ -11,7 +11,7 @@ import type { Locale } from "./locale";
  * its page here.
  */
 
-export const LANDING_SOURCES = ["questionnaire"] as const;
+export const LANDING_SOURCES = ["questionnaire", "bio"] as const;
 export type LandingSource = (typeof LANDING_SOURCES)[number];
 
 export type LandingCopy = {
@@ -22,6 +22,8 @@ export type LandingCopy = {
   sub: string;
   /** The notification cards around the phone. */
   notes: readonly { who: string; title: string; sub: string }[];
+  /** The page's own flow section, for a source whose flow is not one the home page already tells. */
+  flow?: { label: string; h2: string; lead: string };
   /** The line between the page's own story and the whole-system sections. */
   more: string;
 };
@@ -41,6 +43,25 @@ const he: Record<LandingSource, LandingCopy> = {
     ],
     more: "והשאלון הוא רק חלק מקופלו",
   },
+  bio: {
+    meta: {
+      title: "לינק בביו שהוא דף שמוכר",
+      description: "דף אחד לאינסטגרם עם המוצרים, המדריך החינמי ושיחת ההיכרות שלך. מי שנרשמת נכנסת לקופלו, ואת רואה מאיפה היא הגיעה.",
+    },
+    pill: "הגעת מדף לינק בביו שנבנה בקופלו",
+    h1: "הלינק בביו יכול להיות דף שמוכר.",
+    sub: "דף אחד לכל מה שאת מציעה: מוצרים, מדריך חינמי ושיחת היכרות. מי שנרשמת נכנסת לרשימה שלך.",
+    notes: [
+      { who: "ש", title: "שירה נרשמה למדריך", sub: "מהלינק בביו · נכנסה לרשימת התפוצה" },
+      { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "יום ג׳ 14:00 · נכנסה ליומן" },
+    ],
+    flow: {
+      label: "דפי נחיתה",
+      h2: "כל מה שאת מוכרת בדף אחד",
+      lead: "דף לאינסטגרם עם המוצרים שלך, מדריך חינמי ושיחת היכרות. כל מי שנרשמת או קובעת שיחה נכנסת למקום הנכון בקופלו, ואת רואה מאיפה היא הגיעה.",
+    },
+    more: "והדף הוא רק חלק מקופלו",
+  },
 };
 
 const en: Record<LandingSource, LandingCopy> = {
@@ -57,6 +78,25 @@ const en: Record<LandingSource, LandingCopy> = {
       { who: "R", title: "Roni picked the course", sub: "New deal · ₪690" },
     ],
     more: "And the questionnaire is only one part of Coflow",
+  },
+  bio: {
+    meta: {
+      title: "A link in bio that is a page that sells",
+      description: "One Instagram page with your offers, your free guide and your intro call. Everyone who signs up lands in Coflow, and you see where she came from.",
+    },
+    pill: "You came from a link-in-bio page built in Coflow",
+    h1: "Your link in bio can be a page that sells.",
+    sub: "One page for everything you offer: products, a free guide and an intro call. Whoever signs up joins your list.",
+    notes: [
+      { who: "S", title: "Shira signed up for the guide", sub: "From the link in bio · added to the list" },
+      { who: "D", title: "Dana booked an intro call", sub: "Tue 14:00 · in the calendar" },
+    ],
+    flow: {
+      label: "Landing pages",
+      h2: "Everything you sell, on one page",
+      lead: "An Instagram page with your offers, a free guide and an intro call. Everyone who signs up or books a call lands in the right place in Coflow, and you see where she came from.",
+    },
+    more: "And the page is only one part of Coflow",
   },
 };
 

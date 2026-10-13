@@ -2,7 +2,7 @@ import { localizedPath } from "@/lib/locale-path";
 
 import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
-import { Icon } from "@/components/home/icon";
+import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
 import { SITE, signupUrlFor } from "@/lib/site";
 
@@ -23,7 +23,7 @@ export function TopBar({ t }: { t: HomeCopy }) {
   );
 }
 
-export function Opener({ icon, label }: { icon: "coin" | "mega" | "users"; label: string }) {
+export function Opener({ icon, label }: { icon: IconName; label: string }) {
   return (
     <div className="hm-opener">
       <i>
@@ -33,6 +33,59 @@ export function Opener({ icon, label }: { icon: "coin" | "mega" | "users"; label
       </i>
       <b>{label}</b>
     </div>
+  );
+}
+
+/** A customer's link-in-bio page, as drawn in the "+" menu's bio set-up. */
+export function BioPhone({ t, style }: { t: HomeCopy; style?: React.CSSProperties }) {
+  const m = t.plus.mock;
+  return (
+    <div className="hm-phone hm-mini" style={style}>
+      <div className="hm-screen">
+        <div className="hm-bio">
+          <div className="hm-s-av" />
+          <b className="hm-s-name">{m.owner}</b>
+          <span className="hm-s-sub">{m.bio.sub}</span>
+          {m.bio.links.map(([a, b], i) => (
+            <div key={a} className={`hm-s-link${i === 0 ? " hm-main" : ""}`}>
+              <span>{a}</span>
+              <span>{b}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** The link-in-bio flow: what happens to someone who signed up through the page. The page itself is drawn in the hero above. */
+export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string; h2: string; lead: string } }) {
+  return (
+    <section className="hm-sec" id="pages">
+      <div className="hm-row">
+        <div className="hm-copy">
+          <Opener icon="link" label={flow.label} />
+          <h2>{flow.h2}</h2>
+          <p className="hm-lead">{flow.lead}</p>
+        </div>
+        <div className="hm-vis" aria-hidden="true">
+          <div className="hm-col" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
+            <span className="hm-stg">
+              <i />
+              {t.plus.mock.gift.cardTitle}
+            </span>
+            {t.plus.mock.gift.rows.map(([when, what]) => (
+              <div key={when} className="hm-deal">
+                <div className="hm-foot">
+                  <span>{when}</span>
+                  <span>{what}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
