@@ -45,20 +45,20 @@ const he: Record<LandingSource, LandingCopy> = {
   },
   bio: {
     meta: {
-      title: "לינק בביו שהוא דף שמוכר",
-      description: "דף אחד לאינסטגרם עם המוצרים, המדריך החינמי ושיחת ההיכרות שלך. מי שנרשמת נכנסת לקופלו, ואת רואה מאיפה היא הגיעה.",
+      title: "כל מה שאת מציעה, בלינק אחד בביו",
+      description: "דף אחד לאינסטגרם עם המוצרים, המדריך החינמי ושיחת ההיכרות שלך. מי שנרשמת נכנסת אלייך, ואת רואה מאיפה היא הגיעה.",
     },
     pill: "הגעת מדף לינק בביו שנבנה בקופלו",
-    h1: "הלינק בביו יכול להיות דף שמוכר.",
-    sub: "דף אחד לכל מה שאת מציעה: מוצרים, מדריך חינמי ושיחת היכרות. מי שנרשמת נכנסת לרשימה שלך.",
+    h1: "כל מה שאת מציעה, בלינק אחד בביו.",
+    sub: "מוצרים, מדריך חינמי ושיחת היכרות בדף אחד. מי שנרשמת או קובעת שיחה נכנסת אלייך, ואת רואה שהיא הגיעה מהלינק בביו.",
     notes: [
       { who: "ש", title: "שירה נרשמה למדריך", sub: "מהלינק בביו · נכנסה לרשימת התפוצה" },
       { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "יום ג׳ 14:00 · נכנסה ליומן" },
     ],
     flow: {
       label: "דפי נחיתה",
-      h2: "כל מה שאת מוכרת בדף אחד",
-      lead: "דף לאינסטגרם עם המוצרים שלך, מדריך חינמי ושיחת היכרות. כל מי שנרשמת או קובעת שיחה נכנסת למקום הנכון בקופלו, ואת רואה מאיפה היא הגיעה.",
+      h2: "מי שנרשמת דרך הדף נכנסת אלייך",
+      lead: "מי שנרשמת למדריך נכנסת לרשימת התפוצה ומקבלת סדרת מיילים. מי שקובעת שיחה נכנסת ליומן שלך. בכל מקרה את רואה שהיא הגיעה מהלינק בביו.",
     },
     more: "והדף הוא רק חלק מקופלו",
   },
@@ -81,20 +81,20 @@ const en: Record<LandingSource, LandingCopy> = {
   },
   bio: {
     meta: {
-      title: "A link in bio that is a page that sells",
+      title: "Everything you offer, in one link in bio",
       description: "One Instagram page with your offers, your free guide and your intro call. Everyone who signs up lands in Coflow, and you see where she came from.",
     },
     pill: "You came from a link-in-bio page built in Coflow",
-    h1: "Your link in bio can be a page that sells.",
-    sub: "One page for everything you offer: products, a free guide and an intro call. Whoever signs up joins your list.",
+    h1: "Everything you offer, in one link in bio.",
+    sub: "Products, a free guide and an intro call on one page. Whoever signs up or books a call lands with you, and you see she came from the link in bio.",
     notes: [
       { who: "S", title: "Shira signed up for the guide", sub: "From the link in bio · added to the list" },
       { who: "D", title: "Dana booked an intro call", sub: "Tue 14:00 · in the calendar" },
     ],
     flow: {
       label: "Landing pages",
-      h2: "Everything you sell, on one page",
-      lead: "An Instagram page with your offers, a free guide and an intro call. Everyone who signs up or books a call lands in the right place in Coflow, and you see where she came from.",
+      h2: "Whoever signs up through the page lands with you",
+      lead: "Whoever signs up for the guide joins your list and gets an email series. Whoever books a call lands in your calendar. Either way you see she came from the link in bio.",
     },
     more: "And the page is only one part of Coflow",
   },
