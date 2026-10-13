@@ -1,4 +1,5 @@
-// The site's legal texts, verbatim from the documents Batel sent (2026-10-09):
+// The site's legal texts, verbatim from the documents Batel sent (2026-10-09;
+// privacy section 1.1 from the lawyer's update and the Paphos address from Batel, 2026-10-13):
 // terms of use and privacy policy, in Hebrew and English. Rendered by
 // components/legal-page.tsx. Do not edit the wording here; replace it from a
 // newer document.
@@ -15,7 +16,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "terms": {
   "he": {
    "title": "תנאי שימוש —Coflow",
-   "updated": "תאריך עדכון אחרון: 27/08/2026",
+   "updated": "תאריך עדכון אחרון: 13/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -318,13 +319,13 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "כתובת",
-     "x": "Ifigenias 8, Livadia, Cyprus"
+     "x": "Voreiou Ipeirou, Diana Gardens, Block A, Apartment 2, 8035 Paphos, Cyprus"
     }
    ]
   },
   "en": {
    "title": "Terms of Use — Coflow",
-   "updated": "Last updated: 27/08/2026",
+   "updated": "Last updated: 13/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -627,7 +628,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "Address",
-     "x": "Ifigenias 8, Livadia, Cyprus"
+     "x": "Voreiou Ipeirou, Diana Gardens, Block A, Apartment 2, 8035 Paphos, Cyprus"
     }
    ]
   }
@@ -635,7 +636,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "privacy": {
   "he": {
    "title": "מדיניות פרטיות — קופלו (Coflow)",
-   "updated": "תאריך עדכון אחרון: 27/08/2026",
+   "updated": "תאריך עדכון אחרון: 13/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -648,7 +649,23 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "h3",
-     "x": "1.1 שני מעמדות — בקר מידע ומעבד מידע"
+     "x": "1.1 מטרת השירות והגבלות על סוגי המידע"
+    },
+    {
+     "t": "p",
+     "x": "פלטפורמת קופלו מיועדת לניהול, חיבור וניתוח מידע עסקי הנוגע למוצרים ושירותים, לידים, לקוחות, מקורות הגעה, מסעות לקוח, עסקאות, רכישות והכנסות, במטרה לסייע למשתמשים להבין את פעילותם העסקית ולנתח את התהליכים המובילים ליצירת הכנסות."
+    },
+    {
+     "t": "p",
+     "x": "הפלטפורמה אינה מיועדת להעלאה, אחסון או עיבוד של מידע אישי בעל רגישות מיוחדת, לרבות מידע רפואי, ביומטרי או גנטי, מידע הנוגע לאמונות דתיות, דעות פוליטיות, נטייה מינית, עבר פלילי או מידע אישי רגיש אחר שאינו נדרש לצורך השימוש בשירות בהתאם למטרותיו."
+    },
+    {
+     "t": "p",
+     "x": "על המשתמשים להימנע מהזנת מידע כאמור לפלטפורמה, והאחריות לוודא כי המידע המוזן לשירות תואם את מטרותיו ואת הוראות הדין החל מוטלת על המשתמש."
+    },
+    {
+     "t": "h3",
+     "x": "1.2 שני מעמדות — בקר מידע ומעבד מידע"
     },
     {
      "t": "p",
@@ -1044,13 +1061,13 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "כתובת",
-     "x": "Ifigenias 8, Livadia, Cyprus"
+     "x": "Voreiou Ipeirou, Diana Gardens, Block A, Apartment 2, 8035 Paphos, Cyprus"
     }
    ]
   },
   "en": {
    "title": "Privacy Policy — Coflow",
-   "updated": "Last updated: 27/08/2026",
+   "updated": "Last updated: 13/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -1063,7 +1080,23 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "h3",
-     "x": "1.1 Two Capacities — Data Controller and Data Processor"
+     "x": "1.1 Purpose of the Service and Restrictions on Data Categories"
+    },
+    {
+     "t": "p",
+     "x": "The Coflow Platform is designed to manage, integrate, and analyze business information relating to products and services, leads, customers, acquisition sources, customer journeys, transactions, purchases, and revenue, in order to help users understand their business activities and analyze the processes that lead to revenue generation."
+    },
+    {
+     "t": "p",
+     "x": "The Platform is not intended for the uploading, storage, or processing of special categories of personal data, including health, biometric or genetic data, information concerning religious beliefs, political opinions, sexual orientation, criminal records, or other sensitive personal data that is not necessary for the use of the Service in accordance with its intended purposes."
+    },
+    {
+     "t": "p",
+     "x": "Users must refrain from submitting such information to the Platform and are responsible for ensuring that any data submitted to the Service is consistent with its intended purposes and complies with applicable law."
+    },
+    {
+     "t": "h3",
+     "x": "1.2 Two Capacities — Data Controller and Data Processor"
     },
     {
      "t": "p",
@@ -1455,7 +1488,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "label": "Address",
-     "x": "Ifigenias 8, Livadia, Cyprus"
+     "x": "Voreiou Ipeirou, Diana Gardens, Block A, Apartment 2, 8035 Paphos, Cyprus"
     }
    ]
   }
