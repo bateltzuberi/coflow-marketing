@@ -4,7 +4,7 @@ import { localizedPath } from "@/lib/locale-path";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import type { HomeCopy, PlusKey } from "@/lib/home-copy";
-import { WaitlistForm } from "@/components/waitlist/waitlist-form";
+import { signupUrlFor } from "@/lib/site";
 import { Icon, type IconName } from "./icon";
 
 /** Any "+" on the page (the hero's hint) opens the dock's fan through this. */
@@ -56,9 +56,6 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const [result, setResult] = useState<PlusKey | null>(null);
-  // Joining = signing up and waiting for an invite. Every "Join" on the page
-  // (an <a data-join href={localizedPath("/waitlist", locale)}>, so without JS it still reaches the form) opens this instead.
-  const [signup, setSignup] = useState(false);
   const [layout, setLayout] = useState<{ lift: number; shift: number }[]>([]);
   // Reduced motion: no spring and no stagger, the column is simply there.
   const still = useSyncExternalStore(subscribeReducedMotion, reducedMotionSnapshot, serverReducedMotionSnapshot);
@@ -106,19 +103,6 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   }, []);
 
   useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      const a = (e.target as Element | null)?.closest?.("a[data-join]");
-      if (!a) return;
-      e.preventDefault();
-      setFanOpen(false);
-      setResult(null);
-      setSignup(true);
-    };
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
-  }, []);
-
-  useEffect(() => {
     const onOpen = () => {
       setDocked(true);
       // let the dock rise before the fan comes out of it
@@ -131,8 +115,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
-      if (signup) setSignup(false);
-      else if (result) setResult(null);
+      if (result) setResult(null);
       else if (fanOpen) {
         setFanOpen(false);
         plusRef.current?.focus();
@@ -140,14 +123,14 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [fanOpen, result, signup]);
+  }, [fanOpen, result]);
 
   useEffect(() => {
-    document.documentElement.style.overflow = result || signup ? "hidden" : "";
+    document.documentElement.style.overflow = result ? "hidden" : "";
     return () => {
       document.documentElement.style.overflow = "";
     };
-  }, [result, signup]);
+  }, [result]);
 
 
   return (
@@ -239,7 +222,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
           {t.dock.price}
         </a>
         <span className="hm-sep" />
-        <a className="hm-dock-join" href={localizedPath("/waitlist", locale)} data-join>
+        <a className="hm-dock-join" href={signupUrlFor(locale, "")}>
           {t.dock.join}
         </a>
       </nav>
@@ -260,8 +243,6 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
           onJoin={closeAll}
         />
       )}
-
-      {signup && <SignupPopup t={t} locale={locale} onClose={() => setSignup(false)} />}
     </>
   );
 }
@@ -334,7 +315,7 @@ function ResultPopup({
           <button type="button" className="hm-link" onClick={onMore}>
             {t.plus.back}
           </button>
-          <a ref={joinRef} className="hm-btn" href={localizedPath("/waitlist", locale)} data-join onClick={onJoin}>
+          <a ref={joinRef} className="hm-btn" href={signupUrlFor(locale, "")} onClick={onJoin}>
             {t.plus.cta}
           </a>
         </div>
@@ -523,36 +504,6 @@ function Phone({ children, center = false }: { children: React.ReactNode; center
     <div className="hm-phone">
       <div className="hm-screen" style={center ? { textAlign: "center" } : undefined}>
         {children}
-      </div>
-    </div>
-  );
-}
-
-/** "Join": sign up, then wait for the invite (the waitlist form, from the Studio). */
-function SignupPopup({ t, locale, onClose }: { t: HomeCopy; locale: "he" | "en"; onClose: () => void }) {
-  return (
-    <div
-      className="hm-ov"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
-      <div className="hm-pop" role="dialog" aria-modal="true" aria-labelledby="hm-signup-title">
-        <div className="hm-ph">
-          <div className="hm-grab" />
-          <div className="hm-pbar">
-            <span />
-            <span />
-            <button type="button" className="hm-x" aria-label={t.dock.close} onClick={onClose}>
-              <Icon name="x" />
-            </button>
-          </div>
-          <h3 id="hm-signup-title">{t.price.signupTitle}</h3>
-          <p className="hm-pop-sub">{t.price.fine}</p>
-        </div>
-        <div className="hm-pb">
-          <WaitlistForm title={t.price.formTitle} locale={locale} />
-        </div>
       </div>
     </div>
   );

@@ -5,14 +5,12 @@ import "./home.css";
 import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
-import { HaveCode, HomeJoinForm } from "@/components/home/home-join-form";
 import { Icon } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
-import { getDict } from "@/lib/dictionary";
 import { getHomeCopy } from "@/lib/home-copy";
-import { SITE } from "@/lib/site";
+import { SITE, signupUrlFor } from "@/lib/site";
 
 // The home page.
 //
@@ -21,9 +19,7 @@ import { SITE } from "@/lib/site";
 // every picture on it is a real Coflow screen drawn as a customer would meet
 // it. Colours are the studio's yellow theme (app/home.css).
 //
-// Every "Join" opens the sign-up popup (the Studio waitlist form): sign-up is
-// closed, people sign up and wait for an invite. An invite code still works
-// from the "have a code?" link in the price section.
+// Every "Join" goes straight to the Studio sign-up page: sign-up is open, €24 a month.
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -49,7 +45,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const locale = await getLocale();
   const t = getHomeCopy(locale);
-  const join = getDict(locale).join;
 
   return (
     <div className="hm" lang={locale}>
@@ -76,7 +71,7 @@ export default async function Home() {
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
             <p className="hm-sub">{t.hero.sub}</p>
-            <a className="hm-btn" href={localizedPath("/waitlist", locale)} data-join>
+            <a className="hm-btn" href={signupUrlFor(locale, "")}>
               {t.hero.cta}
             </a>
             <PlusHint t={t} />
@@ -272,16 +267,10 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* Joining = signing up and waiting for an invite. The button
-                    opens the sign-up popup (the Studio waitlist form); the
-                    code field is for whoever was given one. */}
                 <p className="hm-fine">{t.price.fine}</p>
-                <a className="hm-btn hm-price-btn" href={localizedPath("/waitlist", locale)} data-join>
+                <a className="hm-btn hm-price-btn" href={signupUrlFor(locale, "")}>
                   {t.hero.cta}
                 </a>
-                <HaveCode label={t.price.haveCode}>
-                  <HomeJoinForm t={join} locale={locale} />
-                </HaveCode>
               </div>
               <div className="hm-pt">
                 <small>{t.price.tileLabel}</small>

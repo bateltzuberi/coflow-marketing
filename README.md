@@ -17,7 +17,7 @@ There is no `app.coflow.social`. Earlier versions of this README said there was.
 ## Stack
 
 Next.js 16 (App Router), React 19, TypeScript, Tailwind v4, Netlify (`@netlify/plugin-nextjs`).
-Supabase is used read/write only for the invite code + waitlist (`lib/supabase.ts`, `app/actions.ts`, `app/invite-actions.ts`) — no auth, no product data.
+The Supabase client in `lib/supabase.ts` and `app/actions.ts` is a leftover from the waitlist; nothing on the pages calls it — no auth, no product data.
 
 ## Local dev
 
@@ -37,7 +37,6 @@ npm run dev
                         lands on the invite-code field (#join), which validates a code
                         and hands off to the Studio signup. Styles: app/home.css,
                         words: lib/home-copy.ts.
-/waitlist               No code? Leave an address here
 /how-it-works           The product explained — the site's one real explainer
 /academy                Help centre index
 /academy/[area]         Help centre per area

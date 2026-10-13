@@ -20,7 +20,7 @@ export function getGuide(slug: string, locale: Locale): GuidePage | null {
       { name: "Schooler / Rav Messer", focus: he ? "קורסים מסונכרנים עם מערכת הדיוור של רב מסר" : "Course delivery synchronised with Rav Messer email marketing", check: he ? "התאמה למערכת הדיוור שלך, לסליקה ולעברית" : "Fit with your email setup, payment provider and language" },
       { name: "Kajabi", focus: he ? "מוצרים מבוססי ידע עם משפכים ואוטומציות" : "Knowledge products with funnels and automations", check: he ? "התוכנית הדרושה, השפה ותהליך המכירה שלך" : "Required plan, language support and your sales process" },
       { name: "systeme.io", focus: he ? "קורסים, משפכים ודיוור באותה פלטפורמה" : "Courses, funnels and email in one platform", check: he ? "מגבלות התוכנית וחוויית הקורס והמעקב" : "Plan limits, learning experience and follow-up workflow" },
-      { name: "Coflow", focus: he ? "מותג, מוצרים, שיווק ו-CRM עם AI; קורסים בפיתוח" : "Brand, offers, marketing and CRM with AI; courses in development", check: he ? "זמינות בהזמנה והיכולות שאת צריכה לפני מעבר" : "Invitation access and required capabilities before migrating" },
+      { name: "Coflow", focus: he ? "מותג, מוצרים, שיווק ו-CRM עם AI; קורסים בפיתוח" : "Brand, offers, marketing and CRM with AI; courses in development", check: he ? "היכולות שאת צריכה לפני מעבר" : "Required capabilities before migrating" },
     ],
     sources: [
       { name: "Schooler / Rav Messer", url: "https://www.responder.co.il/schooler/" },

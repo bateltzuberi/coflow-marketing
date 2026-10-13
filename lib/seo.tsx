@@ -72,7 +72,7 @@ export function softwareApplicationJsonLd(locale: Locale) {
       : "AI brand management connecting offers, content, funnels, contacts and deals in one workspace.",
     url: `${SITE.url}${localizedPath("/about", locale)}`,
     publisher: { "@id": `${SITE.url}/#organization` },
-    offers: { "@type": "Offer", price: "24", priceCurrency: "EUR", description: locale === "he" ? "מנוי חודשי, הצטרפות בהזמנה" : "Monthly subscription, invitation access", url: `${SITE.url}${localizedPath("/", locale)}#price` },
+    offers: { "@type": "Offer", price: "24", priceCurrency: "EUR", description: locale === "he" ? "מנוי חודשי" : "Monthly subscription", url: `${SITE.url}${localizedPath("/", locale)}#price` },
   };
 }
 
