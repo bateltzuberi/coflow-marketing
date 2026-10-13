@@ -58,8 +58,9 @@ export function BioPhone({ t, style }: { t: HomeCopy; style?: React.CSSPropertie
   );
 }
 
-/** The link-in-bio flow: what happens to someone who signed up through the page. The page itself is drawn in the hero above. */
-export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string; h2: string; lead: string } }) {
+/** The link-in-bio flow: the two people who arrived through her page (one signed up, one booked a call), each marked as coming from the link in bio. The page itself is drawn in the hero above. */
+export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string; h2: string; lead: string; via: string } }) {
+  const arrivals = [t.notes[1], t.notes[2]];
   return (
     <section className="hm-sec" id="pages">
       <div className="hm-row">
@@ -72,14 +73,15 @@ export function BioFlowSection({ t, flow }: { t: HomeCopy; flow: { label: string
           <div className="hm-col" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
             <span className="hm-stg">
               <i />
-              {t.plus.mock.gift.cardTitle}
+              {flow.via}
             </span>
-            {t.plus.mock.gift.rows.map(([when, what]) => (
-              <div key={when} className="hm-deal">
-                <div className="hm-foot">
-                  <span>{when}</span>
-                  <span>{what}</span>
+            {arrivals.map((n, i) => (
+              <div key={n.title} className="hm-deal">
+                <div className="hm-deal-who">
+                  <i style={{ background: i === 0 ? "var(--hm-butter)" : "var(--hm-pink-tint)" }}>{n.who}</i>
+                  {n.title}
                 </div>
+                <div className="hm-snip">{n.sub.split(" · ").slice(1).join(" · ")}</div>
               </div>
             ))}
           </div>

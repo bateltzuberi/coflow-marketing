@@ -23,7 +23,7 @@ export type LandingCopy = {
   /** The notification cards around the phone. */
   notes: readonly { who: string; title: string; sub: string }[];
   /** The page's own flow section, for a source whose flow is not one the home page already tells. */
-  flow?: { label: string; h2: string; lead: string };
+  flow?: { label: string; h2: string; lead: string; via: string };
   /** The line between the page's own story and the whole-system sections. */
   more: string;
 };
@@ -50,15 +50,16 @@ const he: Record<LandingSource, LandingCopy> = {
     },
     pill: "הגעת מדף לינק בביו שנבנה בקופלו",
     h1: "כל מה שאת מציעה, בלינק אחד בביו.",
-    sub: "מוצרים, מדריך חינמי ושיחת היכרות בדף אחד. מי שנרשמת נכנסת לרשימה שלך, מי שקובעת שיחה נכנסת ליומן, ואת רואה שהיא הגיעה מהלינק בביו.",
+    sub: "מוצרים, מדריך חינמי ושיחת היכרות בדף אחד. מי שנרשמת או קובעת שיחה נכנסת אלייך, ואת רואה שהיא הגיעה מהלינק בביו.",
     notes: [
       { who: "ש", title: "שירה נרשמה למדריך", sub: "מהלינק בביו · נכנסה לרשימת התפוצה" },
       { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "יום ג׳ 14:00 · נכנסה ליומן" },
     ],
     flow: {
       label: "דפי נחיתה",
-      h2: "מי שנרשמת דרך הדף נכנסת לרשימה שלך",
-      lead: "מי שנרשמת למדריך נכנסת לרשימת התפוצה ומקבלת סדרת מיילים. מי שקובעת שיחה נכנסת ליומן שלך. בכל מקרה את רואה שהיא הגיעה מהלינק בביו.",
+      h2: "כל מי שנרשמת מהלינק מגיעה לרשימה או ליומן שלך",
+      lead: "מי שנרשמת למדריך נכנסת לרשימת התפוצה. מי שקובעת שיחה נכנסת ליומן. ועל כל אחת מהן כתוב שהיא הגיעה מהלינק בביו.",
+      via: "הגיעו מהלינק בביו",
     },
     more: "והדף הוא רק חלק מקופלו",
   },
@@ -86,15 +87,16 @@ const en: Record<LandingSource, LandingCopy> = {
     },
     pill: "You came from a link-in-bio page built in Coflow",
     h1: "Everything you offer, in one link in bio.",
-    sub: "Products, a free guide and an intro call on one page. Whoever signs up joins your list, whoever books a call lands in your calendar, and you see she came from the link in bio.",
+    sub: "Products, a free guide and an intro call on one page. Whoever signs up or books a call lands with you, and you see she came from the link in bio.",
     notes: [
       { who: "S", title: "Shira signed up for the guide", sub: "From the link in bio · added to the list" },
       { who: "D", title: "Dana booked an intro call", sub: "Tue 14:00 · in the calendar" },
     ],
     flow: {
       label: "Landing pages",
-      h2: "Whoever signs up through the page joins your list",
-      lead: "Whoever signs up for the guide joins your list and gets an email series. Whoever books a call lands in your calendar. Either way you see she came from the link in bio.",
+      h2: "Everyone who signs up from the link joins your list or your calendar",
+      lead: "Whoever signs up for the guide joins your mailing list. Whoever books a call lands in your calendar. And each of them is marked as coming from the link in bio.",
+      via: "Came from the link in bio",
     },
     more: "And the page is only one part of Coflow",
   },
