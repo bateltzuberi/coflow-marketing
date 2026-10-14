@@ -14,6 +14,15 @@ import type { Locale } from "./locale";
 export const LANDING_SOURCES = ["questionnaire", "bio", "podcast"] as const;
 export type LandingSource = (typeof LANDING_SOURCES)[number];
 
+export type LandingFlow = {
+  label: string;
+  h2: string;
+  lead: string;
+  /** The title above the cards. */
+  via: string;
+  cards: readonly { who: string; title: string; sub: string }[];
+};
+
 export type LandingCopy = {
   meta: { title: string; description: string };
   /** The pill above the headline: where she came from. */
@@ -22,16 +31,9 @@ export type LandingCopy = {
   sub: string;
   /** The notification cards around the phone. */
   notes: readonly { who: string; title: string; sub: string }[];
-  /** The page's own flow section, for a source whose flow is not one the home page already tells. */
-  flow?: {
-    label: string;
-    h2: string;
-    lead: string;
-    /** The title above the cards. */
-    via: string;
-    cards: readonly { who: string; title: string; sub: string }[];
-  };
-  /** A list phone in the hero, for a source that is not a form or a bio page. */
+  /** The page's own sections, for a source whose story is not one the home page already tells. */
+  flows?: readonly LandingFlow[];
+  /** A list phone in the hero (the show's public page), for a source that is not a form or a bio page. */
   phone?: { owner: string; sub: string; rows: readonly (readonly [string, string])[] };
   /** The line between the page's own story and the whole-system sections. */
   more: string;
@@ -64,7 +66,7 @@ const he: Record<LandingSource, LandingCopy> = {
       { who: "ש", title: "שירה נרשמה למדריך", sub: "מהלינק בביו · נכנסה לרשימת התפוצה" },
       { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "יום ג׳ 14:00 · נכנסה ליומן" },
     ],
-    flow: {
+    flows: [{
       label: "דפי נחיתה",
       h2: "כל מי שנרשמת מהלינק מגיעה לרשימה או ליומן שלך",
       lead: "מי שנרשמת למדריך נכנסת לרשימת התפוצה. מי שקובעת שיחה נכנסת ליומן. ועל כל אחת מהן כתוב שהיא הגיעה מהלינק בביו.",
@@ -73,41 +75,54 @@ const he: Record<LandingSource, LandingCopy> = {
         { who: "ש", title: "שירה נרשמה למדריך", sub: "נכנסה לרשימת התפוצה" },
         { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "נכנסה ליומן" },
       ],
-    },
+    }],
     more: "והדף הוא רק חלק מקופלו",
   },
   podcast: {
     meta: {
-      title: "כל פרק בפודקאסט הופך לתוכן",
-      description: "ייבוא הפרקים מהפיד הקיים, תמלול, הפצה ותוכן שנכתב מכל פרק, במקום אחד. הפודקאסט ממשיך להתארח איפה שהוא.",
+      title: "את הפודקאסט שלך אפשר לארח בקופלו",
+      description: "מעלים פרקים וקופלו מארחת אותם: פיד אחד לכל אפליקציות ההאזנה, דף ציבורי עם נגן, ומספרי הורדות לפי תקן IAB.",
     },
     pill: "הגעת מדף פודקאסט שנבנה בקופלו",
-    h1: "כל פרק בפודקאסט הופך לתוכן.",
-    sub: "קופלו מביאה את הפרקים מהפיד הקיים, מתמללת אותם וכותבת מהם ניוזלטר ופוסטים. הפודקאסט ממשיך להתארח איפה שהוא.",
+    h1: "את הפודקאסט שלך אפשר לארח בקופלו.",
+    sub: "מעלה פרקים, ומקבלת קישור פיד אחד לכל אפליקציות ההאזנה, דף ציבורי עם נגן ומספרי הורדות.",
     phone: {
       owner: "הפודקאסט של מאיה לוי",
-      sub: "פרקים",
+      sub: "הפרקים האחרונים",
       rows: [
-        ["פרק 12 · למה תמחור מפחיד", "תומלל"],
-        ["פרק 11 · הלקוחה הראשונה", "תומלל"],
-        ["פרק 10 · לדבר על כסף", "בתמלול"],
+        ["פרק 12 · תמחור", "24 דק׳"],
+        ["פרק 11 · לקוחה ראשונה", "31 דק׳"],
+        ["פרק 10 · על כסף", "27 דק׳"],
       ],
     },
     notes: [
-      { who: "1", title: "פרק 12 תומלל", sub: "מוכן לניוזלטר ולפוסטים" },
-      { who: "ה", title: "הפרק עלה להאזנה", sub: "הפיד התעדכן לבד" },
+      { who: "↓", title: "342 הורדות השבוע", sub: "הפלטפורמה המובילה: ספוטיפיי" },
+      { who: "12", title: "פרק 12 עלה", sub: "הפיד התעדכן לבד" },
     ],
-    flow: {
-      label: "פודקאסט",
-      h2: "מפרק אחד יוצאים ניוזלטר ופוסטים",
-      lead: "קופלו מתמללת את הפרק ברקע, וממנו כותבת טיזר לניוזלטר ופוסטים לאינסטגרם. במסך ההפצה את רואה מה כבר פעיל באפליקציות ההאזנה ומה ממתין להגשה.",
-      via: "מפרק 12",
-      cards: [
-        { who: "ת", title: "תמלול", sub: "רץ ברקע, אפשר להמשיך לעבוד" },
-        { who: "נ", title: "טיזר לניוזלטר", sub: "נכתב מהתמלול" },
-        { who: "א", title: "פוסט לאינסטגרם", sub: "מקדם את הפרק" },
-      ],
-    },
+    flows: [
+      {
+        label: "הפצה",
+        h2: "מעלה פרק, והוא מגיע לכל אפליקציות ההאזנה",
+        lead: "כל פודקאסט מקבל קישור פיד אחד. מגישים אותו פעם אחת לכל פלטפורמה, ובמסך ההפצה את רואה איפה הפודקאסט כבר מופיע ומה עוד ממתין להגשה. מכאן הפיד מתעדכן לבד עם כל פרק חדש.",
+        via: "מסך ההפצה",
+        cards: [
+          { who: "A", title: "Apple Podcasts", sub: "הפודקאסט מופיע" },
+          { who: "S", title: "Spotify", sub: "הפודקאסט מופיע" },
+          { who: "Y", title: "YouTube Music", sub: "ממתין להגשה" },
+        ],
+      },
+      {
+        label: "נתונים",
+        h2: "את רואה כמה הורידו ומאיפה",
+        lead: "הורדות, מאזינים ייחודיים והפלטפורמה המובילה, פרק אחרי פרק. הספירה מסננת סורקים וכפילויות לפי תקן IAB, כמו אצל שירותי האירוח הגדולים.",
+        via: "השבוע",
+        cards: [
+          { who: "↓", title: "342 הורדות", sub: "סך הכל בשבוע האחרון" },
+          { who: "מ", title: "187 מאזינים ייחודיים", sub: "לפי כתובת IP" },
+          { who: "S", title: "ספוטיפיי מובילה", sub: "54% מההורדות" },
+        ],
+      },
+    ],
     more: "והפודקאסט הוא רק חלק מקופלו",
   },
 };
@@ -139,7 +154,7 @@ const en: Record<LandingSource, LandingCopy> = {
       { who: "S", title: "Shira signed up for the guide", sub: "From the link in bio · added to the list" },
       { who: "D", title: "Dana booked an intro call", sub: "Tue 14:00 · in the calendar" },
     ],
-    flow: {
+    flows: [{
       label: "Landing pages",
       h2: "Everyone who signs up from the link joins your list or your calendar",
       lead: "Whoever signs up for the guide joins your mailing list. Whoever books a call lands in your calendar. And each of them is marked as coming from the link in bio.",
@@ -148,41 +163,54 @@ const en: Record<LandingSource, LandingCopy> = {
         { who: "S", title: "Shira signed up for the guide", sub: "Added to the mailing list" },
         { who: "D", title: "Dana booked an intro call", sub: "In the calendar" },
       ],
-    },
+    }],
     more: "And the page is only one part of Coflow",
   },
   podcast: {
     meta: {
-      title: "Every podcast episode becomes content",
-      description: "Import your episodes from the existing feed, transcribe them, distribute them and write content from each one, in one place. The show stays hosted where it is.",
+      title: "You can host your podcast in Coflow",
+      description: "Upload episodes and Coflow hosts them: one feed for every listening app, a public page with a player, and download numbers to the IAB standard.",
     },
     pill: "You came from a podcast page built in Coflow",
-    h1: "Every podcast episode becomes content.",
-    sub: "Coflow pulls your episodes from the existing feed, transcribes them and writes a newsletter and posts from them. The show stays hosted where it is.",
+    h1: "You can host your podcast in Coflow.",
+    sub: "Upload episodes and get one feed link for every listening app, a public page with a player and download numbers.",
     phone: {
       owner: "Maya Levi's podcast",
-      sub: "Episodes",
+      sub: "Latest episodes",
       rows: [
-        ["Ep. 12 · Why pricing is scary", "Transcribed"],
-        ["Ep. 11 · The first client", "Transcribed"],
-        ["Ep. 10 · Talking about money", "Transcribing"],
+        ["Ep. 12 · Pricing", "24 min"],
+        ["Ep. 11 · First client", "31 min"],
+        ["Ep. 10 · On money", "27 min"],
       ],
     },
     notes: [
-      { who: "1", title: "Episode 12 transcribed", sub: "Ready for a newsletter and posts" },
-      { who: "L", title: "The episode is live", sub: "The feed updated by itself" },
+      { who: "↓", title: "342 downloads this week", sub: "Top platform: Spotify" },
+      { who: "12", title: "Episode 12 is live", sub: "The feed updated by itself" },
     ],
-    flow: {
-      label: "Podcast",
-      h2: "One episode becomes a newsletter and posts",
-      lead: "Coflow transcribes the episode in the background and writes a newsletter teaser and Instagram posts from it. The distribution screen shows what is already live in the listening apps and what is still pending.",
-      via: "From episode 12",
-      cards: [
-        { who: "T", title: "Transcript", sub: "Runs in the background, keep working" },
-        { who: "N", title: "Newsletter teaser", sub: "Written from the transcript" },
-        { who: "I", title: "Instagram post", sub: "Promotes the episode" },
-      ],
-    },
+    flows: [
+      {
+        label: "Distribution",
+        h2: "Upload an episode and it reaches every listening app",
+        lead: "Every podcast gets one feed link. You submit it once to each platform, and the distribution screen shows where the show already appears and what is still pending. From then on the feed updates itself with every new episode.",
+        via: "The distribution screen",
+        cards: [
+          { who: "A", title: "Apple Podcasts", sub: "The show appears" },
+          { who: "S", title: "Spotify", sub: "The show appears" },
+          { who: "Y", title: "YouTube Music", sub: "Pending submission" },
+        ],
+      },
+      {
+        label: "Numbers",
+        h2: "You see how many downloaded, and from where",
+        lead: "Downloads, unique listeners and the top platform, episode by episode. The count filters out scanners and duplicates to the IAB standard, like the big hosting services.",
+        via: "This week",
+        cards: [
+          { who: "↓", title: "342 downloads", sub: "Total in the last week" },
+          { who: "L", title: "187 unique listeners", sub: "By IP address" },
+          { who: "S", title: "Spotify leads", sub: "54% of downloads" },
+        ],
+      },
+    ],
     more: "And the podcast is only one part of Coflow",
   },
 };

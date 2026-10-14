@@ -92,7 +92,11 @@ export default async function LandingFromBadge({ params }: Props) {
         </header>
 
         <div className="hm-wrap">
-          {page.flow ? <FlowSection flow={page.flow} icon={FLOW_ICON[source]} /> : <SalesSection t={t} showForm={false} />}
+          {page.flows ? (
+            page.flows.map((flow, i) => <FlowSection key={flow.label} flow={flow} icon={FLOW_ICON[source][i]} />)
+          ) : (
+            <SalesSection t={t} showForm={false} />
+          )}
 
           <p className="hm-more">{page.more}</p>
 
@@ -125,7 +129,7 @@ export default async function LandingFromBadge({ params }: Props) {
 }
 
 // The opener icon of a source's own flow section.
-const FLOW_ICON: Record<LandingSource, IconName> = { questionnaire: "coin", bio: "link", podcast: "spark" };
+const FLOW_ICON: Record<LandingSource, IconName[]> = { questionnaire: [], bio: ["link"], podcast: ["link", "spark"] };
 
 // The two notifications around the phone on a computer; on a phone they stack
 // over it (home.css).
