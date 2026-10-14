@@ -129,7 +129,7 @@ export default async function LandingFromBadge({ params }: Props) {
 }
 
 // The opener icon of a source's own flow section.
-const FLOW_ICON: Record<LandingSource, IconName[]> = { questionnaire: [], bio: ["link"], podcast: ["link", "spark"] };
+const FLOW_ICON: Record<LandingSource, IconName[]> = { questionnaire: [], bio: ["link"], podcast: ["link", "spark"], booking: ["cal", "coin"], landing: ["funnel", "link"] };
 
 // The two notifications around the phone on a computer; on a phone they stack
 // over it (home.css).
