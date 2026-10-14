@@ -68,8 +68,8 @@ export default async function LandingFromBadge({ params }: Props) {
               <i />
               {page.pill}
             </span>
-            <h1>{page.h1}</h1>
-            <p className="hm-sub">{page.sub}</p>
+            <h1>{inHebrew(page.h1, locale)}</h1>
+            <p className="hm-sub">{inHebrew(page.sub, locale)}</p>
             <a className="hm-btn" href={signupUrlFor(locale, "")}>
               {t.hero.cta}
             </a>
@@ -125,6 +125,21 @@ export default async function LandingFromBadge({ params }: Props) {
 
       <HomeFooter t={t} locale={locale} />
     </div>
+  );
+}
+
+// A Latin word inside Hebrew copy (CRM) is set in the site's English font, as
+// the design guide asks: the run is wrapped in a lang="en" span.
+function inHebrew(text: string, locale: "he" | "en") {
+  if (locale === "en") return text;
+  return text.split(/([A-Za-z][A-Za-z0-9]*)/).map((part, i) =>
+    i % 2 === 1 ? (
+      <span key={i} lang="en">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
   );
 }
 
