@@ -101,7 +101,7 @@ export function ListPhone({ phone, style }: { phone: NonNullable<LandingCopy["ph
           <b className="hm-s-name">{phone.owner}</b>
           <span className="hm-s-sub">{phone.sub}</span>
           {phone.rows.map(([a, b], i) => (
-            <div key={a} className={`hm-s-link${i === 0 ? " hm-main" : ""}`}>
+            <div key={a} className={`hm-s-link${i === (phone.highlight ?? 0) ? " hm-main" : ""}`}>
               <span>{a}</span>
               <span>{b}</span>
             </div>

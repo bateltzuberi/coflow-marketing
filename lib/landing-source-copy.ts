@@ -11,7 +11,7 @@ import type { Locale } from "./locale";
  * its page here.
  */
 
-export const LANDING_SOURCES = ["questionnaire", "bio", "podcast"] as const;
+export const LANDING_SOURCES = ["questionnaire", "bio", "podcast", "booking", "landing"] as const;
 export type LandingSource = (typeof LANDING_SOURCES)[number];
 
 export type LandingFlow = {
@@ -34,7 +34,7 @@ export type LandingCopy = {
   /** The page's own sections, for a source whose story is not one the home page already tells. */
   flows?: readonly LandingFlow[];
   /** A list phone in the hero (the show's public page), for a source that is not a form or a bio page. */
-  phone?: { owner: string; sub: string; rows: readonly (readonly [string, string])[] };
+  phone?: { owner: string; sub: string; rows: readonly (readonly [string, string])[]; /** The row drawn as the main button; the first by default. */ highlight?: number };
   /** The line between the page's own story and the whole-system sections. */
   more: string;
 };
@@ -125,6 +125,101 @@ const he: Record<LandingSource, LandingCopy> = {
     ],
     more: "והפודקאסט הוא רק חלק מקופלו",
   },
+  booking: {
+    meta: {
+      title: "שיקבעו איתך שיחה בדף משלך",
+      description: "דף הזמנת שיחה: את מגדירה משך וזמנים פנויים, ומי שנכנסת בוחרת יום ושעה. השיחה נכתבת ליומן, ואפשר לגבות תשלום לפני שהשעה נתפסת.",
+    },
+    pill: "הגעת מדף הזמנת שיחה שנבנה בקופלו",
+    h1: "שיקבעו איתך שיחה בדף משלך.",
+    sub: "את מגדירה את משך השיחה ואת הזמנים הפנויים, ומי שנכנסת בוחרת יום ושעה ומשאירה פרטים. עם יומן גוגל מחובר, השיחה נכתבת אליו.",
+    phone: {
+      owner: "שיחת היכרות · 20 דק׳",
+      sub: "בחרי יום ושעה",
+      rows: [
+        ["יום ג׳ · 14", "14:00"],
+        ["יום ד׳ · 15", "11:30"],
+        ["יום ה׳ · 16", "16:30"],
+      ],
+    },
+    notes: [
+      { who: "ד", title: "דנה קבעה שיחת היכרות", sub: "יום ג׳ 14:00 · נכנסה ליומן" },
+      { who: "ר", title: "עסקה חדשה בלוח", sub: "רוני לוי · שיחת היכרות" },
+    ],
+    flows: [
+      {
+        label: "יומן",
+        h2: "מי שקובעת נכנסת ליומן שלך",
+        lead: "את מגדירה את משך השיחה ואת הזמנים הפנויים. אם חיברת יומן גוגל, הבדיקה מתחשבת במה שכבר קבוע לך, והשיחה נכתבת אליו. מי שקבעה יכולה להוסיף אותה ליומן שלה.",
+        via: "השיחות הקרובות",
+        cards: [
+          { who: "ד", title: "דנה רז", sub: "יום ג׳ 14:00 · שיחת היכרות" },
+          { who: "ר", title: "רוני לוי", sub: "יום ד׳ 11:30 · שיחת היכרות" },
+          { who: "נ", title: "נועה כהן", sub: "יום ה׳ 16:30 · שיחת היכרות" },
+        ],
+      },
+      {
+        label: "תשלום",
+        h2: "ואם את רוצה, משלמים לפני שהשעה נתפסת",
+        lead: "אפשר לתמחר את השיחה ולגבות תשלום. לשם כך מחברים חשבון תשלומים בהגדרות. מי שקובעת משלמת לפני שהשעה נתפסת, ואם התשלום לא עבר, השעה משתחררת.",
+        via: "הזמנה בתשלום",
+        cards: [
+          { who: "1", title: "בוחרת יום ושעה", sub: "יום ג׳ 14:00" },
+          { who: "2", title: "משלמת", sub: "לפני שהשעה נתפסת" },
+          { who: "3", title: "השיחה נכנסת ליומן", sub: "ועסקה נפתחת בלוח" },
+        ],
+      },
+    ],
+    more: "ודף ההזמנה הוא רק חלק מקופלו",
+  },
+  landing: {
+    meta: {
+      title: "דף נחיתה משלך, בכתובת משלך",
+      description: "בוחרים תבנית, מתאימים את הטקסט ומפרסמים. הטופס כבר בפנים, ומי שמשאירה פרטים נכנסת ל-CRM שלך.",
+    },
+    pill: "הגעת מדף נחיתה שנבנה בקופלו",
+    h1: "דף נחיתה משלך, בכתובת משלך.",
+    sub: "בוחרת תבנית, מתאימה את הטקסט ומפרסמת. הטופס כבר בפנים, ומי שמשאירה פרטים נכנסת ל-CRM שלך.",
+    phone: {
+      owner: "מדריך חינמי: איך לתמחר ליווי",
+      sub: "מאיה לוי",
+      rows: [
+        ["השם שלך", ""],
+        ["המייל שלך", ""],
+        ["שלחי לי את המדריך", "←"],
+      ],
+      highlight: 2,
+    },
+    notes: [
+      { who: "נ", title: "נועה השאירה פרטים", sub: "נכנסה ל-CRM" },
+      { who: "ד", title: "דנה נרשמה לוובינר", sub: "נכנסה ל-CRM" },
+    ],
+    flows: [
+      {
+        label: "תבניות",
+        h2: "בוחרת תבנית, והדף מוכן",
+        lead: "יש תבניות למדריך להורדה, וובינר, רשימת המתנה לקורס, השקת מוצר, שיחת ייעוץ חינמית, ניוזלטר ועוד. כל תבנית באה עם הטופס שלה. את מתאימה את הטקסט, ורואה את הדף תוך כדי שאת עורכת.",
+        via: "התבניות",
+        cards: [
+          { who: "מ", title: "מדריך להורדה", sub: "עם הטופס שלו" },
+          { who: "ו", title: "וובינר", sub: "עם הטופס שלו" },
+          { who: "ר", title: "רשימת המתנה לקורס", sub: "עם הטופס שלו" },
+        ],
+      },
+      {
+        label: "כתובת",
+        h2: "הדף יושב בכתובת שלך, ואת שולחת אליו מכל מקום",
+        lead: "הכתובת היא שם-המשתמש-שלך.coflow.website ואחריה שם הדף. אפשר לשלוח אותה מהביו, ממודעה או ממייל. מה שאת עורכת נשמר כטיוטה, והמבקרות רואות את הגרסה החדשה רק אחרי שאת מפרסמת שינויים.",
+        via: "הדף שלך",
+        cards: [
+          { who: "כ", title: "כתובת", sub: "maya.coflow.website/guide" },
+          { who: "ט", title: "טיוטה", sub: "עורכת בלי שאף אחת רואה" },
+          { who: "פ", title: "פורסם", sub: "המבקרות רואות את הגרסה החדשה" },
+        ],
+      },
+    ],
+    more: "ודף הנחיתה הוא רק חלק מקופלו",
+  },
 };
 
 const en: Record<LandingSource, LandingCopy> = {
@@ -212,6 +307,101 @@ const en: Record<LandingSource, LandingCopy> = {
       },
     ],
     more: "And the podcast is only one part of Coflow",
+  },
+  booking: {
+    meta: {
+      title: "Let people book a call on your own page",
+      description: "A booking page: you set the length and the available times, and whoever lands picks a day and time. The call is written to your calendar, and you can take payment before the slot is held.",
+    },
+    pill: "You came from a booking page built in Coflow",
+    h1: "Let people book a call on your own page.",
+    sub: "You set the length of the call and your available times, and whoever lands picks a day and time and leaves her details. With Google Calendar connected, the call is written to it.",
+    phone: {
+      owner: "Intro call · 20 min",
+      sub: "Pick a day and time",
+      rows: [
+        ["Tue · 14", "14:00"],
+        ["Wed · 15", "11:30"],
+        ["Thu · 16", "16:30"],
+      ],
+    },
+    notes: [
+      { who: "D", title: "Dana booked an intro call", sub: "Tue 14:00 · in the calendar" },
+      { who: "R", title: "New deal on the board", sub: "Roni Levi · intro call" },
+    ],
+    flows: [
+      {
+        label: "Calendar",
+        h2: "Whoever books lands in your calendar",
+        lead: "You set the length of the call and your available times. If you connected Google Calendar, availability respects what is already in it and the call is written to it. Whoever booked can add it to her own calendar.",
+        via: "Upcoming calls",
+        cards: [
+          { who: "D", title: "Dana Raz", sub: "Tue 14:00 · intro call" },
+          { who: "R", title: "Roni Levi", sub: "Wed 11:30 · intro call" },
+          { who: "N", title: "Noa Cohen", sub: "Thu 16:30 · intro call" },
+        ],
+      },
+      {
+        label: "Payment",
+        h2: "And if you want, she pays before the slot is held",
+        lead: "You can price the call and take payment. For that you connect a payments account in settings. Whoever books pays before the slot is held, and if the payment doesn't go through, the slot is released.",
+        via: "A paid booking",
+        cards: [
+          { who: "1", title: "Picks a day and time", sub: "Tue 14:00" },
+          { who: "2", title: "Pays", sub: "Before the slot is held" },
+          { who: "3", title: "The call lands in your calendar", sub: "And a deal opens on the board" },
+        ],
+      },
+    ],
+    more: "And the booking page is only one part of Coflow",
+  },
+  landing: {
+    meta: {
+      title: "A landing page of your own, at your own address",
+      description: "Pick a template, adjust the text and publish. The form is already in it, and whoever leaves her details lands in your CRM.",
+    },
+    pill: "You came from a landing page built in Coflow",
+    h1: "A landing page of your own, at your own address.",
+    sub: "Pick a template, adjust the text and publish. The form is already in it, and whoever leaves her details lands in your CRM.",
+    phone: {
+      owner: "Free guide: how to price coaching",
+      sub: "Maya Levi",
+      rows: [
+        ["Your name", ""],
+        ["Your email", ""],
+        ["Send me the guide", "→"],
+      ],
+      highlight: 2,
+    },
+    notes: [
+      { who: "N", title: "Noa left her details", sub: "Added to the CRM" },
+      { who: "D", title: "Dana signed up for the webinar", sub: "Added to the CRM" },
+    ],
+    flows: [
+      {
+        label: "Templates",
+        h2: "Pick a template and the page is ready",
+        lead: "There are templates for a guide to download, a webinar, a course waitlist, a product launch, a free consultation, a newsletter and more. Every template comes with its own form. You adjust the text and see the page while you edit.",
+        via: "The templates",
+        cards: [
+          { who: "G", title: "Guide to download", sub: "With its form" },
+          { who: "W", title: "Webinar", sub: "With its form" },
+          { who: "C", title: "Course waitlist", sub: "With its form" },
+        ],
+      },
+      {
+        label: "Address",
+        h2: "The page lives at your address, and you send people to it from anywhere",
+        lead: "The address is your username followed by .coflow.website and the page's name. You can send it from your bio, an ad or an email. What you edit is saved as a draft, and visitors see the new version only after you publish the changes.",
+        via: "Your page",
+        cards: [
+          { who: "A", title: "Address", sub: "maya.coflow.website/guide" },
+          { who: "D", title: "Draft", sub: "You edit and nobody sees it" },
+          { who: "P", title: "Published", sub: "Visitors see the new version" },
+        ],
+      },
+    ],
+    more: "And the landing page is only one part of Coflow",
   },
 };
 
