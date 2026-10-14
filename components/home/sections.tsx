@@ -4,7 +4,7 @@ import { CoflowMark } from "@/components/coflow-mark";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
-import type { LandingCopy } from "@/lib/landing-source-copy";
+import type { LandingCopy, LandingFlow } from "@/lib/landing-source-copy";
 import { SITE, signupUrlFor } from "@/lib/site";
 
 // The home page's sections, lifted out of app/page.tsx so a page that shares
@@ -60,9 +60,9 @@ export function BioPhone({ t, style }: { t: HomeCopy; style?: React.CSSPropertie
 }
 
 /** A page's own flow: cards for what happened (who arrived, what was made), with her own words around them. The hero above already drew the page itself. */
-export function FlowSection({ flow, icon }: { flow: NonNullable<LandingCopy["flow"]>; icon: IconName }) {
+export function FlowSection({ flow, icon }: { flow: LandingFlow; icon: IconName }) {
   return (
-    <section className="hm-sec" id="flow">
+    <section className="hm-sec">
       <div className="hm-row">
         <div className="hm-copy">
           <Opener icon={icon} label={flow.label} />
