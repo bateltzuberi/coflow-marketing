@@ -344,6 +344,9 @@
 .hm-pf .hm-btn { padding: 15px 26px; font-size: 16px; }
 .hm-link { border: 0; background: none; font: 600 15px var(--hm-font); color: var(--hm-cocoa-2); cursor: pointer; padding: 8px; }
 
+/* English words inside Hebrew copy keep the site's English font. */
+.hm span[lang="en"] { font-family: var(--font-redhat), system-ui, -apple-system, sans-serif; }
+
 /* ── landing pages (coflow.social/{he,en}/for/<source>) ───────── */
 /* The same hero, with a sentence for a headline instead of the brand line, so
    it is set smaller, and a stage shorter than the Instagram one. */
