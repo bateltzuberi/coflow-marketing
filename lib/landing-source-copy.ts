@@ -127,12 +127,12 @@ const he: Record<LandingSource, LandingCopy> = {
   },
   booking: {
     meta: {
-      title: "שיקבעו איתך שיחה בדף משלך",
+      title: "דף הזמנת שיחה משלך, מחובר ליומן שלך",
       description: "דף הזמנת שיחה: את מגדירה משך וזמנים פנויים, ומי שנכנסת בוחרת יום ושעה. השיחה נכתבת ליומן, ואפשר לגבות תשלום לפני שהשעה נתפסת.",
     },
     pill: "הגעת מדף הזמנת שיחה שנבנה בקופלו",
-    h1: "שיקבעו איתך שיחה בדף משלך.",
-    sub: "את מגדירה את משך השיחה ואת הזמנים הפנויים, ומי שנכנסת בוחרת יום ושעה ומשאירה פרטים. עם יומן גוגל מחובר, השיחה נכתבת אליו.",
+    h1: "דף הזמנת שיחה משלך, מחובר ליומן שלך.",
+    sub: "את מגדירה משך שיחה וזמנים פנויים. מי שנכנסת לדף בוחרת יום ושעה ומשאירה פרטים, והשיחה נכתבת ביומן גוגל שלך.",
     phone: {
       owner: "שיחת היכרות · 20 דק׳",
       sub: "בחרי יום ושעה",
@@ -310,12 +310,12 @@ const en: Record<LandingSource, LandingCopy> = {
   },
   booking: {
     meta: {
-      title: "Let people book a call on your own page",
+      title: "A booking page of your own, connected to your calendar",
       description: "A booking page: you set the length and the available times, and whoever lands picks a day and time. The call is written to your calendar, and you can take payment before the slot is held.",
     },
     pill: "You came from a booking page built in Coflow",
-    h1: "Let people book a call on your own page.",
-    sub: "You set the length of the call and your available times, and whoever lands picks a day and time and leaves her details. With Google Calendar connected, the call is written to it.",
+    h1: "A booking page of your own, connected to your calendar.",
+    sub: "You set the length of the call and your available times. Whoever lands on the page picks a day and time and leaves her details, and the call is written to your Google Calendar.",
     phone: {
       owner: "Intro call · 20 min",
       sub: "Pick a day and time",
