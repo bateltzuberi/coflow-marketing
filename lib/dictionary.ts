@@ -16,7 +16,7 @@ export const DICT = {
     nav: {
       signIn: "התחברות",
       // Joining = signing up in the Studio.
-      cta: "להצטרף",
+      cta: "להצטרפות",
       academy: "אקדמיה",
       // The free diagnosis, which used to be the home page.
       diagnosis: "אבחון חינם",
