@@ -382,6 +382,8 @@
   .hm-vis > *:nth-child(1) { align-self: flex-end; z-index: 1; }
   .hm-vis > *:nth-child(2) { align-self: flex-start; margin-top: -36px; z-index: 2; }
   .hm-vis .hm-mini { width: 240px; }
+  /* clients: the income tile and the task tile sit one above the other, not one over the other */
+  #clients .hm-vis > *:nth-child(2) { margin-top: 16px; }
   .hm-vis .hm-col, .hm-vis .hm-tile { max-width: calc(100% - 24px); }
   /* price: the number right under the question */
   .hm-price .hm-copy { display: contents; }
