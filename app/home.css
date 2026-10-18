@@ -139,10 +139,11 @@
 @keyframes hm-blink { 50% { opacity: 0; } }
 .hm-hero .hm-sub { margin-top: 16px; font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; color: var(--hm-cocoa-2); }
 .hm-hero .hm-btn { margin-top: 36px; font-size: 22px; padding: 20px 40px; }
+.hm-hint-row { margin-top: 24px; display: flex; justify-content: center; }
+.hm-hint { display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer; border-radius: 999px; padding: 10px 20px; font: 700 17px/1.2 var(--hm-font); color: var(--hm-cocoa); background: var(--hm-white); box-shadow: inset 0 0 0 1px var(--hm-line), 0 8px 24px -12px var(--hm-shadow); }
+.hm-hint:hover { box-shadow: inset 0 0 0 1px var(--hm-butter-edge), 0 8px 24px -12px var(--hm-shadow); }
+.hm-hint i { width: 34px; height: 34px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; font-style: normal; font-size: 22px; font-weight: 900; color: var(--hm-cocoa); background: var(--hm-butter); box-shadow: 0 0 0 3px var(--hm-pink-tint), 0 0 0 4px var(--hm-pink); }
 .hm-refund { margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--hm-cocoa-2); }
-.hm-hint { margin-top: 18px; font-size: 15px; color: var(--hm-cocoa-2); display: flex; align-items: center; justify-content: center; gap: 8px; }
-.hm-hint button { border: 0; background: none; padding: 0; cursor: pointer; display: inline-flex; }
-.hm-hint i { width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; font-style: normal; font-weight: 800; color: var(--hm-cocoa); background: var(--hm-white); box-shadow: inset 0 0 0 1.5px var(--hm-line); }
 
 /* the stage: her Instagram in the middle, her business arriving around it */
 .hm-stage { position: relative; max-width: 1000px; height: 640px; margin: 72px auto 0; }
@@ -418,6 +419,8 @@
   .hm-card.hm-wide { margin-inline-start: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .hm-hint i { animation: hm-nudge 2.4s ease-in-out infinite; }
+  @keyframes hm-nudge { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.15); } 90% { transform: scale(0.96); } }
   .hm-story { animation: hm-spin 8s linear infinite; }
   .hm-story > span { animation: hm-spin 8s linear infinite reverse; }
   @keyframes hm-spin { to { transform: rotate(360deg); } }
