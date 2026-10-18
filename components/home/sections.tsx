@@ -6,6 +6,7 @@ import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
 import type { LandingCopy, LandingFlow } from "@/lib/landing-source-copy";
 import { SITE, signupUrlFor } from "@/lib/site";
+import { PlanCard } from "@/components/home/plan-card";
 
 // The home page's sections, lifted out of app/page.tsx so a page that shares
 // them (the landing pages in app/[locale]/for/) renders the same markup, not a
@@ -259,32 +260,26 @@ export function ClientsSection({ t }: { t: HomeCopy }) {
   );
 }
 
+/** One plan, drawn as a plan card like every pricing page: name, price,
+ *  what's included, the button, then the terms. Only this button goes to payment;
+ *  every other Join on the page scrolls here. */
+/** One plan card with a monthly / yearly switch, like every pricing page.
+ *  Only its button goes to payment; every other Join on the page scrolls here. */
 export function PriceSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const pay = signupUrlFor(locale, "");
   return (
     <section className="hm-price" id="price">
       <div className="hm-wrap">
-        <div className="hm-row">
-          <div className="hm-copy">
-            <h2>{t.price.h2}</h2>
-            <ul className="hm-facts">
-              {(["grid", "lock", "door", "coin"] as const).map((icon, i) => (
-                <li key={icon}>
-                  <Icon name={icon} />
-                  {t.price.facts[i]}
-                </li>
-              ))}
-            </ul>
-            <p className="hm-fine">{t.price.fine}</p>
-            <a className="hm-btn hm-price-btn" href={signupUrlFor(locale, "")}>
-              {t.hero.cta}
-            </a>
-          </div>
-          <div className="hm-pt">
-            <small>{t.price.tileLabel}</small>
-            <b className="hm-amount">{t.price.amount}</b>
-            <span className="hm-chg">{t.price.chip}</span>
-          </div>
-        </div>
+        <h2 className="hm-plan-h2">{t.price.h2}</h2>
+        <p className="hm-plan-sub">{t.price.sub}</p>
+        <PlanCard
+          name={t.price.planName}
+          toggleLabel={t.price.toggleLabel}
+          options={t.price.plans.map((p) => ({ ...p, href: p.key === "yearly" ? `${pay}&plan=yearly` : pay }))}
+          includesTitle={t.price.includesTitle}
+          includes={t.price.includes}
+          fine={t.price.fine}
+        />
       </div>
     </section>
   );

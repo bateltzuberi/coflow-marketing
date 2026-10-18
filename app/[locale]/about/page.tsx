@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signupUrlFor } from "@/lib/site";
+import { planCardHref } from "@/lib/site";
 import { getLocale } from "@/lib/locale";
 import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
@@ -29,7 +29,7 @@ export default async function About() {
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.context}</p>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "הצטרפות וזמינות" : "Access and availability"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.stage}</p>
-      <Link className="btn btn-lime mt-8" href={signupUrlFor(locale, "")}>{he ? "להרשמה" : "Sign up"}</Link>
+      <Link className="btn btn-lime mt-8" href={planCardHref(locale)}>{he ? "להרשמה" : "Sign up"}</Link>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "החברה" : "The company"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed">{he ? "קופלו מופעלת על ידי SheBossIt (Cyprus) Ltd. פרטי החברה, ההתקשרות והשימוש במידע מופיעים במסמכים המשפטיים." : "Coflow is operated by SheBossIt (Cyprus) Ltd. Company, contact and data-use details are available in the legal documents."}</p>
       <p className="mt-6"><a href="mailto:contact@shebossit.com" className="underline underline-offset-4">contact@shebossit.com</a></p>

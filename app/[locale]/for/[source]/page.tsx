@@ -20,7 +20,6 @@ import { getHomeCopy } from "@/lib/home-copy";
 import { getLandingCopy, isLandingSource, type LandingSource } from "@/lib/landing-source-copy";
 import { getLocale } from "@/lib/locale";
 import { buildMetadata } from "@/lib/seo";
-import { signupUrlFor } from "@/lib/site";
 
 // The page a "made with Coflow" badge leads to: coflow.social/{he,en}/for/<source>.
 //
@@ -70,7 +69,7 @@ export default async function LandingFromBadge({ params }: Props) {
             </span>
             <h1>{inHebrew(page.h1, locale)}</h1>
             <p className="hm-sub">{inHebrew(page.sub, locale)}</p>
-            <a className="hm-btn" href={signupUrlFor(locale, "")}>
+            <a className="hm-btn" href="#price">
               {t.hero.cta}
             </a>
           </div>

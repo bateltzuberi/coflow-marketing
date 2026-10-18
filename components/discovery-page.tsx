@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signupUrlFor } from "@/lib/site";
+import { planCardHref } from "@/lib/site";
 import { Nav } from "./nav";
 import { Footer } from "./footer";
 import { JsonLd, breadcrumbsJsonLd, faqJsonLd, webPageJsonLd } from "@/lib/seo";
@@ -50,7 +50,7 @@ export function DiscoveryPage({ page, path, locale, guide = false }: {
         </section>
         <section className="mt-16 rounded-card bg-surface-2 p-8">
           <p className="text-[18px] leading-relaxed">{t.availability}</p>
-          <Link href={signupUrlFor(locale, "")} className="btn btn-lime mt-6">{t.join}</Link>
+          <Link href={planCardHref(locale)} className="btn btn-lime mt-6">{t.join}</Link>
           {page.academy && <p className="mt-6"><Link href={localizedPath(`/academy/${page.academy}`, locale)} className="underline underline-offset-4">{t.academy}</Link></p>}
         </section>
         <aside className="mt-16" aria-label={t.related}>

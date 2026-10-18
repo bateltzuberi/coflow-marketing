@@ -4,7 +4,6 @@ import { localizedPath } from "@/lib/locale-path";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import type { HomeCopy, PlusKey } from "@/lib/home-copy";
-import { signupUrlFor } from "@/lib/site";
 import { Icon, type IconName } from "./icon";
 
 /** Any "+" on the page (the hero's hint) opens the dock's fan through this. */
@@ -222,7 +221,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
           {t.dock.price}
         </a>
         <span className="hm-sep" />
-        <a className="hm-dock-join" href={signupUrlFor(locale, "")}>
+        <a className="hm-dock-join" href="#price">
           {t.dock.join}
         </a>
       </nav>
@@ -316,7 +315,7 @@ function ResultPopup({
           <button type="button" className="hm-link" onClick={onMore}>
             {t.plus.back}
           </button>
-          <a ref={joinRef} className="hm-btn" href={signupUrlFor(locale, "")} onClick={onJoin}>
+          <a ref={joinRef} className="hm-btn" href="#price" onClick={onJoin}>
             {t.plus.cta}
           </a>
         </div>
