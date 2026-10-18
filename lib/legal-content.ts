@@ -16,7 +16,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "terms": {
   "he": {
    "title": "תנאי שימוש —Coflow",
-   "updated": "תאריך עדכון אחרון: 13/10/2026",
+   "updated": "תאריך עדכון אחרון: 18/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -176,6 +176,10 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
+     "x": "9.3א החזר בתוך 14 יום: אם בתוך 14 יום מהתשלום הראשון על המנוי השירות לא מתאים לך, ניתן לפנות לתמיכה ולקבל החזר מלא של אותו תשלום ראשון, והמנוי יבוטל. ההחזר חל פעם אחת לכל לקוח, על התשלום הראשון על המנוי בלבד, ואינו חל על תוספות או על קרדיטים שנרכשו בנפרד. סעיף זה גובר על האמור בסעיף 9.3 לגבי התשלום הראשון."
+    },
+    {
+     "t": "p",
      "x": "9.4 מחיר ההצטרפות: מחיר המנוי הבסיסי שבו הצטרפת יישאר המחיר שלך כל עוד המנוי פעיל ברציפות, גם אם המחיר לנרשמים חדשים יעלה. מחיר זה חל על החבילה הבסיסית בלבד. תוספות (Add-ons), כגון הגדלת מכסת אנשי הקשר ברשימות הדיוור מעבר למכסה הכלולה בחבילה, מתומחרות בנפרד, ומחיריהן ומכסותיהן עשויים להשתנות. ביטול המנוי והצטרפות מחודשת יהיו במחיר התקף במועד ההצטרפות המחודשת."
     },
     {
@@ -325,7 +329,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
   },
   "en": {
    "title": "Terms of Use — Coflow",
-   "updated": "Last updated: 13/10/2026",
+   "updated": "Last updated: 18/10/2026",
    "blocks": [
     {
      "t": "h2",
@@ -482,6 +486,10 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     {
      "t": "p",
      "x": "9.3 Cancellation: you may cancel the subscription at any time via the account or by contacting support. Cancellation takes effect at the end of the paid billing cycle; no pro-rata refund will be given for a period already paid, and access is retained until the end of that cycle."
+    },
+    {
+     "t": "p",
+     "x": "9.3A 14-day refund: if, within 14 days of your first subscription payment, the Service is not right for you, you may contact support and receive a full refund of that first payment, and the subscription will be cancelled. The refund applies once per customer, to the first subscription payment only, and not to add-ons or separately purchased credits. This clause prevails over section 9.3 with respect to the first payment."
     },
     {
      "t": "p",
