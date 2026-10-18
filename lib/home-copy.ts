@@ -26,8 +26,8 @@ const he = {
   meta: {
     title: "קופלו | מערכת לניהול מותג עם AI",
     description:
-      "קופלו מחברת מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, עם בניית קורסים שנמצאת בפיתוח.",
-    ogTitle: "קופלו | העסק שמאחורי המותג שלך במקום אחד",
+      "קופלו מחבר מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, עם בניית קורסים שנמצאת בפיתוח.",
+    ogTitle: "קופלו | כל הכלים לניהול עסק אונליין במקום אחד",
   },
   signIn: "התחברות",
   dock: {
@@ -85,8 +85,8 @@ const he = {
   ],
   sales: {
     label: "מכירות",
-    h2: "כל ליד במקום אחד, מהפנייה ועד התשלום",
-    lead: "כל ליד מופיעה בלוח העסקאות, ואת רואה באיזה שלב היא. מיילים יוצאים אליה לבד: מי שנרשמה למדריך מקבלת סדרת מיילים, ומי שקנתה מקבלת מייל ברוכה הבאה. התשלום נעשה בדף המכירה שלך.",
+    h2: "כל הלידים במקום אחד, מהפנייה ועד התשלום",
+    lead: "כל פנייה נכנסת ללוח העסקאות, ואת רואה באיזה שלב היא. המיילים יוצאים לבד: מי שנרשמה למדריך מקבלת סדרת מיילים, ומי שקנתה מקבלת מייל ברוכה הבאה. התשלום נעשה בדף המכירה שלך.",
     gets: ["לוח עסקאות", "דפי מכירה עם תשלום", "סדרות מיילים", "ניוזלטר", "אוטומציות"],
     sequenceTitle: "סדרת מיילים · מדריך התמחור",
     sequence: [["מיד", "המדריך שלך"], ["אחרי יומיים", "הטעות הנפוצה"], ["אחרי 5 ימים", "הזמנה לשיחה"]] as readonly (readonly [string, string])[],
@@ -102,7 +102,7 @@ const he = {
   marketing: {
     label: "לקוחות חדשים",
     h2: "עוקבות שמתעניינות לא הולכות לאיבוד",
-    lead: "שמים בביו לינק לדף שלך. משם עוקבת יכולה להירשם למדריך, למלא שאלון או לקבוע איתך שיחה. השם, המייל והתשובות שלה נשמרים אצלך, ואת רואה מאיפה היא הגיעה.",
+    lead: "את מוסיפה לביו לינק לדף שלך. משם עוקבת יכולה להירשם למדריך, למלא שאלון או לקבוע איתך שיחה. השם, המייל והתשובות שלה נשמרים אצלך, ואת רואה מאיפה היא הגיעה.",
     gets: ["לינק בביו", "דפי נחיתה", "שאלונים וטפסים", "קביעת שיחות", "רשימת תפוצה"],
     inTitle: "פניות חדשות השבוע",
     arrivals: [["שירה נרשמה למדריך", "לינק בביו"], ["נועה מילאה את השאלון", "שאלון"], ["דנה קבעה שיחת היכרות", "דף נחיתה"]] as readonly (readonly [string, string])[],
@@ -114,7 +114,7 @@ const he = {
   clients: {
     label: "ניהול העסק",
     h2: "כל העסק במסך אחד",
-    lead: "לוח תוכן עם רעיונות לפוסטים, משימות לך ולצוות, ומסך פתיחה שמראה כמה כסף נכנס החודש ומה צריך לעשות היום.",
+    lead: "יש לך לוח תוכן עם רעיונות לפוסטים, משימות לך ולצוות, ומסך פתיחה שמראה כמה כסף נכנס החודש ומה צריך לעשות היום.",
     gets: ["לוח תוכן", "משימות לצוות", "הכנסות החודש", "לקוחות פעילות", "פודקאסט"],
     incomeLabel: "הכנסות החודש",
     income: "₪6,110",
@@ -230,7 +230,7 @@ const en: HomeCopy = {
     title: "Coflow | AI brand management, funnels and CRM",
     description:
       "Coflow connects offers, funnels, marketing and CRM with AI for course, coaching and service businesses. Course building is in development.",
-    ogTitle: "Coflow | The business behind your brand, in one place",
+    ogTitle: "Coflow | All the tools to run your online business, in one place",
   },
   signIn: "Log in",
   dock: {
@@ -289,7 +289,7 @@ const en: HomeCopy = {
   sales: {
     label: "Sales",
     h2: "Every lead in one place, from first message to payment",
-    lead: "Every lead shows up on your deals board, and you see what stage she's at. Emails go out to her on their own: whoever signed up for your guide gets an email sequence, and whoever bought gets a welcome email. She pays on your sales page.",
+    lead: "Every inquiry lands on your deals board, and you see what stage it's at. Emails go out on their own: whoever signed up for your guide gets an email sequence, and whoever bought gets a welcome email. She pays on your sales page.",
     gets: ["Deals board", "Sales pages with payment", "Email sequences", "Newsletter", "Automations"],
     sequenceTitle: "Email sequence · the pricing guide",
     sequence: [["Right away", "Your guide"], ["2 days later", "The common mistake"], ["5 days later", "An invitation to a call"]],
@@ -305,7 +305,7 @@ const en: HomeCopy = {
   marketing: {
     label: "New clients",
     h2: "Interested followers don't get lost",
-    lead: "Put a link to your page in your bio. From there a follower can sign up for your guide, fill in a questionnaire or book a call with you. Her name, email and answers are saved for you, and you see where she came from.",
+    lead: "Add a link to your page in your bio. From there a follower can sign up for your guide, fill in a questionnaire or book a call with you. Her name, email and answers are saved for you, and you see where she came from.",
     gets: ["Link in bio", "Landing pages", "Questionnaires and forms", "Booking calls", "Mailing list"],
     inTitle: "New this week",
     arrivals: [["Shira signed up for the guide", "Link in bio"], ["Noa filled in the questionnaire", "Questionnaire"], ["Dana booked an intro call", "Landing page"]],
