@@ -4,6 +4,7 @@ import { SITE } from "@/lib/site";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { getLocale, dirFor } from "@/lib/locale";
 import { isPreviewDeployment } from "@/lib/indexing";
+import { FunnelBeacon } from "@/components/funnel-beacon";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -69,6 +70,8 @@ export default async function RootLayout({
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         {children}
+        {/* Anonymous sign-up funnel counts for the Studio's /admin/traffic; never on a preview deploy. */}
+        {!isPreviewDeployment() && <FunnelBeacon locale={locale} />}
       </body>
     </html>
   );
