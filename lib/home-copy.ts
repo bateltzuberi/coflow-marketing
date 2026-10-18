@@ -206,8 +206,8 @@ const he = {
     h2: "כמה זה עולה?",
     tileLabel: "מנוי חודשי",
     amount: "€24",
-    chip: "לחודש · המחיר לא יעלה לך",
-    facts: ["כל הכלים כלולים, בלי חבילות", "המחיר שנרשמת בו לא יעלה לך", "בלי התחייבות, מבטלים מתי שרוצים", "לא מתאים לך? החזר מלא בתוך 14 יום"],
+    chip: "לחודש · המחיר לא ישתנה לך",
+    facts: ["כל הכלים כלולים, בלי חבילות", "המחיר שנרשמת איתו לא ישתנה לך", "בלי התחייבות, מבטלים מתי שרוצים", "לא מתאים לך? החזר מלא בתוך 14 יום"],
     fine: "ההרשמה פתוחה. פותחים חשבון ומתחילים.",
   },
   footer: {
@@ -409,8 +409,8 @@ const en: HomeCopy = {
     h2: "How much is it?",
     tileLabel: "Monthly plan",
     amount: "€24",
-    chip: "a month · your price never goes up",
-    facts: ["All the tools included, no tiers", "The price you join at never goes up", "No commitment, cancel any time", "Not for you? Full refund within 14 days"],
+    chip: "a month · your price won't change",
+    facts: ["All the tools included, no tiers", "The price you join at won't change", "No commitment, cancel any time", "Not for you? Full refund within 14 days"],
     fine: "Sign-up is open. Create an account and start.",
   },
   footer: {

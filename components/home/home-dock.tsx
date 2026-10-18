@@ -250,12 +250,13 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
 /** "+" anywhere else on the page: opens the dock's fan. */
 export function PlusHint({ t }: { t: HomeCopy }) {
   return (
-    <p className="hm-hint">
-      {t.hero.hintA}
-      <button type="button" aria-label={t.hero.hintAria} onClick={() => window.dispatchEvent(new Event(OPEN_PLUS_EVENT))}>
-        <i>+</i>
+    // The whole line is the button, so the "+" is easy to find and to tap.
+    <p className="hm-hint-row">
+      <button type="button" className="hm-hint" onClick={() => window.dispatchEvent(new Event(OPEN_PLUS_EVENT))}>
+        {t.hero.hintA}
+        <i aria-hidden="true">+</i>
+        {t.hero.hintB}
       </button>
-      {t.hero.hintB}
     </p>
   );
 }

@@ -188,7 +188,7 @@ export function SalesSection({ t }: { t: HomeCopy }) {
           <Gets items={t.sales.gets} />
         </div>
         <div className="hm-vis" aria-hidden="true">
-          <div className="hm-col" style={{ insetInlineEnd: 0, top: 0, zIndex: 1 }}>
+          <div className="hm-col" style={{ insetInlineEnd: 0, top: 0, zIndex: 2 }}>
             <span className="hm-stg">
               <i />
               {t.sales.stage}
@@ -209,7 +209,7 @@ export function SalesSection({ t }: { t: HomeCopy }) {
               </div>
             ))}
           </div>
-          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 2 }}>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 1 }}>
             <small className="hm-strong">{t.sales.sequenceTitle}</small>
             {t.sales.sequence.map(([when, subject]) => (
               <div className="hm-r" key={when}>
