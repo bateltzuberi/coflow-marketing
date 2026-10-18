@@ -137,18 +137,58 @@ export function QuestionnairePhone({ t, style }: { t: HomeCopy; style?: React.CS
 }
 
 /** `showForm={false}` leaves the phone out, for a page that already drew it above. */
-export function SalesSection({ t, showForm = true }: { t: HomeCopy; showForm?: boolean }) {
+/** The features a section is made of, as small pills under its lead line. */
+function Gets({ items }: { items: readonly string[] }) {
+  return (
+    <div className="hm-gets hm-sec-gets">
+      {items.map((g) => (
+        <span key={g}>{g}</span>
+      ))}
+    </div>
+  );
+}
+
+/** Bringing in clients: her link in bio, and who came in through it this week. */
+export function MarketingSection({ t }: { t: HomeCopy }) {
+  return (
+    <section className="hm-sec" id="marketing">
+      <div className="hm-row">
+        <div className="hm-copy">
+          <Opener icon="mega" label={t.marketing.label} />
+          <h2>{t.marketing.h2}</h2>
+          <p className="hm-lead">{t.marketing.lead}</p>
+          <Gets items={t.marketing.gets} />
+        </div>
+        <div className="hm-vis" aria-hidden="true">
+          <BioPhone t={t} style={{ insetInlineEnd: "6%", top: 0, zIndex: 1 }} />
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 340, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{t.marketing.inTitle}</small>
+            {t.marketing.arrivals.map(([who, via]) => (
+              <div className="hm-r" key={who}>
+                <span>{who}</span>
+                <span className="hm-badge">{via}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Selling: the deals board, and the email sequence that follows a lead up. */
+export function SalesSection({ t }: { t: HomeCopy }) {
   return (
     <section className="hm-sec" id="sales">
-      <div className="hm-row">
+      <div className="hm-row hm-flip">
         <div className="hm-copy">
           <Opener icon="coin" label={t.sales.label} />
           <h2>{t.sales.h2}</h2>
           <p className="hm-lead">{t.sales.lead}</p>
+          <Gets items={t.sales.gets} />
         </div>
         <div className="hm-vis" aria-hidden="true">
-          {showForm && <QuestionnairePhone t={t} style={{ insetInlineEnd: 0, top: 10, zIndex: 1 }} />}
-          <div className="hm-col" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
+          <div className="hm-col" style={{ insetInlineEnd: 0, top: 0, zIndex: 1 }}>
             <span className="hm-stg">
               <i />
               {t.sales.stage}
@@ -169,44 +209,14 @@ export function SalesSection({ t, showForm = true }: { t: HomeCopy; showForm?: b
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function MarketingSection({ t }: { t: HomeCopy }) {
-  return (
-    <section className="hm-sec" id="marketing">
-      <div className="hm-row hm-flip">
-        <div className="hm-copy">
-          <Opener icon="mega" label={t.marketing.label} />
-          <h2>{t.marketing.h2}</h2>
-          <p className="hm-lead">{t.marketing.lead}</p>
-        </div>
-        <div className="hm-vis" aria-hidden="true">
-          <div className="hm-tile" style={{ insetInlineStart: 0, top: 20, width: 330, padding: 20 }}>
-            <small className="hm-strong">{t.marketing.weekTitle}</small>
-            {t.marketing.week.map(([day, idea, platform]) => (
-              <div className="hm-r" key={day}>
-                <span>
-                  <b>{day}</b> · {idea}
-                </span>
-                <span className="hm-badge">{platform}</span>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{t.sales.sequenceTitle}</small>
+            {t.sales.sequence.map(([when, subject]) => (
+              <div className="hm-r" key={when}>
+                <span>{subject}</span>
+                <span className="hm-badge">{when}</span>
               </div>
             ))}
-          </div>
-          <div className="hm-phone hm-mini" style={{ insetInlineEnd: "4%", bottom: 0, zIndex: 1 }}>
-            <div className="hm-screen">
-              <div className="hm-slide">
-                <small>{t.marketing.slideCount}</small>
-                <b>{t.marketing.slide}</b>
-                <em>@{t.marketing.handle}</em>
-              </div>
-              <div className="hm-caption">
-                <b>{t.marketing.handle}</b> {t.marketing.caption}
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -222,6 +232,7 @@ export function ClientsSection({ t }: { t: HomeCopy }) {
           <Opener icon="users" label={t.clients.label} />
           <h2>{t.clients.h2}</h2>
           <p className="hm-lead">{t.clients.lead}</p>
+          <Gets items={t.clients.gets} />
         </div>
         <div className="hm-vis" aria-hidden="true">
           <div className="hm-tile" style={{ insetInlineEnd: 0, top: 20, width: 320 }}>
@@ -256,7 +267,7 @@ export function PriceSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
           <div className="hm-copy">
             <h2>{t.price.h2}</h2>
             <ul className="hm-facts">
-              {(["grid", "lock", "door"] as const).map((icon, i) => (
+              {(["grid", "lock", "door", "coin"] as const).map((icon, i) => (
                 <li key={icon}>
                   <Icon name={icon} />
                   {t.price.facts[i]}

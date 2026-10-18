@@ -67,6 +67,7 @@ export default async function Home() {
             <a className="hm-btn" href={signupUrlFor(locale, "")}>
               {t.hero.cta}
             </a>
+            <p className="hm-refund">{t.hero.refund}</p>
             <PlusHint t={t} />
           </div>
 
@@ -130,8 +131,8 @@ export default async function Home() {
         </header>
 
         <div className="hm-wrap">
-          <SalesSection t={t} />
           <MarketingSection t={t} />
+          <SalesSection t={t} />
           <ClientsSection t={t} />
         </div>
 

@@ -95,7 +95,7 @@ export default async function LandingFromBadge({ params }: Props) {
           {page.flows ? (
             page.flows.map((flow, i) => <FlowSection key={flow.label} flow={flow} icon={FLOW_ICON[source][i]} />)
           ) : (
-            <SalesSection t={t} showForm={false} />
+            <SalesSection t={t} />
           )}
 
           <p className="hm-more">{page.more}</p>
