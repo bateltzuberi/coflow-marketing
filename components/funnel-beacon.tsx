@@ -7,9 +7,13 @@ import { SITE } from "@/lib/site";
 // Counts two steps of the sign-up funnel for /admin/traffic in the Studio:
 // a visit to a page here, and a tap on a link to the Studio sign-up.
 //
-// Anonymous by design: no cookie, no stored id, nothing about the person. The
-// Studio's POST /api/funnel stores the step, the page, where the visitor came
-// from (utm_source, else the site that linked her) and the language.
+// Anonymous by design: no cookie, nothing about the person. The Studio's POST
+// /api/funnel stores the step, the page, where the visitor came from
+// (utm_source, else the site that linked her), the language, and a random
+// visit id made for this tab (sessionStorage, gone when the tab closes) so a
+// person counts ONCE per step: browsing three pages is one visit, tapping Join
+// twice is one tap. The id rides on the sign-up link (cf_v) so the Studio's
+// form count is the same person.
 //
 // The source rides along on the sign-up link (utm_source / utm_campaign), so
 // the Studio's own "form opened" count knows it too.
@@ -59,16 +63,35 @@ export function FunnelBeacon({ locale }: { locale: "he" | "en" }) {
       // Private mode or blocked storage: count with what this page knows.
     }
 
-    send({ step: "visit", path: window.location.pathname, source: src, campaign, locale });
+    // Once per tab per step.
+    let visitId = "";
+    const once = (step: string) => {
+      try {
+        if (sessionStorage.getItem(`cf_sent_${step}`)) return false;
+        sessionStorage.setItem(`cf_sent_${step}`, "1");
+      } catch {
+        // No storage: count anyway.
+      }
+      return true;
+    };
+    try {
+      visitId = sessionStorage.getItem("cf_v") ?? crypto.randomUUID();
+      sessionStorage.setItem("cf_v", visitId);
+    } catch {
+      visitId = crypto.randomUUID();
+    }
+
+    if (once("visit")) send({ step: "visit", path: window.location.pathname, source: src, campaign, locale, visitId });
 
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
       if (!a || !a.href.startsWith(`${SITE.studioAppUrl}/signup`)) return;
-      send({ step: "join_click", path: window.location.pathname, source: src, campaign, locale });
+      if (once("join_click")) send({ step: "join_click", path: window.location.pathname, source: src, campaign, locale, visitId });
       try {
         const url = new URL(a.href);
         if (!url.searchParams.has("utm_source")) url.searchParams.set("utm_source", src);
         if (campaign && !url.searchParams.has("utm_campaign")) url.searchParams.set("utm_campaign", campaign);
+        url.searchParams.set("cf_v", visitId);
         a.href = url.toString();
       } catch {
         // Leave the link as it was.
