@@ -34,7 +34,7 @@ const he = {
   signIn: "התחברות",
   dock: {
     aria: "תפריט",
-    marketing: "לקוחות חדשים",
+    marketing: "לקוחות",
     sales: "מכירות",
     clients: "ניהול",
     price: "מחיר",
@@ -242,7 +242,7 @@ const en: HomeCopy = {
   signIn: "Log in",
   dock: {
     aria: "Menu",
-    marketing: "New clients",
+    marketing: "Clients",
     sales: "Sales",
     clients: "Running it",
     price: "Price",
