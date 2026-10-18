@@ -35,9 +35,14 @@ function source(search: string, referrer: string): string {
   }
 }
 
-function send(body: Record<string, string | null>) {
+// Instagram / Facebook / TikTok open links in their own browser, where Apple
+// Pay and Google sign-in don't work; the funnel is split by it. Same list as
+// the Studio's src/lib/billing/in-app-browser.ts.
+const IN_APP = /\b(Instagram|FBAN|FBAV|FB_IAB|FBIOS|Messenger|TikTok|musical_ly|BytedanceWebview|Line\/|Snapchat|Pinterest)\b/i;
+
+function send(body: Record<string, string | boolean | null>) {
   try {
-    navigator.sendBeacon?.(ENDPOINT, JSON.stringify(body));
+    navigator.sendBeacon?.(ENDPOINT, JSON.stringify({ ...body, inApp: IN_APP.test(navigator.userAgent) }));
   } catch {
     // A lost count is never worth an error on the page.
   }
