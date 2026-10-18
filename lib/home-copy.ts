@@ -22,6 +22,8 @@ export type PlusItem = {
   gets: readonly string[];
 };
 
+type PricePlan = { key: "monthly" | "yearly"; toggle: string; toggleNote?: string; badge: string; was: string; amount: string; per: string; save: string; note: string; cta: string; terms: string };
+
 const he = {
   meta: {
     title: "קופלו | מערכת לניהול מותג עם AI",
@@ -203,12 +205,17 @@ const he = {
     },
   },
   price: {
-    h2: "כמה זה עולה?",
-    tileLabel: "מנוי חודשי",
-    amount: "€24",
-    chip: "לחודש · המחיר לא ישתנה לך",
-    facts: ["כל הכלים כלולים, בלי חבילות", "המחיר שנרשמת איתו לא ישתנה לך", "בלי התחייבות, מבטלים מתי שרוצים", "לא מתאים לך? החזר מלא בתוך 14 יום"],
-    fine: "ההרשמה פתוחה. פותחים חשבון ומתחילים.",
+    h2: "מנוי אחד. כל הכלים.",
+    sub: "למצטרפות בשלב הבטא: מחיר אחד, כל הכלים כלולים, בלי חבילות.",
+    planName: "Coflow Studio",
+    plans: [
+      { key: "monthly", toggle: "חודשי", badge: "מחיר בטא", was: "€49", amount: "€24", per: "לחודש", save: "חוסכת €25 בחודש (51%)", note: "המחיר שנרשמת איתו נשאר שלך, גם אחרי הבטא.", cta: "להצטרפות ב-€24 לחודש ←", terms: "בלי התחייבות · החזר מלא בתוך 14 יום" },
+      { key: "yearly", toggle: "שנתי", toggleNote: "חודשיים מתנה", badge: "מחיר בטא", was: "€588", amount: "€240", per: "לשנה", save: "חוסכת €348 בשנה (59%)", note: "€20 לחודש, בתשלום אחד לשנה. המחיר נשאר שלך גם אחרי הבטא.", cta: "להצטרפות ב-€240 לשנה ←", terms: "תשלום אחד לשנה · החזר מלא בתוך 14 יום" },
+    ] as readonly PricePlan[],
+    toggleLabel: "תשלום חודשי או שנתי",
+    includesTitle: "מה כלול:",
+    includes: ["CRM ולוח עסקאות", "ממשק לניהול קורסים דיגיטליים", "סדרות מיילים וניוזלטר, עד 2,500 שליחות בחודש", "ניהול משימות לך ולצוות", "אוטומציות", "דפי נחיתה", "שאלונים וקביעת שיחות", "לינק בביו"],
+    fine: "התשלום ב-Stripe. אחרי התשלום החשבון שלך נפתח ואת נכנסת ישר לסטודיו.",
   },
   footer: {
     links: [
@@ -406,12 +413,17 @@ const en: HomeCopy = {
     },
   },
   price: {
-    h2: "How much is it?",
-    tileLabel: "Monthly plan",
-    amount: "€24",
-    chip: "a month · your price won't change",
-    facts: ["All the tools included, no tiers", "The price you join at won't change", "No commitment, cancel any time", "Not for you? Full refund within 14 days"],
-    fine: "Sign-up is open. Create an account and start.",
+    h2: "One subscription. Every tool.",
+    sub: "Joining in the beta: one price, every tool included, no tiers.",
+    planName: "Coflow Studio",
+    plans: [
+      { key: "monthly", toggle: "Monthly", badge: "Beta price", was: "€49", amount: "€24", per: "a month", save: "You save €25 a month (51%)", note: "The price you join at stays yours, after the beta too.", cta: "Join for €24 a month →", terms: "No commitment · Full refund within 14 days" },
+      { key: "yearly", toggle: "Yearly", toggleNote: "2 months free", badge: "Beta price", was: "€588", amount: "€240", per: "a year", save: "You save €348 a year (59%)", note: "€20 a month, paid once a year. Your price stays yours after the beta.", cta: "Join for €240 a year →", terms: "One payment a year · Full refund within 14 days" },
+    ],
+    toggleLabel: "Pay monthly or yearly",
+    includesTitle: "What's included:",
+    includes: ["CRM and deals board", "Digital course management", "Email sequences and newsletter, up to 2,500 sends a month", "Task management for you and your team", "Automations", "Landing pages", "Questionnaires and call booking", "Link in bio"],
+    fine: "Payment is through Stripe. Once you pay, your account opens and you go straight into the studio.",
   },
   footer: {
     links: [

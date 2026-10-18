@@ -132,7 +132,11 @@
    sentence on a narrow phone instead of breaking the line apart. The height
    holds two lines on a phone so the page doesn't jump as words change. */
 .hm-typed { margin-top: 24px; font-size: clamp(22px, 3vw, 36px); line-height: 1.35; font-weight: 700; color: var(--hm-cocoa-2); text-align: center; min-height: 1.35em; }
-@media (max-width: 560px) { .hm-typed { min-height: 2.7em; } }
+@media (max-width: 560px) {
+  .hm-hint { font-size: 15px; gap: 8px; padding: 8px 14px; white-space: nowrap; }
+  .hm-hint i { width: 28px; height: 28px; font-size: 18px; }
+  .hm-plan { padding: 24px 22px; }
+  .hm-plan-price b { font-size: 56px; } .hm-typed { min-height: 2.7em; } }
 .hm-typed .hm-tw { color: var(--hm-cocoa); font-weight: 800; }
 .hm-typed .hm-caret { display: inline-block; width: 3px; height: 1.05em; vertical-align: -0.15em; background: var(--hm-pink); border-radius: 2px; margin-inline-start: 4px; animation: hm-blink 1s steps(1) infinite; }
 @media (prefers-reduced-motion: reduce) { .hm-typed .hm-caret { animation: none; } }
@@ -365,6 +369,33 @@
 .hm-more + .hm-sec { margin-top: 56px; }
 /* The brand headline before the price: it is a heading, not the page's h1. */
 .hm-brand { margin-top: 160px; }
+
+/* the plan card: one framed card, like every pricing page */
+.hm-plan-h2 { text-align: center; }
+.hm-plan-sub { margin-top: 12px; text-align: center; font-size: 19px; font-weight: 600; color: var(--hm-cocoa-2); }
+.hm-billing { display: flex; width: max-content; margin: 28px auto 0; padding: 4px; gap: 4px; border-radius: 999px; background: var(--hm-oat); }
+.hm-billing button { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; padding: 10px 20px; border-radius: 999px; background: none; font: 700 16px var(--hm-font); color: var(--hm-cocoa-2); }
+.hm-billing button span { padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 800; color: var(--hm-sage); background: var(--hm-sage-bg); }
+.hm-billing .hm-billing-on { background: var(--hm-white); color: var(--hm-cocoa); box-shadow: 0 2px 8px rgba(58, 46, 40, 0.12); }
+.hm-plan { max-width: 440px; margin: 20px auto 0; padding: 32px; background: var(--hm-white); border-radius: 28px; border: 2px solid var(--hm-cocoa); display: flex; flex-direction: column; box-shadow: 0 32px 64px -32px var(--hm-shadow); text-align: start; }
+.hm-plan-save { align-self: flex-start; margin-top: 10px; padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 800; color: var(--hm-sage); background: var(--hm-sage-bg); }
+
+.hm-plan-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hm-plan-name { font-size: 22px; font-weight: 900; }
+.hm-plan-badge { padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: var(--hm-butter); box-shadow: inset 0 0 0 1px var(--hm-butter-edge); }
+.hm-plan-desc { margin-top: 8px; font-size: 15px; color: var(--hm-cocoa-2); }
+.hm-plan-price { display: flex; align-items: baseline; gap: 10px; margin-top: 20px; }
+.hm-plan-price s { font-size: 26px; font-weight: 800; color: var(--hm-cocoa-3); text-decoration-thickness: 2px; }
+.hm-plan-price b { font-size: 64px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.hm-plan-price span { font-size: 18px; font-weight: 700; color: var(--hm-cocoa-2); }
+.hm-plan-lock { margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--hm-sage); }
+.hm-plan-btn { display: flex; justify-content: center; width: 100%; margin-top: 24px; }
+.hm-plan-terms { margin-top: 12px; text-align: center; font-size: 13.5px; font-weight: 600; color: var(--hm-cocoa-2); }
+.hm-plan-label { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--hm-line); font-size: 15px; font-weight: 800; }
+.hm-plan-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+.hm-plan-list li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; }
+.hm-plan-list i { width: 22px; height: 22px; flex: none; border-radius: 50%; display: inline-grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 900; color: var(--hm-sage); background: var(--hm-sage-bg); }
+.hm-plan-fine { margin-top: 20px; font-size: 12.5px; color: var(--hm-cocoa-3); }
 
 /* ── narrow screens ─────────────────────────────────────────── */
 @media (max-width: 900px) {

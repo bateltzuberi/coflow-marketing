@@ -27,6 +27,12 @@ export const JOIN_PATH = "/";
 // The Studio signup screen, carrying the language she was reading the site in.
 // `code` is only for old links that still carry one; the Studio ignores it
 // while sign-up is open.
+// Every Join button on the site leads to the plan card on the home page
+// (#price); only the card's own button (signupUrlFor) goes to payment.
+export function planCardHref(locale: "he" | "en"): string {
+  return `/${locale}#price`;
+}
+
 // Join = pay first: the Studio's /join opens Stripe Checkout and the account
 // is opened from the payment (shebossit-cms src/lib/billing/join.ts). An invite
 // code still goes to the sign-up form, since a code may be free.

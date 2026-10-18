@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signupUrlFor } from "@/lib/site";
+import { planCardHref } from "@/lib/site";
 import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -29,7 +29,7 @@ export default async function NotFound() {
         <p className="mt-4 text-[18px] text-ink-700">{t.sub}</p>
         <div className="mt-8 flex justify-center gap-3 flex-wrap">
           <Link href={localizedPath("/", locale)} className="btn btn-lime btn-sm">{t.home}</Link>
-          <Link href={signupUrlFor(locale, "")} className="btn btn-ghost btn-sm">{t.join}</Link>
+          <Link href={planCardHref(locale)} className="btn btn-ghost btn-sm">{t.join}</Link>
         </div>
       </section>
       <Footer />

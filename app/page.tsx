@@ -8,7 +8,6 @@ import { TypedLine } from "@/components/home/typed-line";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getHomeCopy } from "@/lib/home-copy";
-import { signupUrlFor } from "@/lib/site";
 
 // The home page.
 //
@@ -64,7 +63,7 @@ export default async function Home() {
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
             <p className="hm-sub">{t.hero.sub}</p>
-            <a className="hm-btn" href={signupUrlFor(locale, "")}>
+            <a className="hm-btn" href="#price">
               {t.hero.cta}
             </a>
             <p className="hm-refund">{t.hero.refund}</p>
