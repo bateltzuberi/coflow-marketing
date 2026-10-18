@@ -85,7 +85,7 @@ export function FunnelBeacon({ locale }: { locale: "he" | "en" }) {
 
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
-      if (!a || !a.href.startsWith(`${SITE.studioAppUrl}/signup`)) return;
+      if (!a || !/^\/(join|signup)\b/.test(a.href.slice(SITE.studioAppUrl.length)) || !a.href.startsWith(SITE.studioAppUrl)) return;
       if (once("join_click")) send({ step: "join_click", path: window.location.pathname, source: src, campaign, locale, visitId });
       try {
         const url = new URL(a.href);

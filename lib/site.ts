@@ -27,8 +27,11 @@ export const JOIN_PATH = "/";
 // The Studio signup screen, carrying the language she was reading the site in.
 // `code` is only for old links that still carry one; the Studio ignores it
 // while sign-up is open.
+// Join = pay first: the Studio's /join opens Stripe Checkout and the account
+// is opened from the payment (shebossit-cms src/lib/billing/join.ts). An invite
+// code still goes to the sign-up form, since a code may be free.
 export function signupUrlFor(locale: "he" | "en", code: string): string {
-  const url = new URL(`${SITE.studioAppUrl}/signup`);
+  const url = new URL(`${SITE.studioAppUrl}/${code ? "signup" : "join"}`);
   url.searchParams.set("lang", locale);
   if (code) url.searchParams.set("code", code);
   return url.toString();
