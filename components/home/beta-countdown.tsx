@@ -34,7 +34,7 @@ export function BetaCountdown({ t, href }: { t: HomeCopy["beta"]; href: string }
   return (
     <a className="hm-beta" href={href} role="timer" aria-label={t.aria}>
       <span className="hm-beta-dot" aria-hidden="true" />
-      <span className="hm-beta-long">{t.lastChance} ·</span>
+      <span className="hm-beta-long">{t.lastChance}</span>
       <span className="hm-beta-short">{t.short}</span>
       <span className="hm-beta-time" aria-hidden="true">
         {left === null ? (
