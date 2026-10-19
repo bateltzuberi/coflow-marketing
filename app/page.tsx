@@ -5,6 +5,8 @@ import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { Icon } from "@/components/home/icon";
 import { ClientsSection, HomeFooter, MarketingSection, PriceSection, SalesSection, TopBar } from "@/components/home/sections";
 import { TypedLine } from "@/components/home/typed-line";
+import { BetaCountdown } from "@/components/home/beta-countdown";
+import { betaSignupOpen } from "@/lib/beta-window";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getHomeCopy } from "@/lib/home-copy";
@@ -48,6 +50,7 @@ export default async function Home() {
       <JsonLd data={softwareApplicationJsonLd(locale)} />
       <HomeDock t={t} locale={locale} />
 
+      {betaSignupOpen() && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
       <TopBar t={t} />
 
       <main>

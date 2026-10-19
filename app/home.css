@@ -147,6 +147,27 @@
 .hm-hint { display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer; border-radius: 999px; padding: 10px 20px; font: 700 17px/1.2 var(--hm-font); color: var(--hm-cocoa); background: var(--hm-white); box-shadow: inset 0 0 0 1px var(--hm-line), 0 8px 24px -12px var(--hm-shadow); }
 .hm-hint:hover { box-shadow: inset 0 0 0 1px var(--hm-butter-edge), 0 8px 24px -12px var(--hm-shadow); }
 .hm-hint i { width: 34px; height: 34px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; font-style: normal; font-size: 22px; font-weight: 900; color: var(--hm-cocoa); background: var(--hm-butter); box-shadow: 0 0 0 3px var(--hm-pink-tint), 0 0 0 4px var(--hm-pink); }
+/* The beta countdown: a solid bar across the top of the page until Thursday
+   2026-10-22, 20:00 — pink, with the boxes in the page's own colour: the title, four boxes and the closing time in one row
+   (on a phone, two rows and no closing line). The top bar starts below it. */
+.hm-beta {
+  position: fixed; z-index: 31; inset-inline: 0; top: 0;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) 16px 8px; color: var(--hm-cocoa);
+  background: var(--hm-pink); box-shadow: 0 8px 24px -18px var(--hm-shadow);
+}
+.hm-beta-title { font-size: 17px; font-weight: 800; }
+.hm-beta-clock { display: flex; gap: 8px; }
+.hm-beta-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 52px; padding: 4px 8px; border-radius: 12px; background: var(--hm-paper); }
+.hm-beta-cell b { font-size: 20px; line-height: 1; font-weight: 900; font-variant-numeric: tabular-nums; }
+.hm-beta-cell small { font-size: 11px; font-weight: 600; color: var(--hm-cocoa-2); }
+.hm-beta-note { font-size: 14px; font-weight: 700; }
+.hm:has(.hm-beta) .hm-top { padding-top: 88px; }
+@media (max-width: 700px) {
+  .hm-beta { flex-direction: column; }
+  .hm-beta-note { display: none; }
+  .hm:has(.hm-beta) .hm-top { padding-top: 112px; }
+}
 .hm-refund { margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--hm-cocoa-2); }
 
 /* the stage: her Instagram in the middle, her business arriving around it */

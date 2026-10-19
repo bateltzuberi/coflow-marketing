@@ -22,6 +22,18 @@ export const DICT = {
       diagnosis: "אבחון חינם",
     },
 
+    // ----- /waitlist — where Join goes once the beta closed (2026-10-22) -----
+    // The form is the Studio's own waitlist form, so the details land in the
+    // CRM with every other contact. Before the close the page sends visitors on
+    // to the price card instead (see lib/beta-window.ts).
+    waitlist: {
+      title: "רשימת המתנה לקופלו",
+      sub: "ההרשמה לבטא נסגרה. נרשמים כאן, ואנחנו שולחים הזמנה כשמגיע התור שלך.",
+      formTitle: "טופס רשימת המתנה",
+      backLabel: "יש לך קוד הזמנה?",
+      backCta: "להרשמה עם קוד",
+    },
+
 
 
 
@@ -80,6 +92,15 @@ export const DICT = {
       cta: "Join",
       academy: "Academy",
       diagnosis: "Free diagnosis",
+    },
+
+    // ----- /waitlist -----
+    waitlist: {
+      title: "The Coflow waitlist",
+      sub: "Beta sign-up has closed. Leave your details here and we'll send you an invite when it's your turn.",
+      formTitle: "Waitlist form",
+      backLabel: "Have an invite code?",
+      backCta: "Sign up with your code",
     },
 
 
