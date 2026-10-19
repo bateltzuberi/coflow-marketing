@@ -208,9 +208,8 @@ const he = {
   // card says once it has closed (lib/beta-window.ts).
   beta: {
     lastChance: "הזדמנות אחרונה להצטרף לבטא",
-    short: "הבטא נסגרת בעוד",
-    day: "יום",
-    days: "ימים",
+    closes: "ההרשמה נסגרת ביום חמישי ב-20:00",
+    units: { days: "ימים", hours: "שעות", minutes: "דקות", seconds: "שניות" },
     aria: "ההרשמה לבטא נסגרת ביום חמישי ב-20:00. למחיר ולהצטרפות",
     waitlistCta: "להרשמה לרשימת ההמתנה ←",
     waitlistFine: "ההרשמה לבטא נסגרה. משאירים פרטים ומקבלים הזמנה כשמגיע התור.",
@@ -425,9 +424,8 @@ const en: HomeCopy = {
   },
   beta: {
     lastChance: "Last chance to join the beta",
-    short: "Beta closes in",
-    day: "day",
-    days: "days",
+    closes: "Sign-up closes Thursday at 8pm Israel time",
+    units: { days: "days", hours: "hours", minutes: "min", seconds: "sec" },
     aria: "Beta sign-up closes Thursday at 8pm Israel time. See the price and join",
     waitlistCta: "Join the waitlist →",
     waitlistFine: "Beta sign-up has closed. Leave your details and we'll invite you when it's your turn.",
