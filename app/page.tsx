@@ -50,12 +50,12 @@ export default async function Home() {
       <JsonLd data={softwareApplicationJsonLd(locale)} />
       <HomeDock t={t} locale={locale} />
 
+      {betaSignupOpen() && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
       <TopBar t={t} />
 
       <main>
         <header className="hm-hero">
           <div className="hm-wrap">
-            {betaSignupOpen() && <BetaCountdown t={t.beta} />}
             <h1>
               {t.hero.h1a}
               <br />
