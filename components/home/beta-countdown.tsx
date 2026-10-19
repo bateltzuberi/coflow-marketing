@@ -39,7 +39,8 @@ export function BetaCountdown({ t, href }: { t: HomeCopy["beta"]; href: string }
   return (
     <a className="hm-beta" href={href} role="timer" aria-label={t.aria}>
       <span className="hm-beta-title">{t.lastChance}</span>
-      <span className="hm-beta-clock" aria-hidden="true">
+      {/* Read like a clock, days on the left, in Hebrew too. */}
+      <span className="hm-beta-clock" dir="ltr" aria-hidden="true">
         {cells.map(([n, label]) => (
           <span key={label} className="hm-beta-cell">
             <b>{n === undefined ? "--" : String(n).padStart(2, "0")}</b>
