@@ -5,7 +5,8 @@ import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
 import type { LandingCopy, LandingFlow } from "@/lib/landing-source-copy";
-import { SITE, signupUrlFor } from "@/lib/site";
+import { SITE, signupUrlFor, waitlistHref } from "@/lib/site";
+import { betaSignupOpen } from "@/lib/beta-window";
 import { PlanCard } from "@/components/home/plan-card";
 
 // The home page's sections, lifted out of app/page.tsx so a page that shares
@@ -267,6 +268,14 @@ export function ClientsSection({ t }: { t: HomeCopy }) {
  *  Only its button goes to payment; every other Join on the page scrolls here. */
 export function PriceSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const pay = signupUrlFor(locale, "");
+  // Once the beta has closed (Thursday 2026-10-22, 20:00) the card's button
+  // goes to the waitlist; the Studio's /join refuses new checkouts anyway.
+  const open = betaSignupOpen();
+  const options = t.price.plans.map((p) =>
+    open
+      ? { ...p, href: p.key === "yearly" ? `${pay}&plan=yearly` : pay }
+      : { ...p, href: waitlistHref(locale), cta: t.beta.waitlistCta },
+  );
   return (
     <section className="hm-price" id="price">
       <div className="hm-wrap">
@@ -275,10 +284,10 @@ export function PriceSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
         <PlanCard
           name={t.price.planName}
           toggleLabel={t.price.toggleLabel}
-          options={t.price.plans.map((p) => ({ ...p, href: p.key === "yearly" ? `${pay}&plan=yearly` : pay }))}
+          options={options}
           includesTitle={t.price.includesTitle}
           includes={t.price.includes}
-          fine={t.price.fine}
+          fine={open ? t.price.fine : t.beta.waitlistFine}
         />
       </div>
     </section>

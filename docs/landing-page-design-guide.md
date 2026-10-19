@@ -1,8 +1,10 @@
 # Landing page design guide (coflow.social)
 
-> Sign-up is open since 2026-10-13: no invite codes, no waitlist. Every "Join" button goes to
-> `signupUrlFor(locale, "")` (the Studio /signup page, €24 a month). Never add a code field or a
-> waitlist form back without Batel asking.
+> Sign-up is open since 2026-10-13, until the beta closes on Thursday 2026-10-22 at 20:00 Israel
+> time (`lib/beta-window.ts`, Batel's decision 2026-10-19). Until then the home page shows a countdown
+> above the headline and every "Join" leads to the plan card, whose button pays. From the close the
+> countdown disappears, the plan card's button goes to `/waitlist` (the Studio waitlist form), and
+> the Studio's /join refuses new checkouts. Never add a code field back without Batel asking.
 
 Read this before changing any page on coflow.social. It exists because a change once added a
 block of different-looking content to the end of the home page, after the price, in another

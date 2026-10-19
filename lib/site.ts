@@ -49,3 +49,29 @@ export function signupUrlFor(locale: "he" | "en", code: string): string {
 export function signupEntryFor(locale: "he" | "en"): string {
   return `${SITE.studioAppUrl}/signup?lang=${locale}`;
 }
+
+// The waitlist form is a real CRM form in the Studio (studio.coflow.social/f/…),
+// so someone who leaves details lands in the same contacts table as everyone
+// else. One per language (a form's questions are stored text in one language);
+// same product and list. Embedded on /waitlist once the beta has closed.
+export const WAITLIST_FORM_IDS = {
+  he: "1a9f6927-25aa-46c0-b795-3784e29e3038",
+  en: "ff0b4be5-2b20-4fc1-ac57-11a6326c66a8",
+} as const;
+
+export function formEmbedUrl(formId: string, locale: "he" | "en"): string {
+  // ?lang tells the form which language to draw its own words in: inside our
+  // iframe it can't read the studio's locale cookie.
+  return `${SITE.studioAppUrl}/f/${formId}?lang=${locale}`;
+}
+
+// Where the plan card's buttons go once the beta has closed.
+export function waitlistHref(locale: "he" | "en"): string {
+  return `/${locale}/waitlist`;
+}
+
+// The Studio's code form: an empty ?code= keeps it there after the close
+// instead of being sent back to the waitlist.
+export function codeSignupUrl(locale: "he" | "en"): string {
+  return `${SITE.studioAppUrl}/signup?lang=${locale}&code=`;
+}
