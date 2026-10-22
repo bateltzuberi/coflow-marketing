@@ -445,3 +445,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* ── accessibility button (components/accessibility-menu.tsx) ─────────
+   The home page's dock sits at the foot of the screen, nearly edge to edge on
+   a phone: while it is up the button rides above it, and comes back down when
+   the dock waits below the screen. */
+.a11y-menu { transition: bottom 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+body:has(.hm-dock:not(.hm-dock-away)) .a11y-menu { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+@media (prefers-reduced-motion: reduce) { .a11y-menu { transition: none; } }

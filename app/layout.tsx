@@ -8,6 +8,8 @@ import { FunnelBeacon } from "@/components/funnel-beacon";
 import { WaitlistPopup } from "@/components/waitlist/waitlist-popup";
 import { getDict } from "@/lib/dictionary";
 import { betaSignupOpen } from "@/lib/beta-window";
+import { AccessibilityMenu } from "@/components/accessibility-menu";
+import { localizedPath } from "@/lib/locale-path";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -76,6 +78,8 @@ export default async function RootLayout({
         {/* Anonymous sign-up funnel counts for the Studio's /admin/traffic; never on a preview deploy. */}
         {!isPreviewDeployment() && <FunnelBeacon locale={locale} />}
         {!betaSignupOpen() && <WaitlistPopup locale={locale} t={getDict(locale).waitlist} />}
+        {/* On every page, in the page's language (components/accessibility-menu). */}
+        <AccessibilityMenu lang={locale} t={getDict(locale).a11y} statementHref={localizedPath("/accessibility", locale)} />
       </body>
     </html>
   );

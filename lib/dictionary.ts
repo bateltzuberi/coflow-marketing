@@ -71,6 +71,25 @@ export const DICT = {
       ctaBody: "האקדמיה נמצאת גם בתוך המערכת, עם קישור ישיר לכל מסך שמוזכר בתשובה.",
       ctaButton: "כניסה לסטודיו",
     },
+    // ----- The accessibility button and menu on every page (components/accessibility-menu.tsx) -----
+    a11y: {
+      open: "תפריט נגישות",
+      title: "נגישות",
+      close: "סגירת תפריט הנגישות",
+      textSize: "גודל טקסט",
+      smaller: "הקטנת טקסט",
+      larger: "הגדלת טקסט",
+      toggles: {
+        contrast: "ניגודיות גבוהה",
+        motion: "עצירת אנימציות",
+        links: "הדגשת קישורים",
+        font: "גופן קריא",
+        spacing: "ריווח טקסט",
+      },
+      reset: "איפוס",
+      statement: "הצהרת נגישות",
+    },
+
     footer: {
       tagline: "העסק שמאחורי המותג שלך. שיווק, מכירות, ניהול לקוחות ומשימות במקום אחד.",
       cols: {
@@ -82,6 +101,7 @@ export const DICT = {
         { label: "האקדמיה של קופלו", href: "/academy" },
         { label: "תנאי שימוש", href: "/terms" },
         { label: "מדיניות פרטיות", href: "/privacy" },
+        { label: "הצהרת נגישות", href: "/accessibility" },
       ],
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "EN",
@@ -139,6 +159,24 @@ export const DICT = {
       ctaBody: "The academy is in the product too, with a direct link to every screen an answer mentions.",
       ctaButton: "Go to the studio",
     },
+    a11y: {
+      open: "Accessibility menu",
+      title: "Accessibility",
+      close: "Close accessibility menu",
+      textSize: "Text size",
+      smaller: "Smaller text",
+      larger: "Larger text",
+      toggles: {
+        contrast: "High contrast",
+        motion: "Stop animations",
+        links: "Underline links",
+        font: "Readable font",
+        spacing: "Text spacing",
+      },
+      reset: "Reset",
+      statement: "Accessibility statement",
+    },
+
     footer: {
       tagline: "The business behind your brand. Marketing, sales, client management and tasks in one place.",
       cols: {
@@ -150,6 +188,7 @@ export const DICT = {
         { label: "Coflow Academy", href: "/academy" },
         { label: "Terms", href: "/terms" },
         { label: "Privacy", href: "/privacy" },
+        { label: "Accessibility", href: "/accessibility" },
       ],
       copy: "© {year} Coflow · coflow.social",
       langSwitcher: "עב",
