@@ -34,6 +34,7 @@ const he = {
   signIn: "התחברות",
   dock: {
     aria: "תפריט",
+    content: "שיווק",
     marketing: "לקוחות",
     sales: "מכירות",
     clients: "ניהול",
@@ -100,6 +101,16 @@ const he = {
       { who: "נ", name: "נועה כהן", product: "ליווי עסקי 1:1", note: "רוצה להתחיל אחרי החגים, שאלה על תשלומים.", amount: "₪3,500", source: "שאלון התאמה" },
       { who: "ר", name: "רוני לוי", product: "קורס מותג בשבוע", note: "", amount: "₪690", source: "לינק בביו" },
     ],
+  },
+  // Marketing: the content itself, written off her brand profile and laid out
+  // on one content board. Coflow is masculine in Hebrew (קופלו כותב).
+  content: {
+    label: "שיווק",
+    h2: "אימייל מרקטינג וניהול הרשתות החברתיות",
+    lead: "את שולחת ניוזלטר לרשימת התפוצה שלך ישר מהמערכת, עם תבניות מוכנות. את הפוסטים לרשתות החברתיות את מתכננת בלוח תוכן אחד: מה עולה, מתי ובאיזו רשת, וקופלו עוזר לכתוב אותם.",
+    gets: ["ניוזלטר", "תבניות מייל", "רשימת תפוצה", "לוח תוכן", "כתיבת פוסטים"],
+    weekTitle: "לוח התוכן · השבוע",
+    week: [["א׳", "3 טעויות בתמחור", "אינסטגרם"], ["ג׳", "מה כולל ליווי עסקי", "ניוזלטר"], ["ה׳", "פרק 12 · תמחור", "פודקאסט"]] as readonly (readonly [string, string, string])[],
   },
   marketing: {
     label: "לקוחות חדשים",
@@ -254,6 +265,7 @@ const en: HomeCopy = {
   signIn: "Log in",
   dock: {
     aria: "Menu",
+    content: "Marketing",
     marketing: "Clients",
     sales: "Sales",
     clients: "Running it",
@@ -320,6 +332,14 @@ const en: HomeCopy = {
       { who: "N", name: "Noa Cohen", product: "1:1 coaching", note: "Wants to start after the holidays, asked about payments.", amount: "₪3,500", source: "Questionnaire" },
       { who: "R", name: "Roni Levi", product: "Brand in a week", note: "", amount: "₪690", source: "Link in bio" },
     ],
+  },
+  content: {
+    label: "Marketing",
+    h2: "Email marketing and social media management",
+    lead: "Send a newsletter to your mailing list straight from the system, with ready-made templates. Plan your social media posts on one content board: what goes out, when and on which network, and Coflow helps you write them.",
+    gets: ["Newsletter", "Email templates", "Mailing list", "Content board", "Post writing"],
+    weekTitle: "Content board · this week",
+    week: [["Sun", "3 pricing mistakes", "Instagram"], ["Tue", "What coaching includes", "Newsletter"], ["Thu", "Ep. 12 · Pricing", "Podcast"]] as readonly (readonly [string, string, string])[],
   },
   marketing: {
     label: "New clients",

@@ -139,13 +139,13 @@ export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: {
       {fanOpen && <div className="hm-fan-catch" onClick={() => setFanOpen(false)} aria-hidden="true" />}
 
       <nav className={`hm-dock${docked || fanOpen ? "" : " hm-dock-away"}`} aria-label={t.dock.aria}>
+        <a href="#content">
+          <Icon name="grid" />
+          {t.dock.content}
+        </a>
         <a href="#marketing">
           <Icon name="mega" />
           {t.dock.marketing}
-        </a>
-        <a href="#sales">
-          <Icon name="coin" />
-          {t.dock.sales}
         </a>
         <span className="hm-plus-box">
           <button
@@ -214,6 +214,10 @@ export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: {
             })}
           </span>
         </span>
+        <a href="#sales">
+          <Icon name="coin" />
+          {t.dock.sales}
+        </a>
         <a href="#clients">
           <Icon name="users" />
           {t.dock.clients}
