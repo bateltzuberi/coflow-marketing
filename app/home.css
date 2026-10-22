@@ -268,6 +268,25 @@
 .hm-slide em { margin-top: 14px; font-size: 12px; color: var(--hm-cocoa-2); font-style: normal; direction: ltr; text-align: end; }
 .hm-caption { padding: 12px 14px; font-size: 12px; text-align: start; line-height: 1.4; }
 
+/* The business map in the products section, drawn like the Studio's
+   /products map: a dotted canvas, product cards, curved arrows with labels. */
+.hm-map { inset: 0; height: 540px; border-radius: 28px; background-color: var(--hm-white); background-image: radial-gradient(var(--hm-line) 1.2px, transparent 1.2px); background-size: 18px 18px; box-shadow: 0 0 0 1px var(--hm-line), 0 24px 48px -24px var(--hm-shadow); overflow: hidden; }
+.hm-map > * { position: absolute; }
+.hm-map-title { top: 20px; inset-inline-start: 24px; font-size: 14px; font-weight: 700; color: var(--hm-cocoa); }
+.hm-map-lines { inset: 0; width: 100%; height: 100%; }
+.hm-map-lines path { fill: none; stroke: var(--hm-cocoa-3); stroke-width: 1.6; vector-effect: non-scaling-stroke; stroke-dasharray: 5 4; }
+.hm-map-how { z-index: 2; transform: translate(-50%, -50%); white-space: nowrap; font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 3px 10px; background: var(--hm-white); color: var(--hm-cocoa-2); box-shadow: 0 0 0 1px var(--hm-line); }
+.hm-map-card { width: 42%; display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 12px 24px -16px var(--hm-shadow); text-align: start; }
+.hm-map-cover { display: block; height: 28px; }
+.hm-map-body { display: flex; flex-direction: column; gap: 2px; padding: 8px 12px 12px; }
+.hm-map-body small { font-size: 11.5px; color: var(--hm-cocoa-3); }
+.hm-map-body b { font-size: 14.5px; font-weight: 800; line-height: 1.25; color: var(--hm-cocoa); }
+.hm-map-body > span { font-size: 12.5px; color: var(--hm-cocoa-2); }
+.hm-map-people { display: flex; align-items: center; gap: 0; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.hm-map-people i { width: 16px; height: 16px; border-radius: 50%; background: var(--hm-face-a); box-shadow: 0 0 0 2px var(--hm-white); margin-inline-end: -5px; }
+.hm-map-people i:nth-child(2) { background: var(--hm-face-b); }
+.hm-map-people i:nth-child(3) { background: var(--hm-oat-2); margin-inline-end: 6px; }
+
 /* ── price: shown the way the studio shows a number ─────────── */
 .hm-price { margin-top: 180px; padding-bottom: 40px; scroll-margin-top: 40px; }
 .hm-price .hm-row { align-items: start; }
@@ -443,6 +462,10 @@
   /* clients: the income tile and the task tile sit one above the other, not one over the other */
   #clients .hm-vis > *:nth-child(2), #sales .hm-vis > *:nth-child(2) { margin-top: 16px; }
   .hm-vis .hm-col, .hm-vis .hm-tile { max-width: calc(100% - 24px); }
+  .hm-vis > .hm-map { align-self: stretch; height: 620px; }
+  .hm-map-cover { height: 18px; }
+  .hm-map-body { padding: 6px 10px 10px; }
+  .hm-map-body b { font-size: 13.5px; }
   /* price: the number right under the question */
   .hm-price .hm-copy { display: contents; }
   .hm-price h2 { order: 1; }

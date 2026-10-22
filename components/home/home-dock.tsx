@@ -139,13 +139,13 @@ export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: {
       {fanOpen && <div className="hm-fan-catch" onClick={() => setFanOpen(false)} aria-hidden="true" />}
 
       <nav className={`hm-dock${docked || fanOpen ? "" : " hm-dock-away"}`} aria-label={t.dock.aria}>
-        <a href="#content">
-          <Icon name="grid" />
-          {t.dock.content}
+        <a href="#products">
+          <Icon name="tag" />
+          {t.dock.products}
         </a>
-        <a href="#marketing">
+        <a href="#content">
           <Icon name="mega" />
-          {t.dock.marketing}
+          {t.dock.content}
         </a>
         <span className="hm-plus-box">
           <button
