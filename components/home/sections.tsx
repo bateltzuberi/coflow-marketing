@@ -150,6 +150,48 @@ function Gets({ items }: { items: readonly string[] }) {
   );
 }
 
+/** Marketing: her content, written off the brand profile — this week's board,
+ *  and the carousel it wrote, as she would see it on her phone. */
+export function ContentSection({ t }: { t: HomeCopy }) {
+  return (
+    <section className="hm-sec" id="content">
+      <div className="hm-row hm-flip">
+        <div className="hm-copy">
+          <Opener icon="grid" label={t.content.label} />
+          <h2>{t.content.h2}</h2>
+          <p className="hm-lead">{t.content.lead}</p>
+          <Gets items={t.content.gets} />
+        </div>
+        <div className="hm-vis" aria-hidden="true">
+          <div className="hm-tile" style={{ insetInlineStart: 0, top: 20, width: 330, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{t.content.weekTitle}</small>
+            {t.content.week.map(([day, idea, platform]) => (
+              <div className="hm-r" key={day}>
+                <span>
+                  <b>{day}</b> · {idea}
+                </span>
+                <span className="hm-badge">{platform}</span>
+              </div>
+            ))}
+          </div>
+          <div className="hm-phone hm-mini" style={{ insetInlineEnd: "4%", bottom: 0, zIndex: 1 }}>
+            <div className="hm-screen">
+              <div className="hm-slide">
+                <small>{t.marketing.slideCount}</small>
+                <b>{t.marketing.slide}</b>
+                <em>@{t.marketing.handle}</em>
+              </div>
+              <div className="hm-caption">
+                <b>{t.marketing.handle}</b> {t.marketing.caption}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Bringing in clients: her link in bio, and who came in through it this week. */
 export function MarketingSection({ t }: { t: HomeCopy }) {
   return (

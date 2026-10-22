@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./home.css";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { Icon } from "@/components/home/icon";
-import { ClientsSection, HomeFooter, MarketingSection, PriceSection, SalesSection, TopBar } from "@/components/home/sections";
+import { ClientsSection, ContentSection, HomeFooter, MarketingSection, PriceSection, SalesSection, TopBar } from "@/components/home/sections";
 import { TypedLine } from "@/components/home/typed-line";
 import { BetaCountdown } from "@/components/home/beta-countdown";
 import { betaSignupOpen } from "@/lib/beta-window";
@@ -138,6 +138,7 @@ export default async function Home() {
         </header>
 
         <div className="hm-wrap">
+          <ContentSection t={t} />
           <MarketingSection t={t} />
           <SalesSection t={t} />
           <ClientsSection t={t} />
