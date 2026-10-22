@@ -5,6 +5,9 @@ import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { getLocale, dirFor } from "@/lib/locale";
 import { isPreviewDeployment } from "@/lib/indexing";
 import { FunnelBeacon } from "@/components/funnel-beacon";
+import { WaitlistPopup } from "@/components/waitlist/waitlist-popup";
+import { getDict } from "@/lib/dictionary";
+import { betaSignupOpen } from "@/lib/beta-window";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -72,6 +75,7 @@ export default async function RootLayout({
         {children}
         {/* Anonymous sign-up funnel counts for the Studio's /admin/traffic; never on a preview deploy. */}
         {!isPreviewDeployment() && <FunnelBeacon locale={locale} />}
+        {!betaSignupOpen() && <WaitlistPopup locale={locale} t={getDict(locale).waitlist} />}
       </body>
     </html>
   );

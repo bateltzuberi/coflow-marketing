@@ -34,6 +34,7 @@ export const DICT = {
       formTitle: "טופס רשימת המתנה",
       backLabel: "יש לך קוד הזמנה?",
       backCta: "להרשמה עם קוד",
+      close: "סגירה",
     },
 
 
@@ -104,6 +105,7 @@ export const DICT = {
       formTitle: "Waitlist form",
       backLabel: "Have an invite code?",
       backCta: "Sign up with your code",
+      close: "Close",
     },
 
 
