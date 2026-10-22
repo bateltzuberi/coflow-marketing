@@ -150,6 +150,107 @@ function Gets({ items }: { items: readonly string[] }) {
   );
 }
 
+// Where the map's cards and arrow labels sit, in % of the canvas: entry top,
+// middle below it on the other side, premium at the bottom — top-down, the
+// way the Studio lays the map out.
+const MAP_CARD_AT: React.CSSProperties[] = [
+  { left: "52%", top: "9%" },
+  { left: "6%", top: "40%" },
+  { left: "52%", top: "71%" },
+];
+const MAP_HOW_AT: React.CSSProperties[] = [
+  { left: "50%", top: "35%" },
+  { left: "50%", top: "66%" },
+];
+const MAP_COVER = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-oat-2)"];
+
+/** Products: her product line as the Studio draws it — entry, middle, premium,
+ *  how many people are in each, and how they move from one to the next. */
+export function ProductsSection({ t }: { t: HomeCopy }) {
+  return (
+    <section className="hm-sec" id="products">
+      <div className="hm-row">
+        <div className="hm-copy">
+          <Opener icon="tag" label={t.products.label} />
+          <h2>{t.products.h2}</h2>
+          <p className="hm-lead">{t.products.lead}</p>
+          <Gets items={t.products.gets} />
+        </div>
+        <div className="hm-vis" aria-hidden="true">
+          {/* The Studio's business map (/products), drawn: product cards on a
+              dotted canvas, joined by arrows that say how people move on. */}
+          <div className="hm-map">
+            <span className="hm-map-title">{t.products.listTitle}</span>
+            <svg className="hm-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M73 31 C73 39, 27 32, 27 40" />
+              <path d="M27 62 C27 70, 73 63, 73 71" />
+            </svg>
+            {t.products.moves.map(([, how], i) => (
+              <span key={how} className="hm-map-how" style={MAP_HOW_AT[i]}>
+                {how}
+              </span>
+            ))}
+            {t.products.items.map(([level, name, price, inside], i) => (
+              <div key={level} className="hm-map-card" style={MAP_CARD_AT[i]}>
+                <span className="hm-map-cover" style={{ background: MAP_COVER[i] }} />
+                <span className="hm-map-body">
+                  <small>{level}</small>
+                  <b>{name}</b>
+                  <span>{price}</span>
+                  <span className="hm-map-people">
+                    <i />
+                    <i />
+                    <i />
+                    {inside}
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Clients: who bought what, and this week's sessions with them. */
+export function CustomersSection({ t }: { t: HomeCopy }) {
+  return (
+    <section className="hm-sec" id="clients">
+      <div className="hm-row hm-flip">
+        <div className="hm-copy">
+          <Opener icon="users" label={t.customers.label} />
+          <h2>{t.customers.h2}</h2>
+          <p className="hm-lead">{t.customers.lead}</p>
+          <Gets items={t.customers.gets} />
+        </div>
+        <div className="hm-vis" aria-hidden="true">
+          <div className="hm-tile" style={{ insetInlineEnd: 0, top: 20, width: 340, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{t.customers.activeTitle}</small>
+            {t.customers.active.map(([who, product]) => (
+              <div className="hm-r" key={who}>
+                <span>
+                  <b>{who}</b>
+                </span>
+                <span className="hm-badge">{product}</span>
+              </div>
+            ))}
+          </div>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 300, padding: 20, zIndex: 1 }}>
+            <small className="hm-strong">{t.customers.sessionsTitle}</small>
+            {t.customers.sessions.map(([who, when]) => (
+              <div className="hm-r" key={who}>
+                <span>{who}</span>
+                <span className="hm-badge hm-today">{when}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Marketing: her content, written off the brand profile — this week's board,
  *  and the carousel it wrote, as she would see it on her phone. */
 export function ContentSection({ t }: { t: HomeCopy }) {
@@ -157,7 +258,7 @@ export function ContentSection({ t }: { t: HomeCopy }) {
     <section className="hm-sec" id="content">
       <div className="hm-row hm-flip">
         <div className="hm-copy">
-          <Opener icon="grid" label={t.content.label} />
+          <Opener icon="mega" label={t.content.label} />
           <h2>{t.content.h2}</h2>
           <p className="hm-lead">{t.content.lead}</p>
           <Gets items={t.content.gets} />
@@ -224,7 +325,7 @@ export function MarketingSection({ t }: { t: HomeCopy }) {
 export function SalesSection({ t }: { t: HomeCopy }) {
   return (
     <section className="hm-sec" id="sales">
-      <div className="hm-row hm-flip">
+      <div className="hm-row">
         <div className="hm-copy">
           <Opener icon="coin" label={t.sales.label} />
           <h2>{t.sales.h2}</h2>
@@ -253,12 +354,12 @@ export function SalesSection({ t }: { t: HomeCopy }) {
               </div>
             ))}
           </div>
-          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 1 }}>
-            <small className="hm-strong">{t.sales.sequenceTitle}</small>
-            {t.sales.sequence.map(([when, subject]) => (
-              <div className="hm-r" key={when}>
-                <span>{subject}</span>
-                <span className="hm-badge">{when}</span>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 340, padding: 20, zIndex: 1 }}>
+            <small className="hm-strong">{t.marketing.inTitle}</small>
+            {t.marketing.arrivals.map(([who, via]) => (
+              <div className="hm-r" key={who}>
+                <span>{who}</span>
+                <span className="hm-badge">{via}</span>
               </div>
             ))}
           </div>

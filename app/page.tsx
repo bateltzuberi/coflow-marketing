@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./home.css";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { Icon } from "@/components/home/icon";
-import { ClientsSection, ContentSection, HomeFooter, MarketingSection, PriceSection, SalesSection, TopBar } from "@/components/home/sections";
+import { ContentSection, CustomersSection, HomeFooter, PriceSection, ProductsSection, SalesSection, TopBar } from "@/components/home/sections";
 import { TypedLine } from "@/components/home/typed-line";
 import { BetaCountdown } from "@/components/home/beta-countdown";
 import { betaSignupOpen } from "@/lib/beta-window";
@@ -138,10 +138,11 @@ export default async function Home() {
         </header>
 
         <div className="hm-wrap">
+          {/* The Studio's own menu, in its order: products, marketing, sales, clients. */}
+          <ProductsSection t={t} />
           <ContentSection t={t} />
-          <MarketingSection t={t} />
           <SalesSection t={t} />
-          <ClientsSection t={t} />
+          <CustomersSection t={t} />
         </div>
 
         {open && <PriceSection t={t} locale={locale} />}
