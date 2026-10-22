@@ -42,7 +42,9 @@ function reducedMotionSnapshot() {
 }
 function serverReducedMotionSnapshot() { return false; }
 
-export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
+// joinHref: the plan card while the beta is open, the waitlist after it closed;
+// showPrice is false once there is no price on the page to scroll to.
+export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: { t: HomeCopy; locale: "he" | "en"; joinHref?: string; showPrice?: boolean }) {
   const [fanOpen, setFanOpen] = useState(false);
   // The dock waits below the screen only at the very top of the page, where
   // on a short window it sat on the hero's own Join button. It rises the
@@ -216,12 +218,14 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
           <Icon name="users" />
           {t.dock.clients}
         </a>
-        <a href="#price">
-          <Icon name="tag" />
-          {t.dock.price}
-        </a>
+        {showPrice && (
+          <a href="#price">
+            <Icon name="tag" />
+            {t.dock.price}
+          </a>
+        )}
         <span className="hm-sep" />
-        <a className="hm-dock-join" href="#price">
+        <a className="hm-dock-join" href={joinHref}>
           {t.dock.join}
         </a>
       </nav>
@@ -240,6 +244,7 @@ export function HomeDock({ t, locale }: { t: HomeCopy; locale: "he" | "en" }) {
             openFan(true);
           }}
           onJoin={closeAll}
+          joinHref={joinHref}
         />
       )}
     </>
@@ -267,6 +272,7 @@ function ResultPopup({
   onClose,
   onMore,
   onJoin,
+  joinHref,
 }: {
   t: HomeCopy;
   locale: "he" | "en";
@@ -274,6 +280,7 @@ function ResultPopup({
   onClose: () => void;
   onMore: () => void;
   onJoin: () => void;
+  joinHref: string;
 }) {
   const item = t.plus.items.find((i) => i.key === k)!;
   const joinRef = useRef<HTMLAnchorElement>(null);
@@ -315,7 +322,7 @@ function ResultPopup({
           <button type="button" className="hm-link" onClick={onMore}>
             {t.plus.back}
           </button>
-          <a ref={joinRef} className="hm-btn" href="#price" onClick={onJoin}>
+          <a ref={joinRef} className="hm-btn" href={joinHref} onClick={onJoin}>
             {t.plus.cta}
           </a>
         </div>

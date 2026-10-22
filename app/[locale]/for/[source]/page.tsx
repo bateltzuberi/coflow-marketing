@@ -16,7 +16,9 @@ import {
 } from "@/components/home/sections";
 import type { IconName } from "@/components/home/icon";
 import { TypedLine } from "@/components/home/typed-line";
-import { getHomeCopy } from "@/lib/home-copy";
+import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
+import { betaSignupOpen } from "@/lib/beta-window";
+import { waitlistHref } from "@/lib/site";
 import { getLandingCopy, isLandingSource, type LandingSource } from "@/lib/landing-source-copy";
 import { getLocale } from "@/lib/locale";
 import { buildMetadata } from "@/lib/seo";
@@ -53,7 +55,9 @@ export default async function LandingFromBadge({ params }: Props) {
   const { source } = await params;
   if (!isLandingSource(source)) notFound();
   const locale = await getLocale();
-  const t = getHomeCopy(locale);
+  // After the beta's close: Join goes to the waitlist and there is no price.
+  const open = betaSignupOpen();
+  const t = open ? getHomeCopy(locale) : withWaitlist(getHomeCopy(locale));
   const page = getLandingCopy(source, locale);
 
   return (
@@ -69,7 +73,7 @@ export default async function LandingFromBadge({ params }: Props) {
             </span>
             <h1>{inHebrew(page.h1, locale)}</h1>
             <p className="hm-sub">{inHebrew(page.sub, locale)}</p>
-            <a className="hm-btn" href="#price">
+            <a className="hm-btn" href={open ? "#price" : waitlistHref(locale)}>
               {t.hero.cta}
             </a>
           </div>
@@ -119,7 +123,7 @@ export default async function LandingFromBadge({ params }: Props) {
           </div>
         </section>
 
-        <PriceSection t={t} locale={locale} />
+        {open && <PriceSection t={t} locale={locale} />}
       </main>
 
       <HomeFooter t={t} locale={locale} />

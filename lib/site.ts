@@ -1,3 +1,5 @@
+import { betaSignupOpen } from "./beta-window";
+
 export const SITE = {
   name: "Coflow",
   tagline: "The business behind your brand",
@@ -29,8 +31,10 @@ export const JOIN_PATH = "/";
 // while sign-up is open.
 // Every Join button on the site leads to the plan card on the home page
 // (#price); only the card's own button (signupUrlFor) goes to payment.
+// From the beta's close there is no plan card: the same buttons go to the
+// waitlist (lib/beta-window.ts).
 export function planCardHref(locale: "he" | "en"): string {
-  return `/${locale}#price`;
+  return betaSignupOpen() ? `/${locale}#price` : `/${locale}/waitlist`;
 }
 
 // Join = pay first: the Studio's /join opens Stripe Checkout and the account

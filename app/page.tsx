@@ -9,7 +9,8 @@ import { BetaCountdown } from "@/components/home/beta-countdown";
 import { betaSignupOpen } from "@/lib/beta-window";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
-import { getHomeCopy } from "@/lib/home-copy";
+import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
+import { waitlistHref } from "@/lib/site";
 
 // The home page.
 //
@@ -43,14 +44,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const locale = await getLocale();
-  const t = getHomeCopy(locale);
+  // From the beta's close (Thursday 2026-10-22, 20:00) the page sells nothing:
+  // every Join goes to the waitlist and the price section is gone.
+  const open = betaSignupOpen();
+  const t = open ? getHomeCopy(locale) : withWaitlist(getHomeCopy(locale));
+  const joinHref = open ? "#price" : waitlistHref(locale);
 
   return (
     <div className="hm" lang={locale}>
       <JsonLd data={softwareApplicationJsonLd(locale)} />
-      <HomeDock t={t} locale={locale} />
+      <HomeDock t={t} locale={locale} joinHref={joinHref} showPrice={open} />
 
-      {betaSignupOpen() && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
+      {open && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
       <TopBar t={t} />
 
       <main>
@@ -66,10 +71,10 @@ export default async function Home() {
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
             <p className="hm-sub">{t.hero.sub}</p>
-            <a className="hm-btn" href="#price">
+            <a className="hm-btn" href={joinHref}>
               {t.hero.cta}
             </a>
-            <p className="hm-refund">{t.hero.refund}</p>
+            {t.hero.refund && <p className="hm-refund">{t.hero.refund}</p>}
             <PlusHint t={t} />
           </div>
 
@@ -138,7 +143,7 @@ export default async function Home() {
           <ClientsSection t={t} />
         </div>
 
-        <PriceSection t={t} locale={locale} />
+        {open && <PriceSection t={t} locale={locale} />}
       </main>
 
       <HomeFooter t={t} locale={locale} />

@@ -136,6 +136,6 @@ export function getSolution(slug: string, locale: Locale): DiscoveryPage | null 
 }
 
 export const discoveryLabels = {
-  he: { solutions: "מה אפשר לבנות", guides: "מדריכים", about: "על קופלו", faq: "שאלות נפוצות", details: "איך זה עובד", join: "להרשמה", academy: "הסבר מפורט באקדמיה", related: "עוד בקופלו", availability: "קופלו פתוחה להרשמה. בדקי את זמינות היכולות לפני הצטרפות.", home: "בית" },
-  en: { solutions: "What you can build", guides: "Guides", about: "About Coflow", faq: "Common questions", details: "How it works", join: "Sign up", academy: "Detailed instructions in the Academy", related: "More in Coflow", availability: "Coflow is open for sign-up. Confirm feature availability before joining.", home: "Home" },
+  he: { solutions: "מה אפשר לבנות", guides: "מדריכים", about: "על קופלו", faq: "שאלות נפוצות", details: "איך זה עובד", join: "להרשמה", academy: "הסבר מפורט באקדמיה", related: "עוד בקופלו", availability: "קופלו פתוחה להרשמה. בדקי את זמינות היכולות לפני הצטרפות.", home: "בית", joinClosed: "לרשימת ההמתנה", availabilityClosed: "ההרשמה לבטא נסגרה. נרשמים לרשימת ההמתנה ומקבלים הזמנה כשמגיע התור." },
+  en: { solutions: "What you can build", guides: "Guides", about: "About Coflow", faq: "Common questions", details: "How it works", join: "Sign up", academy: "Detailed instructions in the Academy", related: "More in Coflow", availability: "Coflow is open for sign-up. Confirm feature availability before joining.", home: "Home", joinClosed: "Join the waitlist", availabilityClosed: "Beta sign-up has closed. Join the waitlist and we'll invite you when it's your turn." },
 };

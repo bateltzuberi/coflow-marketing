@@ -213,6 +213,8 @@ const he = {
     aria: "ההרשמה לבטא נסגרת ביום חמישי ב-20:00. למחיר ולהצטרפות",
     waitlistCta: "להרשמה לרשימת ההמתנה ←",
     waitlistFine: "ההרשמה לבטא נסגרה. משאירים פרטים ומקבלים הזמנה כשמגיע התור.",
+    waitlistShort: "לרשימת ההמתנה",
+    subClosed: "ניהול לקוחות, קורסים דיגיטליים, מיילים, משימות ודפי נחיתה.",
   },
   price: {
     h2: "מנוי אחד. כל הכלים.",
@@ -429,6 +431,8 @@ const en: HomeCopy = {
     aria: "Beta sign-up closes Thursday at 8pm Israel time. See the price and join",
     waitlistCta: "Join the waitlist →",
     waitlistFine: "Beta sign-up has closed. Leave your details and we'll invite you when it's your turn.",
+    waitlistShort: "Waitlist",
+    subClosed: "Clients, digital courses, emails, tasks and landing pages.",
   },
   price: {
     h2: "One subscription. Every tool.",
@@ -455,6 +459,17 @@ const en: HomeCopy = {
     company: "SheBossIt LTD",
   },
 };
+
+/** The page's words once the beta has closed (lib/beta-window.ts): every Join
+ *  becomes the waitlist, and nothing on the page names a price or a refund. */
+export function withWaitlist(t: HomeCopy): HomeCopy {
+  return {
+    ...t,
+    hero: { ...t.hero, cta: t.beta.waitlistCta, sub: t.beta.subClosed, refund: "" },
+    dock: { ...t.dock, join: t.beta.waitlistShort },
+    plus: { ...t.plus, cta: t.beta.waitlistCta },
+  };
+}
 
 export function getHomeCopy(locale: Locale): HomeCopy {
   return locale === "en" ? en : he;
