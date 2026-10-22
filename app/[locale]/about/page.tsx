@@ -1,26 +1,28 @@
 import Link from "next/link";
 import { planCardHref } from "@/lib/site";
+import { betaSignupOpen } from "@/lib/beta-window";
 import { getLocale } from "@/lib/locale";
 import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { buildMetadata, JsonLd, webPageJsonLd, softwareApplicationJsonLd } from "@/lib/seo";
 
-function copy(he: boolean) {
+function copy(he: boolean, open: boolean) {
   return {
     title: he ? "מה היא קופלו" : "What is Coflow?",
     description: he ? "קופלו (Coflow) היא מערכת לניהול מותג עם AI של SheBossIt (Cyprus) Ltd, שמחברת מוצרים, שיווק, מכירות ולקוחות." : "Coflow is an AI brand-management system by SheBossIt (Cyprus) Ltd, connecting offers, marketing, sales and clients.",
     intro: he ? "קופלו היא מערכת לניהול מותג עם AI, לעסקים שמוכרים ידע ושירותים: קורסים, ליווי, פגישות וסדנאות. היא מחברת את המוצרים, התוכן, הדפים, הפניות והלקוחות באותה סביבת עבודה." : "Coflow is an AI brand-management system for businesses selling knowledge and services: courses, coaching, appointments and workshops. It brings offers, content, pages, enquiries and clients into one workspace.",
     context: he ? "פרופיל המותג שומר את הקהל, המסרים והקול שלך ומשמש את יצירת התוכן. המוצר מגדיר מה את מוכרת; הדפים והטפסים מובילים אליו, ואנשי הקשר והעסקאות נשמרים ב-CRM." : "The brand profile stores your audience, messages and voice and informs content creation. The offer defines what you sell; pages and forms lead towards it, while contacts and deals stay in your CRM.",
-    stage: he ? "קופלו פתוחה להרשמה. מערכת הקורסים נמצאת בפיתוח. המחיר המוצג באתר הוא €24 לחודש; זמינות יכולות ותנאים מפורטים נבדקים לפני הצטרפות." : "Coflow is open for sign-up. Course building is in development. The price shown on this site is €24 per month; confirm feature availability and detailed terms before joining.",
+    // After the beta's close: a waitlist, and no price (lib/beta-window.ts).
+    stage: !open ? (he ? "ההרשמה לבטא של קופלו נסגרה. נרשמים לרשימת ההמתנה, ואנחנו שולחים הזמנה כשמגיע התור. מערכת הקורסים נמצאת בפיתוח." : "Coflow's beta sign-up has closed. Join the waitlist and we'll send you an invite when it's your turn. Course building is in development.") : he ? "קופלו פתוחה להרשמה. מערכת הקורסים נמצאת בפיתוח. המחיר המוצג באתר הוא €24 לחודש; זמינות יכולות ותנאים מפורטים נבדקים לפני הצטרפות." : "Coflow is open for sign-up. Course building is in development. The price shown on this site is €24 per month; confirm feature availability and detailed terms before joining.",
   };
 }
 export async function generateMetadata() {
-  const locale = await getLocale(); const t = copy(locale === "he");
+  const locale = await getLocale(); const t = copy(locale === "he", betaSignupOpen());
   return buildMetadata({ title: t.title, description: t.description, path: "/about", locale });
 }
 export default async function About() {
-  const locale = await getLocale(); const he = locale === "he"; const t = copy(he);
+  const locale = await getLocale(); const he = locale === "he"; const t = copy(he, betaSignupOpen());
   return <><Nav /><JsonLd data={webPageJsonLd(t.title, t.description, "/about", locale, "AboutPage")} /><JsonLd data={softwareApplicationJsonLd(locale)} />
     <main className="container-page py-16 md:py-24"><article className="max-w-3xl mx-auto">
       <h1 className="font-display text-[40px] md:text-[56px]">{t.title}</h1>
@@ -29,7 +31,7 @@ export default async function About() {
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.context}</p>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "הצטרפות וזמינות" : "Access and availability"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{t.stage}</p>
-      <Link className="btn btn-lime mt-8" href={planCardHref(locale)}>{he ? "להרשמה" : "Sign up"}</Link>
+      <Link className="btn btn-lime mt-8" href={planCardHref(locale)}>{betaSignupOpen() ? (he ? "להרשמה" : "Sign up") : (he ? "לרשימת ההמתנה" : "Join the waitlist")}</Link>
       <h2 className="mt-16 text-[28px] font-bold">{he ? "החברה" : "The company"}</h2>
       <p className="mt-6 text-[18px] leading-relaxed">{he ? "קופלו מופעלת על ידי SheBossIt (Cyprus) Ltd. פרטי החברה, ההתקשרות והשימוש במידע מופיעים במסמכים המשפטיים." : "Coflow is operated by SheBossIt (Cyprus) Ltd. Company, contact and data-use details are available in the legal documents."}</p>
       <p className="mt-6"><a href="mailto:contact@shebossit.com" className="underline underline-offset-4">contact@shebossit.com</a></p>

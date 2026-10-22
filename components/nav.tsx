@@ -4,6 +4,7 @@ import { CoflowMark } from "./coflow-mark";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 import { SITE, planCardHref } from "@/lib/site";
+import { betaSignupOpen } from "@/lib/beta-window";
 
 // The header of every page other than home, in the home page's look: the
 // wordmark, a sign-in link, and one cream
@@ -27,7 +28,7 @@ export async function Nav() {
             {t.signIn}
           </a>
           <Link href={planCardHref(locale)} className="btn btn-lime btn-sm">
-            {t.cta}
+            {betaSignupOpen() ? t.cta : t.waitlist}
           </Link>
         </div>
       </div>
