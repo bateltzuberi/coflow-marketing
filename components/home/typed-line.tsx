@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 /**
  * "Built for …" under the headline: each audience types out, waits, erases,
  * and the next one comes. The caret is pink, the studio's colour for "now".
- * It types with Reduce Motion on too; only the caret stops blinking.
+ * It types with Reduce Motion on too; only the caret stops blinking. The
+ * accessibility menu's "Stop animations" does stop it.
  */
 export function TypedLine({ lead, words }: { lead: string; words: readonly string[] }) {
   const [text, setText] = useState(words[0]);
@@ -20,6 +21,16 @@ export function TypedLine({ lead, words }: { lead: string; words: readonly strin
     let c = words[0].length;
     let erasing = true;
     const tick = () => {
+      // The accessibility menu's "Stop animations" (components/accessibility-menu)
+      // is the visitor asking for it in so many words: hold one whole word, and
+      // pick up again if she turns it back off.
+      if (document.documentElement.hasAttribute("data-a11y-motion")) {
+        setText(words[w]);
+        c = words[w].length;
+        erasing = true;
+        timer = setTimeout(tick, 500);
+        return;
+      }
       if (erasing) {
         c -= 1;
         setText(words[w].slice(0, c));

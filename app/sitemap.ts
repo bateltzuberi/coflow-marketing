@@ -8,7 +8,7 @@ import { localizedPath, SUPPORTED_LOCALES } from "@/lib/locale-path";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (isPreviewDeployment()) return [];
   const areas = await getAcademyAreas();
-  const paths = ["/", "/terms", "/privacy", "/academy", "/solutions", "/guides", "/about", ...SOLUTION_SLUGS.map(s => `/solutions/${s}`), ...GUIDE_SLUGS.map(s => `/guides/${s}`), ...areas.map(a => `/academy/${a.id}`)];
+  const paths = ["/", "/terms", "/privacy", "/accessibility", "/academy", "/solutions", "/guides", "/about", ...SOLUTION_SLUGS.map(s => `/solutions/${s}`), ...GUIDE_SLUGS.map(s => `/guides/${s}`), ...areas.map(a => `/academy/${a.id}`)];
   return paths.flatMap(path => SUPPORTED_LOCALES.map(locale => ({
     url: `${SITE.url}${localizedPath(path, locale)}`,
     alternates: { languages: {

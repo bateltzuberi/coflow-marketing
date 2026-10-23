@@ -2,11 +2,12 @@ import { Nav } from "./nav";
 import { Footer } from "./footer";
 import { getLocale } from "@/lib/locale";
 import { LEGAL } from "@/lib/legal-content";
+import { ACCESSIBILITY_STATEMENT } from "@/lib/accessibility-statement";
 
-/** The terms of use / privacy policy, in the reader's language, in the site's look. */
-export async function LegalPage({ doc }: { doc: "terms" | "privacy" }) {
+/** The terms of use / privacy policy / accessibility statement, in the reader's language, in the site's look. */
+export async function LegalPage({ doc }: { doc: "terms" | "privacy" | "accessibility" }) {
   const locale = (await getLocale()) === "en" ? "en" : "he";
-  const d = LEGAL[doc][locale];
+  const d = doc === "accessibility" ? ACCESSIBILITY_STATEMENT[locale] : LEGAL[doc][locale];
   return (
     <>
       <Nav />
