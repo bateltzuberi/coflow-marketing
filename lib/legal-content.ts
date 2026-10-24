@@ -2,11 +2,14 @@
 // privacy section 1.1 from the lawyer's update and the Paphos address from Batel, 2026-10-13):
 // terms of use and privacy policy, in Hebrew and English. Rendered by
 // components/legal-page.tsx. Do not edit the wording here; replace it from a
-// newer document.
+// newer document. The one exception is the "cookieSettings" block: it is not
+// the lawyer's text but a link to the page where a visitor changes their
+// cookie answer, placed right after the two cookies it controls.
 
 export type LegalBlock =
   | { t: "h2" | "h3"; x: string }
   | { t: "p"; x: string; label?: string }
+  | { t: "cookieSettings"; lead: string; link: string }
   | { t: "ul"; items: string[] }
   | { t: "table"; head: string[]; rows: string[][] };
 
@@ -794,6 +797,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "x": "עוגייה הרושמת דרך אילו ערוצים וקישורים הגעת לשירות (למשך תקופה של 90 יום), לצורך הבנה אילו ערוצים מביאים נרשמים. עוגייה זו אינה חיונית לתפעול השירות ותיקבע אך ורק בכפוף להסכמתך המפורשת באמצעות באנר העוגיות."
     },
     {
+     "t": "cookieSettings",
+     "lead": "לשינוי הבחירה שלך בעוגיות בכל עת:",
+     "link": "הגדרות עוגיות"
+    },
+    {
      "t": "p",
      "label": "עוגיות אבחון (Diagnostic)",
      "x": "משמשות לאיתור תקלות ולבדיקות פנימיות בלבד, ואינן פעילות בסביבת הייצור בשגרה."
@@ -1224,6 +1232,11 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "t": "p",
      "label": "Arrival-journey (marketing) cookie",
      "x": "records which channels and links you arrived through (90-day lifetime), to understand which channels bring sign-ups. This cookie is not essential to the Service and is set only subject to your explicit consent through the cookie banner."
+    },
+    {
+     "t": "cookieSettings",
+     "lead": "To change your cookie choice at any time:",
+     "link": "Cookie settings"
     },
     {
      "t": "p",

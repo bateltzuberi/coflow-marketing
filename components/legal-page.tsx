@@ -37,6 +37,18 @@ export async function LegalPage({ doc }: { doc: "terms" | "privacy" | "accessibi
                     ))}
                   </ul>
                 );
+              if (b.t === "cookieSettings")
+                return (
+                  <p key={i}>
+                    {b.lead}{" "}
+                    <a
+                      href="https://studio.coflow.social/cookies"
+                      className="font-bold text-ink-900 underline underline-offset-4"
+                    >
+                      {b.link}
+                    </a>
+                  </p>
+                );
               if (b.t === "table")
                 return (
                   <div key={i} className="overflow-x-auto rounded-2xl border border-line bg-surface">
