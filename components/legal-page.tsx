@@ -79,7 +79,17 @@ export async function LegalPage({ doc }: { doc: "terms" | "privacy" | "accessibi
               return (
                 <p key={i}>
                   {"label" in b && b.label ? <b className="font-bold text-ink-900">{b.label}: </b> : null}
-                  {b.x}
+                  {"link" in b && b.link && b.x.includes(b.link.text) ? (
+                    <>
+                      {b.x.slice(0, b.x.indexOf(b.link.text))}
+                      <a href={b.link.href} className="font-bold text-ink-900 underline underline-offset-4">
+                        {b.link.text}
+                      </a>
+                      {b.x.slice(b.x.indexOf(b.link.text) + b.link.text.length)}
+                    </>
+                  ) : (
+                    b.x
+                  )}
                 </p>
               );
             })}

@@ -2,13 +2,16 @@
 // privacy section 1.1 from the lawyer's update and the Paphos address from Batel, 2026-10-13):
 // terms of use and privacy policy, in Hebrew and English. Rendered by
 // components/legal-page.tsx. Do not edit the wording here; replace it from a
-// newer document. The one exception is the "cookieSettings" block: it is not
+// newer document. Privacy 2.2/2.6/3/8 and terms 4.2/7.1/13.2 carry the lawyer's
+// Google-verification update of 2026-11-22 (his files were built on an older
+// copy, so only those clauses were taken; 2.6 points to 1.2, the site's
+// numbering). The one exception is the "cookieSettings" block: it is not
 // the lawyer's text but a link to the page where a visitor changes their
 // cookie answer, placed right after the two cookies it controls.
 
 export type LegalBlock =
   | { t: "h2" | "h3"; x: string }
-  | { t: "p"; x: string; label?: string }
+  | { t: "p"; x: string; label?: string; link?: { text: string; href: string } }
   | { t: "cookieSettings"; lead: string; link: string }
   | { t: "ul"; items: string[] }
   | { t: "table"; head: string[]; rows: string[][] };
@@ -19,7 +22,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "terms": {
   "he": {
    "title": "תנאי שימוש —Coflow",
-   "updated": "תאריך עדכון אחרון: 18/10/2026",
+   "updated": "תאריך עדכון אחרון: 22/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -95,7 +98,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "4.2 אינטגרציות: ככל שתבחר/י לחבר חשבונות חיצוניים (כגון אינסטגרם, יוטיוב, יומן Google, Zoho Books, Wix, ManyChat ורב מסר), החיבור נעשה בהרשאות קריאה בלבד, למעט יומן Google, שבו קופלו מוסיפה ליומן אירועים שנוצרו באמצעות השירות (כגון שיחות שנקבעו ופגישות), ובכפוף לתנאי השימוש של אותן פלטפורמות."
+     "x": "4.2 אינטגרציות: ככל שתבחר/י לחבר חשבונות חיצוניים (כגון אינסטגרם, יוטיוב, יומן Google, Zoho Books, Wix, ManyChat ורב מסר), החיבור נעשה בהרשאות קריאה בלבד (למעט יומן Google, שבו השירות גם יוצר, מעדכן ומוחק אירועים של פגישות שנקבעו באמצעותו, כמפורט במדיניות הפרטיות) ובכפוף לתנאי השימוש של אותן פלטפורמות."
     },
     {
      "t": "h2",
@@ -135,7 +138,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "7.1 השירות עושה שימוש בכלי בינה מלאכותית (לרבות Claude מבית Anthropic ו-OpenAI) לצורך תכונות יצירה. לצורך כך, תוכן שהלקוח מזין עשוי להיות מועבר לספקים אלו, כמפורט במדיניות הפרטיות."
+     "x": "7.1 השירות עושה שימוש בכלי בינה מלאכותית (לרבות Claude מבית Anthropic ו-OpenAI) לצורך תכונות יצירה. לצורך כך, תוכן שהלקוח מזין, לרבות הקלטות קוליות לצורך פקודות קוליות, עשוי להיות מועבר לספקים אלו, כמפורט במדיניות הפרטיות."
     },
     {
      "t": "p",
@@ -275,7 +278,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "13.2 ייצוא ומחיקה: טרם המחיקה, ובתוך 30 יום ממועד סיום ההתקשרות, יתאפשר ללקוח לייצא את הנתונים שבבעלותו. לאחר מכן הנתונים יימחקו או יעברו אנונימיזציה מלאה, למעט מידע חשבונאי הנשמר 7 שנים כנדרש בדין."
+     "x": "13.2 ייצוא ומחיקה: טרם המחיקה, ובתוך 30 יום ממועד סיום ההתקשרות, יתאפשר ללקוח לייצא את הנתונים שבבעלותו. לאחר מכן הנתונים יימחקו או יעברו אנונימיזציה מלאה, למעט מידע חשבונאי הנשמר 7 שנים כנדרש בדין. פגישות שנקבעו באמצעות השירות ונוספו ליומן Google מחובר יישארו ביומן זה."
     },
     {
      "t": "h2",
@@ -332,7 +335,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
   },
   "en": {
    "title": "Terms of Use — Coflow",
-   "updated": "Last updated: 18/10/2026",
+   "updated": "Last updated: 22/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -408,7 +411,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "4.2 Integrations: where you choose to connect external accounts (such as Instagram, YouTube, Google Calendar, Zoho Books, Wix, ManyChat and Rav Messer), the connection uses read-only permissions, except Google Calendar, where Coflow adds to the calendar events created through the Service (such as booked calls and meetings), and is subject to those platforms’ terms of use."
+     "x": "4.2 Integrations: where you choose to connect external accounts (such as Instagram, YouTube, Google Calendar, Zoho Books, Wix, ManyChat and Rav Messer), the connection uses read-only permissions (except for Google Calendar, where the Service also creates, updates and deletes events for meetings booked through it, as detailed in the Privacy Policy) and is subject to those platforms’ terms of use."
     },
     {
      "t": "h2",
@@ -448,7 +451,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "7.1 The Service uses artificial-intelligence tools (including Claude by Anthropic and OpenAI) for its generation features. For this purpose, content the customer enters may be transmitted to these providers, as detailed in the Privacy Policy."
+     "x": "7.1 The Service uses artificial-intelligence tools (including Claude by Anthropic and OpenAI) for its generation features. For this purpose, content the customer enters, including voice recordings for voice commands, may be transmitted to these providers, as detailed in the Privacy Policy."
     },
     {
      "t": "p",
@@ -588,7 +591,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "13.2 Export and deletion: prior to deletion, and within 30 days of termination, the customer will be able to export the data it owns. Thereafter the data will be deleted or anonymized, except for accounting data retained for 7 years as required by law."
+     "x": "13.2 Export and deletion: prior to deletion, and within 30 days of termination, the customer will be able to export the data it owns. Thereafter the data will be deleted or anonymized, except for accounting data retained for 7 years as required by law. Meetings booked through the Service that were added to a connected Google Calendar will remain in that calendar."
     },
     {
      "t": "h2",
@@ -647,7 +650,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "privacy": {
   "he": {
    "title": "מדיניות פרטיות — קופלו (Coflow)",
-   "updated": "תאריך עדכון אחרון: 13/10/2026",
+   "updated": "תאריך עדכון אחרון: 22/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -726,7 +729,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "בכפוף להרשאה שתעניק, ואך ורק בהרשאות קריאה (read-only), אנו מושכים מידע מחשבונות שתבחר לחבר:"
+     "x": "בכפוף להרשאה שתעניק, אנו מושכים מידע מחשבונות שתבחר לחבר. ההרשאות הן לקריאה בלבד (read-only), למעט יומן Google, כמפורט להלן:"
     },
     {
      "t": "p",
@@ -738,7 +741,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "יומן Google (Google Calendar) — גישת קריאה ליומן וכתובת הדוא\"ל של החשבון, והוספת אירועים שנוצרו באמצעות השירות (כגון שיחות שנקבעו ופגישות). קופלו אינה משנה או מוחקת אירועים קיימים."
+     "x": "יומן Google (Google Calendar) — כתובת הדוא\"ל של החשבון, וגישה לאירועים ביומן הראשי של החשבון: קריאתם בזמן אמת לצורך הצגת היומן וחסימת שעות תפוסות בעמוד קביעת הפגישות, ויצירה, עדכון ומחיקה של אירועים שנוצרו באמצעות השירות (שיחות ופגישות שנקבעו, לרבות קישור Google Meet). קופלו אינה משנה או מוחקת אירועים שלא היא יצרה. פירוט נוסף מופיע בסעיף 2.6 להלן."
     },
     {
      "t": "p",
@@ -824,12 +827,56 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "x": "מדדי מעורבות ונתוני עוקבים הנאספים מהחשבונות המחוברים; נתוני שימוש בסיסיים (מועד הרשמה, מועד התחברות אחרון, שם מותג, תוכנית וסטטוס תשלום, והפלטפורמות המנוהלות) הנגישים לצוות קופלו לצורכי תפעול ותמיכה; ונתוני יומן טכניים לצורכי אבטחה ואיתור תקלות."
     },
     {
+     "t": "h3",
+     "x": "2.6 מידע מחשבון Google (Google User Data)"
+    },
+    {
+     "t": "p",
+     "x": "סעיף זה מפרט כיצד קופלו ניגשת למידע המתקבל מממשקי Google, משתמשת בו, משמרת אותו, משתפת אותו ומוחקת אותו, בעת התחברות באמצעות Google או חיבור יומן Google."
+    },
+    {
+     "t": "p",
+     "label": "גישה",
+     "x": "בהתחברות באמצעות Google מתקבלים פרטי חשבון בסיסיים, לרבות כתובת הדוא\"ל של חשבון Google. בחיבור יומן Google ניתנת גישה לאירועים ביומן הראשי, כמפורט בסעיף 2.2."
+    },
+    {
+     "t": "p",
+     "label": "שימוש",
+     "x": "המידע מיומן Google משמש אך ורק להצגת היומן בסביבת העבודה שלך, לחסימת שעות תפוסות בעמוד קביעת הפגישות, וליצירה, עדכון ומחיקה של פגישות שנקבעו באמצעות קופלו. היומן מוצג לך בלבד, ואינו גלוי לחברים אחרים בסביבת העבודה, לרבות חברי צוות של סוכנות. ככל שקופלו תבקש לעשות במידע מחשבון Google שימוש למטרה חדשה, נעדכן מדיניות זו ונבקש את הסכמתך בטרם השימוש."
+    },
+    {
+     "t": "p",
+     "label": "שמירה",
+     "x": "האירועים ביומן נשלפים מ-Google בזמן אמת ואינם נשמרים בשרתי קופלו. קופלו שומרת רק את אלה: (א) פרטי החיבור — אסימוני הגישה של Google וכתובת הדוא\"ל של חשבון Google המחובר — כל עוד היומן מחובר; (ב) לגבי כל פגישה שנקבעה באמצעות קופלו — מזהה האירוע ב-Google וקישור ה-Google Meet, יחד עם פרטי הפגישה (מועד, ושם וכתובת דוא\"ל של מי שקבע אותה), כל עוד החשבון קיים. פרטי האנשים שקובעים עמך פגישות מעובדים על ידי קופלו מטעמך, כמפורט בסעיף 1.2 ובהסכם עיבוד הנתונים (DPA). המידע השמור מוצפן בהעברה ובמנוחה."
+    },
+    {
+     "t": "p",
+     "label": "שיתוף",
+     "x": "מידע מחשבון Google אינו מועבר לשום צד שלישי, למעט: (א) ספקי האירוח והאחסון שלנו (Netlify ו-Supabase), לצורך הפעלת השירות; (ב) ספק הדוא\"ל שלנו (Resend), השולח הודעות אישור וביטול של פגישות, הכוללות את מועד הפגישה ואת קישור ה-Google Meet, אליך ואל מי שקבע את הפגישה. המידע מיומן Google אינו מועבר לשום ספק בינה מלאכותית. המידע עשוי להימסר גם ככל שהדבר נדרש לצורכי אבטחה (כגון חקירת שימוש לרעה) או לשם עמידה בהוראות הדין. במקרה של מיזוג, רכישה או מכירת נכסים, המידע יועבר רק לאחר קבלת הסכמתך המפורשת מראש."
+    },
+    {
+     "t": "p",
+     "label": "גישת צוות",
+     "x": "צוות קופלו אינו צופה במידע מהיומן שלך. הגישה הניהולית למסד הנתונים מוגבלת למייסדות קופלו, ומשמשת רק לבקשתך לצורך טיפול בתקלה, ככל שהדבר נדרש לצורכי אבטחה, או לשם עמידה בהוראות הדין."
+    },
+    {
+     "t": "p",
+     "label": "ניתוק ומחיקה",
+     "x": "ניתן לנתק את יומן Google בכל עת מתוך השירות או דרך הגדרות ההרשאות בחשבון Google. בעת הניתוק פרטי החיבור נמחקים מיד, וההרשאה של קופלו מבוטלת גם אצל Google. פגישות שכבר נקבעו באמצעות קופלו נשארות ביומן; פגישה נמחקת מהיומן רק אם תבטל אותה בקופלו. במחיקת החשבון נמחק כל המידע המתואר בסעיף זה."
+    },
+    {
+     "t": "p",
+     "label": "שימוש מוגבל (Limited Use)",
+     "x": "השימוש של קופלו במידע המתקבל מממשקי Google, והעברתו לכל אפליקציה אחרת, יעמדו במדיניות נתוני המשתמש של שירותי ה-API של Google (Google API Services User Data Policy), לרבות דרישות השימוש המוגבל (Limited Use). המידע מחשבון Google אינו נמכר, אינו משמש לפרסום ואינו משמש לאימון מודלים של בינה מלאכותית.",
+     "link": {"text": "Google API Services User Data Policy", "href": "https://developers.google.com/terms/api-services-user-data-policy"}
+    },
+    {
      "t": "h2",
      "x": "3. עיבוד באמצעות בינה מלאכותית (AI)"
     },
     {
      "t": "p",
-     "x": "חלק מתכונות הפלטפורמה מבוססות על מנועי בינה מלאכותית של צד שלישי — OpenAI ו-Anthropic (Claude). לצורך הפעלת תכונות היצירה, תוכן שאתה מזין (ובכלל זה חומרי מותג וטקסט עסקי שהוקלד) מועבר לספקים אלו לצורך יצירת התוצר המבוקש. רשומות אנשי קשר אינן מועברות דרך קבע לצורך תכונות אלו."
+     "x": "חלק מתכונות הפלטפורמה מבוססות על מנועי בינה מלאכותית של צד שלישי — OpenAI ו-Anthropic (Claude). לצורך הפעלת תכונות היצירה, תוכן שאתה מזין (ובכלל זה חומרי מותג וטקסט עסקי שהוקלד) מועבר לספקים אלו לצורך יצירת התוצר המבוקש. בשימוש בפקודות קוליות (למשל, לקביעת פגישה), ההקלטה נשלחת ל-OpenAI לצורך תמלול וזיהוי הבקשה. רשומות אנשי קשר אינן מועברות דרך קבע לצורך תכונות אלו."
     },
     {
      "t": "p",
@@ -994,7 +1041,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "אנו נוקטים אמצעים טכניים וארגוניים סבירים להגנה על המידע האישי, לרבות הצפנת מידע בהעברה, הגבלת הגישה לגורמים מורשים בלבד על בסיס הצורך לדעת ובהתאם למדיניות פנימית, והחלת חובות סודיות על בעלי הגישה. מערך ניטור השגיאות מוגדר כך שלא ייכללו בו פרטי מידע אישי (מזהי משתמש אנונימיים, ניקוי כתובות דוא\"ל ואסימוני גישה, והשבתת הקלטת מושבים)."
+     "x": "אנו נוקטים אמצעים טכניים וארגוניים סבירים להגנה על המידע האישי, לרבות הצפנת מידע בהעברה ובמנוחה, הגבלת הגישה לגורמים מורשים בלבד על בסיס הצורך לדעת ובהתאם למדיניות פנימית, והחלת חובות סודיות על בעלי הגישה. מערך ניטור השגיאות מוגדר כך שלא ייכללו בו פרטי מידע אישי (מזהי משתמש אנונימיים, ניקוי כתובות דוא\"ל ואסימוני גישה, והשבתת הקלטת מושבים)."
     },
     {
      "t": "p",
@@ -1083,7 +1130,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
   },
   "en": {
    "title": "Privacy Policy — Coflow",
-   "updated": "Last updated: 13/10/2026",
+   "updated": "Last updated: 22/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -1163,7 +1210,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "Subject to the permission you grant, and using read-only permissions only, we pull information from accounts you choose to connect:"
+     "x": "Subject to the permission you grant, we pull information from accounts you choose to connect. These permissions are read-only, except for Google Calendar, as described below:"
     },
     {
      "t": "p",
@@ -1175,7 +1222,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "Google Calendar — read-only calendar access and the account’s email address, and adding events created through the Service (such as booked calls and meetings). Coflow does not change or delete existing events."
+     "x": "Google Calendar — the account’s email address, and access to the events on the account’s primary calendar: reading them in real time to display your schedule and block busy times on the booking page, and creating, updating and deleting events created through the Service (booked calls and meetings, including a Google Meet link). Coflow does not change or delete events it did not create. Further details are set out in Section 2.6 below."
     },
     {
      "t": "p",
@@ -1261,12 +1308,56 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
      "x": "Engagement metrics and follower data collected from connected accounts; basic usage data (signup date, last sign-in, brand name, plan and payment status, and the platforms managed) accessible to Coflow staff for operations and support; and technical log data for security and troubleshooting."
     },
     {
+     "t": "h3",
+     "x": "2.6 Google User Data"
+    },
+    {
+     "t": "p",
+     "x": "This section describes how Coflow accesses, uses, stores, shares and deletes data received from Google APIs when you sign in with Google or connect your Google Calendar."
+    },
+    {
+     "t": "p",
+     "label": "Access",
+     "x": "When you sign in with Google, we receive basic account details, including the email address of your Google account. When you connect Google Calendar, we access the events on your primary calendar, as described in Section 2.2."
+    },
+    {
+     "t": "p",
+     "label": "Use",
+     "x": "Google Calendar data is used only to display your schedule within your workspace, to block busy times on your booking page, and to create, update and delete meetings booked through Coflow. Your calendar is displayed only to you and is not visible to other members of your workspace, including agency team members. Should Coflow wish to use Google user data for a new purpose, we will update this policy and ask for your consent before doing so."
+    },
+    {
+     "t": "p",
+     "label": "Storage",
+     "x": "Calendar events are retrieved from Google in real time and are not stored on Coflow’s servers. Coflow stores only: (a) connection details, namely the Google access tokens and the email address of the connected Google account, for as long as the calendar is connected; and (b) for each meeting booked through Coflow, the Google event ID and the Google Meet link, together with the meeting details (time, and the name and email address of the person who booked it), for as long as your account exists. Details of persons who book meetings with you are processed by Coflow on your behalf, as described in Section 1.2 and in the Data Processing Agreement. Stored data is encrypted in transit and at rest."
+    },
+    {
+     "t": "p",
+     "label": "Sharing",
+     "x": "Google user data is not transferred to any third party, except: (a) our hosting and storage providers (Netlify and Supabase), for the purpose of operating the Service; and (b) our email provider (Resend), which sends booking confirmation and cancellation emails, including the meeting time and the Google Meet link, to you and to the person who booked the meeting. Google Calendar data is not transmitted to any AI provider. Google user data may also be disclosed where necessary for security purposes (such as investigating abuse) or to comply with applicable law. In the event of a merger, acquisition or sale of assets, Google user data will be transferred only after obtaining your explicit prior consent."
+    },
+    {
+     "t": "p",
+     "label": "Staff access",
+     "x": "Coflow staff do not view your calendar data. Administrative access to the database is limited to Coflow’s founders and is used only at your request to resolve a technical issue, where necessary for security purposes, or to comply with applicable law."
+    },
+    {
+     "t": "p",
+     "label": "Disconnection and deletion",
+     "x": "You may disconnect Google Calendar at any time from within the Service or through your Google Account permissions settings. On disconnection, the connection details are deleted immediately and Coflow’s access is revoked at Google. Meetings already booked through Coflow remain on your calendar; a meeting is removed from your calendar only if you cancel it in Coflow. On deletion of your account, all data described in this section is deleted."
+    },
+    {
+     "t": "p",
+     "label": "Limited Use",
+     "x": "Coflow’s use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Google user data is not sold, not used for advertising, and not used to train AI models.",
+     "link": {"text": "Google API Services User Data Policy", "href": "https://developers.google.com/terms/api-services-user-data-policy"}
+    },
+    {
      "t": "h2",
      "x": "3. Processing by Artificial Intelligence (AI)"
     },
     {
      "t": "p",
-     "x": "Certain Platform features rely on third-party AI engines — OpenAI and Anthropic (Claude). To operate the generation features, content you enter (including brand materials and business text you type) is transmitted to these providers to generate the requested output. Contact records are not routinely transmitted for these features."
+     "x": "Certain Platform features rely on third-party AI engines — OpenAI and Anthropic (Claude). To operate the generation features, content you enter (including brand materials and business text you type) is transmitted to these providers to generate the requested output. Where you use voice commands (for example, to schedule a meeting), your recording is sent to OpenAI for transcription and to identify your request. Contact records are not routinely transmitted for these features."
     },
     {
      "t": "p",
@@ -1426,7 +1517,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "We take reasonable technical and organizational measures to protect Personal Data, including encryption of data in transit, limiting access to authorized personnel only on a need-to-know basis and in accordance with internal policy, and imposing confidentiality obligations on those with access. The error-monitoring setup is configured so that it does not include Personal Data (anonymous user IDs, scrubbing of email addresses and access tokens, and session recording disabled)."
+     "x": "We take reasonable technical and organizational measures to protect Personal Data, including encryption of data in transit and at rest, limiting access to authorized personnel only on a need-to-know basis and in accordance with internal policy, and imposing confidentiality obligations on those with access. The error-monitoring setup is configured so that it does not include Personal Data (anonymous user IDs, scrubbing of email addresses and access tokens, and session recording disabled)."
     },
     {
      "t": "p",
