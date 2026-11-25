@@ -1,10 +1,9 @@
 # Landing page design guide (coflow.social)
 
-> Sign-up is open since 2026-10-13, until the beta closes on Thursday 2026-10-22 at 20:00 Israel
-> time (`lib/beta-window.ts`, Batel's decision 2026-10-19). Until then the home page shows a countdown
-> above the headline and every "Join" leads to the plan card, whose button pays. From the close the
-> countdown disappears, the plan card's button goes to `/waitlist` (the Studio waitlist form), and
-> the Studio's /join refuses new checkouts. Never add a code field back without Batel asking.
+> Sign-up is open: three plans, each with a free trial, and every "Join" leads to the price section.
+> Never add a code field or a waitlist back without Batel asking. The open rewrite of the home page
+> (four sections, new order) is in `docs/landing-rewrite-2026-11.md`; it overrides §2's "three
+> sections" once built.
 
 Read this before changing any page on coflow.social. It exists because a change once added a
 block of different-looking content to the end of the home page, after the price, in another
@@ -32,7 +31,7 @@ Product claims: `PRODUCT.md`. How to talk to Batel: `WORKING-WITH-BATEL.md`.
 Order is fixed: **dock → top bar → hero → three sections (sales, marketing, clients) → price →
 footer.**
 
-- **The page ends at the price.** The price tile (€24, butter yellow) is the last content block.
+- **The page ends at the price.** The price section (the three plans) is the last content block.
   Nothing goes between the price and the footer. Nothing goes after it.
 - Do not add blocks, link lists, SEO text, FAQs or "what you can build" to the home page.
   They go on `/guides` (or a new page), and the home page links there from the footer only.
@@ -111,7 +110,7 @@ Reference implementations: `app/academy/page.tsx` (index) and `app/[locale]/guid
 ## 8. Copy rules (settled)
 
 - The category line is hers: **מערכת לניהול מותג עם AI**.
-- Course building is **in development**. Say so. Coflow opens gradually, by invitation.
+- Courses are live on every plan. Never write that they are in development.
 - No AI-sounding copy: no em-dashes for effect, no slogans, no "not theory, real examples".
 - No number goes into copy until someone has opened the source it came from.
 - Product facts come from `PRODUCT.md` and the product code, not from what we wish were true.
@@ -124,7 +123,7 @@ Reference implementations: `app/academy/page.tsx` (index) and `app/[locale]/guid
 3. Home ends at the price. The footer follows it directly.
 4. One `<h1>`. All text in both languages. No new hex values. No new fonts.
 5. `node --experimental-strip-types tests/discovery-smoke.mjs` passes (after a build).
-6. Say what you changed in three lines. Do not merge: Batel approves the merge, because a merge
+6. Say what you changed in three lines. Do not merge on your own: Batel or Yuval approves the merge, because a merge
    to `main` is a production deploy.
 
 ---

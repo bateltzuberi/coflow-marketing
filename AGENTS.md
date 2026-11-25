@@ -42,6 +42,10 @@ linking a path outside it. Until then `app/globals.css` is the source of truth, 
 Read `PRODUCT.md` for what Coflow is and what may be claimed, and `README.md` for what this site
 contains: five real pages, everything else redirects.
 
+**Open project:** the home page and inner-page rewrite, `docs/landing-rewrite-2026-11.md`. Read it
+before touching copy. Batel and Yuval both work on this site; either of them approves a merge to
+`main` (a merge is a production deploy).
+
 **Before you write anything Batel will read — a message, a report, a document, copy — read
 `WORKING-WITH-BATEL.md`.** It is how she wants to be talked to, with the failure modes named.
 
