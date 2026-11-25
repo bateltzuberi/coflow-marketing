@@ -11,7 +11,6 @@ import { betaSignupOpen } from "@/lib/beta-window";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
-import { waitlistHref } from "@/lib/site";
 
 // The home page.
 //
@@ -49,12 +48,13 @@ export default async function Home() {
   // every Join goes to the waitlist and the price section is gone.
   const open = betaSignupOpen();
   const t = open ? getHomeCopy(locale) : withWaitlist(getHomeCopy(locale));
-  const joinHref = open ? "#price" : waitlistHref(locale);
+  // Every Join scrolls to the price section, where she picks a plan (2026-11-25).
+  const joinHref = "#price";
 
   return (
     <div className="hm" lang={locale}>
       <JsonLd data={softwareApplicationJsonLd(locale)} />
-      <HomeDock t={t} locale={locale} joinHref={joinHref} showPrice={open} />
+      <HomeDock t={t} locale={locale} joinHref={joinHref} />
 
       {open && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
       <TopBar t={t} />

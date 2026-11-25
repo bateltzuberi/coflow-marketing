@@ -1,4 +1,3 @@
-import { betaSignupOpen } from "./beta-window";
 
 export const SITE = {
   name: "Coflow",
@@ -34,7 +33,9 @@ export const JOIN_PATH = "/";
 // From the beta's close there is no plan card: the same buttons go to the
 // waitlist (lib/beta-window.ts).
 export function planCardHref(locale: "he" | "en"): string {
-  return betaSignupOpen() ? `/${locale}#price` : plansSignupUrl(locale);
+  // Every Join goes to the price section first (Batel, 2026-11-25): she picks
+  // the plan there, and its button signs her up.
+  return `/${locale}#price`;
 }
 
 // Sign-up is open again with the three plans (Batel, 2026-11-25): every Join
@@ -78,8 +79,9 @@ export function formEmbedUrl(formId: string, locale: "he" | "en"): string {
 
 // Where the plan card's buttons go once the beta has closed.
 export function waitlistHref(locale: "he" | "en"): string {
-  // The waitlist is over (2026-11-25): what used to lead there leads to the plans.
-  return plansSignupUrl(locale);
+  // The waitlist is over (2026-11-25): what used to lead there leads to the
+  // price section, where she picks a plan.
+  return `/${locale}#price`;
 }
 
 // The Studio's code form: an empty ?code= keeps it there after the close
