@@ -6,8 +6,8 @@ import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
-import { betaSignupOpen } from "@/lib/beta-window";
-import { codeSignupUrl, planCardHref } from "@/lib/site";
+
+import { codeSignupUrl, plansSignupUrl } from "@/lib/site";
 
 // Where Join goes once the beta has closed (Thursday 2026-10-22, 20:00 Israel
 // time). While sign-up is still open there is nothing to wait for, so the page
@@ -22,7 +22,9 @@ export async function generateMetadata() {
 
 export default async function WaitlistPage() {
   const locale = await getLocale();
-  if (betaSignupOpen()) redirect(planCardHref(locale));
+  // Sign-up is open again with the three plans (2026-11-25): the waitlist
+  // page sends anyone who still has the link to the plans.
+  redirect(plansSignupUrl(locale));
   const t = getDict(locale).waitlist;
 
   return (
