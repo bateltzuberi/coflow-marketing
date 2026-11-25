@@ -34,7 +34,14 @@ export const JOIN_PATH = "/";
 // From the beta's close there is no plan card: the same buttons go to the
 // waitlist (lib/beta-window.ts).
 export function planCardHref(locale: "he" | "en"): string {
-  return betaSignupOpen() ? `/${locale}#price` : `/${locale}/waitlist`;
+  return betaSignupOpen() ? `/${locale}#price` : plansSignupUrl(locale);
+}
+
+// Sign-up is open again with the three plans (Batel, 2026-11-25): every Join
+// goes to the Studio's plans page (/join → /join/plans), where she picks a plan
+// and pays with its free trial period. The Studio is the one plans page.
+export function plansSignupUrl(locale: "he" | "en"): string {
+  return `${SITE.studioAppUrl}/join?lang=${locale}`;
 }
 
 // Join = pay first: the Studio's /join opens Stripe Checkout and the account
@@ -71,7 +78,8 @@ export function formEmbedUrl(formId: string, locale: "he" | "en"): string {
 
 // Where the plan card's buttons go once the beta has closed.
 export function waitlistHref(locale: "he" | "en"): string {
-  return `/${locale}/waitlist`;
+  // The waitlist is over (2026-11-25): what used to lead there leads to the plans.
+  return plansSignupUrl(locale);
 }
 
 // The Studio's code form: an empty ?code= keeps it there after the close

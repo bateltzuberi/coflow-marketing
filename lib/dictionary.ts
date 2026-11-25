@@ -18,7 +18,7 @@ export const DICT = {
       // Joining = signing up in the Studio.
       cta: "להצטרפות",
       // The same button once the beta has closed (lib/beta-window.ts).
-      waitlist: "לרשימת ההמתנה",
+      waitlist: "להרשמה",
       academy: "אקדמיה",
       // The free diagnosis, which used to be the home page.
       diagnosis: "אבחון חינם",
@@ -113,7 +113,7 @@ export const DICT = {
     nav: {
       signIn: "Log in",
       cta: "Join",
-      waitlist: "Waitlist",
+      waitlist: "Sign up",
       academy: "Academy",
       diagnosis: "Free diagnosis",
     },
