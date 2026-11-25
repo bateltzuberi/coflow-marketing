@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getDict } from "@/lib/dictionary";
 
-import { codeSignupUrl, plansSignupUrl } from "@/lib/site";
+import { codeSignupUrl } from "@/lib/site";
 
 // Where Join goes once the beta has closed (Thursday 2026-10-22, 20:00 Israel
 // time). While sign-up is still open there is nothing to wait for, so the page
@@ -24,7 +24,7 @@ export default async function WaitlistPage() {
   const locale = await getLocale();
   // Sign-up is open again with the three plans (2026-11-25): the waitlist
   // page sends anyone who still has the link to the plans.
-  redirect(plansSignupUrl(locale));
+  redirect(`/${locale}#price`);
   const t = getDict(locale).waitlist;
 
   return (
