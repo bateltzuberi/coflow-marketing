@@ -34,8 +34,11 @@ export type PublicPlans = {
 export function PlansCards({ data, joinBase }: { data: PublicPlans; joinBase: string }) {
   const [cycle, setCycle] = useState<"month" | "year">("month");
   const { labels } = data;
-  const num = new Intl.NumberFormat(data.locale === "he" ? "he-IL" : "en-US", { maximumFractionDigits: 2 });
-  const eur = (v: number) => `€${num.format(v)}`;
+  const tag = data.locale === "he" ? "he-IL" : "en-US";
+  const whole = new Intl.NumberFormat(tag, { maximumFractionDigits: 0 });
+  const cents = new Intl.NumberFormat(tag, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // €82.50, never €82.5; whole prices stay whole (€59).
+  const eur = (v: number) => `€${Number.isInteger(v) ? whole.format(v) : cents.format(v)}`;
   return (
     <>
       <div className="hm-billing" role="radiogroup" aria-label={`${labels.monthly} / ${labels.yearly}`}>
