@@ -251,6 +251,11 @@ const he = {
     waitlistShort: "להרשמה",
     subClosed: "ניהול לקוחות, קורסים דיגיטליים, מיילים, משימות ודפי נחיתה.",
   },
+  // The three plans' section (from the Studio, components/home/plans-section.tsx).
+  plans: {
+    h2: "עסק שלם, סטודיו אחד.",
+    sub: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם.",
+  },
   price: {
     h2: "מנוי אחד. כל הכלים.",
     sub: "למצטרפות בשלב הבטא: מחיר אחד, כל הכלים כלולים, בלי חבילות.",
@@ -498,6 +503,10 @@ const en: HomeCopy = {
     waitlistFine: "Three plans, each with a free trial period.",
     waitlistShort: "Sign up",
     subClosed: "Clients, digital courses, emails, tasks and landing pages.",
+  },
+  plans: {
+    h2: "A whole business, one studio.",
+    sub: "Three plans, each with a free trial period.",
   },
   price: {
     h2: "One subscription. Every tool.",

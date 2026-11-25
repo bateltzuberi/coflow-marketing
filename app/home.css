@@ -510,3 +510,10 @@
   .hm-ov .hm-pop { animation: hm-rise 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
   @keyframes hm-rise { from { transform: translateY(28px); opacity: 0.6; } to { transform: none; opacity: 1; } }
 }
+
+/* The three plans (2026-11-25): one switch, three cards side by side from md. */
+.hm-plans { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 1120px; margin: 20px auto 0; align-items: stretch; }
+@media (min-width: 900px) { .hm-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.hm-plans .hm-plan { max-width: none; margin: 0; }
+.hm-plan-rec { background: var(--hm-butter); }
+.hm-plans .hm-plan-list li b { font-weight: 800; }
