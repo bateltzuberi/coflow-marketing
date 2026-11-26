@@ -63,7 +63,7 @@ export default async function LandingFromBadge({ params }: Props) {
 
   return (
     <div className="hm" lang={locale}>
-      <TopBar t={t} />
+      <TopBar t={t} locale={locale} />
 
       <main>
         <header className="hm-hero hm-hero-src">

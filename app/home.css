@@ -591,12 +591,113 @@
 /* Products: the course site's address, drawn like a browser bar. */
 .hm-site-url { display: block; margin-block: 8px 4px; padding: 4px 12px; border-radius: 999px; background: var(--hm-paper); box-shadow: 0 0 0 1px var(--hm-line); font-size: 12.5px; font-weight: 600; color: var(--hm-cocoa-2); text-align: left; }
 
-/* The assistant: real sites built with Claude inside Coflow. */
-.hm-sites { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
-.hm-sites small { flex-basis: 100%; font-size: 14px; font-weight: 700; color: var(--hm-cocoa); }
-.hm-sites a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 8px 16px -12px var(--hm-shadow); font-size: 15px; font-weight: 700; color: var(--hm-cocoa); text-decoration: none; transition: transform 0.15s ease; }
-.hm-sites a:hover { transform: translateY(-2px); }
-.hm-sites a i { font-style: normal; color: var(--hm-cocoa-3); }
-
 /* The hero has no picture under it for now (2026-11-26). */
 .hm-hero { padding-block-end: 40px; }
+
+/* Lead paragraphs may carry a line break of their own. */
+.hm-lead { white-space: pre-line; }
+
+/* Top bar: the language switch beside Log in. */
+.hm-top-end { display: flex; align-items: center; gap: 16px; }
+.hm-top a.hm-top-lang { font-weight: 700; font-size: 14px; color: var(--hm-cocoa-2); padding: 4px 12px; border-radius: 999px; box-shadow: 0 0 0 1px var(--hm-line); background: var(--hm-white); }
+.hm-top a.hm-top-lang:hover { color: var(--hm-cocoa); }
+
+/* The assistant: two real sites built with Claude inside Coflow. */
+.hm-sites { margin-top: 32px; }
+.hm-sites > small { display: block; margin-bottom: 12px; font-size: 15px; font-weight: 800; color: var(--hm-cocoa); }
+.hm-sites-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 520px; }
+.hm-site { display: flex; flex-direction: column; gap: 8px; color: var(--hm-cocoa); text-decoration: none; }
+.hm-site-shot { display: block; border-radius: 16px; overflow: hidden; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 16px 32px -20px var(--hm-shadow); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.hm-site:hover .hm-site-shot { transform: translateY(-3px); box-shadow: 0 0 0 1px var(--hm-line), 0 24px 40px -20px var(--hm-shadow); }
+.hm-site-shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.hm-site-dots { display: flex; gap: 4px; padding: 8px 10px; background: var(--hm-oat); direction: ltr; }
+.hm-site-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--hm-cocoa-3); opacity: 0.5; }
+.hm-site-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 16px; font-weight: 800; }
+.hm-site-name i { font-style: normal; color: var(--hm-cocoa-3); }
+
+/* The assistant's picture: a Claude chat, connected to Coflow. */
+.hm-ai { inset-inline-end: 0; top: 0; width: 400px; max-width: 100%; z-index: 1; display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 24px; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 24px 48px -24px var(--hm-shadow); }
+.hm-ai-head { display: flex; align-items: center; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--hm-line); }
+.hm-ai-mark { width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center; background: var(--hm-apricot-bg); color: var(--hm-apricot); }
+.hm-ai-mark svg { width: 18px; height: 18px; }
+.hm-ai-head b { font-size: 15px; }
+.hm-ai-conn { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--hm-sage); background: var(--hm-sage-bg); border-radius: 999px; padding: 2px 10px; }
+.hm-ai-conn i { width: 6px; height: 6px; border-radius: 50%; background: var(--hm-sage); }
+.hm-ai-steps { list-style: none; margin: 0; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; border-radius: 16px; background: var(--hm-paper); box-shadow: 0 0 0 1px var(--hm-line); font-size: 14px; }
+.hm-ai-steps li { display: flex; align-items: center; gap: 8px; }
+.hm-ai-steps li i { flex: none; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; background: var(--hm-sage-bg); color: var(--hm-sage); }
+.hm-ai-draft { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px; }
+.hm-ai-page { align-self: stretch; display: flex; flex-direction: column; gap: 6px; height: 96px; padding: 12px; border-radius: 12px; background: var(--hm-butter); }
+.hm-ai-page i { display: block; height: 8px; border-radius: 4px; background: var(--hm-white); opacity: 0.8; }
+.hm-ai-page i:nth-child(1) { width: 70%; height: 14px; }
+.hm-ai-page i:nth-child(2) { width: 90%; }
+.hm-ai-page i:nth-child(3) { width: 40%; margin-top: auto; height: 20px; border-radius: 999px; background: var(--hm-cocoa); opacity: 1; }
+.hm-ai-draft b { font-size: 15px; }
+.hm-ai-btn { align-self: stretch; text-align: center; padding: 8px 12px; border-radius: 999px; background: var(--hm-cocoa); color: var(--hm-paper); font-size: 14px; font-weight: 800; }
+
+/* Products: a laptop with her course open on her own course site. */
+.hm-laptop { inset-inline-end: 0; top: 0; width: 520px; max-width: 100%; z-index: 1; }
+.hm-laptop-screen { border: 10px solid var(--hm-cocoa); border-bottom-width: 14px; border-radius: 20px 20px 8px 8px; background: var(--hm-white); overflow: hidden; }
+.hm-laptop-base { display: block; height: 14px; margin-inline: -24px; border-radius: 0 0 16px 16px; background: var(--hm-cocoa-2); }
+.hm-laptop-bar { display: flex; align-items: center; gap: 8px; padding-inline-end: 12px; background: var(--hm-oat); direction: ltr; }
+.hm-laptop-url { flex: 1; margin-block: 6px; padding: 2px 10px; border-radius: 999px; background: var(--hm-white); font-size: 11.5px; font-weight: 600; color: var(--hm-cocoa-2); }
+.hm-course { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 12px; padding: 12px; }
+.hm-course-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.hm-course-main > small { font-size: 11px; color: var(--hm-cocoa-3); }
+.hm-course-main > b { font-size: 14px; line-height: 1.3; }
+.hm-course-video { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; margin-bottom: 6px; border-radius: 12px; background: var(--hm-cocoa); overflow: hidden; }
+.hm-course-video::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(var(--hm-cocoa-2) 1.2px, transparent 1.2px); background-size: 12px 12px; opacity: 0.6; }
+.hm-course-video .hm-vid-play { width: 40px; height: 40px; }
+.hm-course-progress { display: block; height: 6px; margin-top: 6px; border-radius: 999px; background: var(--hm-oat); overflow: hidden; }
+.hm-course-progress i { display: block; width: 33%; height: 100%; background: var(--hm-sage); }
+.hm-course-file { display: flex; align-items: center; gap: 8px; margin-top: 8px; padding: 8px 10px; border-radius: 12px; background: var(--hm-pink-tint); font-size: 12.5px; font-weight: 700; }
+.hm-course-file svg { width: 16px; height: 16px; flex: none; }
+.hm-course-file small { display: block; font-size: 10.5px; font-weight: 600; color: var(--hm-cocoa-2); }
+.hm-course-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.hm-course-list li { display: flex; align-items: center; gap: 6px; padding: 8px; border-radius: 10px; background: var(--hm-paper); box-shadow: 0 0 0 1px var(--hm-line); line-height: 1.3; }
+.hm-course-list li i { flex: none; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 10px; font-weight: 800; box-shadow: 0 0 0 1.5px var(--hm-line); }
+.hm-course-list li.hm-l-done i { background: var(--hm-sage-bg); color: var(--hm-sage); box-shadow: none; }
+.hm-course-list li.hm-l-now { background: var(--hm-butter); box-shadow: none; font-weight: 800; }
+
+/* Marketing: a real email from Coflow, in an inbox frame. */
+.hm-mail { inset-inline-end: 0; top: 0; width: 320px; z-index: 1; border-radius: 24px; overflow: hidden; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 24px 48px -24px var(--hm-shadow); }
+.hm-mail-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--hm-line); }
+.hm-mail-head .hm-who { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13px; flex: none; }
+.hm-mail-head b { display: block; font-size: 13.5px; }
+.hm-mail-head small { display: block; font-size: 12px; color: var(--hm-cocoa-2); }
+.hm-mail-body { height: 440px; overflow: hidden; }
+.hm-mail-body img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .hm-mail-body img { animation: hm-mail-scroll 14s ease-in-out infinite alternate; }
+}
+@keyframes hm-mail-scroll { 0%, 15% { transform: translateY(0); } 85%, 100% { transform: translateY(calc(-100% + 440px)); } }
+
+/* Sales: six months of income, each product's share, and what it reads from. */
+.hm-bars { display: flex; align-items: flex-end; gap: 8px; height: 96px; margin-top: 16px; }
+.hm-bars span { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 100%; font-size: 10.5px; color: var(--hm-cocoa-3); }
+.hm-bars i { display: block; width: 100%; border-radius: 6px 6px 2px 2px; background: var(--hm-oat-2); }
+.hm-bars .hm-bar-now i { background: var(--hm-butter-edge); }
+.hm-bars .hm-bar-now { color: var(--hm-cocoa); font-weight: 800; }
+.hm-share { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.hm-share-top { display: flex; justify-content: space-between; font-size: 14px; }
+.hm-share-bar { display: block; height: 8px; border-radius: 999px; background: var(--hm-oat); overflow: hidden; }
+.hm-share-bar i { display: block; height: 100%; border-radius: 999px; }
+.hm-conns { display: flex; flex-direction: column; gap: 8px; padding: 16px; }
+.hm-conns span { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; }
+.hm-conns span i { width: 8px; height: 8px; border-radius: 50%; background: var(--hm-sage); box-shadow: 0 0 0 3px var(--hm-sage-bg); }
+
+@media (max-width: 900px) {
+  .hm-vis > .hm-ai, .hm-vis > .hm-laptop { align-self: stretch; width: auto; }
+  .hm-vis > .hm-conns { display: none; }
+  #products .hm-vis > *:nth-child(2), #content .hm-vis > *:nth-child(2) { margin-top: 16px; }
+  .hm-vis > .hm-mail { align-self: center; }
+}
+@media (max-width: 560px) {
+  .hm-course { grid-template-columns: 1fr; }
+  .hm-course-list { display: none; }
+  .hm-laptop-base { margin-inline: -8px; }
+  .hm-sites-row { gap: 12px; }
+  .hm-top-end { gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .hm-site-shot { transition: none; } .hm-site:hover .hm-site-shot { transform: none; } }
+@media (min-width: 901px) { #claude .hm-vis { min-height: 620px; } }

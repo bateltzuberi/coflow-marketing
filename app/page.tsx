@@ -57,7 +57,7 @@ export default async function Home() {
       <HomeDock t={t} locale={locale} joinHref={joinHref} />
 
       {open && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
-      <TopBar t={t} />
+      <TopBar t={t} locale={locale} />
 
       <main>
         <header className="hm-hero">
@@ -88,7 +88,7 @@ export default async function Home() {
           <MoveSection t={t} locale={locale} />
           <ClaudeSection t={t} locale={locale} />
           <ProductsSection t={t} locale={locale} />
-          <ContentSection t={t} />
+          <ContentSection t={t} locale={locale} />
           <SellingSection t={t} locale={locale} />
           <CrmSection t={t} locale={locale} />
         </div>
