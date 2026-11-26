@@ -659,18 +659,33 @@
 .hm-course-list li.hm-l-done i { background: var(--hm-sage-bg); color: var(--hm-sage); box-shadow: none; }
 .hm-course-list li.hm-l-now { background: var(--hm-butter); box-shadow: none; font-weight: 800; }
 
-/* Marketing: a real email from Coflow, in an inbox frame. */
+/* Marketing: a newsletter drawn in the style of Coflow's own emails. */
 .hm-mail { inset-inline-end: 0; top: 0; width: 320px; z-index: 1; border-radius: 24px; overflow: hidden; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 24px 48px -24px var(--hm-shadow); }
 .hm-mail-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--hm-line); }
 .hm-mail-head .hm-who { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13px; flex: none; }
 .hm-mail-head b { display: block; font-size: 13.5px; }
 .hm-mail-head small { display: block; font-size: 12px; color: var(--hm-cocoa-2); }
-.hm-mail-body { height: 440px; overflow: hidden; }
-.hm-mail-body img { display: block; width: 100%; height: auto; }
-@media (prefers-reduced-motion: no-preference) {
-  .hm-mail-body img { animation: hm-mail-scroll 14s ease-in-out infinite alternate; }
-}
-@keyframes hm-mail-scroll { 0%, 15% { transform: translateY(0); } 85%, 100% { transform: translateY(calc(-100% + 440px)); } }
+.hm-mail-body { background: var(--hm-paper); text-align: center; }
+.hm-mail-brand { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--hm-butter); border-bottom: 2px solid var(--hm-cocoa); }
+.hm-mail-brand b { font-size: 20px; font-weight: 900; letter-spacing: -0.04em; color: var(--hm-blue); }
+.hm-mail-brand span { font-size: 11px; font-weight: 800; padding: 2px 10px; border-radius: 999px; border: 1.5px solid var(--hm-cocoa); background: var(--hm-white); }
+.hm-mail-hero { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 24px 16px; background: var(--hm-blue); color: var(--hm-paper); overflow: hidden; }
+.hm-mail-hero::before { content: ""; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: var(--hm-butter); opacity: 0.25; inset-inline-start: -50px; top: -70px; }
+.hm-mail-hero b { position: relative; font-size: 26px; font-weight: 900; line-height: 1.1; }
+.hm-mail-hero em { position: relative; font-style: normal; font-size: 18px; font-weight: 600; color: var(--hm-butter); }
+.hm-mail-text { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 20px; font-size: 13px; line-height: 1.55; color: var(--hm-cocoa); }
+.hm-mail-text p { margin: 0; color: var(--hm-cocoa-2); }
+.hm-mail-btn { margin-top: 4px; padding: 8px 20px; border-radius: 999px; background: var(--hm-blue); color: var(--hm-paper); font-weight: 800; font-size: 13px; }
+.hm-mail-text small { font-size: 12px; font-weight: 700; color: var(--hm-cocoa-2); }
+.hm-mail-foot { padding: 12px 16px; background: var(--hm-blue); color: var(--hm-butter); font-size: 13px; font-weight: 800; }
+
+/* Marketing: the week's social content as a Gantt chart. */
+.hm-gantt { width: 440px; padding: 20px; }
+.hm-gantt-grid { display: grid; row-gap: 8px; column-gap: 4px; margin-top: 12px; align-items: center; }
+.hm-gantt-day { text-align: center; font-size: 11.5px; font-weight: 700; color: var(--hm-cocoa-3); padding-bottom: 4px; border-bottom: 1px solid var(--hm-line); }
+.hm-gantt-row { display: grid; grid-template-columns: subgrid; align-items: center; min-height: 30px; background-image: linear-gradient(var(--hm-line), var(--hm-line)); background-size: 100% 1px; background-repeat: no-repeat; background-position: bottom; padding-bottom: 6px; }
+.hm-gantt-p { grid-column: 1; font-size: 12px; font-weight: 700; color: var(--hm-cocoa-2); }
+.hm-gantt-bar { grid-row: 1; padding: 5px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 700; color: var(--hm-cocoa); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-shadow: inset 0 0 0 1px var(--hm-line); }
 
 /* Sales: six months of income, each product's share, and what it reads from. */
 .hm-bars { display: flex; align-items: flex-end; gap: 8px; height: 96px; margin-top: 16px; }
@@ -682,15 +697,12 @@
 .hm-share-top { display: flex; justify-content: space-between; font-size: 14px; }
 .hm-share-bar { display: block; height: 8px; border-radius: 999px; background: var(--hm-oat); overflow: hidden; }
 .hm-share-bar i { display: block; height: 100%; border-radius: 999px; }
-.hm-conns { display: flex; flex-direction: column; gap: 8px; padding: 16px; }
-.hm-conns span { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; }
-.hm-conns span i { width: 8px; height: 8px; border-radius: 50%; background: var(--hm-sage); box-shadow: 0 0 0 3px var(--hm-sage-bg); }
 
 @media (max-width: 900px) {
   .hm-vis > .hm-ai, .hm-vis > .hm-laptop { align-self: stretch; width: auto; }
-  .hm-vis > .hm-conns { display: none; }
   #products .hm-vis > *:nth-child(2), #content .hm-vis > *:nth-child(2) { margin-top: 16px; }
   .hm-vis > .hm-mail { align-self: center; }
+  .hm-vis > .hm-gantt { width: auto; align-self: stretch; max-width: none; }
 }
 @media (max-width: 560px) {
   .hm-course { grid-template-columns: 1fr; }
@@ -701,3 +713,5 @@
 }
 @media (prefers-reduced-motion: reduce) { .hm-site-shot { transition: none; } .hm-site:hover .hm-site-shot { transform: none; } }
 @media (min-width: 901px) { #claude .hm-vis { min-height: 620px; } }
+@media (min-width: 901px) { #content .hm-vis { min-height: 720px; } }
+@media (max-width: 560px) { .hm-gantt-bar { white-space: normal; font-size: 11px; padding: 4px 6px; line-height: 1.25; } .hm-gantt-p { font-size: 11px; } }

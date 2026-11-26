@@ -216,15 +216,6 @@ export function SellingSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
               </div>
             ))}
           </div>
-          <div className="hm-tile hm-conns" style={{ insetInlineEnd: "6%", bottom: 36, zIndex: 3 }}>
-            <small className="hm-strong">{s.connTitle}</small>
-            {s.conns.map((c) => (
-              <span key={c} dir="ltr">
-                <i />
-                {c}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -474,10 +465,11 @@ export function ProductsSection({ t, locale }: { t: HomeCopy; locale: Locale }) 
   );
 }
 
-/** Marketing: this week's content board, and a real email designed and sent
- *  from Coflow, scrolling inside an inbox frame. */
+/** Marketing: a newsletter designed and sent from Coflow, and the week's
+ *  social content planned as a Gantt chart, one row per platform. */
 export function ContentSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const s = t.content;
+  const m = s.mail;
   return (
     <section className="hm-sec" id="content">
       <div className="hm-row hm-flip">
@@ -485,35 +477,58 @@ export function ContentSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
         <div className="hm-vis" aria-hidden="true">
           <div className="hm-mail">
             <div className="hm-mail-head">
-              <span className="hm-who" style={{ background: "var(--hm-butter)" }}>
-                S
+              <span className="hm-who" style={{ background: "var(--hm-pink-tint)" }}>
+                {m.from[0]}
               </span>
               <span>
-                <b dir="ltr">{s.mailFrom}</b>
-                <small>{s.mailSubject}</small>
+                <b>{m.from}</b>
+                <small>{m.subject}</small>
               </span>
             </div>
             <div className="hm-mail-body">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/home/email-design.jpg" alt={s.mailAlt} loading="lazy" />
+              <div className="hm-mail-brand">
+                <b dir="ltr">{m.brand}</b>
+                <span>{m.kicker}</span>
+              </div>
+              <div className="hm-mail-hero">
+                <b>{m.title}</b>
+                <em>{m.script}</em>
+              </div>
+              <div className="hm-mail-text">
+                <b>{m.hello}</b>
+                <p>{m.body}</p>
+                <span className="hm-mail-btn">{m.button}</span>
+                <small>{m.sign}</small>
+              </div>
+              <div className="hm-mail-foot">{inHebrew(m.built, locale)}</div>
             </div>
           </div>
-          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 24, width: 320, padding: 20, zIndex: 2 }}>
-            <small className="hm-strong">{s.weekTitle}</small>
-            {s.week.map(([day, idea, platform]) => (
-              <div className="hm-r" key={day}>
-                <span>
-                  <b>{day}</b> · {idea}
+          <div className="hm-tile hm-gantt" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
+            <small className="hm-strong">{s.ganttTitle}</small>
+            <div className="hm-gantt-grid" style={{ gridTemplateColumns: `76px repeat(${s.ganttDays.length}, minmax(0, 1fr))` }}>
+              <span />
+              {s.ganttDays.map((d) => (
+                <span key={d} className="hm-gantt-day">
+                  {d}
                 </span>
-                <span className="hm-badge">{platform}</span>
-              </div>
-            ))}
+              ))}
+              {s.gantt.map(([platform, post, from, span], i) => (
+                <div key={platform} className="hm-gantt-row" style={{ gridColumn: "1 / -1" }}>
+                  <span className="hm-gantt-p">{platform}</span>
+                  <span className="hm-gantt-bar" style={{ gridColumn: `${from + 1} / span ${span}`, background: GANTT_BG[i % GANTT_BG.length] }}>
+                    {post}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+const GANTT_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-sage-bg)", "var(--hm-apricot-bg)", "var(--hm-oat-2)"];
 
 /** Bringing in clients: her link in bio, and who came in through it this week. */
 export function MarketingSection({ t }: { t: HomeCopy }) {
