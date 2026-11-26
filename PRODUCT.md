@@ -1,4 +1,4 @@
-> Current marketing direction, confirmed by Batel on 9 October 2026: AI brand management connecting offers, digital courses, funnels and CRM. Course building remains in development. Organic-content revenue attribution is no longer the product promise. The earlier attribution descriptions below are historical and must not be used as current marketing claims. Verify feature availability before writing copy.
+> Current marketing direction, confirmed by Batel on 9 October 2026: AI brand management connecting offers, digital courses, funnels and CRM. Course building is live (confirmed by Batel 26 November 2026). Organic-content revenue attribution is no longer the product promise. The earlier attribution descriptions below are historical and must not be used as current marketing claims. Verify feature availability before writing copy.
 
 # What Coflow actually is
 

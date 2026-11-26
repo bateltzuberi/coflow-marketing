@@ -31,7 +31,7 @@ export default async function Guides() {
                 {he ? "מדריכים לעסק הדיגיטלי שלך" : "Guides for your digital business"}
               </h1>
               <p className="mt-5 text-[17px] md:text-[19px] leading-[1.55] text-ink-700">
-                {he ? "קופלו היא מערכת לניהול מותג עם AI. המוצרים, הדפים, הפניות והלקוחות שלך נמצאים באותה סביבת עבודה. מערכת הקורסים נבנית כחלק ממנה." : "Coflow is an AI brand-management system. Your offers, pages, enquiries and clients share one workspace. Course building is being developed within it."}
+                {he ? "קופלו היא מערכת לניהול מותג עם AI. המוצרים, הדפים, הפניות והלקוחות שלך נמצאים באותה סביבת עבודה. גם הקורסים הדיגיטליים נבנים ונמכרים בתוכה." : "Coflow is an AI brand-management system. Your offers, pages, enquiries and clients share one workspace. Digital courses are built and sold inside it too."}
               </p>
             </div>
           </div>

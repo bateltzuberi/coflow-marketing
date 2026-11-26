@@ -7,7 +7,7 @@ export function DiscoveryLinks({ locale, home = false }: { locale: Locale; home?
   const t = discoveryLabels[locale];
   return <section className={home ? "discovery-home hm-wrap" : "max-w-4xl mx-auto"}>
     <h2 className="text-[28px] md:text-[40px] font-bold leading-tight">{t.solutions}</h2>
-    {home && <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{locale === "he" ? "קופלו היא מערכת לניהול מותג עם AI. המוצרים, הדפים, הפניות והלקוחות שלך נמצאים באותה סביבת עבודה. מערכת הקורסים נבנית כחלק ממנה." : "Coflow is an AI brand-management system. Your offers, pages, enquiries and clients share one workspace. Course building is being developed within it."}</p>}
+    {home && <p className="mt-6 text-[18px] leading-relaxed text-ink-700">{locale === "he" ? "קופלו היא מערכת לניהול מותג עם AI. המוצרים, הדפים, הפניות והלקוחות שלך נמצאים באותה סביבת עבודה. גם הקורסים הדיגיטליים נבנים ונמכרים בתוכה." : "Coflow is an AI brand-management system. Your offers, pages, enquiries and clients share one workspace. Digital courses are built and sold inside it too."}</p>}
     <ul className="mt-8 grid sm:grid-cols-2 gap-6">{SOLUTION_SLUGS.map(slug => {
       const page = getSolution(slug, locale)!;
       return <li key={slug} className="rounded-card border border-line bg-surface p-8">
