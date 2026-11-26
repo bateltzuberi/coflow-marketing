@@ -721,3 +721,8 @@
 .hm-vis-laptop > .hm-laptop { position: relative; inset: auto; width: 100%; max-width: 640px; margin-inline-start: auto; }
 .hm-laptop-screen img { display: block; width: 100%; height: auto; }
 @media (min-width: 901px) { .hm-vis-laptop { min-height: 460px; } }
+/* A title's first words kept on one line on a computer; a touch smaller so they fit. */
+@media (min-width: 901px) {
+  .hm-keep { white-space: nowrap; }
+  .hm-row h2:has(.hm-keep) { font-size: clamp(40px, 4.3vw, 56px); }
+}

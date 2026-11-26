@@ -160,7 +160,7 @@ function SectionCopy({ icon, words, locale, children }: { icon: IconName; words:
   return (
     <div className="hm-copy">
       <Opener icon={icon} label={inHebrew(words.label, locale)} />
-      <h2>{words.h2}</h2>
+      <h2>{words.h2.includes("|") ? <KeepFirst text={words.h2} /> : words.h2}</h2>
       <p className="hm-lead">{inHebrew(words.lead, locale)}</p>
       {words.gets.length > 0 && (
         <div className="hm-gets hm-sec-gets">
@@ -173,6 +173,17 @@ function SectionCopy({ icon, words, locale, children }: { icon: IconName; words:
       )}
       {children}
     </div>
+  );
+}
+
+/** A title whose words up to "|" stay together on one line (on a computer). */
+function KeepFirst({ text }: { text: string }) {
+  const [first, rest] = text.split("|");
+  return (
+    <>
+      <span className="hm-keep">{first}</span>
+      {rest}
+    </>
   );
 }
 
