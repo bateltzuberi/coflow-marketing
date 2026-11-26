@@ -237,6 +237,37 @@ Swap two of the seven items; keep sort, bio, gift, call, course.
 - Badge pages: `lib/landing-source-copy.ts`.
 - Plan cards come from Studio: `GET https://studio.coflow.social/api/plans/public`.
 
+## Studio changes for Batel
+
+Some words the home page shows come from the Studio, not from this repo, so
+they can only be fixed there (shebossit-cms, through a PR into `staging`,
+since it changes what paying customers see inside the Studio too).
+
+**Agreements are "signed with a digital signature", never "signed online".**
+Yuval and Batel decided on 2026-11-26 that everywhere agreements are
+described, the wording is "חתימה דיגיטלית" (Hebrew) / "digital signature"
+(English), not "אונליין" / "online". This repo already says so everywhere it
+writes the words itself. The places still saying "online" are in the Studio:
+
+| File in shebossit-cms | Today | Should say |
+|---|---|---|
+| `src/components/plans/plans-page-copy.ts` (`agreements`, the plan card line, also read by this site's price section) | הסכמים שהלקוחות חותמות עליהם אונליין / Agreements your clients sign online | חתימה דיגיטלית על הסכמי עבודה / Digital signing of work agreements |
+| `src/lib/automations/flow-node-copy.ts` (`sendAgreementBlurb`) | ...לחתימה אונליין / ...to sign online | ...לחתימה דיגיטלית / ...to sign with a digital signature |
+| `src/components/agreements/agreements-ui-copy.ts` (English line) | Agreements you send clients to sign online | Agreements you send clients to sign with a digital signature |
+
+Search the Studio for any other place: `git grep -n "אונליין\|sign online\|signed online" -- src`.
+Until the plans line changes there, `components/home/plans-section.tsx`
+rewrites that one line on this site (`LINE_FIXES`); remove the map once the
+Studio says the same.
+
+**The plans come back in Hebrew on the English page.** Found 2026-11-26:
+`GET https://studio.coflow.social/api/plans/public?lang=en` answers with
+`"locale":"he"` and Hebrew plan names, lines and buttons, so `/en` shows the
+three plan cards in Hebrew. The route seems to ignore the `lang` query (it
+probably reads the `coflow_locale` cookie instead, which a server-side fetch
+from this site never has). The fix belongs in the Studio route: honour `lang`
+when it is `he` or `en`.
+
 ## Before going live
 
 `npm run build`, `npm run lint`, `node --test lib/locale-path.test.mjs`,

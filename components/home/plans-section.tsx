@@ -8,11 +8,27 @@ import { PlansCards, type PublicPlans } from "./plans-cards";
 // the Studio's pay-first /join for that plan, with its free trial period.
 // If the Studio can't be read, the section is left out rather than guessed.
 
+// Card lines the site words differently from the Studio until the Studio's own
+// copy is changed (src/components/plans/plans-page-copy.ts in shebossit-cms,
+// see docs/landing-rewrite-2026-11.md, "Studio changes for Batel"). Once the
+// Studio says the same, this map can go.
+const LINE_FIXES: Record<string, string> = {
+  "הסכמים שהלקוחות חותמות עליהם אונליין": "חתימה דיגיטלית על הסכמי עבודה",
+  "Agreements your clients sign online": "Digital signing of work agreements",
+};
+
+function withLineFixes(data: PublicPlans): PublicPlans {
+  return {
+    ...data,
+    plans: data.plans.map((p) => ({ ...p, lines: p.lines.map((l) => ({ ...l, text: LINE_FIXES[l.text] ?? l.text })) })),
+  };
+}
+
 async function readPlans(locale: Locale): Promise<PublicPlans | null> {
   try {
     const res = await fetch(`${SITE.studioAppUrl}/api/plans/public?lang=${locale}`, { next: { revalidate: 3600 } });
     if (!res.ok) return null;
-    return (await res.json()) as PublicPlans;
+    return withLineFixes((await res.json()) as PublicPlans);
   } catch {
     return null;
   }
