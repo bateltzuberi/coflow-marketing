@@ -176,7 +176,7 @@ export function SellingSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const s = t.selling;
   return (
     <section className="hm-sec" id="sales">
-      <div className="hm-row hm-flip">
+      <div className="hm-row">
         <SectionCopy icon="coin" words={s} locale={locale} />
         <div className="hm-vis" aria-hidden="true">
           <div className="hm-tile" style={{ insetInlineEnd: 0, top: 0, width: 320, zIndex: 1 }}>
@@ -210,7 +210,17 @@ export function ClaudeSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   return (
     <section className="hm-sec" id="claude">
       <div className="hm-row hm-flip">
-        <SectionCopy icon="spark" words={s} locale={locale} />
+        <SectionCopy icon="spark" words={s} locale={locale}>
+          <div className="hm-sites">
+            <small>{inHebrew(s.sitesTitle, locale)}</small>
+            {s.sites.map(([name, href]) => (
+              <a key={href} href={href} target="_blank" rel="noopener">
+                <span>{inHebrew(name, locale)}</span>
+                <i aria-hidden="true">↗</i>
+              </a>
+            ))}
+          </div>
+        </SectionCopy>
         <div className="hm-vis" aria-hidden="true">
           <div className="hm-tile hm-chat" style={{ insetInlineEnd: 0, top: 20, width: 380, padding: 20, zIndex: 1 }}>
             <div className="hm-chat-msg hm-chat-me">
@@ -290,7 +300,7 @@ export function CrmSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const s = t.crm;
   return (
     <section className="hm-sec" id="clients">
-      <div className="hm-row">
+      <div className="hm-row hm-flip">
         <SectionCopy icon="users" words={s} locale={locale} />
         <div className="hm-vis" aria-hidden="true">
           <div className="hm-col" style={{ insetInlineEnd: 0, top: 0, zIndex: 2 }}>
@@ -336,62 +346,40 @@ export function CrmSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   );
 }
 
-// Where the map's cards and arrow labels sit, in % of the canvas: entry top,
-// middle below it on the other side, premium at the bottom, top-down, the
-// way the Studio lays the map out.
-const MAP_CARD_AT: React.CSSProperties[] = [
-  { left: "52%", top: "9%" },
-  { left: "6%", top: "40%" },
-  { left: "52%", top: "71%" },
-];
-const MAP_HOW_AT: React.CSSProperties[] = [
-  { left: "50%", top: "35%" },
-  { left: "50%", top: "66%" },
-];
-const MAP_COVER = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-oat-2)"];
-
-/** Products: her product line as the Studio draws it: entry, middle, premium,
- *  how many people are in each, and how they move from one to the next. */
-export function ProductsSection({ t }: { t: HomeCopy }) {
+/** Products: every digital product in one system: her course site with its
+ *  courses, and her membership club with its next live session. */
+export function ProductsSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.products;
   return (
     <section className="hm-sec" id="products">
-      <div className="hm-row hm-flip">
-        <div className="hm-copy">
-          <Opener icon="tag" label={t.products.label} />
-          <h2>{t.products.h2}</h2>
-          <p className="hm-lead">{t.products.lead}</p>
-          <Gets items={t.products.gets} />
-        </div>
+      <div className="hm-row">
+        <SectionCopy icon="tag" words={s} locale={locale} />
         <div className="hm-vis" aria-hidden="true">
-          {/* The Studio's business map (/products), drawn: product cards on a
-              dotted canvas, joined by arrows that say how people move on. */}
-          <div className="hm-map">
-            <span className="hm-map-title">{t.products.listTitle}</span>
-            <svg className="hm-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M73 31 C73 39, 27 32, 27 40" />
-              <path d="M27 62 C27 70, 73 63, 73 71" />
-            </svg>
-            {t.products.moves.map(([, how], i) => (
-              <span key={how} className="hm-map-how" style={MAP_HOW_AT[i]}>
-                {how}
-              </span>
-            ))}
-            {t.products.items.map(([level, name, price, inside], i) => (
-              <div key={level} className="hm-map-card" style={MAP_CARD_AT[i]}>
-                <span className="hm-map-cover" style={{ background: MAP_COVER[i] }} />
-                <span className="hm-map-body">
-                  <small>{level}</small>
+          <div className="hm-tile" style={{ insetInlineEnd: 0, top: 0, width: 360, padding: 20, zIndex: 1 }}>
+            <small className="hm-strong">{s.siteTitle}</small>
+            <span className="hm-site-url" dir="ltr">
+              {s.siteUrl}
+            </span>
+            {s.courses.map(([name, size]) => (
+              <div className="hm-r" key={name}>
+                <span>
                   <b>{name}</b>
-                  <span>{price}</span>
-                  <span className="hm-map-people">
-                    <i />
-                    <i />
-                    <i />
-                    {inside}
-                  </span>
                 </span>
+                <span className="hm-badge">{size}</span>
               </div>
             ))}
+          </div>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{s.clubTitle}</small>
+            <span className="hm-chg">{s.clubMembers}</span>
+            <div className="hm-r hm-r-after">
+              <span>
+                {s.clubEventLabel}
+                <br />
+                <b>{s.clubEvent}</b>
+              </span>
+              <span className="hm-badge hm-today">{s.clubWhen}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -404,7 +392,7 @@ export function ProductsSection({ t }: { t: HomeCopy }) {
 export function ContentSection({ t }: { t: HomeCopy }) {
   return (
     <section className="hm-sec" id="content">
-      <div className="hm-row">
+      <div className="hm-row hm-flip">
         <div className="hm-copy">
           <Opener icon="mega" label={t.content.label} />
           <h2>{t.content.h2}</h2>

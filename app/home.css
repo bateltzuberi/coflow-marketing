@@ -587,3 +587,16 @@
 .hm .hm-plan-rec .hm-plan-btn:focus-visible { outline-color: var(--hm-cocoa); }
 @media (prefers-reduced-motion: reduce) { .hm-plan-rec .hm-plan-btn { transition: none; } .hm-plan-rec .hm-plan-btn:hover { transform: none; } }
 .hm-plans .hm-plan-list li b { font-weight: 800; }
+
+/* Products: the course site's address, drawn like a browser bar. */
+.hm-site-url { display: block; margin-block: 8px 4px; padding: 4px 12px; border-radius: 999px; background: var(--hm-paper); box-shadow: 0 0 0 1px var(--hm-line); font-size: 12.5px; font-weight: 600; color: var(--hm-cocoa-2); text-align: left; }
+
+/* The assistant: real sites built with Claude inside Coflow. */
+.hm-sites { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.hm-sites small { flex-basis: 100%; font-size: 14px; font-weight: 700; color: var(--hm-cocoa); }
+.hm-sites a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--hm-white); box-shadow: 0 0 0 1px var(--hm-line), 0 8px 16px -12px var(--hm-shadow); font-size: 15px; font-weight: 700; color: var(--hm-cocoa); text-decoration: none; transition: transform 0.15s ease; }
+.hm-sites a:hover { transform: translateY(-2px); }
+.hm-sites a i { font-style: normal; color: var(--hm-cocoa-3); }
+
+/* The hero has no picture under it for now (2026-11-26). */
+.hm-hero { padding-block-end: 40px; }

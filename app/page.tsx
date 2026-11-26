@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import "./home.css";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
-import { Icon } from "@/components/home/icon";
 import { inHebrew } from "@/components/home/in-hebrew";
 import { ClaudeSection, ContentSection, CrmSection, HomeFooter, MoveSection, PriceSection, ProductsSection, SellingSection, TopBar } from "@/components/home/sections";
 import { PlansSection } from "@/components/home/plans-section";
@@ -80,76 +79,18 @@ export default async function Home() {
             <PlusHint t={t} />
           </div>
 
-          {/* Her Instagram in the middle; her business arrives around it. */}
-          <div className="hm-stage" aria-hidden="true">
-            <div className="hm-phone">
-              <div className="hm-screen">
-                <div className="hm-ig">
-                  <div className="hm-ig-top">
-                    <span className="hm-ig-av">
-                      <i />
-                    </span>
-                    <div className="hm-ig-nums">
-                      {t.profile.stats.map(([n, l]) => (
-                        <span key={l}>
-                          <b>{n}</b>
-                          {l}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <p className="hm-ig-name">{t.profile.name}</p>
-                  <p className="hm-ig-bio">
-                    {t.profile.bio}
-                    <br />
-                    <span>{t.profile.link}</span>
-                  </p>
-                  <div className="hm-hl">
-                    {(["funnel", "gift", "phone", "rocket"] as const).map((icon, i) => (
-                      <span key={icon}>
-                        <i>
-                          <Icon name={icon} />
-                        </i>
-                        {t.profile.highlights[i]}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="hm-grid">
-                    <div style={{ background: "var(--hm-butter)" }}>{t.profile.grid[0]}</div>
-                    <div style={{ background: "var(--hm-oat-2)" }}>{t.profile.grid[1]}</div>
-                    <div style={{ background: "var(--hm-pink-tint)" }}>{t.profile.grid[2]}</div>
-                    <div style={{ background: "var(--hm-oat)" }} />
-                    <div style={{ background: "var(--hm-butter-2)" }} />
-                    <div style={{ background: "var(--hm-oat-2)" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-            {t.notes.map((n, i) => (
-              <div key={n.title} className="hm-note" style={NOTE_AT[i]}>
-                <span className="hm-who" style={{ background: NOTE_BG[i] }}>
-                  {n.who}
-                </span>
-                <div>
-                  <b>{n.title}</b>
-                  <small>{n.sub}</small>
-                </div>
-              </div>
-            ))}
-          </div>
         </header>
 
         <div className="hm-wrap">
-          {/* The order Yuval set on 2026-11-26: how easy setting up in Coflow is,
-              the AI personal assistant, everything about leads and clients in one place, then
-              the money. Marketing and products keep the live page's words;
-              products sits last because it may come off the page. */}
+          {/* The order Yuval and Batel set on 2026-11-26: setting up in Coflow,
+              the AI personal assistant, then the dock's own order: products,
+              marketing, sales, clients. */}
           <MoveSection t={t} locale={locale} />
           <ClaudeSection t={t} locale={locale} />
-          <CrmSection t={t} locale={locale} />
-          <SellingSection t={t} locale={locale} />
+          <ProductsSection t={t} locale={locale} />
           <ContentSection t={t} />
-          <ProductsSection t={t} />
+          <SellingSection t={t} locale={locale} />
+          <CrmSection t={t} locale={locale} />
         </div>
 
         {open ? <PriceSection t={t} locale={locale} /> : <PlansSection locale={locale} title={t.plans.h2} sub={t.plans.sub} />}
@@ -159,13 +100,3 @@ export default async function Home() {
     </div>
   );
 }
-
-// Where each notification sits around the phone (a computer; on a phone they
-// stack over it, see home.css), and the soft colour behind each initial.
-const NOTE_AT: React.CSSProperties[] = [
-  { right: 0, top: 40 },
-  { left: 0, top: 150 },
-  { right: 20, top: 330 },
-  { left: 30, top: 430 },
-];
-const NOTE_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-oat-2)", "var(--hm-sage-bg)"];
