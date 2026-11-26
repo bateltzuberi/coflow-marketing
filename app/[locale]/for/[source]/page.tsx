@@ -15,6 +15,7 @@ import {
   TopBar,
 } from "@/components/home/sections";
 import type { IconName } from "@/components/home/icon";
+import { inHebrew } from "@/components/home/in-hebrew";
 import { TypedLine } from "@/components/home/typed-line";
 import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
 import { betaSignupOpen } from "@/lib/beta-window";
@@ -119,7 +120,7 @@ export default async function LandingFromBadge({ params }: Props) {
               </span>
             </h2>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
-            <p className="hm-sub">{t.hero.sub}</p>
+            <p className="hm-sub">{inHebrew(t.hero.sub, locale)}</p>
           </div>
         </section>
 
@@ -128,21 +129,6 @@ export default async function LandingFromBadge({ params }: Props) {
 
       <HomeFooter t={t} locale={locale} />
     </div>
-  );
-}
-
-// A Latin word inside Hebrew copy (CRM) is set in the site's English font, as
-// the design guide asks: the run is wrapped in a lang="en" span.
-function inHebrew(text: string, locale: "he" | "en") {
-  if (locale === "en") return text;
-  return text.split(/([A-Za-z][A-Za-z0-9]*)/).map((part, i) =>
-    i % 2 === 1 ? (
-      <span key={i} lang="en">
-        {part}
-      </span>
-    ) : (
-      part
-    ),
   );
 }
 

@@ -4,14 +4,16 @@ import type { Locale } from "./locale";
  * The home page's words, he + en. Hebrew is primary (לשון נקבה); English
  * mirrors it key for key.
  *
- * The page describes the NEW studio (the dock, the "+", the six set-ups),
- * read off shebossit-cms `origin/staging`. The Hebrew came back from the copy
- * agent against a brief that listed every slot; the mock texts (what is drawn
- * inside the phones and cards) are an example customer, a business coach
- * named Maya Levi, and are written to look like her real content.
+ * Every claim is live in production Studio (shebossit-cms `origin/main`); the
+ * rules and the reasons for the order are in docs/landing-rewrite-2026-11.md.
+ * The mock texts (what is drawn inside the phones and cards) are an example
+ * customer, a business coach named Maya Levi, written to look like her real
+ * content. `sales`, `marketing` and `clients` are drawn on the badge pages
+ * (app/[locale]/for/), the home page draws `selling`, `system`, `claude` and
+ * `money`.
  */
 
-export type PlusKey = "sort" | "bio" | "gift" | "call" | "week" | "launch" | "course";
+export type PlusKey = "sort" | "bio" | "gift" | "call" | "week" | "club" | "agreement" | "course";
 
 type Row = readonly [string, string];
 
@@ -26,10 +28,10 @@ type PricePlan = { key: "monthly" | "yearly"; toggle: string; toggleNote?: strin
 
 const he = {
   meta: {
-    title: "קופלו | מערכת לניהול מותג עם AI",
+    title: "קופלו | לנהל את כל העסק שלך במערכת אחת עם AI",
     description:
-      "קופלו מחבר מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, עם בניית קורסים שנמצאת בפיתוח.",
-    ogTitle: "קופלו | כל הכלים לניהול עסק אונליין במקום אחד",
+      "קורס, רשימת תפוצה, מיילים, דפי נחיתה ולקוחות במערכת אחת, עם הסליקה שלך. קלוד או ChatGPT עושים לך את העבודה הטכנית, והרשימות מרב מסר עוברות לבד.",
+    ogTitle: "קופלו | לנהל את כל העסק שלך במערכת אחת עם AI",
   },
   signIn: "התחברות",
   dock: {
@@ -39,30 +41,27 @@ const he = {
     content: "שיווק",
     sales: "מכירות",
     clients: "לקוחות",
-    price: "מחיר",
     join: "להצטרפות",
     plus: "מה בא לך להקים היום?",
     close: "סגירה",
   },
   hero: {
-    h1a: "כל הכלים לניהול עסק אונליין",
-    h1b: "במקום אחד",
+    h1a: "לנהל את כל העסק שלך",
+    h1b: "במערכת אחת עם AI",
     builtFor: "נבנה בשביל",
     audiences: [
-      "עסקים דיגיטליים",
+      "יוצרות קורסים",
       "מאמנות",
       "יועצות",
-      "משווקות",
       "מנטוריות",
       "מטפלות",
-      "יוצרות קורסים",
-      "מרצות ומנחות סדנאות",
-      "יוצרות תוכן",
+      "מנחות סדנאות",
+      "בעלות מועדון",
       "פודקאסטריות",
       "תזונאיות",
       "מאמנות כושר",
     ],
-    sub: "ניהול לקוחות, קורסים דיגיטליים, מיילים, משימות ודפי נחיתה. מנוי אחד ב-€24 לחודש.",
+    sub: "ניהול לקוחות, קורסים דיגיטליים, רשימות תפוצה, מיילים, משימות ודפי נחיתה -\nכולם מחוברים ומתממשקים יחד במערכת אחת.",
     cta: "להצטרפות ←",
     refund: "לא מתאים לך? החזר מלא בתוך 14 יום",
     hintA: "לחצי על",
@@ -103,35 +102,76 @@ const he = {
       { who: "ר", name: "רוני לוי", product: "קורס מותג בשבוע", note: "", amount: "₪690", source: "לינק בביו" },
     ],
   },
-  // Products: what she sells, each with its own deals board. Courses are still
-  // in development (PRODUCT.md), so they are marked "בקרוב", never promised.
+  // Selling: the real money, read from her processor and invoicing, and where each sale came from.
+  selling: {
+    label: "מכירות",
+    h2: "קופלו מוכרת לך יותר, בלי שתרדפי אחרי אף אחת",
+    lead: "בסוף החודש את לא באמת יודעת כמה נכנס, מה מכניס לך כסף, ומי עוד לא שילמה. קופלו מחוברת לסליקה שלך ולמערכת החשבוניות, מורנינג, קארדקום או Grow, ולכן היא יודעת בדיוק כמה מכרת וכמה כסף נכנס. את רואה מה מכניס לך הכי הרבה, מאיזה מוצר ומאילו לקוחות, וכמה עוד פתוח בעסקאות. שאלון, טופס או קביעת שיחה: כל פנייה נכנסת ללוח העסקאות, ואת רואה באיזה שלב היא ומאיפה הגיעה. בנתוני המכירות רואים כמה נסגר החודש.",
+    gets: ["חיבור לסליקה", "חיבור לחשבוניות", "הכנסות לפי מוצר", "לוח עסקאות", "נתוני מכירות"],
+    incomeLabel: "נכנס החודש",
+    income: "₪6,110",
+    incomeFrom: "לפי מורנינג וקארדקום",
+    open: ["עוד פתוח · 2 עסקאות", "₪1,200"] as Row,
+    byTitle: "מה מכניס לך החודש",
+    by: [["ליווי עסקי 1:1", "₪3,500"], ["קורס מותג בשבוע", "₪1,380"], ["סדנת תמחור", "₪1,230"]] as readonly Row[],
+  },
+  // A personal assistant: Claude or ChatGPT builds inside Coflow, as drafts she approves.
+  claude: {
+    label: "עוזר אישי AI",
+    h2: "עוזר אישי שעושה את העבודה במקומך",
+    lead: "כל דבר קטן במערכת, דף חדש, מייל או טופס, לוקח לך ערב שלם, או שאת מחכה למישהי שתעשה לך אותו. מחברים את קופלו לקלוד או ל-ChatGPT, וזהו. מעכשיו את רק כותבת לו מה את צריכה, במילים פשוטות ובלי לנסח פרומפט, והוא בונה את זה בשבילך בתוך קופלו: דף נחיתה, סדרת מיילים, טופס או קורס שלם. את לא צריכה לגעת בשום הגדרה. כשהוא מסיים, את מסתכלת ומאשרת, ושום דבר לא יוצא לפני כן.",
+    gets: ["קלוד ו-ChatGPT", "דפי נחיתה", "סדרות מיילים", "טפסים", "קורסים"],
+    me: "את",
+    it: "קלוד",
+    ask: "תבנה לי דף הרשמה לסדנת תמחור ב-12.12, ושלושה מיילים לפני הסדנה.",
+    answer: "בניתי טיוטה של הדף ושל שלושת המיילים. הם מחכים לאישור שלך בקופלו.",
+    draftTitle: "טיוטות",
+    drafts: [["דף הרשמה לסדנת תמחור", "ממתין לאישור"], ["שלושה מיילים לפני הסדנה", "ממתינים לאישור"]] as readonly Row[],
+  },
+  // Home section 3: moving in. Lists come over by themselves; courses (with
+  // their students) move with Claude; pages and sequences are rebuilt. Never
+  // "everything moves automatically".
+  move: {
+    label: "העברת מידע ממערכות קיימות",
+    h2: "להקים את העסק שלך בקופלו בכמה דקות",
+    lead: "אין לך זמן להעביר את העסק שלך מהמערכות שאת משתמשת בהן היום? מובן לגמרי. בזכות החיבור לקלוד או לצ׳אט ג׳יפיטי, את כותבת לו מה להעביר והוא עושה את זה במקומך. מה הוא יכול להעביר לך? קורסים דיגיטליים כולל כל השיעורים, המשאבים והתלמידים, רשימות תפוצה ממערכות דיוור כמו רב מסר וסמוב, דפי נחיתה, סדרות מיילים קיימות ועוד הרבה.",
+    gets: ["קורסים דיגיטליים", "תלמידות", "רשימות תפוצה", "דפים וסדרות מיילים"],
+    video: "רוצה לראות כמה זה פשוט?",
+    videoSub: "בתאל מעבירה את כל הקורסים שלה לקופלו עם קלוד",
+    videoLength: "5 דק׳",
+    videoClose: "סגירת הסרטון",
+    // The picture: what she has today, asked over, and done.
+    fromTitle: "מה שיש לך היום",
+    from: ["קורסים מוויקס", "רשימות מרב מסר", "סדרות מיילים"],
+    ask: "תעביר לקופלו את כל הקורסים והרשימות שלי",
+    reply: "סיימתי. הכל מחכה לך בקופלו:",
+    done: [["קורסים", "6 · 51 שיעורים"], ["תלמידות", "128"], ["רשימות תפוצה", "3 · 1,240 נרשמות"]] as readonly Row[],
+  },
+  // Home section 5: leads and clients, from the first enquiry to the next session.
+  crm: {
+    label: "לקוחות ולידים",
+    h2: "לראות את כל המתעניינים שלך ולנהל את הלקוחות הקיימות",
+    lead: "במקום פניות שמתפזרות בין וואטסאפ, מיילים ופתקים, כל פנייה נכנסת למקום אחד. את רואה מאיפה היא הגיעה, באיזה שלב היא ומה הצעד הבא, ואף אחת לא נופלת בין הכיסאות. מי שקנתה עוברת ללקוחות פעילות, עם מה שקנתה ומתי הפגישה הבאה, ואת הסכם העבודה היא חותמת אונליין.",
+    gets: ["לוח עסקאות", "שאלונים וטפסים", "קביעת שיחות", "לקוחות פעילות", "הסכמים לחתימה"],
+    activeTitle: "לקוחות פעילות",
+    active: [["אורית שמש", "ליווי עסקי 1:1"], ["רוני לוי", "סדנת תמחור"]] as readonly Row[],
+    signed: "נועה חתמה על הסכם הליווי",
+    signedSub: "ה-PDF החתום נשמר אצלך",
+  },
   products: {
     label: "מוצרים",
-    h2: "סל המוצרים שלך, ואיך עוברים ממוצר למוצר",
-    lead: "את מסדרת את המוצרים בשלבים: כניסה, ביניים ופרימיום, ומסמנת איך עוברים מאחד לשני. רואים כמה אנשים נמצאים עכשיו בכל מוצר, כמה בדרך, ואיפה עוד אין שום דבר שמוביל הלאה.",
+    h2: "לראות את כל המסע של הלקוחות שלך, ממוצר למוצר",
+    lead: "כל המוצרים שלך על מפה אחת, מהמדריך החינמי ועד הליווי. את רואה כמה לקוחות נמצאות בכל מוצר, מה מוכר הכי טוב, ואיפה הן נתקעות כי אין שום מוצר שממשיך אותן הלאה. ככה את יודעת מה המוצר הבא שכדאי לבנות.",
     gets: ["מפת העסק", "כניסה, ביניים ופרימיום", "קורסים דיגיטליים", "מחירון", "הכנסות לכל מוצר"],
     listTitle: "המפה של העסק",
     items: [["כניסה", "מדריך תמחור", "חינם", "38 בפנים"], ["ביניים", "סדנת תמחור", "₪250", "12 בפנים"], ["פרימיום", "ליווי עסקי 1:1", "₪3,500", "4 בפנים"]] as readonly (readonly [string, string, string, string])[],
     movesTitle: "איך עוברים הלאה",
     moves: [["מדריך ← סדנה", "סדרת מיילים"], ["סדנה ← ליווי", "בתוך המוצר"]] as readonly (readonly [string, string])[],
   },
-  // Clients: who bought, and her sessions with them.
-  customers: {
-    label: "לקוחות",
-    h2: "כל הלקוחות והפגישות במקום אחד",
-    lead: "מי שקנתה עוברת ללקוחות פעילות. את רואה מה היא קנתה ומתי הפגישה הבאה איתה, וכל אנשי הקשר שלך שמורים במקום אחד.",
-    gets: ["לקוחות פעילות", "אנשי קשר", "פגישות עם לקוחות"],
-    activeTitle: "לקוחות פעילות",
-    active: [["אורית שמש", "ליווי עסקי 1:1"], ["נועה כהן", "ליווי עסקי 1:1"], ["רוני לוי", "סדנת תמחור"]] as readonly (readonly [string, string])[],
-    sessionsTitle: "פגישות השבוע",
-    sessions: [["אורית שמש", "ב׳ · 10:00"], ["נועה כהן", "ד׳ · 14:00"]] as readonly (readonly [string, string])[],
-  },
-  // Marketing: the content itself, written off her brand profile and laid out
-  // on one content board. Coflow is masculine in Hebrew (קופלו כותב).
   content: {
     label: "שיווק",
     h2: "אימייל מרקטינג וניהול הרשתות החברתיות",
-    lead: "את שולחת ניוזלטר וסדרות מיילים לרשימת התפוצה שלך ישר מהמערכת, עם תבניות מוכנות. את הפוסטים לרשתות החברתיות את מתכננת בלוח תוכן אחד, וקופלו עוזר לכתוב אותם. גם דפי הנחיתה והמשפכים נבנים כאן.",
+    lead: "את שולחת ניוזלטר וסדרות מיילים לרשימת התפוצה שלך ישר מהמערכת, עם תבניות מוכנות. את הפוסטים לרשתות החברתיות את מתכננת בלוח תוכן אחד, וקופלו עוזרת לכתוב אותם. גם דפי הנחיתה והמשפכים נבנים כאן.",
     gets: ["ניוזלטר", "סדרות מיילים", "לוח תוכן", "כתיבת פוסטים", "דפי נחיתה", "משפכים"],
     weekTitle: "לוח התוכן · השבוע",
     week: [["א׳", "3 טעויות בתמחור", "אינסטגרם"], ["ג׳", "מה כולל ליווי עסקי", "ניוזלטר"], ["ה׳", "פרק 12 · תמחור", "פודקאסט"]] as readonly (readonly [string, string, string])[],
@@ -164,7 +204,7 @@ const he = {
     ] as readonly (readonly [string, "late" | "today"])[],
     late: "באיחור",
     today: "היום",
-    noticed: "קופלו שם לב · זמן הסגירה הממוצע התארך",
+    noticed: "קופלו שמה לב · זמן הסגירה הממוצע התארך",
   },
   plus: {
     resultTitle: "זה מה שתקבלי",
@@ -176,7 +216,8 @@ const he = {
       { key: "gift", title: "לאסוף מיילים עם מתנה", desc: "דף הרשמה, רשימת תפוצה וסדרת מיילים", gets: ["דף הרשמה", "רשימת תפוצה", "סדרת מיילים"] },
       { key: "call", title: "שיקבעו איתי שיחה", desc: "דף קביעת שיחה שמכניס את הפגישה ליומן", gets: ["דף קביעת שיחה", "הזמנה ליומן", "עסקה בלוח"] },
       { key: "week", title: "לתכנן תוכן לשבוע", desc: "רעיונות לשבוע עם הוקים ותאריכים בלוח התוכן", gets: ["רעיונות לשבוע", "הוקים מהמסרים שלך", "תאריכים בלוח"] },
-      { key: "launch", title: "לתכנן השקה", desc: "תוכנית, רשימת המתנה, תוכן ודף מכירה", gets: ["תוכנית השקה", "רשימת המתנה", "דף מכירה"] },
+      { key: "club", title: "להקים אירוע חדש למועדון", desc: "מפגש חי במועדון המנויים, שמופיע אצל כל החברות", gets: ["אירוע במועדון", "חוזר כל שבוע", "הקלטה אחרי המפגש"] },
+      { key: "agreement", title: "לשלוח הסכם לחתימה ללקוחה", desc: "ההסכם שלך כקובץ, והלקוחה חותמת עליו אונליין", gets: ["ההסכם שלך", "חתימה אונליין", "עותק חתום אצלך"] },
       { key: "course", title: "לבנות קורס דיגיטלי", desc: "פרקים ושיעורים כתובים, דף הרשמה ומייל ברוכה הבאה", gets: ["קורס עם שיעורים", "דף הקורס", "מייל ברוכה הבאה"] },
     ] as readonly PlusItem[],
     mock: {
@@ -214,6 +255,23 @@ const he = {
         cardTitle: "השבוע",
         rows: [["א׳", "קרוסלה על תמחור"], ["ג׳", "ניוזלטר"], ["ה׳", "פרק בפודקאסט"]] as readonly Row[],
       },
+      club: {
+        name: "המועדון של מאיה",
+        eventLabel: "המפגש הבא",
+        event: "שאלות ותשובות על תמחור",
+        when: "ד׳ · 20:00",
+        button: "להצטרף למפגש",
+        cardTitle: "אירוע חדש במועדון",
+        rows: [["מתי", "כל ד׳ · 20:00"], ["מי רואה", "חברות המועדון"], ["אחרי המפגש", "הקלטה"]] as readonly Row[],
+      },
+      agreement: {
+        title: "הסכם ליווי עסקי 1:1",
+        lines: ["משך הליווי: 3 חודשים", "מחיר: ₪3,500", "ביטול: עד 14 יום"],
+        signLabel: "החתימה שלך",
+        button: "לחתימה",
+        cardTitle: "נועה חתמה",
+        rows: [["הסכם", "ליווי עסקי 1:1"], ["נחתם", "היום · 10:42"], ["העותק", "נשמר אצלך"]] as readonly Row[],
+      },
       course: {
         name: "קורס מותג בשבוע",
         continueLabel: "ממשיכים · יום 1 · שיעור 3",
@@ -225,17 +283,6 @@ const he = {
         cardTitle: "מייל ברוכה הבאה",
         welcome: "אפשר להתחיל עכשיו, ההתקדמות נשמרת.",
         welcomeButton: "להתחלת הקורס",
-      },
-      launch: {
-        cardTitle: "השקה: סדנת תמחור · 12.11 · ₪290",
-        rows: [
-          ["שבוע לפני", "פוסט: למה תמחור מפחיד"],
-          ["5 ימים לפני", "מייל לרשימה"],
-          ["3 ימים לפני", "רילס + לינק להרשמה"],
-          ["יום לפני", "סטורי: נשארו מקומות"],
-          ["12.11", "הסדנה"],
-          ["יום אחרי", "מייל תודה + הצעה לליווי"],
-        ] as readonly Row[],
       },
     },
   },
@@ -249,12 +296,11 @@ const he = {
     waitlistCta: "להתחלת תקופת ניסיון בחינם ←",
     waitlistFine: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם.",
     waitlistShort: "להרשמה",
-    subClosed: "ניהול לקוחות, קורסים דיגיטליים, מיילים, משימות ודפי נחיתה.",
   },
   // The three plans' section (from the Studio, components/home/plans-section.tsx).
   plans: {
-    h2: "עסק שלם, סטודיו אחד.",
-    sub: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם.",
+    h2: "עסק שלם, דאשבורד אחד.",
+    sub: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם. בלי עמלה של קופלו על המכירות.",
   },
   price: {
     h2: "מנוי אחד. כל הכלים.",
@@ -287,10 +333,10 @@ export type HomeCopy = typeof he;
 
 const en: HomeCopy = {
   meta: {
-    title: "Coflow | AI brand management, funnels and CRM",
+    title: "Coflow | Run your whole business in one system, with AI",
     description:
-      "Coflow connects offers, funnels, marketing and CRM with AI for course, coaching and service businesses. Course building is in development.",
-    ogTitle: "Coflow | All the tools to run your online business, in one place",
+      "Your course, mailing list, emails, landing pages and clients in one system, with your own card processor. Claude or ChatGPT does the technical work, and your Rav Messer lists move over by themselves.",
+    ogTitle: "Coflow | Run your whole business in one system, with AI",
   },
   signIn: "Log in",
   dock: {
@@ -299,30 +345,27 @@ const en: HomeCopy = {
     content: "Marketing",
     sales: "Sales",
     clients: "Clients",
-    price: "Price",
     join: "Join",
     plus: "What do you want to set up today?",
     close: "Close",
   },
   hero: {
-    h1a: "All the tools to run your online business",
-    h1b: "in one place",
+    h1a: "Run your whole business",
+    h1b: "in one system, with AI",
     builtFor: "Built for",
     audiences: [
-      "digital businesses",
+      "course creators",
       "coaches",
       "consultants",
-      "marketers",
       "mentors",
       "therapists",
-      "course creators",
-      "speakers and workshop leaders",
-      "content creators",
+      "workshop leaders",
+      "membership club owners",
       "podcasters",
       "nutritionists",
       "fitness coaches",
     ],
-    sub: "Client management, digital courses, email, tasks and landing pages. One subscription, €24 a month.",
+    sub: "Client management, digital courses, mailing lists, email, tasks and landing pages.\nAll connected and working with each other in one system.",
     cta: "Join →",
     refund: "Not for you? Full refund within 14 days",
     hintA: "Tap",
@@ -363,25 +406,64 @@ const en: HomeCopy = {
       { who: "R", name: "Roni Levi", product: "Brand in a week", note: "", amount: "₪690", source: "Link in bio" },
     ],
   },
+  selling: {
+    label: "Sales",
+    h2: "Coflow sells more for you, without you chasing anyone",
+    lead: "At the end of the month you don't really know how much came in, what brings in money, or who still hasn't paid. Coflow is connected to your card processor and your invoicing, Morning, Cardcom or Grow, so it knows exactly how much you sold and how much came in. You see what brings in the most, from which product and which clients, and how much is still open in your deals. A questionnaire, a form or a booked call: every enquiry goes on the deals board, and you see what stage it is at and where it came from. Sales numbers show how much closed this month.",
+    gets: ["Card processor connected", "Invoicing connected", "Income by product", "Deals board", "Sales numbers"],
+    incomeLabel: "Came in this month",
+    income: "₪6,110",
+    incomeFrom: "From Morning and Cardcom",
+    open: ["Still open · 2 deals", "₪1,200"],
+    byTitle: "What brings in money this month",
+    by: [["1:1 business coaching", "₪3,500"], ["Brand in a week", "₪1,380"], ["Pricing workshop", "₪1,230"]],
+  },
+  claude: {
+    label: "AI personal assistant",
+    h2: "A personal assistant that does the work for you",
+    lead: "Every small thing in the system, a new page, an email or a form, takes you a whole evening, or you wait for someone to do it for you. Connect Coflow to Claude or ChatGPT, and that's it. From then on you just write what you need, in plain words with no prompt to craft, and it builds it for you inside Coflow: a landing page, an email sequence, a form or a whole course. You don't touch a single setting. When it's done, you look it over and approve, and nothing goes out before that.",
+    gets: ["Claude and ChatGPT", "Landing pages", "Email sequences", "Forms", "Courses"],
+    me: "You",
+    it: "Claude",
+    ask: "Build me a sign-up page for the pricing workshop on 12.12, and three emails before it.",
+    answer: "I built a draft of the page and the three emails. They're waiting for your approval in Coflow.",
+    draftTitle: "Drafts",
+    drafts: [["Pricing workshop sign-up page", "Waiting for you"], ["Three emails before it", "Waiting for you"]],
+  },
+  move: {
+    label: "Bring your data from other systems",
+    h2: "Set up your business in Coflow in a few minutes",
+    lead: "No time to move your business out of the systems you use today? Completely understandable. Because Coflow is connected to Claude or ChatGPT, you write what to move and it does it for you. What can it move? Digital courses with all their lessons, resources and students, mailing lists from email platforms like Rav Messer and Smoove, landing pages, existing email sequences and much more.",
+    gets: ["Digital courses", "Students", "Mailing lists", "Pages and sequences"],
+    video: "Want to see how simple it is?",
+    videoSub: "Batel moves all her courses to Coflow with Claude",
+    videoLength: "5 min",
+    videoClose: "Close the video",
+    fromTitle: "What you have today",
+    from: ["Courses on Wix", "Lists on Rav Messer", "Email sequences"],
+    ask: "Move all my courses and lists over to Coflow",
+    reply: "Done. It's all waiting for you in Coflow:",
+    done: [["Courses", "6 · 51 lessons"], ["Students", "128"], ["Mailing lists", "3 · 1,240 subscribers"]],
+  },
+  crm: {
+    label: "Leads and clients",
+    h2: "See everyone who is interested and manage your existing clients",
+    lead: "Instead of enquiries scattered across WhatsApp, email and notes, every enquiry lands in one place. You see where she came from, what stage she is at and what the next step is, and nobody falls through the cracks. Whoever buys moves to active clients, with what she bought and when the next session is, and she signs your work agreement online.",
+    gets: ["Deals board", "Questionnaires and forms", "Call booking", "Active clients", "Agreements to sign"],
+    activeTitle: "Active clients",
+    active: [["Orit Shemesh", "1:1 business coaching"], ["Roni Levi", "Pricing workshop"]],
+    signed: "Noa signed the coaching agreement",
+    signedSub: "The signed PDF is saved for you",
+  },
   products: {
     label: "Products",
-    h2: "Your product line, and how people move from one product to the next",
-    lead: "Arrange your products in levels: entry, middle and premium, and mark how people move from one to the next. You see how many people are in each product right now, how many are on the way, and where nothing leads on yet.",
+    h2: "See your clients' whole journey, from product to product",
+    lead: "All your products on one map, from the free guide to coaching. You see how many clients are in each product, what sells best, and where they get stuck because nothing leads them on. That way you know which product is worth building next.",
     gets: ["Business map", "Entry, middle and premium", "Digital courses", "Price list", "Income per product"],
     listTitle: "The map of the business",
     items: [["Entry", "Pricing guide", "Free", "38 inside"], ["Middle", "Pricing workshop", "₪250", "12 inside"], ["Premium", "1:1 business coaching", "₪3,500", "4 inside"]] as readonly (readonly [string, string, string, string])[],
     movesTitle: "How they move on",
     moves: [["Guide → workshop", "Email series"], ["Workshop → coaching", "Inside the product"]] as readonly (readonly [string, string])[],
-  },
-  customers: {
-    label: "Clients",
-    h2: "All your clients and sessions in one place",
-    lead: "Whoever buys moves to active clients. You see what she bought and when your next session with her is, and all your contacts are kept in one place.",
-    gets: ["Active clients", "Contacts", "Client sessions"],
-    activeTitle: "Active clients",
-    active: [["Orit Shemesh", "1:1 business coaching"], ["Noa Cohen", "1:1 business coaching"], ["Roni Levi", "Pricing workshop"]] as readonly (readonly [string, string])[],
-    sessionsTitle: "This week's sessions",
-    sessions: [["Orit Shemesh", "Mon · 10:00"], ["Noa Cohen", "Wed · 14:00"]] as readonly (readonly [string, string])[],
   },
   content: {
     label: "Marketing",
@@ -431,7 +513,8 @@ const en: HomeCopy = {
       { key: "gift", title: "Collect emails with a free gift", desc: "A sign-up page, a list and an email sequence", gets: ["Sign-up page", "Mailing list", "Email sequence"] },
       { key: "call", title: "Let people book a call", desc: "A booking page that puts the call in your calendar", gets: ["Booking page", "Calendar invite", "Deal on the board"] },
       { key: "week", title: "Plan a week of content", desc: "A week of ideas with hooks and dates on your board", gets: ["A week of ideas", "Hooks from your messages", "Dates on the board"] },
-      { key: "launch", title: "Plan a launch", desc: "A plan, a waitlist, content and a sales page", gets: ["Launch plan", "Waitlist", "Sales page"] },
+      { key: "club", title: "Set up a new club event", desc: "A live session in your membership club, shown to every member", gets: ["Club event", "Repeats every week", "Recording afterwards"] },
+      { key: "agreement", title: "Send a client an agreement to sign", desc: "Your own agreement as a file, signed online by your client", gets: ["Your agreement", "Signed online", "Signed copy saved"] },
       { key: "course", title: "Build a digital course", desc: "Written chapters and lessons, a sign-up page and a welcome email", gets: ["Course with lessons", "Course page", "Welcome email"] },
     ],
     mock: {
@@ -469,6 +552,23 @@ const en: HomeCopy = {
         cardTitle: "This week",
         rows: [["Sun", "Pricing carousel"], ["Tue", "Newsletter"], ["Thu", "Podcast episode"]],
       },
+      club: {
+        name: "Maya's club",
+        eventLabel: "Next session",
+        event: "Pricing Q&A",
+        when: "Wed · 20:00",
+        button: "Join the session",
+        cardTitle: "New club event",
+        rows: [["When", "Every Wed · 20:00"], ["Who sees it", "Club members"], ["Afterwards", "Recording"]],
+      },
+      agreement: {
+        title: "1:1 business coaching agreement",
+        lines: ["Length: 3 months", "Price: ₪3,500", "Cancellation: within 14 days"],
+        signLabel: "Your signature",
+        button: "Sign",
+        cardTitle: "Noa signed",
+        rows: [["Agreement", "1:1 business coaching"], ["Signed", "Today · 10:42"], ["Copy", "Saved for you"]],
+      },
       course: {
         name: "Brand in a week",
         continueLabel: "Continue · Day 1 · Lesson 3",
@@ -481,17 +581,6 @@ const en: HomeCopy = {
         welcome: "Start now. Your progress is saved.",
         welcomeButton: "Start the course",
       },
-      launch: {
-        cardTitle: "Launch: pricing workshop · 12.11 · ₪290",
-        rows: [
-          ["A week before", "Post: why pricing is scary"],
-          ["5 days before", "Email to the list"],
-          ["3 days before", "Reel + sign-up link"],
-          ["Day before", "Story: places left"],
-          ["12.11", "The workshop"],
-          ["Day after", "Thank-you email + coaching offer"],
-        ],
-      },
     },
   },
   beta: {
@@ -502,11 +591,10 @@ const en: HomeCopy = {
     waitlistCta: "Start your free trial →",
     waitlistFine: "Three plans, each with a free trial period.",
     waitlistShort: "Sign up",
-    subClosed: "Clients, digital courses, emails, tasks and landing pages.",
   },
   plans: {
-    h2: "A whole business, one studio.",
-    sub: "Three plans, each with a free trial period.",
+    h2: "A whole business, one dashboard.",
+    sub: "Three plans, each with a free trial. No Coflow fee on your sales.",
   },
   price: {
     h2: "One subscription. Every tool.",
@@ -540,7 +628,7 @@ const en: HomeCopy = {
 export function withWaitlist(t: HomeCopy): HomeCopy {
   return {
     ...t,
-    hero: { ...t.hero, cta: t.beta.waitlistCta, sub: t.beta.subClosed, refund: "" },
+    hero: { ...t.hero, cta: t.beta.waitlistCta, refund: "" },
     dock: { ...t.dock, join: t.beta.waitlistShort },
     plus: { ...t.plus, cta: t.beta.waitlistCta },
   };

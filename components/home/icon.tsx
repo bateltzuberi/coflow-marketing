@@ -65,6 +65,7 @@ const PATHS = {
       <path d="M8 10V7a4 4 0 0 1 8 0v3" />
     </>
   ),
+  pen: <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />,
   door: <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5M10 17l5-5-5-5M15 12H3" />,
   grid: (
     <>

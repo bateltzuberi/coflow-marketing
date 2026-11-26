@@ -12,9 +12,14 @@ Read first, in this order: `AGENTS.md`, `WORKING-WITH-BATEL.md`, `PRODUCT.md`,
 | Step | Status |
 |---|---|
 | Audit of the site | done (below) |
-| Copy for the home page, the "+" menu, the price tile and inner-page fixes | drafted (below), not built |
-| Hero headline | **open**: Batel picks the Claude headline (recommended) or option B |
-| Building it into `lib/home-copy.ts`, the sections and the inner pages | not started |
+| Home page copy and order | reworked with Yuval on 2026-11-26, section by section, on `feature/yuval/landing-rewrite`; in a draft PR for Batel to look at, not live |
+| Hero headline | Yuval's: "לנהל את כל העסק שלך / במערכת אחת עם AI" |
+| Home order | moving in from other systems, AI personal assistant, leads and clients, sales, marketing, products (last: it may come off) |
+| "+" menu | the live menu without "plan a launch", plus "new club event" and "send an agreement to sign" |
+| Inner pages | courses-in-development wording removed; their copy still to be read through with Yuval |
+| To confirm in Studio before merging | that Claude moves Smoove lists, landing pages and email sequences; that the content board and post writing are live |
+| Share image (`public/og/home-*.png`) | open: still draws the headline from before October |
+| Price in the page's structured data (`lib/seo.tsx`) | open: still says €24 a month |
 | Studio-side fixes (plan lines, help centre) | not here: they live in `shebossit-cms`, Batel handles them |
 
 ## Rules for this work

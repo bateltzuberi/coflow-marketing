@@ -75,7 +75,8 @@ Reference implementations: `app/academy/page.tsx` (index) and `app/[locale]/guid
   (the Coflow logo and "Coflow noticed" moments only). The gradient bridge goes on at most one
   element per page.
 - The main button is cream with cocoa text (`.btn btn-lime`, round). **Never a black button,
-  never a blue button.**
+  never a blue button.** One exception (Yuval, 2026-11-25): the button on the yellow Business plan
+  card is blue with white text, because a cream button disappears on that card.
 - Pink `#F29CC3` is the focus ring and "now" accent on home. Sage, apricot and brick are small
   status badges only.
 - Use variables (`var(--color-…)`, `var(--hm-…)`). No new hex values in components.

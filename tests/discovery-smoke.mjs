@@ -39,7 +39,7 @@ try {
         }
       }
       assert.ok(!html.includes("Free forever for your first brand"));
-      if (path === "/solutions/digital-courses") assert.ok(html.includes(locale === "he" ? "עדיין בפיתוח" : "still in development"));
+      if (!["/terms", "/privacy"].includes(path)) assert.ok(!html.includes(locale === "he" ? "בפיתוח" : "in development"), `${url}: courses are live`);
     }
   }
   const sitemap = await (await fetch(origin + "/sitemap.xml")).text();
@@ -47,9 +47,9 @@ try {
   const robots = await (await fetch(origin + "/robots.txt")).text();
   for (const agent of ["OAI-SearchBot", "PerplexityBot"]) assert.ok(robots.includes(`User-Agent: ${agent}`));
   assert.ok(!robots.includes("Disallow: /"));
-  for (const [old, target] of [["/solutions/crm?ref=email", "/he/solutions/crm?ref=email"], ["/en/join?ref=email", "/en?ref=email"], ["/en/waitlist", "https://studio.coflow.social/signup?lang=en"]]) {
+  for (const [old, target, status] of [["/solutions/crm?ref=email", "/he/solutions/crm?ref=email", 308], ["/en/join?ref=email", "/en?ref=email", 308], ["/en/waitlist", "/en#price", 307]]) {
     const r = await fetch(origin + old, { redirect: "manual" });
-    assert.equal(r.status, 308); assert.ok(r.headers.get("location").endsWith(target));
+    assert.equal(r.status, status, old); assert.ok(r.headers.get("location").endsWith(target));
   }
   const deep = await (await fetch(origin + "/en/solutions/crm?ref=email")).text();
   assert.ok(deep.includes('href="/he/solutions/crm?ref=email"'));

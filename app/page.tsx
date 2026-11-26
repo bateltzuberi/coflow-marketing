@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import "./home.css";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { Icon } from "@/components/home/icon";
-import { ContentSection, CustomersSection, HomeFooter, PriceSection, ProductsSection, SalesSection, TopBar } from "@/components/home/sections";
+import { inHebrew } from "@/components/home/in-hebrew";
+import { ClaudeSection, ContentSection, CrmSection, HomeFooter, MoveSection, PriceSection, ProductsSection, SellingSection, TopBar } from "@/components/home/sections";
 import { PlansSection } from "@/components/home/plans-section";
 import { TypedLine } from "@/components/home/typed-line";
 import { BetaCountdown } from "@/components/home/beta-countdown";
@@ -65,13 +66,13 @@ export default async function Home() {
             <h1>
               {t.hero.h1a}
               <br />
-              {t.hero.h1b}{" "}
+              {inHebrew(t.hero.h1b, locale)}{" "}
               <span className="hm-story" aria-hidden="true">
                 <span />
               </span>
             </h1>
             <TypedLine lead={t.hero.builtFor} words={t.hero.audiences} />
-            <p className="hm-sub">{t.hero.sub}</p>
+            <p className="hm-sub">{inHebrew(t.hero.sub, locale)}</p>
             <a className="hm-btn" href={joinHref}>
               {t.hero.cta}
             </a>
@@ -139,11 +140,16 @@ export default async function Home() {
         </header>
 
         <div className="hm-wrap">
-          {/* The Studio's own menu, in its order: products, marketing, sales, clients. */}
-          <ProductsSection t={t} />
+          {/* The order Yuval set on 2026-11-26: how easy setting up in Coflow is,
+              the AI personal assistant, everything about leads and clients in one place, then
+              the money. Marketing and products keep the live page's words;
+              products sits last because it may come off the page. */}
+          <MoveSection t={t} locale={locale} />
+          <ClaudeSection t={t} locale={locale} />
+          <CrmSection t={t} locale={locale} />
+          <SellingSection t={t} locale={locale} />
           <ContentSection t={t} />
-          <SalesSection t={t} />
-          <CustomersSection t={t} />
+          <ProductsSection t={t} />
         </div>
 
         {open ? <PriceSection t={t} locale={locale} /> : <PlansSection locale={locale} title={t.plans.h2} sub={t.plans.sub} />}

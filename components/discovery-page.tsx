@@ -42,7 +42,7 @@ export function DiscoveryPage({ page, path, locale, guide = false }: {
           </div>
         </section>}
         {extras.sources && <section className="mt-8 text-[15px] text-ink-700">
-          <p>{locale === "he" ? "נבדק ב-9.10.2026 לפי עמודי המוצרים הרשמיים. תנאים ויכולות עשויים להשתנות." : "Checked on 9 October 2026 against official product pages. Terms and capabilities may change."}</p>
+          <p>{locale === "he" ? "נבדק ב-9.10.2026 לפי עמודי המוצרים הרשמיים. השורה על קופלו עודכנה ב-25.11.2026. תנאים ויכולות עשויים להשתנות." : "Checked on 9 October 2026 against official product pages. The Coflow row was updated on 25 November 2026. Terms and capabilities may change."}</p>
           <ul className="mt-4 flex flex-wrap gap-6">{extras.sources.map(source => <li key={source.url}><a href={source.url} className="underline underline-offset-4">{source.name}</a></li>)}</ul>
         </section>}
         <section className="mt-16">
