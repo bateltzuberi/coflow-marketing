@@ -715,3 +715,9 @@
 @media (min-width: 901px) { #claude .hm-vis { min-height: 620px; } }
 @media (min-width: 901px) { #content .hm-vis { min-height: 720px; } }
 @media (max-width: 560px) { .hm-gantt-bar { white-space: normal; font-size: 11px; padding: 4px 6px; line-height: 1.25; } .hm-gantt-p { font-size: 11px; } }
+
+/* Products: a real Studio screen on the laptop. */
+.hm-vis-laptop { display: flex; align-items: center; }
+.hm-vis-laptop > .hm-laptop { position: relative; inset: auto; width: 100%; max-width: 640px; margin-inline-start: auto; }
+.hm-laptop-screen img { display: block; width: 100%; height: auto; }
+@media (min-width: 901px) { .hm-vis-laptop { min-height: 460px; } }

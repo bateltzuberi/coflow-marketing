@@ -393,71 +393,21 @@ export function CrmSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   );
 }
 
-/** Products: a laptop with her course open, lessons down the side, a file to
- *  download, on her own course site; her club beside it. */
+/** Products: the real Studio, on a laptop: her club page being built in
+ *  Coflow (the WhatsApp group link is covered in the picture). */
 export function ProductsSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const s = t.products;
   return (
     <section className="hm-sec" id="products">
       <div className="hm-row">
         <SectionCopy icon="tag" words={s} locale={locale} />
-        <div className="hm-vis" aria-hidden="true">
+        <div className="hm-vis hm-vis-laptop" aria-hidden="true">
           <div className="hm-laptop">
             <div className="hm-laptop-screen">
-              <div className="hm-laptop-bar">
-                <span className="hm-site-dots">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-                <span className="hm-laptop-url" dir="ltr">
-                  {s.siteUrl}
-                </span>
-              </div>
-              <div className="hm-course">
-                <div className="hm-course-main">
-                  <span className="hm-course-video">
-                    <span className="hm-vid-play">
-                      <i />
-                    </span>
-                  </span>
-                  <small>{s.playerCourse}</small>
-                  <b>{s.playerLesson}</b>
-                  <span className="hm-course-progress">
-                    <i />
-                  </span>
-                  <small>{s.playerProgress}</small>
-                  <span className="hm-course-file">
-                    <Icon name="tag" />
-                    <span>
-                      <small>{s.fileLabel}</small>
-                      {s.file}
-                    </span>
-                  </span>
-                </div>
-                <ol className="hm-course-list">
-                  {s.lessons.map(([name, state]) => (
-                    <li key={name} className={state ? `hm-l-${state}` : undefined}>
-                      <i>{state === "done" ? "✓" : ""}</i>
-                      {name}
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/home/studio-club.jpg" alt="" loading="lazy" />
             </div>
             <span className="hm-laptop-base" />
-          </div>
-          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 0, width: 290, padding: 20, zIndex: 2 }}>
-            <small className="hm-strong">{s.clubTitle}</small>
-            <span className="hm-chg">{s.clubMembers}</span>
-            <div className="hm-r hm-r-after">
-              <span>
-                {s.clubEventLabel}
-                <br />
-                <b>{s.clubEvent}</b>
-              </span>
-              <span className="hm-badge hm-today">{s.clubWhen}</span>
-            </div>
           </div>
         </div>
       </div>
