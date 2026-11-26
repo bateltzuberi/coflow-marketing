@@ -455,19 +455,21 @@ export function ContentSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
           </div>
           <div className="hm-tile hm-gantt" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
             <small className="hm-strong">{s.ganttTitle}</small>
-            <div className="hm-gantt-grid" style={{ gridTemplateColumns: `76px repeat(${s.ganttDays.length}, minmax(0, 1fr))` }}>
+            <div className="hm-gantt-grid" style={{ gridTemplateColumns: `64px repeat(${s.ganttDays.length}, minmax(0, 1fr))` }}>
               <span />
               {s.ganttDays.map((d) => (
                 <span key={d} className="hm-gantt-day">
                   {d}
                 </span>
               ))}
-              {s.gantt.map(([platform, post, from, span], i) => (
+              {s.gantt.map(([platform, posts], i) => (
                 <div key={platform} className="hm-gantt-row" style={{ gridColumn: "1 / -1" }}>
                   <span className="hm-gantt-p">{platform}</span>
-                  <span className="hm-gantt-bar" style={{ gridColumn: `${from + 1} / span ${span}`, background: GANTT_BG[i % GANTT_BG.length] }}>
-                    {post}
-                  </span>
+                  {posts.map(([day, post]) => (
+                    <span key={day} className="hm-gantt-bar" style={{ gridColumn: day + 1, background: GANTT_BG[i % GANTT_BG.length] }}>
+                      {post}
+                    </span>
+                  ))}
                 </div>
               ))}
             </div>
@@ -478,7 +480,7 @@ export function ContentSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   );
 }
 
-const GANTT_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-sage-bg)", "var(--hm-apricot-bg)", "var(--hm-oat-2)"];
+const GANTT_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-apricot-bg)", "var(--hm-sage-bg)"];
 
 /** Bringing in clients: her link in bio, and who came in through it this week. */
 export function MarketingSection({ t }: { t: HomeCopy }) {
