@@ -39,7 +39,7 @@ try {
         }
       }
       assert.ok(!html.includes("Free forever for your first brand"));
-      if (path === "/solutions/digital-courses") assert.ok(html.includes(locale === "he" ? "עדיין בפיתוח" : "still in development"));
+      if (path === "/solutions/digital-courses") assert.ok(!html.includes(locale === "he" ? "בפיתוח" : "in development"));
     }
   }
   const sitemap = await (await fetch(origin + "/sitemap.xml")).text();

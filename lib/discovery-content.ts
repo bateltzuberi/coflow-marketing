@@ -16,30 +16,30 @@ const solutions: Record<string, Record<Locale, DiscoveryPage>> = {
   "digital-courses": {
     he: {
       title: "קורסים דיגיטליים והשיווק שמסביבם",
-      description: "קופלו מחבר את בניית הקורס הדיגיטלי למוצר, לדף ההרשמה וללקוחות. הכירי את הפתרון שנבנה ליוצרות קורסים.",
-      intro: "קורס דיגיטלי הוא מוצר בעסק שלך. בקופלו אנחנו בונים את הקורס בתוך אותה מערכת שבה את מנהלת את המוצר, הפניות והלקוחות, כדי שלא תצטרכי להקים את העסק מחדש בכל כלי.",
+      description: "קופלו מחבר את בניית הקורס הדיגיטלי למוצר, לדף ההרשמה וללקוחות. הכירי את מערכת הקורסים של קופלו.",
+      intro: "קורס דיגיטלי הוא מוצר בעסק שלך. בקופלו את בונה את הקורס בתוך אותה מערכת שבה את מנהלת את המוצר, הפניות והלקוחות, כדי שלא תצטרכי להקים את העסק מחדש בכל כלי.",
       sections: [
-        { title: "מה נבנה בתוך הקורס", paragraphs: ["פרקים ושיעורים, עמוד קורס, הגדרות גישה ומחיר, ורשימת תלמידות. הקורס משויך למוצר שאת מוכרת, ולא נשאר ספריית סרטונים נפרדת.", "בניית הקורסים עדיין בפיתוח. קופלו פתוחה להרשמה; לפני הצטרפות בדקי שהיכולות שאת צריכה זמינות בחשבון שלך."] },
+        { title: "מה יש בתוך הקורס", paragraphs: ["פרקים ושיעורים, עמוד קורס, הגדרות גישה ומחיר, ורשימת תלמידות. הקורס משויך למוצר שאת מוכרת, ולא נשאר ספריית סרטונים נפרדת."] },
         { title: "מה קורה לפני ההרשמה", paragraphs: ["אם צריך לאסוף מתעניינות לפני המכירה, אפשר להתחיל בדף נחיתה ובטופס. מי שממלאת אותו נשמרת כאיש קשר, ורצף מיילים יכול להמשיך את השיחה. אם המוצר מצריך שיחת התאמה, הפנייה יכולה להמשיך לעסקה ב-CRM."] },
         { title: "מתחילים במה שאת מוכרת", paragraphs: ["הגדירי למי הקורס מיועד, מה הוא מלמד ומה המחיר. משם בונים את הקורס ואת הדרך שבה מצטרפים אליו. ה-AI עוזר להכין טיוטות; את בודקת את התוכן, את ההבטחה ואת המסלול לפני הפרסום."], steps: ["הגדירי את הקורס כמוצר.", "סדרי את הפרקים ואת השיעורים.", "בחרי הרשמה ישירה או איסוף מתעניינות לפני המכירה.", "בדקי את הדף, הטופס, התשלום והגישה כתלמידה לפני ההשקה."] },
       ],
       faqs: [
-        { q: "האם מערכת הקורסים כבר פתוחה לכולן?", a: "לא. מערכת הקורסים עדיין בפיתוח, וקופלו פתוחה להרשמה. בדקי שהיכולות שאת צריכה זמינות לפני הצטרפות." },
+        { q: "האם מערכת הקורסים כבר פתוחה לכולן?", a: "כן. מערכת הקורסים פתוחה לכל מי שנרשמת לקופלו, ואפשר לבנות ולמכור בה קורס כבר עכשיו." },
         { q: "האם חייבים קורס כדי להשתמש בקופלו?", a: "לא. המוצר שלך יכול להיות גם ליווי, פגישה, סדנה או מוצר דיגיטלי. הקורס הוא אחד מסוגי המוצרים שסביבם נבנית המערכת." },
         { q: "האם ה-AI מחליף את התוכן שאני מלמדת?", a: "לא. את אחראית לידע ולתוצאה שהקורס מבטיח. AI יכול לעזור בטיוטות ובארגון, והאישור המקצועי נשאר אצלך." },
       ], academy: "products",
     },
     en: {
       title: "Digital courses and the business around them",
-      description: "Coflow connects digital courses with your offer, signup pages and customers. Explore the course platform being built for creators.",
-      intro: "A digital course is an offer in your business. We are building courses inside the same system that holds your offers, enquiries and customers, so each new tool does not mean rebuilding the business around it.",
+      description: "Coflow connects digital courses with your offer, signup pages and customers. Explore Coflow's course platform.",
+      intro: "A digital course is an offer in your business. You build courses inside the same system that holds your offers, enquiries and customers, so each new tool does not mean rebuilding the business around it.",
       sections: [
-        { title: "What is being built", paragraphs: ["Chapters and lessons, a course page, access and price settings, and student records. A course belongs to the offer you sell rather than sitting in a separate video library.", "Course building is still in development. Coflow is open for sign-up. Check that the capabilities you need are available in your account before joining."] },
+        { title: "What a course includes", paragraphs: ["Chapters and lessons, a course page, access and price settings, and student records. A course belongs to the offer you sell rather than sitting in a separate video library."] },
         { title: "Before someone enrols", paragraphs: ["When a course needs an interested audience before a sale, start with a landing page and form. Each submission becomes a contact, and an email sequence can continue the conversation. Offers that need a fit call can continue as deals in the CRM."] },
         { title: "Start with your offer", paragraphs: ["Define who the course serves, what it teaches and its price. Then build the course and the path to joining it. AI helps prepare drafts; you review the content, promise and flow before publishing."], steps: ["Define the course as an offer.", "Organise chapters and lessons.", "Choose direct enrolment or a lead collection step before the sale.", "Test the page, form, payment and access as a student before launch."] },
       ],
       faqs: [
-        { q: "Is course building open to everyone?", a: "No. Course building is still in development, and Coflow is open for sign-up. Confirm the capabilities you need are available before joining." },
+        { q: "Is course building open to everyone?", a: "Yes. Course building is open to everyone who signs up for Coflow, and you can build and sell a course right away." },
         { q: "Do I need a course to use Coflow?", a: "No. Your offer can also be coaching, an appointment, a workshop or a digital product. A course is one of the offer types the system is built around." },
         { q: "Does AI replace what I teach?", a: "No. You are responsible for the expertise and outcome your course promises. AI can help organise and draft; professional review stays with you." },
       ], academy: "products",

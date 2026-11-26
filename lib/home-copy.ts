@@ -28,7 +28,7 @@ const he = {
   meta: {
     title: "קופלו | מערכת לניהול מותג עם AI",
     description:
-      "קופלו מחבר מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, עם בניית קורסים שנמצאת בפיתוח.",
+      "קופלו מחבר מוצרים, משפכים, שיווק ו-CRM עם AI. לעסק של קורסים, ליווי ושירותים, כולל בניית הקורסים עצמם.",
     ogTitle: "קופלו | כל הכלים לניהול עסק אונליין במקום אחד",
   },
   signIn: "התחברות",
@@ -103,8 +103,7 @@ const he = {
       { who: "ר", name: "רוני לוי", product: "קורס מותג בשבוע", note: "", amount: "₪690", source: "לינק בביו" },
     ],
   },
-  // Products: what she sells, each with its own deals board. Courses are still
-  // in development (PRODUCT.md), so they are marked "בקרוב", never promised.
+  // Products: what she sells, each with its own deals board. Courses are live.
   products: {
     label: "מוצרים",
     h2: "סל המוצרים שלך, ואיך עוברים ממוצר למוצר",
@@ -289,7 +288,7 @@ const en: HomeCopy = {
   meta: {
     title: "Coflow | AI brand management, funnels and CRM",
     description:
-      "Coflow connects offers, funnels, marketing and CRM with AI for course, coaching and service businesses. Course building is in development.",
+      "Coflow connects offers, funnels, marketing and CRM with AI for course, coaching and service businesses, including building the courses themselves.",
     ogTitle: "Coflow | All the tools to run your online business, in one place",
   },
   signIn: "Log in",

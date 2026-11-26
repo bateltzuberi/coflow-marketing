@@ -111,7 +111,7 @@ Reference implementations: `app/academy/page.tsx` (index) and `app/[locale]/guid
 ## 8. Copy rules (settled)
 
 - The category line is hers: **מערכת לניהול מותג עם AI**.
-- Course building is **in development**. Say so. Coflow opens gradually, by invitation.
+- Course building is **live** (26 Nov 2026). Never call it in development or coming soon.
 - No AI-sounding copy: no em-dashes for effect, no slogans, no "not theory, real examples".
 - No number goes into copy until someone has opened the source it came from.
 - Product facts come from `PRODUCT.md` and the product code, not from what we wish were true.
