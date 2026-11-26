@@ -236,39 +236,15 @@ export function SellingSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
 const SHARE_BG = ["var(--hm-butter-2)", "var(--hm-pink-tint)", "var(--hm-oat-2)"];
 
 /** The assistant: a Claude chat connected to Coflow, the steps it took, and
- *  the draft waiting for her approval; under the words, two real sites
- *  built with Claude inside Coflow. */
+ *  and under it two real sites built with Claude inside Coflow. */
 export function ClaudeSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
   const s = t.claude;
   return (
     <section className="hm-sec" id="claude">
       <div className="hm-row hm-flip">
-        <SectionCopy icon="spark" words={s} locale={locale}>
-          <div className="hm-sites">
-            <small>{inHebrew(s.sitesTitle, locale)}</small>
-            <div className="hm-sites-row">
-              {s.sites.map(([name, href, shot]) => (
-                <a key={href} href={href} target="_blank" rel="noopener" className="hm-site">
-                  <span className="hm-site-shot">
-                    <span className="hm-site-dots" aria-hidden="true">
-                      <i />
-                      <i />
-                      <i />
-                    </span>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={shot} alt="" loading="lazy" />
-                  </span>
-                  <span className="hm-site-name">
-                    {inHebrew(name, locale)}
-                    <i aria-hidden="true">↗</i>
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </SectionCopy>
-        <div className="hm-vis" aria-hidden="true">
-          <div className="hm-ai">
+        <SectionCopy icon="spark" words={s} locale={locale} />
+        <div className="hm-vis hm-vis-stack">
+          <div className="hm-ai" aria-hidden="true">
             <div className="hm-ai-head">
               <span className="hm-ai-mark">
                 <Icon name="spark" />
@@ -290,15 +266,27 @@ export function ClaudeSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
             </ul>
             <div className="hm-chat-msg">{s.answer}</div>
           </div>
-          <div className="hm-tile hm-ai-draft" style={{ insetInlineStart: 0, bottom: 0, width: 300, zIndex: 2 }}>
-            <span className="hm-ai-page">
-              <i />
-              <i />
-              <i />
-            </span>
-            <b>{s.previewTitle}</b>
-            <span className="hm-badge hm-today">{s.previewState}</span>
-            <span className="hm-ai-btn">{s.previewButton}</span>
+          <div className="hm-sites">
+            <small>{inHebrew(s.sitesTitle, locale)}</small>
+            <div className="hm-sites-row">
+              {s.sites.map(([name, href, shot]) => (
+                <a key={href} href={href} target="_blank" rel="noopener" className="hm-site">
+                  <span className="hm-site-shot">
+                    <span className="hm-site-dots" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={shot} alt="" loading="lazy" />
+                  </span>
+                  <span className="hm-site-name">
+                    {inHebrew(name, locale)}
+                    <i aria-hidden="true">↗</i>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
