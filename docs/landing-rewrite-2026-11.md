@@ -239,6 +239,8 @@ Swap two of the seven items; keep sort, bio, gift, call, course.
 
 ## Studio changes for Batel
 
+**Done 2026-11-27** (shebossit-cms #4625, live): both items below are fixed in the Studio, and `LINE_FIXES` is removed from this site.
+
 Some words the home page shows come from the Studio, not from this repo, so
 they can only be fixed there (shebossit-cms, through a PR into `staging`,
 since it changes what paying customers see inside the Studio too).
