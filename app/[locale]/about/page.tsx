@@ -1,28 +1,26 @@
 import Link from "next/link";
 import { planCardHref } from "@/lib/site";
-import { betaSignupOpen } from "@/lib/beta-window";
 import { getLocale } from "@/lib/locale";
 import { localizedPath } from "@/lib/locale-path";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { buildMetadata, JsonLd, webPageJsonLd, softwareApplicationJsonLd } from "@/lib/seo";
 
-function copy(he: boolean, open: boolean) {
+function copy(he: boolean) {
   return {
     title: he ? "מה היא קופלו" : "What is Coflow?",
     description: he ? "קופלו (Coflow) היא מערכת לניהול מותג עם AI של SheBossIt (Cyprus) Ltd, שמחברת מוצרים, שיווק, מכירות ולקוחות." : "Coflow is an AI brand-management system by SheBossIt (Cyprus) Ltd, connecting offers, marketing, sales and clients.",
     intro: he ? "קופלו היא מערכת לניהול מותג עם AI, לעסקים שמוכרים ידע ושירותים: קורסים, ליווי, פגישות וסדנאות. היא מחברת את המוצרים, הקורסים, הדפים, המיילים והלקוחות באותה סביבת עבודה, והתשלום עובר בסליקה שלך." : "Coflow is an AI brand-management system for businesses selling knowledge and services: courses, coaching, appointments and workshops. It brings offers, courses, pages, email and clients into one workspace, with payments on your own card processor.",
     context: he ? "המוצר מגדיר מה את מוכרת. הדפים והטפסים מובילים אליו, ואנשי הקשר והעסקאות נשמרים ב-CRM. אפשר לחבר את קופלו לקלוד או ל-ChatGPT ולבקש ממנו לבנות טיוטות של דפים, מיילים, טפסים וקורסים." : "The offer defines what you sell. Pages and forms lead towards it, while contacts and deals stay in your CRM. You can connect Coflow to Claude or ChatGPT and ask it to build drafts of pages, emails, forms and courses.",
-    // After the beta's close: a waitlist, and no price (lib/beta-window.ts).
-    stage: !open ? (he ? "ההרשמה לקופלו פתוחה: שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם." : "Sign-up for Coflow is open: three plans, each with a free trial period.") : he ? "קופלו פתוחה להרשמה. המחיר המוצג באתר הוא €24 לחודש; זמינות יכולות ותנאים מפורטים נבדקים לפני הצטרפות." : "Coflow is open for sign-up. The price shown on this site is €24 per month; confirm feature availability and detailed terms before joining.",
+    stage: he ? "ההרשמה לקופלו פתוחה: שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם." : "Sign-up for Coflow is open: three plans, each with a free trial period.",
   };
 }
 export async function generateMetadata() {
-  const locale = await getLocale(); const t = copy(locale === "he", betaSignupOpen());
+  const locale = await getLocale(); const t = copy(locale === "he");
   return buildMetadata({ title: t.title, description: t.description, path: "/about", locale });
 }
 export default async function About() {
-  const locale = await getLocale(); const he = locale === "he"; const t = copy(he, betaSignupOpen());
+  const locale = await getLocale(); const he = locale === "he"; const t = copy(he);
   return <><Nav /><JsonLd data={webPageJsonLd(t.title, t.description, "/about", locale, "AboutPage")} /><JsonLd data={softwareApplicationJsonLd(locale)} />
     <main className="container-page py-16 md:py-24"><article className="max-w-3xl mx-auto">
       <h1 className="font-display text-[40px] md:text-[56px]">{t.title}</h1>

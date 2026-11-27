@@ -5,9 +5,7 @@ import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Icon, type IconName } from "@/components/home/icon";
 import type { HomeCopy } from "@/lib/home-copy";
 import type { LandingCopy, LandingFlow } from "@/lib/landing-source-copy";
-import { SITE, signupUrlFor, waitlistHref } from "@/lib/site";
-import { betaSignupOpen } from "@/lib/beta-window";
-import { PlanCard } from "@/components/home/plan-card";
+import { SITE } from "@/lib/site";
 import { inHebrew } from "@/components/home/in-hebrew";
 import { VideoPeek } from "@/components/home/video-peek";
 
@@ -587,39 +585,6 @@ export function ClientsSection({ t }: { t: HomeCopy }) {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/** One plan, drawn as a plan card like every pricing page: name, price,
- *  what's included, the button, then the terms. Only this button goes to payment;
- *  every other Join on the page scrolls here. */
-/** One plan card with a monthly / yearly switch, like every pricing page.
- *  Only its button goes to payment; every other Join on the page scrolls here. */
-export function PriceSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
-  const pay = signupUrlFor(locale, "");
-  // Once the beta has closed (Thursday 2026-10-22, 20:00) the card's button
-  // goes to the waitlist; the Studio's /join refuses new checkouts anyway.
-  const open = betaSignupOpen();
-  const options = t.price.plans.map((p) =>
-    open
-      ? { ...p, href: p.key === "yearly" ? `${pay}&plan=yearly` : pay }
-      : { ...p, href: waitlistHref(locale), cta: t.beta.waitlistCta },
-  );
-  return (
-    <section className="hm-price" id="price">
-      <div className="hm-wrap">
-        <h2 className="hm-plan-h2">{t.price.h2}</h2>
-        <p className="hm-plan-sub">{t.price.sub}</p>
-        <PlanCard
-          name={t.price.planName}
-          toggleLabel={t.price.toggleLabel}
-          options={options}
-          includesTitle={t.price.includesTitle}
-          includes={t.price.includes}
-          fine={open ? t.price.fine : t.beta.waitlistFine}
-        />
       </div>
     </section>
   );

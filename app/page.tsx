@@ -3,11 +3,9 @@ import type { Metadata } from "next";
 import "./home.css";
 import { HomeDock, PlusHint } from "@/components/home/home-dock";
 import { inHebrew } from "@/components/home/in-hebrew";
-import { ClaudeSection, ContentSection, CrmSection, HomeFooter, MoveSection, PriceSection, ProductsSection, SellingSection, TopBar } from "@/components/home/sections";
+import { ClaudeSection, ContentSection, CrmSection, HomeFooter, MoveSection, ProductsSection, SellingSection, TopBar } from "@/components/home/sections";
 import { PlansSection } from "@/components/home/plans-section";
 import { TypedLine } from "@/components/home/typed-line";
-import { BetaCountdown } from "@/components/home/beta-countdown";
-import { betaSignupOpen } from "@/lib/beta-window";
 import { JsonLd, softwareApplicationJsonLd, buildMetadata } from "@/lib/seo";
 import { getLocale } from "@/lib/locale";
 import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
@@ -19,7 +17,7 @@ import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
 // every picture on it is a real Coflow screen drawn as a customer would meet
 // it. Colours are the studio's yellow theme (app/home.css).
 //
-// Every "Join" goes straight to the Studio sign-up page: sign-up is open, €24 a month.
+// Every "Join" scrolls to the three plan cards (#price); a card goes to the Studio.
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -44,10 +42,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const locale = await getLocale();
-  // From the beta's close (Thursday 2026-10-22, 20:00) the page sells nothing:
-  // every Join goes to the waitlist and the price section is gone.
-  const open = betaSignupOpen();
-  const t = open ? getHomeCopy(locale) : withWaitlist(getHomeCopy(locale));
+  // Sign-up with the three plans (2026-11-25): the trial wording on every Join.
+  const t = withWaitlist(getHomeCopy(locale));
   // Every Join scrolls to the price section, where she picks a plan (2026-11-25).
   const joinHref = "#price";
 
@@ -56,7 +52,6 @@ export default async function Home() {
       <JsonLd data={softwareApplicationJsonLd(locale)} />
       <HomeDock t={t} locale={locale} joinHref={joinHref} />
 
-      {open && <BetaCountdown t={t.beta} href={`/${locale}#price`} />}
       <TopBar t={t} locale={locale} />
 
       <main>
@@ -93,7 +88,7 @@ export default async function Home() {
           <CrmSection t={t} locale={locale} />
         </div>
 
-        {open ? <PriceSection t={t} locale={locale} /> : <PlansSection locale={locale} title={t.plans.h2} sub={t.plans.sub} />}
+        <PlansSection locale={locale} title={t.plans.h2} sub={t.plans.sub} />
       </main>
 
       <HomeFooter t={t} locale={locale} />

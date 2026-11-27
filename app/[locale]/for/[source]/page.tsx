@@ -9,7 +9,6 @@ import {
   ListPhone,
   HomeFooter,
   MarketingSection,
-  PriceSection,
   QuestionnairePhone,
   SalesSection,
   TopBar,
@@ -17,9 +16,8 @@ import {
 import type { IconName } from "@/components/home/icon";
 import { inHebrew } from "@/components/home/in-hebrew";
 import { TypedLine } from "@/components/home/typed-line";
+import { PlansSection } from "@/components/home/plans-section";
 import { getHomeCopy, withWaitlist } from "@/lib/home-copy";
-import { betaSignupOpen } from "@/lib/beta-window";
-import { waitlistHref } from "@/lib/site";
 import { getLandingCopy, isLandingSource, type LandingSource } from "@/lib/landing-source-copy";
 import { getLocale } from "@/lib/locale";
 import { buildMetadata } from "@/lib/seo";
@@ -56,9 +54,8 @@ export default async function LandingFromBadge({ params }: Props) {
   const { source } = await params;
   if (!isLandingSource(source)) notFound();
   const locale = await getLocale();
-  // After the beta's close: Join goes to the waitlist and there is no price.
-  const open = betaSignupOpen();
-  const t = open ? getHomeCopy(locale) : withWaitlist(getHomeCopy(locale));
+  // The three plans at the end (PlansSection), as on the home page.
+  const t = withWaitlist(getHomeCopy(locale));
   const page = getLandingCopy(source, locale);
 
   return (
@@ -74,7 +71,7 @@ export default async function LandingFromBadge({ params }: Props) {
             </span>
             <h1>{inHebrew(page.h1, locale)}</h1>
             <p className="hm-sub">{inHebrew(page.sub, locale)}</p>
-            <a className="hm-btn" href={open ? "#price" : waitlistHref(locale)}>
+            <a className="hm-btn" href="#price">
               {t.hero.cta}
             </a>
           </div>
@@ -124,7 +121,8 @@ export default async function LandingFromBadge({ params }: Props) {
           </div>
         </section>
 
-        {open && <PriceSection t={t} locale={locale} />}
+        {/* The three plans, as on the home page: the hero's Join leads here. */}
+        <PlansSection locale={locale} title={t.plans.h2} sub={t.plans.sub} />
       </main>
 
       <HomeFooter t={t} locale={locale} />

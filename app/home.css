@@ -496,6 +496,8 @@
 .hm-plan-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
 .hm-plan-list li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; }
 .hm-plan-list i { width: 22px; height: 22px; flex: none; border-radius: 50%; display: inline-grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 900; color: var(--hm-sage); background: var(--hm-sage-bg); }
+.hm-plan-soonline { opacity: .72; }
+.hm-plan-soon { margin-inline-start: 8px; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-style: normal; font-weight: 700; color: var(--hm-cocoa-2); background: var(--hm-sage-bg); white-space: nowrap; }
 .hm-plan-fine { margin-top: 20px; font-size: 12.5px; color: var(--hm-cocoa-3); }
 
 /* ── narrow screens ─────────────────────────────────────────── */

@@ -20,18 +20,16 @@ export const SITE = {
   twitter: "@coflow",
 } as const;
 
-// Sign-up is open (2026-10-13). Every "Join" goes to the Studio at /signup, which
-// takes an account and sends the visitor to the €24 checkout. No invite code.
-// (/join and /waitlist still resolve because their URLs were shared.)
+// Sign-up is the three plans with a free trial (2026-11-25). Every "Join" on the
+// site scrolls to the plan cards; a card's button goes to the Studio's /join.
+// (/join and /waitlist here still resolve because their URLs were shared.)
 export const JOIN_PATH = "/";
 
 // The Studio signup screen, carrying the language she was reading the site in.
 // `code` is only for old links that still carry one; the Studio ignores it
 // while sign-up is open.
-// Every Join button on the site leads to the plan card on the home page
-// (#price); only the card's own button (signupUrlFor) goes to payment.
-// From the beta's close there is no plan card: the same buttons go to the
-// waitlist (lib/beta-window.ts).
+// Every Join button on the site leads to the plan cards on the home page
+// (#price); only a card's own button goes to the Studio.
 export function planCardHref(locale: "he" | "en"): string {
   // Every Join goes to the price section first (Batel, 2026-11-25): she picks
   // the plan there, and its button signs her up.
