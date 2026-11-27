@@ -70,7 +70,6 @@ export default async function Home() {
             <a className="hm-btn" href={joinHref}>
               {t.hero.cta}
             </a>
-            {t.hero.refund && <p className="hm-refund">{t.hero.refund}</p>}
             <PlusHint t={t} />
           </div>
 
