@@ -22,7 +22,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
  "terms": {
   "he": {
    "title": "תנאי שימוש —Coflow",
-   "updated": "תאריך עדכון אחרון: 22/11/2026",
+   "updated": "תאריך עדכון אחרון: 27/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -182,7 +182,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "9.3א החזר בתוך 14 יום: אם בתוך 14 יום מהתשלום הראשון על המנוי השירות לא מתאים לך, ניתן לפנות לתמיכה ולקבל החזר מלא של אותו תשלום ראשון, והמנוי יבוטל. ההחזר חל פעם אחת לכל לקוח, על התשלום הראשון על המנוי בלבד, ואינו חל על תוספות או על קרדיטים שנרכשו בנפרד. סעיף זה גובר על האמור בסעיף 9.3 לגבי התשלום הראשון."
+     "x": "9.3א תקופת ניסיון: כל מסלול מתחיל בתקופת ניסיון בחינם של 30 יום. פרטי כרטיס האשראי נשמרים בהרשמה, והחיוב הראשון מתבצע רק בתום תקופת הניסיון. ביטול לפני תום תקופת הניסיון, דרך החשבון או בפנייה לתמיכה, מסיים את המנוי ללא חיוב. לאחר החיוב הראשון חל האמור בסעיף 9.3."
     },
     {
      "t": "p",
@@ -335,7 +335,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
   },
   "en": {
    "title": "Terms of Use — Coflow",
-   "updated": "Last updated: 22/11/2026",
+   "updated": "Last updated: 27/11/2026",
    "blocks": [
     {
      "t": "h2",
@@ -495,7 +495,7 @@ export const LEGAL: Record<"terms" | "privacy", Record<"he" | "en", LegalDoc>> =
     },
     {
      "t": "p",
-     "x": "9.3A 14-day refund: if, within 14 days of your first subscription payment, the Service is not right for you, you may contact support and receive a full refund of that first payment, and the subscription will be cancelled. The refund applies once per customer, to the first subscription payment only, and not to add-ons or separately purchased credits. This clause prevails over section 9.3 with respect to the first payment."
+     "x": "9.3A Free trial: every plan starts with a free trial of 30 days. Your card details are saved at sign-up and the first charge is made only when the trial ends. If you cancel before the trial ends, via the account or by contacting support, the subscription ends and you are not charged. After the first charge, section 9.3 applies."
     },
     {
      "t": "p",

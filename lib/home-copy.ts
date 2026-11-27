@@ -61,7 +61,6 @@ const he = {
     ],
     sub: "ניהול לקוחות, קורסים דיגיטליים, רשימות תפוצה, מיילים, משימות ודפי נחיתה -\nכולם מחוברים ומתממשקים יחד במערכת אחת.",
     cta: "להצטרפות ←",
-    refund: "לא מתאים לך? החזר מלא בתוך 14 יום",
     hintA: "לחצי על",
     hintB: "למטה ותראי מה אפשר להקים",
     hintAria: "פתיחת התפריט",
@@ -389,7 +388,6 @@ const en: HomeCopy = {
     ],
     sub: "Client management, digital courses, mailing lists, email, tasks and landing pages.\nAll connected and working with each other in one system.",
     cta: "Join →",
-    refund: "Not for you? Full refund within 14 days",
     hintA: "Tap",
     hintB: "below to see what you can set up",
     hintAria: "Open the menu",
@@ -669,12 +667,12 @@ const en: HomeCopy = {
 };
 
 /** The page's words for sign-up with the three plans: every Join starts the
- *  free trial, and nothing on the page names a price or a refund (the plan
+ *  free trial, and nothing on the page names a price (the plan
  *  cards do, from the Studio). */
 export function withWaitlist(t: HomeCopy): HomeCopy {
   return {
     ...t,
-    hero: { ...t.hero, cta: t.beta.waitlistCta, refund: "" },
+    hero: { ...t.hero, cta: t.beta.waitlistCta },
     dock: { ...t.dock, join: t.beta.waitlistShort },
     plus: { ...t.plus, cta: t.beta.waitlistCta },
   };
