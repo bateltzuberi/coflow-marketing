@@ -18,7 +18,7 @@ Read first, in this order: `AGENTS.md`, `WORKING-WITH-BATEL.md`, `PRODUCT.md`,
 | "+" menu | the live menu without "plan a launch", plus "new club event" and "send an agreement to sign" |
 | Inner pages | courses-in-development wording removed; their copy still to be read through with Yuval |
 | To confirm in Studio before merging | that Claude moves Smoove lists, landing pages and email sequences; that the content board and post writing are live |
-| Share image (`public/og/home-*.png`) | open: still draws the headline from before October |
+| Share image (`public/og/home-*.png`) | done 2026-11-27: the new hero headline and line, he + en |
 | Price in the page's structured data (`lib/seo.tsx`) | €36, the Starter plan's monthly price on 2026-11-26 |
 | Studio-side fixes | not here: they live in `shebossit-cms`; see "Studio changes for Batel" below |
 
