@@ -17,7 +17,7 @@ export const DICT = {
       signIn: "התחברות",
       // Joining = signing up in the Studio.
       cta: "להצטרפות",
-      // The same button once the beta has closed (lib/beta-window.ts).
+      // The nav's Join since sign-up is the three plans.
       waitlist: "להרשמה",
       academy: "אקדמיה",
       // The free diagnosis, which used to be the home page.
@@ -27,7 +27,7 @@ export const DICT = {
     // ----- /waitlist — where Join goes once the beta closed (2026-10-22) -----
     // The form is the Studio's own waitlist form, so the details land in the
     // CRM with every other contact. Before the close the page sends visitors on
-    // to the price card instead (see lib/beta-window.ts).
+    // to the price card instead.
     waitlist: {
       title: "רשימת המתנה לקופלו",
       sub: "ההרשמה לבטא נסגרה. נרשמים כאן, ואנחנו שולחים הזמנה כשמגיע התור שלך.",

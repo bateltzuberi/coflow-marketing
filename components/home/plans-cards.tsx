@@ -26,6 +26,8 @@ export type PublicPlans = {
     trialLine: string;
     worksOutPerMonth: string;
     savesYearly: string;
+    /** Beside a line that is not live yet (older Studio builds don't send it). */
+    soon?: string;
   };
 };
 
@@ -34,6 +36,8 @@ export type PublicPlans = {
 export function PlansCards({ data, joinBase }: { data: PublicPlans; joinBase: string }) {
   const [cycle, setCycle] = useState<"month" | "year">("month");
   const { labels } = data;
+  // A line marked soon is not included yet: say so, as the Studio's plans page does.
+  const soonWord = labels.soon ?? (data.locale === "he" ? "בקרוב" : "Soon");
   const tag = data.locale === "he" ? "he-IL" : "en-US";
   const whole = new Intl.NumberFormat(tag, { maximumFractionDigits: 0 });
   const cents = new Intl.NumberFormat(tag, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -75,12 +79,13 @@ export function PlansCards({ data, joinBase }: { data: PublicPlans; joinBase: st
               <p className="hm-plan-label">{p.listTitle}</p>
               <ul className="hm-plan-list">
                 {p.lines.map((l) => (
-                  <li key={`${l.strong ?? ""}${l.text}`}>
+                  <li key={`${l.strong ?? ""}${l.text}`} className={l.soon ? "hm-plan-soonline" : undefined}>
                     <i aria-hidden="true">✓</i>
                     <span>
                       {l.strong && <b>{l.strong} </b>}
                       {l.text}
                       {l.strongAfter && <b> {l.strongAfter}</b>}
+                      {l.soon && <em className="hm-plan-soon">{soonWord}</em>}
                     </span>
                   </li>
                 ))}

@@ -24,8 +24,6 @@ export type PlusItem = {
   gets: readonly string[];
 };
 
-type PricePlan = { key: "monthly" | "yearly"; toggle: string; toggleNote?: string; badge: string; was: string; amount: string; per: string; save: string; note: string; cta: string; terms: string };
-
 const he = {
   meta: {
     title: "קופלו | לנהל את כל העסק שלך במערכת אחת עם AI",
@@ -327,13 +325,9 @@ const he = {
       },
     },
   },
-  // The countdown above the hero while the beta is open, and what the plan
-  // card says once it has closed (lib/beta-window.ts).
+  // The Join words now that sign-up is the three plans with a free trial
+  // (withWaitlist puts them on every Join).
   beta: {
-    lastChance: "הזדמנות אחרונה להצטרף לבטא",
-    closes: "ההרשמה נסגרת ביום חמישי ב-20:00",
-    units: { days: "ימים", hours: "שעות", minutes: "דקות", seconds: "שניות" },
-    aria: "ההרשמה לבטא נסגרת ביום חמישי ב-20:00. למחיר ולהצטרפות",
     waitlistCta: "להתחלת תקופת ניסיון בחינם ←",
     waitlistFine: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם.",
     waitlistShort: "להרשמה",
@@ -342,19 +336,6 @@ const he = {
   plans: {
     h2: "עסק שלם, דאשבורד אחד.",
     sub: "שלושה מסלולים, ובכל אחד תקופת ניסיון בחינם. בלי עמלה של קופלו על המכירות.",
-  },
-  price: {
-    h2: "מנוי אחד. כל הכלים.",
-    sub: "למצטרפות בשלב הבטא: מחיר אחד, כל הכלים כלולים, בלי חבילות.",
-    planName: "Coflow Studio",
-    plans: [
-      { key: "monthly", toggle: "חודשי", badge: "מחיר בטא", was: "€49", amount: "€24", per: "לחודש", save: "חוסכת €25 בחודש (51%)", note: "המחיר שנרשמת איתו נשאר שלך, גם אחרי הבטא.", cta: "להצטרפות ב-€24 לחודש ←", terms: "בלי התחייבות · החזר מלא בתוך 14 יום" },
-      { key: "yearly", toggle: "שנתי", toggleNote: "חודשיים מתנה", badge: "מחיר בטא", was: "€588", amount: "€240", per: "לשנה", save: "חוסכת €348 בשנה (59%)", note: "€20 לחודש, בתשלום אחד לשנה. המחיר נשאר שלך גם אחרי הבטא.", cta: "להצטרפות ב-€240 לשנה ←", terms: "תשלום אחד לשנה · החזר מלא בתוך 14 יום" },
-    ] as readonly PricePlan[],
-    toggleLabel: "תשלום חודשי או שנתי",
-    includesTitle: "מה כלול:",
-    includes: ["CRM ולוח עסקאות", "ממשק לניהול קורסים דיגיטליים", "סדרות מיילים וניוזלטר, עד 2,500 שליחות בחודש", "ניהול משימות לך ולצוות", "אוטומציות", "דפי נחיתה", "שאלונים וקביעת שיחות", "לינק בביו"],
-    fine: "התשלום ב-Stripe. אחרי התשלום החשבון שלך נפתח ואת נכנסת ישר לסטודיו.",
   },
   footer: {
     links: [
@@ -665,10 +646,6 @@ const en: HomeCopy = {
     },
   },
   beta: {
-    lastChance: "Last chance to join the beta",
-    closes: "Sign-up closes Thursday at 8pm Israel time",
-    units: { days: "days", hours: "hours", minutes: "min", seconds: "sec" },
-    aria: "Beta sign-up closes Thursday at 8pm Israel time. See the price and join",
     waitlistCta: "Start your free trial →",
     waitlistFine: "Three plans, each with a free trial period.",
     waitlistShort: "Sign up",
@@ -676,19 +653,6 @@ const en: HomeCopy = {
   plans: {
     h2: "A whole business, one dashboard.",
     sub: "Three plans, each with a free trial. No Coflow fee on your sales.",
-  },
-  price: {
-    h2: "One subscription. Every tool.",
-    sub: "Joining in the beta: one price, every tool included, no tiers.",
-    planName: "Coflow Studio",
-    plans: [
-      { key: "monthly", toggle: "Monthly", badge: "Beta price", was: "€49", amount: "€24", per: "a month", save: "You save €25 a month (51%)", note: "The price you join at stays yours, after the beta too.", cta: "Join for €24 a month →", terms: "No commitment · Full refund within 14 days" },
-      { key: "yearly", toggle: "Yearly", toggleNote: "2 months free", badge: "Beta price", was: "€588", amount: "€240", per: "a year", save: "You save €348 a year (59%)", note: "€20 a month, paid once a year. Your price stays yours after the beta.", cta: "Join for €240 a year →", terms: "One payment a year · Full refund within 14 days" },
-    ],
-    toggleLabel: "Pay monthly or yearly",
-    includesTitle: "What's included:",
-    includes: ["CRM and deals board", "Digital course management", "Email sequences and newsletter, up to 2,500 sends a month", "Task management for you and your team", "Automations", "Landing pages", "Questionnaires and call booking", "Link in bio"],
-    fine: "Payment is through Stripe. Once you pay, your account opens and you go straight into the studio.",
   },
   footer: {
     links: [
@@ -704,8 +668,9 @@ const en: HomeCopy = {
   },
 };
 
-/** The page's words once the beta has closed (lib/beta-window.ts): every Join
- *  becomes the waitlist, and nothing on the page names a price or a refund. */
+/** The page's words for sign-up with the three plans: every Join starts the
+ *  free trial, and nothing on the page names a price or a refund (the plan
+ *  cards do, from the Studio). */
 export function withWaitlist(t: HomeCopy): HomeCopy {
   return {
     ...t,
