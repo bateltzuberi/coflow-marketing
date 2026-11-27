@@ -15,7 +15,8 @@ const PLUS_ICON: Record<PlusKey, IconName> = {
   gift: "gift",
   call: "phone",
   week: "cal",
-  launch: "rocket",
+  club: "users",
+  agreement: "pen",
   course: "course",
 };
 
@@ -42,9 +43,8 @@ function reducedMotionSnapshot() {
 }
 function serverReducedMotionSnapshot() { return false; }
 
-// joinHref: the plan card while the beta is open, the waitlist after it closed;
-// showPrice is false once there is no price on the page to scroll to.
-export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: { t: HomeCopy; locale: "he" | "en"; joinHref?: string; showPrice?: boolean }) {
+// joinHref: where the join button leads, the plans section on the home page.
+export function HomeDock({ t, locale, joinHref = "#price" }: { t: HomeCopy; locale: "he" | "en"; joinHref?: string }) {
   const [fanOpen, setFanOpen] = useState(false);
   // The dock waits below the screen only at the very top of the page, where
   // on a short window it sat on the hero's own Join button. It rises the
@@ -222,12 +222,6 @@ export function HomeDock({ t, locale, joinHref = "#price", showPrice = true }: {
           <Icon name="users" />
           {t.dock.clients}
         </a>
-        {showPrice && (
-          <a href="#price">
-            <Icon name="tag" />
-            {t.dock.price}
-          </a>
-        )}
         <span className="hm-sep" />
         <a className="hm-dock-join" href={joinHref}>
           {t.dock.join}
@@ -435,23 +429,39 @@ function ResultMock({ t, k }: { t: HomeCopy; k: PlusKey }) {
           </div>
         </>
       );
-    case "week":
+    case "club":
       return (
         <>
-          <div className="hm-phone">
-            <div className="hm-screen hm-flush">
-              <div className="hm-slide">
-                <small>{t.marketing.slideCount}</small>
-                <b>{t.marketing.slide}</b>
-              </div>
-              <div className="hm-caption">
-                <b>{t.marketing.handle}</b> {t.marketing.caption}
-              </div>
-            </div>
-          </div>
+          <Phone>
+            <span className="hm-s-sub">{m.club.name}</span>
+            <span className="hm-s-sub">{m.club.eventLabel}</span>
+            <div className="hm-s-h">{m.club.event}</div>
+            <span className="hm-s-sub">{m.club.when}</span>
+            <div className="hm-s-btn">{m.club.button}</div>
+          </Phone>
           <div className="hm-card">
-            <b className="hm-t">{m.week.cardTitle}</b>
-            {rows(m.week.rows)}
+            <b className="hm-t">{m.club.cardTitle}</b>
+            {rows(m.club.rows)}
+          </div>
+        </>
+      );
+    case "agreement":
+      return (
+        <>
+          <Phone>
+            <span className="hm-s-sub">{m.owner}</span>
+            <div className="hm-s-h">{m.agreement.title}</div>
+            {m.agreement.lines.map((l) => (
+              <div key={l} className="hm-s-link">
+                <span>{l}</span>
+              </div>
+            ))}
+            <div className="hm-s-in">{m.agreement.signLabel}</div>
+            <div className="hm-s-btn">{m.agreement.button}</div>
+          </Phone>
+          <div className="hm-card">
+            <b className="hm-t">{m.agreement.cardTitle}</b>
+            {rows(m.agreement.rows)}
           </div>
         </>
       );
@@ -500,12 +510,25 @@ function ResultMock({ t, k }: { t: HomeCopy; k: PlusKey }) {
           </div>
         </>
       );
-    case "launch":
+    case "week":
       return (
-        <div className="hm-card hm-wide">
-          <b className="hm-t">{m.launch.cardTitle}</b>
-          {rows(m.launch.rows)}
-        </div>
+        <>
+          <div className="hm-phone">
+            <div className="hm-screen hm-flush">
+              <div className="hm-slide">
+                <small>{t.marketing.slideCount}</small>
+                <b>{t.marketing.slide}</b>
+              </div>
+              <div className="hm-caption">
+                <b>{t.marketing.handle}</b> {t.marketing.caption}
+              </div>
+            </div>
+          </div>
+          <div className="hm-card">
+            <b className="hm-t">{m.week.cardTitle}</b>
+            {rows(m.week.rows)}
+          </div>
+        </>
       );
   }
 }

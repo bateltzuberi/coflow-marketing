@@ -1,4 +1,4 @@
-> Current marketing direction, confirmed by Batel on 9 October 2026: AI brand management connecting offers, digital courses, funnels and CRM. Course building is live (confirmed by Batel 26 November 2026). Organic-content revenue attribution is no longer the product promise. The earlier attribution descriptions below are historical and must not be used as current marketing claims. Verify feature availability before writing copy.
+> Updated 2026-11-25. Current direction: Coflow is one system for course, coaching and service businesses: payments through her own processor, courses, a membership club, landing pages, email, automations, booking, agreements, CRM and a money screen, with Claude and ChatGPT able to build drafts inside her account. **Courses are live** (since October 2026), on every plan. Content creation (Instagram, YouTube, brand strategy) is no longer the pitch: it was taken off the Studio plans page on 2026-11-21. Sign-up is open, three plans, each with a free trial. The open rewrite and its rules: `docs/landing-rewrite-2026-11.md`. The sections below from September are partly historical: verify any claim against production Studio (`shebossit-cms` `origin/main`) before using it.
 
 # What Coflow actually is
 
@@ -77,12 +77,13 @@ no claims with a number in them unless the number was checked at its source.
   `distribution`, `monetization`, `marketing`) fall back to `_PlaceholderPage` for some platforms —
   analytics is real for Instagram, newsletter and YouTube, a placeholder for podcast. Check before
   describing a section.
-- **No free trial and no free diagnosis.** The Instagram diagnosis is inside the paid product now.
+- **No free diagnosis.** The Instagram diagnosis is inside the paid product. (There IS a free trial now, on every plan.)
+- **Nothing that is only on Studio's staging.** Check `origin/main` of `shebossit-cms`, not staging.
 - **No agency marketing claims** — see above.
 
 ## Commercial state
 
-Invite-only. The home page takes a code, then hands off to signup in the Studio.
-**€24/month, no trial** (`PRO_PRICE_EUR`, and the same number in `lib/dictionary.ts` here — if you
-change one, change both). The price someone joins at is theirs permanently, so several prices bill
-at once; never write "was €14, now €24" as an upgrade story.
+Sign-up is open. Three plans, each with a free trial (card taken at sign-up): **Starter, Business,
+Pro**. Prices, lines and "soon" flags come from Studio at `GET https://studio.coflow.social/api/plans/public`;
+never type a price into the site by hand. Prices are in euros, VAT not included. 0% Coflow fee on
+sales. Beta members keep the price they joined at, so never write "was X, now Y" as an upgrade story.

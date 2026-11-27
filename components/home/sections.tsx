@@ -8,6 +8,8 @@ import type { LandingCopy, LandingFlow } from "@/lib/landing-source-copy";
 import { SITE, signupUrlFor, waitlistHref } from "@/lib/site";
 import { betaSignupOpen } from "@/lib/beta-window";
 import { PlanCard } from "@/components/home/plan-card";
+import { inHebrew } from "@/components/home/in-hebrew";
+import { VideoPeek } from "@/components/home/video-peek";
 
 // The home page's sections, lifted out of app/page.tsx so a page that shares
 // them (the landing pages in app/[locale]/for/) renders the same markup, not a
@@ -15,18 +17,21 @@ import { PlanCard } from "@/components/home/plan-card";
 
 type Locale = "he" | "en";
 
-export function TopBar({ t }: { t: HomeCopy }) {
+export function TopBar({ t, locale }: { t: HomeCopy; locale: Locale }) {
   return (
     <div className="hm-wrap hm-top">
       <CoflowMark size={36} showWordmark tone="blue" />
-      <a className="hm-signin" href={`${SITE.studioAppUrl}/login`}>
-        {t.signIn}
-      </a>
+      <div className="hm-top-end">
+        <LocaleSwitcher locale={locale} className="hm-top-lang" />
+        <a className="hm-signin" href={`${SITE.studioAppUrl}/login`}>
+          {t.signIn}
+        </a>
+      </div>
     </div>
   );
 }
 
-export function Opener({ icon, label }: { icon: IconName; label: string }) {
+export function Opener({ icon, label }: { icon: IconName; label: React.ReactNode }) {
   return (
     <div className="hm-opener">
       <i>
@@ -150,62 +155,138 @@ function Gets({ items }: { items: readonly string[] }) {
   );
 }
 
-// Where the map's cards and arrow labels sit, in % of the canvas: entry top,
-// middle below it on the other side, premium at the bottom — top-down, the
-// way the Studio lays the map out.
-const MAP_CARD_AT: React.CSSProperties[] = [
-  { left: "52%", top: "9%" },
-  { left: "6%", top: "40%" },
-  { left: "52%", top: "71%" },
-];
-const MAP_HOW_AT: React.CSSProperties[] = [
-  { left: "50%", top: "35%" },
-  { left: "50%", top: "66%" },
-];
-const MAP_COVER = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-oat-2)"];
-
-/** Products: her product line as the Studio draws it — entry, middle, premium,
- *  how many people are in each, and how they move from one to the next. */
-export function ProductsSection({ t }: { t: HomeCopy }) {
+/** The words of a home section: opener, title, lead line and its features. */
+function SectionCopy({ icon, words, locale, children }: { icon: IconName; words: { label: string; h2: string; lead: string; gets: readonly string[] }; locale: Locale; children?: React.ReactNode }) {
   return (
-    <section className="hm-sec" id="products">
+    <div className="hm-copy">
+      <Opener icon={icon} label={inHebrew(words.label, locale)} />
+      <h2>{words.h2.includes("|") ? <KeepFirst text={words.h2} /> : words.h2}</h2>
+      <p className="hm-lead">{inHebrew(words.lead, locale)}</p>
+      {words.gets.length > 0 && (
+        <div className="hm-gets hm-sec-gets">
+          {words.gets.map((g) => (
+            <span key={g}>
+              <bdi>{inHebrew(g, locale)}</bdi>
+            </span>
+          ))}
+        </div>
+      )}
+      {children}
+    </div>
+  );
+}
+
+/** A title whose words up to "|" stay together on one line (on a computer). */
+function KeepFirst({ text }: { text: string }) {
+  const [first, rest] = text.split("|");
+  return (
+    <>
+      <span className="hm-keep">{first}</span>
+      {rest}
+    </>
+  );
+}
+
+/** Selling: what came in (month by month), what brings it in, and the
+ *  processor and invoicing it is read from. */
+export function SellingSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.selling;
+  return (
+    <section className="hm-sec" id="sales">
       <div className="hm-row">
-        <div className="hm-copy">
-          <Opener icon="tag" label={t.products.label} />
-          <h2>{t.products.h2}</h2>
-          <p className="hm-lead">{t.products.lead}</p>
-          <Gets items={t.products.gets} />
-        </div>
+        <SectionCopy icon="coin" words={s} locale={locale} />
         <div className="hm-vis" aria-hidden="true">
-          {/* The Studio's business map (/products), drawn: product cards on a
-              dotted canvas, joined by arrows that say how people move on. */}
-          <div className="hm-map">
-            <span className="hm-map-title">{t.products.listTitle}</span>
-            <svg className="hm-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M73 31 C73 39, 27 32, 27 40" />
-              <path d="M27 62 C27 70, 73 63, 73 71" />
-            </svg>
-            {t.products.moves.map(([, how], i) => (
-              <span key={how} className="hm-map-how" style={MAP_HOW_AT[i]}>
-                {how}
+          <div className="hm-tile hm-income" style={{ insetInlineEnd: 0, top: 0, width: 340, zIndex: 1 }}>
+            <small>{s.incomeLabel}</small>
+            <b className="hm-big">{s.income}</b>
+            <span className="hm-chg">{s.incomeFrom}</span>
+            <div className="hm-bars">
+              {s.months.map(([m, h], i) => (
+                <span key={m} className={i === s.months.length - 1 ? "hm-bar-now" : undefined}>
+                  <i style={{ height: `${h}%` }} />
+                  {m}
+                </span>
+              ))}
+            </div>
+            <div className="hm-r hm-r-after">
+              <span>{s.open[0]}</span>
+              <b>{s.open[1]}</b>
+            </div>
+          </div>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 0, width: 330, padding: 20, zIndex: 2 }}>
+            <small className="hm-strong">{s.byTitle}</small>
+            {s.by.map(([name, amount], i) => (
+              <div className="hm-share" key={name}>
+                <div className="hm-share-top">
+                  <span>{name}</span>
+                  <b>{amount}</b>
+                </div>
+                <span className="hm-share-bar">
+                  <i style={{ width: s.shares[i], background: SHARE_BG[i] }} />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const SHARE_BG = ["var(--hm-butter-2)", "var(--hm-pink-tint)", "var(--hm-oat-2)"];
+
+/** The assistant: a Claude chat connected to Coflow, the steps it took, and
+ *  and under it two real sites built with Claude inside Coflow. */
+export function ClaudeSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.claude;
+  return (
+    <section className="hm-sec" id="claude">
+      <div className="hm-row hm-flip">
+        <SectionCopy icon="spark" words={s} locale={locale} />
+        <div className="hm-vis hm-vis-stack">
+          <div className="hm-ai" aria-hidden="true">
+            <div className="hm-ai-head">
+              <span className="hm-ai-mark">
+                <Icon name="spark" />
               </span>
-            ))}
-            {t.products.items.map(([level, name, price, inside], i) => (
-              <div key={level} className="hm-map-card" style={MAP_CARD_AT[i]}>
-                <span className="hm-map-cover" style={{ background: MAP_COVER[i] }} />
-                <span className="hm-map-body">
-                  <small>{level}</small>
-                  <b>{name}</b>
-                  <span>{price}</span>
-                  <span className="hm-map-people">
-                    <i />
-                    <i />
-                    <i />
-                    {inside}
+              <b dir="ltr">Claude</b>
+              <span className="hm-ai-conn">
+                <i />
+                {s.connected}
+              </span>
+            </div>
+            <div className="hm-chat-msg hm-chat-me">{s.ask}</div>
+            <ul className="hm-ai-steps">
+              {s.steps.map(([step]) => (
+                <li key={step}>
+                  <i>✓</i>
+                  {step}
+                </li>
+              ))}
+            </ul>
+            <div className="hm-chat-msg">{s.answer}</div>
+          </div>
+          <div className="hm-sites">
+            <small>{inHebrew(s.sitesTitle, locale)}</small>
+            <div className="hm-sites-row">
+              {s.sites.map(([name, href, shot]) => (
+                <a key={href} href={href} target="_blank" rel="noopener" className="hm-site">
+                  <span className="hm-site-shot">
+                    <span className="hm-site-dots" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={shot} alt="" loading="lazy" />
                   </span>
-                </span>
-              </div>
-            ))}
+                  <span className="hm-site-name">
+                    {inHebrew(name, locale)}
+                    <i aria-hidden="true">↗</i>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -213,77 +294,41 @@ export function ProductsSection({ t }: { t: HomeCopy }) {
   );
 }
 
-/** Clients: who bought what, and this week's sessions with them. */
-export function CustomersSection({ t }: { t: HomeCopy }) {
+/** Moving in: her lists from Rav Messer, and a course brought over with Claude. */
+export function MoveSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.move;
   return (
-    <section className="hm-sec" id="clients">
-      <div className="hm-row hm-flip">
-        <div className="hm-copy">
-          <Opener icon="users" label={t.customers.label} />
-          <h2>{t.customers.h2}</h2>
-          <p className="hm-lead">{t.customers.lead}</p>
-          <Gets items={t.customers.gets} />
-        </div>
+    <section className="hm-sec" id="move">
+      <div className="hm-row">
+        <SectionCopy icon="door" words={s} locale={locale}>
+          <VideoPeek videoId={MOVE_VIDEO_ID} title={s.video} sub={s.videoSub} length={s.videoLength} closeLabel={s.videoClose} />
+        </SectionCopy>
         <div className="hm-vis" aria-hidden="true">
-          <div className="hm-tile" style={{ insetInlineEnd: 0, top: 20, width: 340, padding: 20, zIndex: 2 }}>
-            <small className="hm-strong">{t.customers.activeTitle}</small>
-            {t.customers.active.map(([who, product]) => (
-              <div className="hm-r" key={who}>
-                <span>
-                  <b>{who}</b>
-                </span>
-                <span className="hm-badge">{product}</span>
-              </div>
-            ))}
-          </div>
-          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 300, padding: 20, zIndex: 1 }}>
-            <small className="hm-strong">{t.customers.sessionsTitle}</small>
-            {t.customers.sessions.map(([who, when]) => (
-              <div className="hm-r" key={who}>
-                <span>{who}</span>
-                <span className="hm-badge hm-today">{when}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Marketing: her content, written off the brand profile — this week's board,
- *  and the carousel it wrote, as she would see it on her phone. */
-export function ContentSection({ t }: { t: HomeCopy }) {
-  return (
-    <section className="hm-sec" id="content">
-      <div className="hm-row hm-flip">
-        <div className="hm-copy">
-          <Opener icon="mega" label={t.content.label} />
-          <h2>{t.content.h2}</h2>
-          <p className="hm-lead">{t.content.lead}</p>
-          <Gets items={t.content.gets} />
-        </div>
-        <div className="hm-vis" aria-hidden="true">
-          <div className="hm-tile" style={{ insetInlineStart: 0, top: 20, width: 330, padding: 20, zIndex: 2 }}>
-            <small className="hm-strong">{t.content.weekTitle}</small>
-            {t.content.week.map(([day, idea, platform]) => (
-              <div className="hm-r" key={day}>
-                <span>
-                  <b>{day}</b> · {idea}
-                </span>
-                <span className="hm-badge">{platform}</span>
-              </div>
-            ))}
-          </div>
-          <div className="hm-phone hm-mini" style={{ insetInlineEnd: "4%", bottom: 0, zIndex: 1 }}>
-            <div className="hm-screen">
-              <div className="hm-slide">
-                <small>{t.marketing.slideCount}</small>
-                <b>{t.marketing.slide}</b>
-                <em>@{t.marketing.handle}</em>
-              </div>
-              <div className="hm-caption">
-                <b>{t.marketing.handle}</b> {t.marketing.caption}
+          {/* Where her business is today, the one line she writes, and what came over. */}
+          <div className="hm-move">
+            <span className="hm-move-title">{s.fromTitle}</span>
+            <div className="hm-move-from">
+              {s.from.map((f) => (
+                <span key={f}>{inHebrew(f, locale)}</span>
+              ))}
+            </div>
+            <span className="hm-move-arrow" />
+            <div className="hm-move-card">
+              <span className="hm-move-pill" dir="ltr">
+                Claude · ChatGPT
+              </span>
+              <p className="hm-move-ask">{s.ask}</p>
+              <div className="hm-move-reply">
+                <p>{s.reply}</p>
+                <ul>
+                  {s.done.map(([what, how]) => (
+                    <li key={what}>
+                      <i>✓</i>
+                      <span>{what}</span>
+                      <b>{how}</b>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -292,6 +337,149 @@ export function ContentSection({ t }: { t: HomeCopy }) {
     </section>
   );
 }
+
+// Batel moving her courses into Coflow with Claude, on Coflow's YouTube channel.
+const MOVE_VIDEO_ID = "qpT2kKTBUuM";
+
+/** Leads and clients: the deals board, and the clients it turned into. */
+export function CrmSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.crm;
+  return (
+    <section className="hm-sec" id="clients">
+      <div className="hm-row hm-flip">
+        <SectionCopy icon="users" words={s} locale={locale} />
+        <div className="hm-vis" aria-hidden="true">
+          <div className="hm-col" style={{ insetInlineEnd: 0, top: 0, zIndex: 2 }}>
+            <span className="hm-stg">
+              <i />
+              {t.sales.stage}
+            </span>
+            {t.sales.deals.map((d, i) => (
+              <div key={d.name} className="hm-deal">
+                <div className="hm-deal-who">
+                  <i style={{ background: i === 0 ? "var(--hm-butter)" : "var(--hm-pink-tint)" }}>{d.who}</i>
+                  {d.name}
+                </div>
+                <span className="hm-chip">{d.product}</span>
+                <div className="hm-foot">
+                  <span>{d.amount}</span>
+                  <span>{d.source}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hm-tile" style={{ insetInlineStart: 0, bottom: 20, width: 320, padding: 20, zIndex: 1 }}>
+            <small className="hm-strong">{s.activeTitle}</small>
+            {s.active.map(([who, product]) => (
+              <div className="hm-r" key={who}>
+                <span>
+                  <b>{who}</b>
+                </span>
+                <span className="hm-badge">{product}</span>
+              </div>
+            ))}
+            <div className="hm-r">
+              <span>
+                <b>{s.signed}</b>
+                <br />
+                {inHebrew(s.signedSub, locale)}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Products: the real Studio, on a laptop: her club page being built in
+ *  Coflow (the WhatsApp group link is covered in the picture). */
+export function ProductsSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.products;
+  return (
+    <section className="hm-sec" id="products">
+      <div className="hm-row">
+        <SectionCopy icon="tag" words={s} locale={locale} />
+        <div className="hm-vis hm-vis-laptop" aria-hidden="true">
+          <div className="hm-laptop">
+            <div className="hm-laptop-screen">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/home/studio-club.jpg" alt="" loading="lazy" />
+            </div>
+            <span className="hm-laptop-base" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Marketing: a newsletter designed and sent from Coflow, and the week's
+ *  social content planned as a Gantt chart, one row per platform. */
+export function ContentSection({ t, locale }: { t: HomeCopy; locale: Locale }) {
+  const s = t.content;
+  const m = s.mail;
+  return (
+    <section className="hm-sec" id="content">
+      <div className="hm-row hm-flip">
+        <SectionCopy icon="mega" words={s} locale={locale} />
+        <div className="hm-vis" aria-hidden="true">
+          <div className="hm-mail">
+            <div className="hm-mail-head">
+              <span className="hm-who" style={{ background: "var(--hm-pink-tint)" }}>
+                {m.from[0]}
+              </span>
+              <span>
+                <b>{m.from}</b>
+                <small>{m.subject}</small>
+              </span>
+            </div>
+            <div className="hm-mail-body">
+              <div className="hm-mail-brand">
+                <b dir="ltr">{m.brand}</b>
+                <span>{m.kicker}</span>
+              </div>
+              <div className="hm-mail-hero">
+                <b>{m.title}</b>
+                <em>{m.script}</em>
+              </div>
+              <div className="hm-mail-text">
+                <b>{m.hello}</b>
+                <p>{m.body}</p>
+                <span className="hm-mail-btn">{m.button}</span>
+                <small>{m.sign}</small>
+              </div>
+              <div className="hm-mail-foot">{inHebrew(m.built, locale)}</div>
+            </div>
+          </div>
+          <div className="hm-tile hm-gantt" style={{ insetInlineStart: 0, bottom: 0, zIndex: 2 }}>
+            <small className="hm-strong">{s.ganttTitle}</small>
+            <div className="hm-gantt-grid" style={{ gridTemplateColumns: `64px repeat(${s.ganttDays.length}, minmax(0, 1fr))` }}>
+              <span />
+              {s.ganttDays.map((d) => (
+                <span key={d} className="hm-gantt-day">
+                  {d}
+                </span>
+              ))}
+              {s.gantt.map(([platform, posts], i) => (
+                <div key={platform} className="hm-gantt-row" style={{ gridColumn: "1 / -1" }}>
+                  <span className="hm-gantt-p">{platform}</span>
+                  {posts.map(([day, post]) => (
+                    <span key={day} className="hm-gantt-bar" style={{ gridColumn: day + 1, background: GANTT_BG[i % GANTT_BG.length] }}>
+                      {post}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const GANTT_BG = ["var(--hm-butter)", "var(--hm-pink-tint)", "var(--hm-apricot-bg)", "var(--hm-sage-bg)"];
 
 /** Bringing in clients: her link in bio, and who came in through it this week. */
 export function MarketingSection({ t }: { t: HomeCopy }) {

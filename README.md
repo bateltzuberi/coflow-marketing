@@ -91,14 +91,14 @@ Helpers in [`lib/seo.tsx`](lib/seo.tsx): `buildMetadata()`, `organizationJsonLd(
 ## Deploy
 
 Netlify builds `main` automatically. `npm run build`, publish `.next`.
-A merge to `main` is a production deploy of `coflow.social` — Batel approves the merge.
+A merge to `main` is a production deploy of `coflow.social`. Batel or Yuval approves the merge.
 
 ## Public discovery content
 
 Solution pages are `/he|en/solutions/{digital-courses,sales-funnels,crm,ai-brand-management}`.
 Guides are `/he|en/guides/{choose-course-platform,course-sales-funnel}`, with indexes and `/he|en/about`.
 Content lives in `lib/discovery-content.ts` and `lib/guide-content.ts`. Update both languages together;
-course building is live; never describe it as in development.
+courses are live on every plan; never describe them as in development.
 
 Research, rationale and account-level follow-up: [SEO and AI discovery](docs/seo-ai-research.md).
 Optional Netlify environment variables `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION`

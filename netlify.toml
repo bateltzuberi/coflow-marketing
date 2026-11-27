@@ -4,3 +4,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Preview links only: the restored Next.js cache can break next/font/google
+# ("queries have exactly one entry"), so a preview builds from a clean cache.
+# Production keeps the cache.
+[context.deploy-preview]
+  command = "rm -rf .next/cache && npm run build"
